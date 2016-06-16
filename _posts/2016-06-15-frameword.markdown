@@ -278,6 +278,7 @@ gulp.task('common-package-lib', function() {
 通过eventStream来合并不同的文件流，并且用`gulp-order`来管理他们的合并顺序，这里一共有三个文件流：
 
 **almond.js**，这个是用来做AMD的shim的，暂且不表；
+
 **ylw.js**，这里边就只有一个跟模块加载有用的方法：
 
 ```javascript
