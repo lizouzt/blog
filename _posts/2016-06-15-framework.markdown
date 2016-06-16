@@ -3,7 +3,7 @@ layout:     post
 title:      "Gulp + Webpack + AMD + NG1 + REACT + BLADE的开发、编译、部署环境搭建"
 subtitle:   "有点儿麻烦，但是就这样了"
 date:       2016-06-15 12:00:00
-author:     "Start Bootstrap"
+author:     "stefan"
 header-img: "img/post-bg-01.jpg"
 ---
 
