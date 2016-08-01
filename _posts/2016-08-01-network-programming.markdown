@@ -394,7 +394,6 @@ private:
         SCHEDULER_PTR sche = *ptr;
         delete ptr;
         if(!sche){
-            delete ptr;
             return;
         }
         
