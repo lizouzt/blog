@@ -48,31 +48,31 @@ header-img: "img/post-bg-05.jpg"
 
 **第一点**，丰富的语法糖，有了ImmutableJS，代码中就不会再出现如下的东东:
 
-	```javascript
+```javascript
 
-	//为了在不污染原对象的前提下增加新的KV
-	var state = Object.assign({}, state, {
-		key: value
-	});
+//为了在不污染原对象的前提下增加新的KV
+var state = Object.assign({}, state, {
+	key: value
+});
 
-	//为了在不污染原数组的前提下插入新元素
-	var state = [
-		...state.slice(0, index),
-		insertData,
-		...state.slice(index + 1)
-	];
+//为了在不污染原数组的前提下插入新元素
+var state = [
+	...state.slice(0, index),
+	insertData,
+	...state.slice(index + 1)
+];
 
-	```
+```
 
 有时候，为了保证`reducer`在处理 state 的时候不会改变传入的 state，就要写大量的上述代码。这种感觉就和吃屎一样，但是有了 Immutable.js，你就可以不用吃屎了：
 
-	```javascript
+```javascript
 
-	var state = state.set('key', value);
+var state = state.set('key', value);
 
-	var state = state.splice(index, 1, value);
+var state = state.splice(index, 1, value);
 
-	```
+```
 
 世界一下子清净了。
 
@@ -80,7 +80,7 @@ header-img: "img/post-bg-05.jpg"
 
 既然这么好，Immutable.js 如何同现有的 React + Redux 技术方案进行集成呢？好在有`redux-immutable`（事实上还有一个叫做`redux-immutablejs`的库也能实现二者的集成）这么一个库，在它的帮助下，可以实现 Immutable.js 的植入。在介绍集成方案之前，我们有必要先划分数据使用的边界，就是在那些地方使用 Javascript 原生数据结构（简称为JSD），哪些地方使用 immutable，如下图所示：
 
-
+<img src="/blog/img/react+redux+immutablejs/flow.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
 
 ## 调试工具和部署方案
 
