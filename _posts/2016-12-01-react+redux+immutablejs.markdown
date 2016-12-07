@@ -215,6 +215,8 @@ const history = syncHistoryWithStore(browserHistory, store, {
 
 当然，以上的例子是整个转化过去，你也可以按需绑定对应组件所关心的 state。
 
+## 性能优化
+
 ## 调试工具和部署方案
 
 todo
