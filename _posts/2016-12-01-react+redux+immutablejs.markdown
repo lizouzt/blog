@@ -215,6 +215,20 @@ const history = syncHistoryWithStore(browserHistory, store, {
 
 当然，以上的例子是整个转化过去，你也可以按需绑定对应组件所关心的 state。
 
+细心的人可能会发现，在使用 immutable 维护全局的 state 的情况下，组件 props 的校验也需要与时俱进，使用 immutable 类型校验，这就需要我们 import 专门针对 immutable 类型进行校验的库：`react-immutable-proptypes`，使用方法基本上和普通的 PropTypes 一致：
+
+```javscript
+
+propTypes: {
+    oldListTypeChecker: React.PropTypes.instanceOf(Immutable.List),
+    anotherWay: ImmutablePropTypes.list,
+    requiredList: ImmutablePropTypes.list.isRequired,
+    mapsToo: ImmutablePropTypes.map,
+    evenIterable: ImmutablePropTypes.iterable
+}
+
+```
+
 ## 性能优化
 
 ## 调试工具和部署方案
