@@ -231,9 +231,17 @@ propTypes: {
 
 ## 性能优化
 
+todo
+
 ## 调试工具和部署方案
 
-todo
+调试当然用的就是`react-devtools`和`redux-devtools`。
+
+`react-devtools`是一个 Browser Extension，主要用于针对组件级别的 Props 和 state 跟踪：
+
+<img src="https://github.com/facebook/react-devtools/raw/master/images/devtools-full.gif" />
+
+`redux-devtools`则同时支持 Browser Extension 和用户自定义调试，集成略微复杂。如果用 Browser Extension 需要在 store 定义时注入代码，如果纯自定义，要考虑的东西就更多了，参看文章[https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md](https://github.com/gaearon/redux-devtools/blob/master/docs/Walkthrough.md)。
 
 
 
