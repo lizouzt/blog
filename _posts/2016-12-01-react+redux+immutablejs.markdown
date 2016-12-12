@@ -23,7 +23,7 @@ header-img: "img/post-bg-05.jpg"
 > 2. 由于virtual DOM的存在，使得平台兼容性强，后续公司可基于该方案落地RN到客户端研发；
 > 3. React支持服务端同构渲染（虽说Vue也支持吧），方便后续做基于SSR的RTT优化。
 
-至于为什么使用 Redux，而不使用 Flux 或者 ReFlux，原因在于 Redux 单一数据集合以及绑定策略节省了大量的前端代码，并且对数据进行集中维护。结合单向数据流的概念，强迫组件更加存粹。
+至于为什么使用 Redux，而不使用 Flux 或者 ReFlux，原因在于 Redux 单一数据集合以及绑定策略节省了大量的前端代码，并且对数据进行集中维护。结合单向数据流的概念，强迫组件更加纯粹。
 
 而对 Immutable.js 的使用，则得益于他本身“不可变数据”的特性，以及本身包含的巨多语法糖。
 
@@ -231,7 +231,9 @@ propTypes: {
 
 ## 性能优化
 
-todo
+[https://github.com/lcxfs1991/blog/issues/8](https://github.com/lcxfs1991/blog/issues/8)这篇文章写的很好了。其实关键点就在拆包和 shouldComponentUpate。
+
+使用他提供的 decorator 来减少 render 的触发。
 
 ## 调试工具和部署方案
 
