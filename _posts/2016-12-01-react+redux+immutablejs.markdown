@@ -229,6 +229,18 @@ propTypes: {
 
 ```
 
+与此同时，产生defaultProps的地方应该为：
+
+```javascript
+
+fromJS({
+	prop1: xxx,
+	prop2: xxx,
+	prop3: xxx
+}).toObject();
+
+```
+
 ## 性能优化
 
 [https://github.com/lcxfs1991/blog/issues/8](https://github.com/lcxfs1991/blog/issues/8)这篇文章写的很好了。其实关键点就在拆包和 shouldComponentUpate。
