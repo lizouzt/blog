@@ -52,6 +52,38 @@ header-img: "img/post-bg-05.jpg"
 >
 > In general, initialState wins over the state specified by the reducer. This lets reducers specify initial data that makes sense to them as default arguments, but also allows loading existing data (fully or partially) when you're hydrating the store from some persistent storage or the server.
 
+### 如何捕获异步 action 的回调
+
+在使用 thunk 中间件处理异步 action 的时候，标准的做法：
+
+```javascript
+
+export function asyncAction(item) {
+	return (dispatch, getState) => {
+		dispatch(requestItem(item));
+		return fetch("api.some_url/items/item")
+			.then(response => response.json())
+			.then(json => {
+				if (json.success) {
+					dispatch(receivePostsSuccess(reddit, json));
+				} else {
+					dispatch(receivePostsFail(reddit, json));
+				}
+			});
+		}
+	};
+}
+
+```
+
+如果想在异步回调结束后触发一些操作，比如系统通知tip，我们允许在局部针对返回的 promise 进行进一步处理：
+
+```javascript
+this.props.dispatch(asyncAction(item)).then(onSuccess, onFailure);
+```
+
+但是，如果你的通知不是局部的，而是可以抽象为一个通用的通知系统，建议通过增加一个针对于通知系统的子 store 来解决这个问题，为他配置单独的 action 和 reducer。
+
 ## Immutable.js 如何整合进开发流程
 
 本章节分为三点：`为啥要使用 immutable`、`使用 immutable 的边界性问题`、`如何集成 immutable 到流程中`。
