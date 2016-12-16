@@ -42,6 +42,8 @@ header-img: "img/post-bg-05.jpg"
 
 * [到底该在什么地方进行 state 的初始化](#11)
 * [如何捕获异步 action 的回调](#12)
+* [Redux store vs React state](#13)
+* [应该在什么位置获取异步数据](#14)
 
 [Immutable.js 如何整合进开发流程](#2)
 
@@ -100,6 +102,41 @@ this.props.dispatch(asyncAction(item)).then(onSuccess, onFailure);
 ```
 
 但是，如果你的通知不是局部的，而是可以抽象为一个通用的通知系统，建议通过增加一个针对于通知系统的子 store 来解决这个问题，为他配置单独的 action 和 reducer。
+
+### <a name="13"></a>Redux store vs React state
+
+试想一种情况，我们做一个 todo 应用，需要展示 todo 的列表，也要对单独的 todo 进行分别编辑，那么 store 和 state 的设计无非就是如下两种：
+
+<img src="/blog/img/react+redux+immutablejs/1.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+
+<img src="/blog/img/react+redux+immutablejs/2.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+
+前面这种，将单独的 todo 的状态放在了 store 里，而后面这种是放在了 todo 组件的局部的 state 里。
+
+一般来讲推荐后面这种，原因有二：
+
+1. todo 组件是复用的，如果放在 store 里，在 SPA 的应用中，每次进入都要**重置状态**；
+2. 用作局部的 state，使得维护起来更加方便，因为在这个 case 里，对 todo 的临时操作**并不影响全局**。
+
+在提交每个 todo 的时候，肯定要派发 store 中的 action（因为提交后整个 todolist 都会全局性的改变）。如果用前一种方案，todo 组件必然和 store 绑定在了一起，所以可以在 todo 组件内部去 dispatch action。而对于后者，则应该是通过 todolist 传入的回调方法去添加或者更新 todo 信息。
+
+总结一下就是，使用前一种方式就不要画蛇添足通过父子组件传递回调的方式去派发事件，因为 todo 组件已经不是独立的组件了，已经耦合到大的系统里了，没必要增加复杂度了。而使用后一种方式就不要直接派发事件给 store，因为后一种方式的子组件本来设计思路就是解耦的。
+
+[https://github.com/reactjs/redux/issues/1287](https://github.com/reactjs/redux/issues/1287)里的高票回答得很好：
+
+> Use React for ephemeral state that doesn't matter to the app globally and doesn't mutate in complex ways. For example, a toggle in some UI element, a form input state. Use Redux for state that matters globally or is mutated in complex ways. For example, cached users, or a post draft.
+>
+> Sometimes you'll want to move from Redux state to React state (when storing something in Redux gets awkward) or the other way around (when more components need to have access to some state that used to be local).
+>
+> The rule of thumb is: do whatever is less awkward.
+
+简而言之就是，如果这个状态不影响其他部分的业务逻辑并且足够简单，就使用 react state。
+
+### <a name="14"></a>应该在什么位置获取异步数据
+
+问：是不是所有的异步数据都要在 store 的 action 中获取？
+
+答案是：否！前面那个小节已经讲过了局部 state 和全局 store 的关系，如何选择完全看数据是否和全局有关联。推此即彼，异步数据的获取也同样。如果获取到的数据是用来更新全局状态，那么当然要放在 store 的 action里。否则，直接在组件内部调用封装好的异步请求去改变局部的 state 就可以了。
 
 ## <a name="2"></a>Immutable.js 如何整合进开发流程
 
