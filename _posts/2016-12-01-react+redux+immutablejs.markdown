@@ -36,11 +36,23 @@ header-img: "img/post-bg-05.jpg"
 * 性能优化
 * 调试工具和部署方案
 
-## React + Redux 如何进行集成开发
+## 目录
+
+[React + Redux 如何进行集成开发](#1)
+* [到底该在什么地方进行 state 的初始化](#11)
+* [如何捕获异步 action 的回调](#12)
+[Immutable.js 如何整合进开发流程](#2)
+* [为啥要使用 immutable](#21)
+* [使用 immutable 的边界性问题](#22)
+* [如何集成 immutable 到流程中](#23)
+[性能优化](#3)
+[调试工具和部署方案](#4)
+
+## <a name="1"></a>React + Redux 如何进行集成开发
 
 其实 Redux 的<a href="http://redux.js.org/docs/basics/UsageWithReact.html">官方文档</a>已经将整体的集成方案讲的很明白了，本文只是针对一些“为什么这么做”、“该怎么做”做一些最佳实践的补充。这个子章节也会不断的扩展的：
 
-### 问题：到底该在什么地方进行 state 的初始化？
+### <a name="11"></a>到底该在什么地方进行 state 的初始化
 
 这个问题回答得比较好的是 stackoverflow 的<a href="http://stackoverflow.com/questions/33749759/read-stores-initial-state-in-redux-reducer/33791942#33791942">这个帖子</a>：
 
@@ -52,7 +64,7 @@ header-img: "img/post-bg-05.jpg"
 >
 > In general, initialState wins over the state specified by the reducer. This lets reducers specify initial data that makes sense to them as default arguments, but also allows loading existing data (fully or partially) when you're hydrating the store from some persistent storage or the server.
 
-### 如何捕获异步 action 的回调
+### <a name="12"></a>如何捕获异步 action 的回调
 
 在使用 thunk 中间件处理异步 action 的时候，标准的做法：
 
@@ -84,11 +96,11 @@ this.props.dispatch(asyncAction(item)).then(onSuccess, onFailure);
 
 但是，如果你的通知不是局部的，而是可以抽象为一个通用的通知系统，建议通过增加一个针对于通知系统的子 store 来解决这个问题，为他配置单独的 action 和 reducer。
 
-## Immutable.js 如何整合进开发流程
+## <a name="2"></a>Immutable.js 如何整合进开发流程
 
 本章节分为三点：`为啥要使用 immutable`、`使用 immutable 的边界性问题`、`如何集成 immutable 到流程中`。
 
-### 为啥要使用 immutable
+### <a name="21"></a>为啥要使用 immutable
 
 一张图解释 Immutable 如何使用 Structural Sharing（结构共享，即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享）来避免 deepCopy 把所有节点都复制一遍带来的性能损耗：
 
@@ -128,7 +140,7 @@ var state = state.splice(index, 1, value);
 
 **第二点**，性能的提升。由于 immutable 内部使用了 Trie 数据结构来存储，只要两个对象的 `hashCode` 相等，值就是一样的。这样的算法避免了深度遍历比较，性能非常好。这对我们在进行具体渲染过程中的性能优化非常有用。
 
-### 使用 immutable的边界性问题。
+### <a name="22"></a>使用 immutable 的边界性问题
 
 既然这么好，Immutable.js 如何同现有的 React + Redux 技术方案进行集成呢？好在有`redux-immutable`（事实上还有一个叫做`redux-immutablejs`的库也能实现二者的集成）这么一个库，在它的帮助下，可以实现 Immutable.js 的植入。在介绍集成方案之前，我们有必要先划分数据使用的边界，就是在哪些地方使用 Javascript 原生数据结构（简称为JSD），哪些地方使用 immutable，哪些地方需要做二者的转化，如下图所示：
 
@@ -161,7 +173,7 @@ export default function(state, action) {
 
 这样看起来只是让 immutable 侵入到 reducer 中，其实却是得不偿失的。因为`toJS`和`fromJS`会消耗大量的性能。
 
-### 如何集成 immutable 到流程中
+### <a name="23"></a>如何集成 immutable 到流程中
 
 按照 Redux 的工作流，我们从创建 store 开始。Redux 的 createStore 可以传递多个参数，前两个是： reducers 和 initialState。
 
@@ -273,13 +285,13 @@ fromJS({
 
 ```
 
-## 性能优化
+## <a name="3"></a>性能优化
 
 [https://github.com/lcxfs1991/blog/issues/8](https://github.com/lcxfs1991/blog/issues/8)这篇文章写的很好了。其实关键点就在拆包和 shouldComponentUpate。
 
 使用他提供的 decorator 来减少 render 的触发。
 
-## 调试工具和部署方案
+## <a name="4"></a>调试工具和部署方案
 
 调试当然用的就是`react-devtools`和`redux-devtools`。
 
