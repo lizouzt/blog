@@ -39,13 +39,18 @@ header-img: "img/post-bg-05.jpg"
 ## 目录
 
 [React + Redux 如何进行集成开发](#1)
+
 * [到底该在什么地方进行 state 的初始化](#11)
 * [如何捕获异步 action 的回调](#12)
+
 [Immutable.js 如何整合进开发流程](#2)
+
 * [为啥要使用 immutable](#21)
 * [使用 immutable 的边界性问题](#22)
 * [如何集成 immutable 到流程中](#23)
+
 [性能优化](#3)
+
 [调试工具和部署方案](#4)
 
 ## <a name="1"></a>React + Redux 如何进行集成开发
