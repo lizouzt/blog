@@ -152,12 +152,12 @@ var state = state.splice(index, 1, value);
 <img src="/blog/img/react+redux+immutablejs/flow.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
 
 * 在 React 视图里，props 其实就来自于 Redux 维护的全局的 state 的，所以 props 中的每一项一定是 immutable 的。
-* 在 React 视图里，组件自己维护的局部 state 必须为 immutable 的。
+* 在 React 视图里，组件自己维护的局部 state **如果是用来提交到 store 的**， 必须为 immutable 的，否则不强制。
 * 从视图层向同步和异步 action 发送的数据（A/B），必须是 immutable 的。
 * Action 提交给 reducer 的数据（C/D），必须是 immutable 的。
-* reducer 处理后所得 state 当然一定是 immutable 的。
+* reducer 处理后所得 state (E)当然一定是 immutable 的。
 
-这样似乎看起来，所有地方都是 immutable 的，但是其实异步 action 和服务器的交互当然是 JSD。换句话说，我们要求，除了向服务端发送数据请求的时候，其他位置，不允许出现`toJS`的代码。而接收到服务端的数据后，在流转入全局 state 之前，统一转化为 immutable 数据。
+这样似乎看起来，所有地方都是 immutable 的，但是其实异步 action 和服务器的交互当然是 JSD （F）。换句话说，我们要求，除了向服务端发送数据请求的时候，其他位置，不允许出现`toJS`的代码。而接收到服务端的数据后，在流转入全局 state 之前，统一转化为 immutable 数据。
 
 为什么要做这种统一呢？是因为：
 
