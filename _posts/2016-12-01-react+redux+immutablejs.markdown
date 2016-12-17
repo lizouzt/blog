@@ -4,6 +4,7 @@ title:      "如何用React+Redux+ImmutableJS进行SPA开发"
 subtitle:   "如何用React+Redux+ImmutableJS进行SPA开发"
 date:       2016-12-01 13:00:00
 author:     "stefan"
+comments:	true
 header-img: "img/post-bg-05.jpg"
 ---
 
@@ -107,9 +108,9 @@ this.props.dispatch(asyncAction(item)).then(onSuccess, onFailure);
 
 试想一种情况，我们做一个 todo 应用，需要展示 todo 的列表，也要对单独的 todo 进行分别编辑，那么 store 和 state 的设计无非就是如下两种：
 
-<img src="/blog/img/react+redux+immutablejs/1.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="http://yunlaiwu.github.io/blog/img/react+redux+immutablejs/1.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
 
-<img src="/blog/img/react+redux+immutablejs/2.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="http://yunlaiwu.github.io/blog/img/react+redux+immutablejs/2.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
 
 前面这种，将单独的 todo 的状态放在了 store 里，而后面这种是放在了 todo 组件的局部的 state 里。
 
@@ -186,7 +187,7 @@ var state = state.splice(index, 1, value);
 
 既然这么好，Immutable.js 如何同现有的 React + Redux 技术方案进行集成呢？好在有`redux-immutable`（事实上还有一个叫做`redux-immutablejs`的库也能实现二者的集成）这么一个库，在它的帮助下，可以实现 Immutable.js 的植入。在介绍集成方案之前，我们有必要先划分数据使用的边界，就是在哪些地方使用 Javascript 原生数据结构（简称为JSD），哪些地方使用 immutable，哪些地方需要做二者的转化，如下图所示：
 
-<img src="/blog/img/react+redux+immutablejs/flow.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="http://yunlaiwu.github.io/blog/img/react+redux+immutablejs/flow.png" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
 
 * 在 React 视图里，props 其实就来自于 Redux 维护的全局的 state 的，所以 props 中的每一项一定是 immutable 的。
 * 在 React 视图里，组件自己维护的局部 state **如果是用来提交到 store 的**， 必须为 immutable 的，否则不强制。
