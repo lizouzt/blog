@@ -47,7 +47,7 @@ header-img: "img/zx/20161218/banner.jpg"
       <p>a、http是普通的超文本传输协议，信息是明文传输，https 则是具有安全性的加密传输协议。</p>
       <p>b、http和https使用的是不同的连接方式用的端口也不一样,前者是80,后者是443。</p>
       <p>c、https协议需要到ca申请证书，一般免费证书很少，需要交费。</p>
-      <img class="" src="../img/zx/20161218/wp-content-uploads-2016-04-431476faec3976bac0f574811cbec0cf1450024864.gif" alt="">
+      <img class="" src="/blog/img/zx/20161218/wp-content-uploads-2016-04-431476faec3976bac0f574811cbec0cf1450024864.gif" alt="">
       <h2>三、HTTPS 是如何保证安全的？</h2>
       <h3>3.1、如何保证信息数据的安全传递</h3>
       <p>如果用HTTP协议传递信息那么，数据信息是明文传递的，如果有中间人截获了，这次信息传递，那么客户端发出的内容都会被看到。</p>
@@ -55,14 +55,14 @@ header-img: "img/zx/20161218/banner.jpg"
       <p>首先想到的加密方式，从原始简单的角度考虑，对信息的加密和解密都用同一种规则去做，用两把同样的钥匙去锁和开同一把锁。这就是对称加密方式</p>
       <h4>对称加密（symmetric cryptography）使用相同的key加密和解密。</h4>
       <p>这种对称加密算法比较流行的是AES算法，用一个统一的key来加密和解密数据，AES 使用数学矩阵的方式在数学上保证了，只要你使用的 key 足够足够足够足够的长，破解是几乎不可能的。但是对称加密的本质决定了它有两个问题。</p>
-      <img src="../img/zx/20161218/6-dui-chen-jia-mi-suan-fa.gif" alt="">
+      <img src="/blog/img/zx/20161218/6-dui-chen-jia-mi-suan-fa.gif" alt="">
       <p>1.密钥管理</p>
       <p>如果互联网每天有无数信息需要加密，一旦通信的实体多了，那么管理秘钥就会成为问题。</p>
-      <img src="../img/zx/20161218/7-key-management (1).gif" alt="">
+      <img src="/blog/img/zx/20161218/7-key-management (1).gif" alt="">
       <p>2.对称加密密钥的拦截</p>
       <p>客户端需要发送信息，用AES加密里信息数据，生成一个对应的key，但是如何把这个key告诉服务端使用其进行解密呢？不管是和数据一起传给服务端，还是单独传给服务端都会经过网络传输，而这过程中不被发现和获取就很难了。</p>
       <h4>非对称加密（asymmetric cryptography）使用不同的keys（公钥和私钥）加密和解密。</h4>
-      <img src="../img/zx/20161218/8-feiduichen.gif" alt="">
+      <img src="/blog/img/zx/20161218/8-feiduichen.gif" alt="">
       <h4>RSA算法举例</h4>
       <p>RSA算法是目前最流行的公钥密码算法它使用长度可以变化的密钥。RSA是第一个既能用于数据加密也能用于数字签名的算法。</p>
       <p>RSA算法的原理如下</p>
@@ -91,39 +91,39 @@ header-img: "img/zx/20161218/banner.jpg"
       <p>36746043666799590428244633799627952632279158164343087642676032283815739666511279233373417143396810270092798736308917</p>
       <p>你可能会问，公钥(n,e) 只能加密小于n的整数m，那么如果要加密大于n的整数，该怎么办？有两种解决方法：一种是把长信息分割成若干段短消息，每段分别加密；另一种是先选择一种"对称性加密算法"（比如DES），用这种算法的密钥加密信息，再用RSA公钥加密DES密钥。</p>
       <h4>非对称加密的中间人攻击和信息抵赖</h4>
-      <img class="" src="../img/zx/20161218/wp-content-uploads-2016-04-doc_image_2_w699_h525.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/wp-content-uploads-2016-04-doc_image_2_w699_h525.png" alt="">
       <p>设想一种情景：这时C→S的完整加密变成了，C（加密）→M（明文）→（加密）S的情况了，这时候M还是可以知道A和B传输中的全部信息。而信息抵赖如上图</p>
       <p>为此需要引入权威的第三方机构CA(certificate angency)。CA负责核实公钥的拥有者的信息，并颁发认证”证书”，同时能够为使用者提供证书验证服务，即PKI体系。</p>
       <h4>CA证书及签名</h4>
       <p>身份认证的方式就是通过证书以数字方式签名的声明，它将公钥与持有相应私钥的主体(个人、设备和服务)身份绑定在一起。通过在证书上签名，CA可以核实与证书上公钥相应的私钥为证书所指定的主体所拥有。</p>
       <p>你的 Windows、Mac、Linux、Chrome、Safari等会在安装时带上一个他们认为安全的 CA 证书列表。如果和你建立安全连接的人带着这些人的签名，那么认为这个安全连接是安全的，没有遭到中间人攻击。</p>
-      <img class="" src="../img/zx/20161218/wp-content-uploads-2016-04-doc_image_3_w790_h623.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/wp-content-uploads-2016-04-doc_image_3_w790_h623.png" alt="">
       <p>证书包含以下信息：申请者公钥、申请者的组织信息和个人信息、签发机构CA的信息、有效时间、证书序列号等信息的明文，同时包含一个签名。</p>
-      <img class="" src="../img/zx/20161218/9-certificate-1.gif" alt="">
+      <img class="" src="/blog/img/zx/20161218/9-certificate-1.gif" alt="">
       <h5>证书链</h4>
       <p>如CA根证书和服务器证书中间增加一级证书机构，即中间证书，证书的产生和验证原理不变，只是增加一层验证，只要最后能够被任何信任的CA根证书验证合法即可。</p>
-      <img class="" src="../img/zx/20161218/certificate.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/certificate.png" alt="">
       <p>二级证书结构存在的优势：</p>
       <p>a.减少根证书结构的管理工作量，可以更高效的进行证书的审核与签发；</p>
       <p>b.根证书一般内置在客户端中，私钥一般离线存储，一旦私钥泄露，则吊销过程非常困难，无法及时补救；</p>
       <p>c.中间证书结构的私钥泄露，则可以快速在线吊销，并重新为用户签发新的证书；</p>
       <p>d.证书链四级以内一般不会对HTTPS的性能造成明显影响。</p>
-      <img class="" src="../img/zx/20161218/wp-content-uploads-2016-04-doc_image_5_w747_h494.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/wp-content-uploads-2016-04-doc_image_5_w747_h494.png" alt="">
       <p>CA 证书通常情况下是安全的。因为一旦某个 CA 颁发出的某个证书被用于了非法用途，浏览器和操作系统一般会通过更新将整个 CA 颁发过的全部证书全部视为不安全。这使得 CA 通常在颁发证书时是比较小心的。</p>
       <p>所以通过对称加密 + 非对称加密 + CA认证这三个技术混合在一起，才使得 HTTP 的后面加上了一个 S —— Security。</p>
       <p>其中任何一环稍有闪失，就会使得整个加密都将变得不安全。这也是为什么 HTTPS 的加密协议从SSL 1.0 升级到 SSL 3.0 再到 TLS 1.0 现在被 TLS 1.2 取代，其背后都是一环环细节上的修改，以防任何地方的闪失。</p>
       <h3>3.2、HTTPS的传输过程</h3>
       <p>简单来说就是先进行SSL/TLS的安全通道建设，然后用加密协议加密数据，再进行基本的HTTP数据传递。</p>
-      <img class="" src="../img/zx/20161218/https-layer.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/https-layer.png" alt="">
       <h4>SSL和TLS协议</h4>
       <p>SSL：（Secure Socket Layer，安全套接字层），位于可靠的面向连接的网络层协议和应用层协议之间的一种协议层。SSL通过互相认证、使用数字签名确保完整性、使用加密确保私密性，以实现客户端和服务器之间的安全通讯。</p>
       <p>TLS：(Transport Layer Security，传输层安全协议)，用于两个应用程序之间提供保密性和数据完整性。该协议由两层组成：TLS记录协议和TLS握手协议。</p>
       <p>SSL由从前的Netscape公司开发有1,2,3三个版本，但现在只使用版本3，TLS是SSL的标准化后的产物有1.0 1.1 1.2三个版本默认使用1.0，TLS1.0和SSL3.0几乎没有区别，事实上我们现在用的都是TLS，但因为历史上习惯了SSL这个称呼平常还是以SSL为多。</p>
       <p>TLS/SSL的功能实现主要依赖于三类基本算法：散列函数Hash、对称加密和非对称加密。</p>
       <p>结合三类算法的特点，TLS的基本工作方式是：</p>
-      <img class="" src="../img/zx/20161218/wp-content-uploads-2016-04-doc_image_1_w553_h282.gif" alt="">
+      <img class="" src="/blog/img/zx/20161218/wp-content-uploads-2016-04-doc_image_1_w553_h282.gif" alt="">
       <h4>TLS握手：安全通道是如何建立的</h5>
-      <img class="" src="../img/zx/20161218/TLS-handshake-protocol.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/TLS-handshake-protocol.png" alt="">
       <p>0 ms</p>
       <p>TLS运行在一个可靠的TCP协议上，意味着我们必须首先完成TCP协议的三次握手。</p>
       <p>56 ms</p>
@@ -170,7 +170,7 @@ header-img: "img/zx/20161218/banner.jpg"
       <h3>5.2问题</h3>
       <h4>1.HTTP资源无法加载</h4>
       <p>在https环境下，http协议的js/css/请求/iframe等资源是根本加载不进来的</p>
-      <img class="" src="../img/zx/20161218/3180515082-57a7535f67bce_articlex.png" alt="">
+      <img class="" src="/blog/img/zx/20161218/3180515082-57a7535f67bce_articlex.png" alt="">
       <p>所以，如果想要使用这些资源的话，需要把访问这些资源的方式，转换为https，我们称这种https页面中引用http资源的方式为"mix content"</p>
       <h4>2. HTTPS下不能调用HTTP的异步请求</h4>
       <p>如果在https的页面中使用http的ajax调用。会提示跨域的报错，很明显有违ip地址、端口、协议的跨域限制。</p>
