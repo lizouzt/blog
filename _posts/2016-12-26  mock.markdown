@@ -40,7 +40,7 @@ Map 功能适合长期地将某一些请求重定向到另一个网络地址或�
 Rewrite 功能适合对网络请求进行一些正则替换。
 Breakpoints 功能适合做一些临时性的修改。
 
-①对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 "Save Response…" 功能，将请求结果保存到本地（如下图所示），然后稍加修改，成为我们的目标映射文件。
+①对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 "Save Response…" 功能，将请求结果保存到本地，然后稍加修改，成为我们的目标映射文件。
 <img src="/blog/img/mock/maplocal.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
 
 ②Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。
