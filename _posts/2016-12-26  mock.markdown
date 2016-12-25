@@ -1,0 +1,122 @@
+---
+layout:     post    
+title:      "mock测试"    
+subtitle:   "mock测试"          
+date:       2016-12-26            
+author:     "zsh"                      
+comments:	true
+header-img: "img/post-bg-06.jpg"
+![header-img](https://github.com/yunlaiwu/blog/blob/gh-pages/img/post-bg-01.jpg)
+---
+###一．背景：#####1、现在存在的问题：
+<img src="/blog/img/mock/mock.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />①数据由第三方准备，一段时间更新一次                     
+②存量数据不够全面 （Sad Path）                               
+③（轻易）不能修改已存在的测试数据          
+④如果Server端｜API层未开发完成，无法进行APP端接口集成测试      ⑤难以自动化                                             
+⑥模拟网络情况比较困难
+#####2、理想的测试环境：             
+Reliability：可靠达成期望返回正确的输出               
+Scalability：可以自主扩展出尚未存在的API功能           
+Repeatablity：改动的测试数据可以恢复如初           
+Speed：执行速度快，提高反馈效率                
+Network Switchable：可以测试        
+Time out及极端情况###二、mock工具类比较
+#####1.moco
+moco其实就是mockserver的一个实现，总体很好，java栈，有点重，不太适合做fuzz测试。                                         
+*（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）*
+#####2.charles
+适用于简单轻量级mock数据。
+（截取网络封包、修改请求/返回值、模拟弱网、压测等）
+#####3.anyproxy
+可以控制代理，本身就可以mock，功能比charles强悍，支持fuzz测试。           
+
+*但存在一个问题，每次修改Mock数据之后都必须重启Anproxy，一旦重启Anyproxy，连接的客户端就会断开一次网络，这样对于即时通讯需要保持频繁心跳的产品来说是一个比较致命的打击。*
+
+###三、mock实例
+#####1、charles
+Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：
+
+Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。
+Rewrite 功能适合对网络请求进行一些正则替换。
+Breakpoints 功能适合做一些临时性的修改。
+
+①对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 "Save Response…" 功能，将请求结果保存到本地（如下图所示），然后稍加修改，成为我们的目标映射文件。
+<img src="/blog/img/mock/maplocal.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+
+②Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。
+<img src="/blog/img/mock/rewrite.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+
+③Breakpoints 功能类似我们在 Xcode 中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这个时候，我们可以在 Charles 中临时修改网络请求的返回内容.比如这个地方如果返回了nil程序会不会崩，直接改response就行了.
+<img src="/blog/img/mock/charles-1.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+<img src="/blog/img/mock/charles-2.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /><img src="/blog/img/mock/charles-3.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+<img src="/blog/img/mock/charles-4.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+<img src="/blog/img/mock/charles-5.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+这里只是最简单的更改，实际的操作中，你可以经常用来把某些值改为临界情况，看应用在处理这些临界状况时的反应，这样比找那些临界数据的测试账号成本要低得多。也可以把一些可能不会反回数值的字段找到，直接将里面的值删成nil，看看会不会报异常等等。
+比如我们
+#####2、anyproxy
+①安装nodejs
+②安装anyproxy（http://anyproxy.io/cn/）
+npm install -g anyproxy
+③启动anyproxy
+  配置anyproxy的HTTPS特性：
+  step 1 生成rootca（sudo anyproxy --root）
+  step 2 找到rootca文件，打开rootca.crt
+  step 3 根据提示，信任
+  step 4 明文解析https（anyproxy --intercept）
+④把浏览器代理指向127.0.0.1:8001                  
+⑤访问界面：http://127.0.0.1:8002 
+  <img src="/blog/img/mock/anyproxy-1.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />          
+⑥anyproxy --rule /path/to/ruleFile.js
+<img src="/blog/img/mock/anyproxy.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+ 
+ 
+ 
+ ps: ① AnyProxy默认不会解析https请求，你需要引入shouldInterceptHttpsReq这个函数来显式指定解析哪个请求   
+  
+、、、
+  	//rule scheme :
+
+	module.exports = {
+
+
+    replaceServerResDataAsync: function(req,res,serverResData,callback){
+        //add "hello github" to all github pages
+        if(req.headers.host == "github.com"){
+            serverResData += "hello github";
+        }
+        callback(serverResData);
+    },
+
+    shouldInterceptHttpsReq :function(req){
+        //intercept https://github.com/
+        //otherwise, all the https traffic will not go through this proxy
+
+        // return true;
+        if(req.headers.host == "github.com"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    };
+ 
+       
+、、、
+
+②  已有功能               
+
+  -s SAVE, --save SAVE  file save path            
+  
+  -p PORT, --port PORT  proxy port             
+  
+  -a [API [API ...]], --api [API [API ...]]
+                        specify url                       
+                        
+  -i [INJECT [INJECT ...]], --inject [INJECT [INJECT ...]]
+                        inject field                        
+                        
+  -d [DELETE [DELETE ...]], --delete [DELETE [DELETE ...]]
+                        delete field  
+                                              
+  -m [MOCK [MOCK ...]], --mock [MOCK [MOCK ...]]
+                        mock value
