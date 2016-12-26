@@ -6,7 +6,6 @@ date:       2016-12-26
 author:     "zsh"                      
 comments:	true
 header-img: "img/post-bg-06.jpg"
-![header-img](https://github.com/yunlaiwu/blog/blob/gh-pages/img/post-bg-01.jpg)
 ---
 ###一．背景：#####1、现在存在的问题：
 <img src="/blog/img/mock/mock.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />①数据由第三方准备，一段时间更新一次                     
