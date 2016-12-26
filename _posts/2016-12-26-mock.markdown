@@ -72,9 +72,8 @@ Breakpoints 功能适合做一些临时性的修改。
  
  
  ps: ① AnyProxy默认不会解析https请求，你需要引入shouldInterceptHttpsReq这个函数来显式指定解析哪个请求   
-  ```
- 
-  	//rule scheme :
+  ``` 
+ 	//rule scheme :
 
 	module.exports = {
 
@@ -99,7 +98,6 @@ Breakpoints 功能适合做一些临时性的修改。
         }
     }
     };
- 
   ```     
 
 
