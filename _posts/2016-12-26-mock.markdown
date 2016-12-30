@@ -24,16 +24,17 @@ Network Switchable：可以测试
 Time out及极端情况### 二、mock工具类比较
 ##### 1.moco
 moco其实就是mockserver的一个实现，总体很好，java栈，有点重，不太适合做fuzz测试。                                         
-*（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）*
+（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）
 ##### 2.charles
 适用于简单轻量级mock数据。
 （截取网络封包、修改请求/返回值、模拟弱网、压测等）
 ##### 3.anyproxy
 可以控制代理，本身就可以mock，功能比charles强悍，支持fuzz测试。           
 
-*但存在一个问题，每次修改Mock数据之后都必须重启Anproxy，一旦重启Anyproxy，连接的客户端就会断开一次网络，这样对于即时通讯需要保持频繁心跳的产品来说是一个比较致命的打击。*
+
 
 ### 三、mock实例
+
 ##### 1、charles
 Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：
 
@@ -53,8 +54,7 @@ Breakpoints 功能适合做一些临时性的修改。
 <img src="/blog/img/mock/charles-4.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
 <img src="/blog/img/mock/charles-5.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
 这里只是最简单的更改，实际的操作中，你可以经常用来把某些值改为临界情况，看应用在处理这些临界状况时的反应，这样比找那些临界数据的测试账号成本要低得多。也可以把一些可能不会反回数值的字段找到，直接将里面的值删成nil，看看会不会报异常等等。
-比如我们
-##### 2、anyproxy
+##### 2、anyproxy
 ①安装nodejs
 ②安装anyproxy（http://anyproxy.io/cn/）
 npm install -g anyproxy
@@ -73,9 +73,8 @@ Breakpoints 功能适合做一些临时性的修改。
  
  
  ps: ① AnyProxy默认不会解析https请求，你需要引入shouldInterceptHttpsReq这个函数来显式指定解析哪个请求   
-  
-、、、
-  	//rule scheme :
+  ``` 
+ 	//rule scheme :
 
 	module.exports = {
 
@@ -100,9 +99,8 @@ Breakpoints 功能适合做一些临时性的修改。
         }
     }
     };
- 
-       
-、、、
+  ```     
+
 
 ②  已有功能               
 
