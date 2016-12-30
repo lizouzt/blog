@@ -16,8 +16,7 @@ header-img: "img/contact-bg.jpg"
 
 ## 一，一些限制
 
-IPV6
-HTTPS
+IPV6、HTTPS
 
 1.IPV6
 
@@ -48,11 +47,7 @@ HTTPS
 
 ## 二，ios10
 
-IMessage
-SiriKit
-Speech Recognition
-User Notifications
-Others
+IMessage、SiriKit、Speech Recognition、User Notifications、Others
 
 1.IMessage
 IMessage获得重大更新，提供消息气泡框效果，手写信息。同时内置的emoji表情也得到优化，除了图片变大3倍外，还能将文字直接转化成emoji表情。苹果还特别为IMessage开辟了应用专区，所以你也可以做IMessage App了。
@@ -358,6 +353,7 @@ SFSpeechRecognitionResult：语音识别请求结果类。
 SFTranscription：语音转换后的信息类。
 
 当然，首先为了安全你得到plist文件中加权限
+然后coding
 
 ```
 SFSpeechRecognizer.requestAuthorization { authStatus in
