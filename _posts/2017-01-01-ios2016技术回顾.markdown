@@ -22,6 +22,7 @@ header-img: "img/contact-bg.jpg"
 6月1号以后提交新版本需要支持IPV6-Only的网络
 
 与IPv4地址空间需要扩充迫在眉睫,越来越多的企业和移动电话运营商部署IPv6 DNS64和NAT64网络。DNS64 / NAT64网络是一种能使ipv6网络。取决于应用程序的性质,过渡有不同的含义:如果您正在编写一个客户端应用程序使用高级网络api,如NSURLSession和CFNetwork框架,你应该不需要改变任何东西为您的应用程序使用IPv6地址。如果项目中用了老的AFNetworking或ASIHTTPRequest等第三方网络请求框架则可能需要做一下适配。因为，苹果审核是不会让你过的。
+
 ![ipv6.png](/blog/img/elarc/ipv6.png)
 
 客户端向服务器端请求域名解析，首先通过DNS64 Server查询IPv6的地址，如果查询不到，再向DNS Server查询IPv4地址，通过DNS64 Server合成一个IPV6的地址，最终将一个IPV6的地址返回给客户端
@@ -42,10 +43,15 @@ header-img: "img/contact-bg.jpg"
 * ATS要求服务器必须支持传输层安全(TLS)协议1.2以上版本;证书必须使用SHA256或更高的哈希算法签名;必须使用2048位以上RSA密钥或256位以上ECC算法等等，不满足条件的证书，ATS都会拒绝连接。强制开启ATS体现了苹果一贯的隐私保护态度。 开发者需要HTTPS证书。
 
 ## 二，ios10
+
 ### IMessage
+
 ### SiriKit
+
 ### Speech Recognition
+
 ### User Notifications
+
 ### Others
 
 1.IMessage
@@ -55,12 +61,15 @@ IMessage获得重大更新，提供消息气泡框效果，手写信息。同时
 Sticker packs
 IMessage apps
 第一种方式仅仅提供静态的贴纸,贴纸包图片,用户可以发送内联消息附加到消息气泡中。贴纸包不需要任何代码。你添加标签图像文件拖到贴纸包文件夹内的贴纸资源目录。有效的图像文件必须符合以下规格:
+
 * 图片必须是png、apng、gif、jpeg中的一种
 * 图片必须小于500k
 * 为了效果好，图像不应少于100×100pt,或超过206×206pt
+
 如果你想做这些事的时候你就要用到第二种方式了
 
 Use iMessage apps to:
+
 * Present a custom user interface inside the Messages app; see MSMessagesAppViewController.
 * Create a custom or dynamic sticker browser; see MSStickerBrowserViewController.
 * Insert text, stickers, or media files into the Messages app’s input field; see MSConversation.
@@ -198,6 +207,7 @@ Intents框架是必须支持的，支持基本应用程序和系统之间的通�
 IntentsUI框架是可选的，他提供了任务成功操作后的自定义UI接口。
 
 它所包括的领域：
+
 * VoIP calling
 * Messaging
 * Payments
@@ -208,8 +218,10 @@ IntentsUI框架是可选的，他提供了任务成功操作后的自定义UI接
 * Restaurant reservations (requires additional support from Apple)
 
 接入siri的注意事项：
+
 * 证书支持
 * plist文件支持你所要的操作事件
+
 ![siri.png](/blog/img/elarc/siri.png)
 
 ```
@@ -397,6 +409,7 @@ UNUserNotificationCenter.current().add(request) { (error) in
 ```
 
 5.Others
+
 *  CallKit 集成了VoIP及信息标识，还有了黑名单功能，当然不是云莱坞的黑名单
 
 ```
@@ -426,13 +439,9 @@ UIWhitePointAdaptivityStyleVideo 视频
 UIWhitePointAdaptivityStyleGame 游戏
 
 * App Search Enhancements 应用搜索增强
-
 * Widget Enhancements 锁屏部件增强
-
 * News Publisher Enhancements 新闻出版商增强
-
 * Apple Pay Enhancements 支付增强
-
 * Security and Privacy Enhancements 安全和保密性增强
 
 ## 三，swift3.0
