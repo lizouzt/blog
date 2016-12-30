@@ -7,6 +7,7 @@ author:     "elarc"
 comments:	true
 header-img: "img/contact-bg.jpg"
 ---
+
 > WWDC2016,Apple发布了ios10，每次版本发布，都会带来新的接口，新的机会，也能间接的看出Apple的未来一段时间的发展方向。
 
 这里就不讨论iphone7、MacBook Pro、Apple Watch、Apple TV以及AirPods了。
@@ -14,9 +15,12 @@ header-img: "img/contact-bg.jpg"
 下面回顾一下，Apple今年为我们带来了什么
 
 ## 一，一些限制
-### IPV6
-### HTTPS
+
+IPV6
+HTTPS
+
 1.IPV6
+
 > 由于IPv4最大的问题在于网络地址资源有限，严重制约了互联网的应用和发展。IPv6的使用，不仅能解决网络地址资源数量的问题，而且也解决了多种接入设备连入互联网的障碍
 
 6月1号以后提交新版本需要支持IPV6-Only的网络
@@ -44,15 +48,11 @@ header-img: "img/contact-bg.jpg"
 
 ## 二，ios10
 
-### IMessage
-
-### SiriKit
-
-### Speech Recognition
-
-### User Notifications
-
-### Others
+IMessage
+SiriKit
+Speech Recognition
+User Notifications
+Others
 
 1.IMessage
 IMessage获得重大更新，提供消息气泡框效果，手写信息。同时内置的emoji表情也得到优化，除了图片变大3倍外，还能将文字直接转化成emoji表情。苹果还特别为IMessage开辟了应用专区，所以你也可以做IMessage App了。
