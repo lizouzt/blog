@@ -201,7 +201,7 @@ func createImageForMessage() -> UIImage? {
 
 用户通过正常的流程唤醒Siri，Siri做完语音识别和语义分析之后，将结构化语音分析结果打包成一个某个领域（Domain）的意图（Intent），然后交给支持这个意图（Intent）的第三方应用（比如微信），第三方应用被启动，从传入的Intent中获取相应的信息，完成操作。
 
-例如 “I need to send a message to laosiji via WeChat saying had you go to dabaojian again ?"，当用户唤醒Siri说出这句话的时候，Siri会把上面这句话转换成结构化语义意图：
+例如 “I need to send a message to laosiji via WeChat saying had you go to DBJ again ?"，当用户唤醒Siri说出这句话的时候，Siri会把上面这句话转换成结构化语义意图：
 
 * 领域 （Domain）：Messaging
 
@@ -211,7 +211,7 @@ func createImageForMessage() -> UIImage? {
 
 * 收件人（recipients）：laosiji
 
-* 消息内容（content）：had you go to dabaojian again ?
+* 消息内容（content）：had you go to DBJ again ?
 
 然后这个意图会被转交给微信，微信会从该意图中抽取出收件人和消息内容，匹配用户联系人并发送消息
 
