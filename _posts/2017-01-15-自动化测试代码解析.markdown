@@ -11,119 +11,124 @@ header-img: "img/post-bg-01.jpg"
 > 自动化的意思就是让代码定时运行，替代人来进行每日每夜的重复性劳动
 
 java代码，使用linux定时任务+ant+juint实现，已经实现了数据驱动，我使用的是juint框架
-## 1.什么是juint框架
+
+## 什么是juint框架
+
 JUnit是一个Java语言的单元测试框架。它由Kent Beck和Erich Gamma建立，逐渐成为源于Kent Beck的sUnit的xUnit家族中最为成功的一个。 JUnit有它自己的JUnit扩展生态圈。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。
 
 JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）。Junit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。Junit是一套框架，继承TestCase类，就可以用Junit进行自动测试了。
 
 自动化包含ui自动化测试，接口自动化以及监控等等，下面是我的接口自动化的代码
 
-## 一.未数据驱动的代码
+## 一.没数据驱动的代码
 
-package yunlaiwu.test.app;
-
+    package yunlaiwu.test.app;
     import org.junit.*;
     import yunlaiwu.util.PbgDict;
     import yunlaiwu.util.PbgService;
-
     import java.util.HashMap;
     import java.util.Map;
-
     public class test_ylw_app_image_upload extends PbgService {
     Map<String, Object> applyParams = null;
-
     public void initData() throws Exception {
     applyParams = new HashMap<String, Object>();
     applyParams.put(PbgDict.TOKEN, token1);
     applyParams.put(PbgDict.picname, "%E9%BB%98%E8%AE%A4%E5%9B%BE");
     }
-
-usage.lookup(process.pid, function(err, result) {
-
-if (result === null || result === undefined) {
-console.log("memory check fail");
-return;
-}
-
-//Bytes
-console.info(parseInt(result.memory));
-
-});
-
     @Before
     public void setUp() throws Exception {
     initData();
     }
-
-@After
-public void TearDown() throws Exception {
-this.applyParams.clear();
-this.applyParams = null;
-}
-@AfterClass
-public static void delete() {
-supdelete();
-}
-@Ignore
-@Test
-public void testsSuccessgetcode() throws Exception {
-get("/app/image/upload",applyParams,"正常用例","0");
-}
-@Test
-public void testsfailupload1() throws Exception {
-applyParams.remove(PbgDict.TOKEN);
-get("/app/image/upload",applyParams,"不传token","3000");
-}
-@Test
-public void testsfailupload2() throws Exception {
-applyParams.remove(PbgDict.picname);
-get("/app/image/upload",applyParams,"不传picname","1001");
-}
-}
+    @After
+    public void TearDown() throws Exception {
+    this.applyParams.clear();
+    this.applyParams = null;
+    }
+    @AfterClass
+    public static void delete() {
+    supdelete();
+    }
+    @Ignore
+    @Test
+    public void testsSuccessgetcode() throws Exception {
+    get("/app/image/upload",applyParams,"正常用例","0");
+    }
+    @Test
+    public void testsfailupload1() throws Exception {
+    applyParams.remove(PbgDict.TOKEN);
+    get("/app/image/upload",applyParams,"不传token","3000");
+    }
+    @Test
+    public void testsfailupload2() throws Exception {
+    applyParams.remove(PbgDict.picname);
+    get("/app/image/upload",applyParams,"不传picname","1001");
+    }
+    }
 
 juint框架的特点，是使用@来进行标示，一般的是@BeforeClass－>@Before－>@test->@After－>@Before->@test->@After－>@Before,,,->@After->AfterClass，值得注意的是，@Ignore修饰的方法就像是注释，不被执行，主要是因为代码没完成或者其他原因导致的
+
 一般的@BeforeClass是所有方法的初始化代码，在我的框架中没有出现，，，一般的会有mock打转启动，更换系统的配置文件，比如登录页面需要输入验证码，那么替换一个文件就会把图片验证码换为一个恒定数值
+
 @Before是每个@test方法执行之前的初始化代码，在我的代码中会执行如数组的new，循环参数i的声明，map的公共数据的put等操作
+
 每个@test方法是真正执行的测试代码
+
 @After是在每个test执行之后的简单处理，我的代码里有把map清空或者还原数据库的操作
+
 @AfterClass是在整个测试类完成后对测试环境的复原的操作（如清空数据库等）
+
 在以上每个部分都可以使用java语言来进行简单的程序编写，甚至可以调用其他的方法，使用for循环等
+
 当然，作为一个测试框架，必须允许大量测试用例依次执行，故juint是一种如for循环很相近的框架，那么它们的区别在哪里呢？
 
 
 ## 二，juint与for循环的区别
 
 由上文可以知道，juint在执行相同的before代码后执行不同的test代码，然后执行相同的after代码，这个功能理论上for循环也可以完成，但我认为juint框架与for循环的区别主要是在异常处理上
+
 一般的java循环代码由计数器k来执行，一般报错就会抛出异常，然后跳出for 循环，也就是说，假设执行10000遍代码，在执行第1000次时候出现异常，要么不抛出异常然后执行第1001次，要么抛出异常后跳出循环
+
 一个合格的juint作为一个测试框架，会在每次测试test后清空并建立新的map，关键是，在test代码的某些断言或者其他手段报错或者抛出异常后，依然可以继续执行下一段after代码，并继续执行，最终在报告中正常显示每一段test测试代码的测试结果
+
 当然，在juint框架中是可以使用for循环的，，，两者对异常的处理逻辑确实有明显区别
+
 比如实时监控系统，共有n个url需要监控，我是用juint框架进行编写的，如果使用for循环会导致，在执行第m个url爆出错误，后续的url会不执行而直接发邮件或者短信
 
 ## 三，未数据数据驱动代码解析
 
 
 我司代码主要是由post或者get请求构成（我也不是太懂其他方式的请求）对http的两种请求post和get熟悉的同学比较了解：
+
 总的来说post和get都只需要两个参数，url和参数，假设参数是a＝1，b＝2，c＝3，它们需要我们把参数encode后利用&符号进行拼接为a=1&b=2&c=3，然后将其视为整体，get请求会在url后加上参数，形如http://cloudywood.avosapps.com/api/ip/list?a=1&b=2&c=3，然后将该url利用get的某些方式http请求，而post请求，会将url与参数一起进行http请求
+
 所以，无论是get还是post请求，只需要一个url和一个包涵所有参数的即可map，在底层方法中将map数据用&拼接即可实现http请求
+
 我的测试数据的处理在我的老框架中是用java的map进行的，比如是上一段代码便是如此
-get("/app/image/upload",applyParams,"不传picname","1001");
+
+    get("/app/image/upload",applyParams,"不传picname","1001");
+
 第一个/app/image/upload是接口，在前方补充上URI_BASE后可以变为完整url
+
 第二个是map
+
 第三个参数 不传picname 是描述，用于分辨各个代码，就像是每一个test的名字，便于管理
+
 第四个参数1001是预期返回码用于断言，比较接口实际返回码与预期是否相同，不同就会抛出异常，在报告中有所体现
+
 它调用的方法get（x,x,x,x)具体如下
-public void get(String url,Map parameterMap,String a,String errno1) throws Exception {
-System.out.println("==========get自动化测试" + url + a+"=========");
-System.out.println("OpenaccountURI:" + URI_BASE + url);
-System.out.println("applyParams:" + parameterMap);
-yunlaiwu.util.HttpUtil httpDoGet = new HttpUtil();
-Map<String, Object> result = httpDoGet.doGet(URI_BASE + url, parameterMap);
-System.out.println("result:" + result);
-String errno = result.get(PbgDict.ERRNO).toString();
-System.out.println("errno=" + errno);
-System.out.println("------------------------------\n");
-Assert.assertEquals(errno1, errno);
-}
+
+    public void get(String url,Map parameterMap,String a,String errno1) throws Exception {
+    System.out.println("==========get自动化测试" + url + a+"=========");
+    System.out.println("OpenaccountURI:" + URI_BASE + url);
+    System.out.println("applyParams:" + parameterMap);
+    yunlaiwu.util.HttpUtil httpDoGet = new HttpUtil();
+    Map<String, Object> result = httpDoGet.doGet(URI_BASE + url, parameterMap);
+    System.out.println("result:" + result);
+    String errno = result.get(PbgDict.ERRNO).toString();
+    System.out.println("errno=" + errno);
+    System.out.println("------------------------------\n");
+    Assert.assertEquals(errno1, errno);
+    }
 在get方法中，实现了日志的输出，url的补全，get请求的直接调用和断言判断
 但是在实现过程中，我渐渐发现了这种框架的问题
 1.维护成本高
@@ -157,97 +162,86 @@ header-img: "img/post-bg-01.jpg"
 是用xml，每一个sheet页是一个接口，每一行是一个用例，第1行写明了每一个参数的参数名，而下面的是它们的参数数值
 下面是与其配套的代码
 
-package yunlaiwu.test2.ip.ipcall;
-
-import org.junit.*;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import yunlaiwu.util.PbgDict;
-import yunlaiwu.util.PbgService;
-import yunlaiwu.util.supinit;
-
-import java.io.File;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import static yunlaiwu.util.xls.getxlsData;
-
-/**
-* Created by zlr on 16/10/9.
-*/
-@RunWith(Parameterized.class)
-public class test_ylw_ip_ipcall_submitcall extends PbgService {
-
-Map<String, Object> applyParams = new HashMap<String, Object>();
-//    applyParams = new HashMap<String, Object>();
-String callId=null;
-test_ylw_ip_ipcall_releasecall releasecall = new test_ylw_ip_ipcall_releasecall("1","2","3");
-private String miaoshu;
-private String error;
-private String value;
-private static String key="/ip/ipcall/submitcall";
-@Parameterized.Parameters
-@SuppressWarnings("unchecked")
-public static Collection shiyan2() throws Exception {
-File file = new File(getxlsipcallpath);
-Object[][] object = getxlsData(file, 0, key);
-return  Arrays.asList(object);
-}
-/**
-* 基础数据
-*/
-public void initData() throws Exception {
-applyParams = new HashMap<String, Object>();
-}
-@AfterClass
-public static void delete() {
-supdelete();
-}
-@Before
-public void setUp() throws Exception {
-initData();
-}
-@After
-public void TearDown() throws Exception {
-this.applyParams.clear();
-this.applyParams = null;
-}
-public test_ylw_ip_ipcall_submitcall(String error, String miaoshu, String value){
-this.error = error;
-this.miaoshu = miaoshu;
-this.value=value;
-System.out.println("value=" + value);
-}
-@Test
-public void testsreleasecall() throws Exception{
-System.out.println("value=" + value);
-value=supinit.zhuanhua2(value);
-System.out.println("value=" + value);
-if (miaoshu.equals("重复投稿"))
-{
-Map<String,Object> a=get1(key,value,miaoshu,"0");
-if(error.equals("0"))
-submitcall(a);
-get(key,value,miaoshu,error);
-}
-if (!miaoshu.equals("重复投稿"))
-{
-Map<String,Object> a=get1(key,value,miaoshu,error);
-if(error.equals("0"))
-submitcall(a);
-}
-}
-public void submitcall(Map<String,Object> a)
-{
-Assert.assertEquals(phpsqlselect("ipCallId","ipCall","uid",uid3), getData(a,"ipCallId"));
-Assert.assertEquals(selectsql("status","ipCall","uid",uid3), "0");
-Assert.assertEquals(selectsql("ipFinishStatus","ipCall","uid",uid3), "0");
-//        Assert.assertEquals(phpsqlselect("callId","ipCall","uid",uid3), callId);
-}
-}
+    package yunlaiwu.test2.ip.ipcall;
+    import org.junit.*;
+    import org.junit.runner.RunWith;
+    import org.junit.runners.Parameterized;
+    import yunlaiwu.util.PbgDict;
+    import yunlaiwu.util.PbgService;
+    import yunlaiwu.util.supinit;
+    import java.io.File;
+    import java.util.Arrays;
+    import java.util.Collection;
+    import java.util.HashMap;
+    import java.util.Map;
+    import static yunlaiwu.util.xls.getxlsData;
+    @RunWith(Parameterized.class)
+    public class test_ylw_ip_ipcall_submitcall extends PbgService {
+    Map<String, Object> applyParams = new HashMap<String, Object>();
+    String callId=null;
+    test_ylw_ip_ipcall_releasecall releasecall = new test_ylw_ip_ipcall_releasecall("1","2","3");
+    private String miaoshu;
+    private String error;
+    private String value;
+    private static String key="/ip/ipcall/submitcall";
+    @Parameterized.Parameters
+    @SuppressWarnings("unchecked")
+    public static Collection shiyan2() throws Exception {
+    File file = new File(getxlsipcallpath);
+    Object[][] object = getxlsData(file, 0, key);
+    return  Arrays.asList(object);
+    }
+    public void initData() throws Exception {
+    applyParams = new HashMap<String, Object>();
+    }
+    @AfterClass
+    public static void delete() {
+    supdelete();
+    }
+    @Before
+    public void setUp() throws Exception {
+    initData();
+    }
+    @After
+    public void TearDown() throws Exception {
+    this.applyParams.clear();
+    this.applyParams = null;
+    }
+    public test_ylw_ip_ipcall_submitcall(String error, String miaoshu, String value){
+    this.error = error;
+    this.miaoshu = miaoshu;
+    this.value=value;
+    System.out.println("value=" + value);
+    }
+    @Test
+    public void testsreleasecall() throws Exception{
+    System.out.println("value=" + value);
+    value=supinit.zhuanhua2(value);
+    System.out.println("value=" + value);
+    if (miaoshu.equals("重复投稿"))
+    {
+    Map<String,Object> a=get1(key,value,miaoshu,"0");
+    if(error.equals("0"))
+    submitcall(a);
+    get(key,value,miaoshu,error);
+    }
+    if (!miaoshu.equals("重复投稿"))
+    {
+    Map<String,Object> a=get1(key,value,miaoshu,error);
+    if(error.equals("0"))
+    submitcall(a);
+    }
+    }
+    public void submitcall(Map<String,Object> a)
+    {
+    Assert.assertEquals(phpsqlselect("ipCallId","ipCall","uid",uid3), getData(a,"ipCallId"));
+    Assert.assertEquals(selectsql("status","ipCall","uid",uid3), "0");
+    Assert.assertEquals(selectsql("ipFinishStatus","ipCall","uid",uid3), "0");
+    }
+    }
 
 可以看到，这个代码的话和那套没有数据驱动的代码还是有很多相似性的
+
 大体来看，执行第一行时，我会把每行所有的数据进行处理，使得它们能最终只传输给脚本3个参数，第一行就会传入error =0,miaoshu =投稿成功，value ＝a=1&b=2&c=3,,,key的话是初始化接口的url，然后运用get1(key,value,miaoshu,error)发送http请求，如果返回码为0视为成功并进行数据库校验
+
 当然还有初始化的问题，比如投稿的话，需要卖方先建造－>发布合格的ip，然后买方发布相应的征稿，最后才是投稿这一步，所以在代码里投稿只是其中一小部分，初始化也是个问题
