@@ -10,43 +10,38 @@ header-img: "img/post-bg-01.jpg"
 
 > 自动化的意思就是让代码定时运行，替代人来进行每日每夜的重复性劳动
 
-自动化包含ui自动化测试，接口自动化以及监控等等，下面是我的接口自动化的代码
-
 java代码，使用linux定时任务+ant+juint实现，已经实现了数据驱动，我使用的是juint框架
 ## 1.什么是juint框架
 JUnit是一个Java语言的单元测试框架。它由Kent Beck和Erich Gamma建立，逐渐成为源于Kent Beck的sUnit的xUnit家族中最为成功的一个。 JUnit有它自己的JUnit扩展生态圈。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。
+
 JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）。Junit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。Junit是一套框架，继承TestCase类，就可以用Junit进行自动测试了。
+
+自动化包含ui自动化测试，接口自动化以及监控等等，下面是我的接口自动化的代码
 
 ## 一.未数据驱动的代码
 
 package yunlaiwu.test.app;
 
-import org.junit.*;
-import yunlaiwu.util.PbgDict;
-import yunlaiwu.util.PbgService;
+    import org.junit.*;
+    import yunlaiwu.util.PbgDict;
+    import yunlaiwu.util.PbgService;
 
-import java.util.HashMap;
-import java.util.Map;
+    import java.util.HashMap;
+    import java.util.Map;
 
-/**
-* Created by zlr on 16/10/14.
-*/
-public class test_ylw_app_image_upload extends PbgService {
-Map<String, Object> applyParams = null;
+    public class test_ylw_app_image_upload extends PbgService {
+    Map<String, Object> applyParams = null;
 
-/**
-* 基础数据
-*/
-public void initData() throws Exception {
-applyParams = new HashMap<String, Object>();
-applyParams.put(PbgDict.TOKEN, token1);
-applyParams.put(PbgDict.picname, "%E9%BB%98%E8%AE%A4%E5%9B%BE");
-}
+    public void initData() throws Exception {
+    applyParams = new HashMap<String, Object>();
+    applyParams.put(PbgDict.TOKEN, token1);
+    applyParams.put(PbgDict.picname, "%E9%BB%98%E8%AE%A4%E5%9B%BE");
+    }
 
-@Before
-public void setUp() throws Exception {
-initData();
-}
+    @Before
+    public void setUp() throws Exception {
+    initData();
+    }
 
 @After
 public void TearDown() throws Exception {
