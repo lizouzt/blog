@@ -38,6 +38,18 @@ package yunlaiwu.test.app;
     applyParams.put(PbgDict.picname, "%E9%BB%98%E8%AE%A4%E5%9B%BE");
     }
 
+usage.lookup(process.pid, function(err, result) {
+
+if (result === null || result === undefined) {
+console.log("memory check fail");
+return;
+}
+
+//Bytes
+console.info(parseInt(result.memory));
+
+});
+
     @Before
     public void setUp() throws Exception {
     initData();
