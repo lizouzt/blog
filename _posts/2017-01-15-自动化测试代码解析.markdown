@@ -1,7 +1,7 @@
 ---
 layout:     post    
 title:      "自动化测试代码解析"    
-subtitle:   "整体框架"          
+subtitle:   "整体框架解析"          
 date:       2017-01-15            
 author:     "zlr"                      
 comments:	true
@@ -262,4 +262,38 @@ juint框架的特点，是使用@来进行标示，一般的是@BeforeClass－>@
 
 大体来看，执行第一行时，我会把每行所有的数据进行处理，使得它们能最终只传输给脚本3个参数，第一行就会传入error =0,miaoshu =投稿成功，value ＝a=1&b=2&c=3,,,key的话是初始化接口的url，然后运用get1(key,value,miaoshu,error)发送http请求，如果返回码为0视为成功并进行数据库校验
 
-当然还有初始化的问题，比如投稿的话，需要卖方先建造－>发布合格的ip，然后买方发布相应的征稿，最后才是投稿这一步，所以在代码里投稿只是其中一小部分，初始化也是个问题
+当然还有初始化的问题，比如投稿的话，需要卖方先建造－>发布合格的ip，然后买方发布相应的征稿，最后才是投稿这一步，所以在代码里投稿只是其中一小部分，初始化也曾经是个很严峻问题
+
+我在代码中实现是在底层实现的，下面是部分代码
+
+    value = value.replaceAll("setTime14",  Util.strTime14());
+    value = value.replaceAll("setTime8",  Util.strDate8());
+    value = value.replaceAll("setTime6",  Util.strTime6());
+    value = value.replaceAll("token=buy",  "token="+token1);
+    value = value.replaceAll("buid",  uid1);
+    value = value.replaceAll("spuid2",  uid2);
+    value = value.replaceAll("spuid3",  uid3);
+    value = value.replaceAll("token=soldperson2",  "token="+token2);
+    value = value.replaceAll("token=soldperson",  "token="+token3);
+    value = value.replaceAll("mobiles=mobile",  "mobiles="+mobile);
+    value = value.replaceAll("mobile=mobile",  "mobile="+mobile);
+    if((value.indexOf(URLEncoder.encode("已审核callId","utf-8"))!=-1)||(value.indexOf("已审核callId")!=-1))
+    {
+    Map<String,Object> releasecall_result = testsSuccessreleasecall_map();
+    Map<String, Object> applyParams1 = new HashMap<String, Object>();
+    applyParams1.put(PbgDict.status, "1");
+    applyParams1.put("callId", getData(releasecall_result,"callId"));
+    post("/ip/ipcall/verifycall", applyParams1,"正常status＝1审核通过","0");
+    value = value.replaceAll(URLEncoder.encode("已审核callId","utf-8"),  getData(releasecall_result,"callId"));
+    value = value.replaceAll("已审核callId",  getData(releasecall_result,"callId"));
+    Assert.assertEquals(selectsql("status","call","projectDesc","zlr"), "2");
+    Assert.assertEquals(selectsql("subStatus","call","projectDesc","zlr"), "0");
+    }
+
+一方面，针对固定位数随机数这种xml不易表达的东西，使用了约定的某些表达方式，再在代码中替换
+
+另一方面，针对特定的业务场景，比如需要生成订单，生成ip或者生成征稿，约定好在xml中填写诸如“已审核callId”的汉字，这样传入的是a=已审核callId&b=1,,,代码中识别到这种字段，先运行初始化程序生成满足条件的callId，再用这个callId替换掉原先的“已审核callId”，这是就是a=1234567&b=1,,,
+
+利用上述手段便实现了数据驱动，使得所有的测试数据保存在各种形式的文档中，这样如果有新增或者修改就不需要改代码，妈妈也再也不用担心了～
+
+
