@@ -227,9 +227,10 @@ FMDataBaseQueue: 用于多线程执行多个查询或者更新，他是线程安
             print(name,age,score)
         }
     }
-    
-    
-    
+
+
+
+
 四、CoreData
 Core Data框架提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite3数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，不需要编写任何SQL语句。
 
