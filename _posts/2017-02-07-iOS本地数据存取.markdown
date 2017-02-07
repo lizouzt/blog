@@ -78,13 +78,13 @@ Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)�
 
 举个例子：将一个NSDictionary对象归档到一个plist属性列表中
 
-    var dic = [String: String]()
-    let home = NSHomeDirectory()
-	var path = home.stringByAppendingString("/Documents/jyh.plist")
-	dic["jjj"] = "jjj"
-	dic["yyy"] = "yyy"
-	dic["hhh"] = "hhh"
-	(dic as NSDictionary).writeToFile(path, atomically: true)
+      var dic = [String: String]()
+      let home = NSHomeDirectory()
+	  var path = home.stringByAppendingString("/Documents/jyh.plist")
+	  dic["jjj"] = "jjj"
+	  dic["yyy"] = "yyy"
+	  dic["hhh"] = "hhh"
+	  (dic as NSDictionary).writeToFile(path, atomically: true)
 
 
 ![ipv6.png](/blog/img/jyh/file.png)
@@ -119,7 +119,9 @@ Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)�
 不是所有的对象(非OC对象)都可以直接用这种方法进行归档，只有遵守了NSCoding协议的对象才可以
 
 NSCoding协议有2个方法：
+
 encodeWithCoder:每次归档对象时，都会调用这个方法。一般在这个方法里面指定如何归档对象中的每个实例变量，可以使用encodeObject:forKey:方法归档实例变量
+
 initWithCoder:每次从文件中恢复(解码)对象时，都会调用这个方法。一般在这个方法里面指定如何解码文件中的数据为对象的实例变量，可以使用decodeObject:forKey方法解码实例变量
 
     class priVC: NSObject,NSCoding {
@@ -166,7 +168,7 @@ SQLite3 是一款开源的轻型的嵌入式关系型数据库，可移植性好
 优点是：
 使用起来更加面向对象，省去麻烦冗余的C语言的代码，对比苹果的Core Data 框架，更加的轻量级和灵活，提供了多线程安全的数据库操作方法，有效防止数据混乱。
 
-FMDB有三个三个主要的类：
+FMDB有三个主要的类：
 
 FMDataBase :一个FMDataBase 对象就代表一个单独的DataBase数据库，用来执行SQL语句。
 
