@@ -1,0 +1,237 @@
+---
+layout:     post    
+title:      "iOS本地数据存取"    
+subtitle:   "沙盒&存储方式"          
+date:       2017-02-05            
+author:     "jyh"                      
+comments:	true
+header-img: "img/jyh/post-bg-01.jpg"
+---
+## 什么是沙盒（sandbox）
+> 为一些不可靠的程序提供实验而不影响系统运行的环境，有时也被称做沙箱。
+
+核心： sandbox对应用程序执行各种操作的权限限制。
+
+iOS中的沙盒机制：
+
+- 每个应用程序都有自己的存储空间。
+
+- 应用程序不能翻过自己的围墙去访问别的存储空间的内容。
+
+- 应用程序请求的数据都要通过权限检测，假如不符合条件的话，不会被放行。
+
+一、iOS应用沙盒结构分析：
+
+![ipv6.png](/blog/img/jyh/document.png)
+
+Documents：
+保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录
+
+tmp：
+保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录
+
+Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据（SDImage）
+
+Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录
+
+二、沙盒路径：
+
+前往文件夹 ~/Library
+资源库 - Developer - CoreSimulator - Devices -  2CDE1FD0-9EF1-4CA1-B480-4CC4AA52953D（设备即模拟器） - data - 资源库 - Containers - Data - Application - 43BD49CD-682D-4484-932D-B5EE9EB26C6D - 图片document目录
+
+获取沙盒路径：
+
+
+
+    var dic = [String: String]()
+    
+    //获取沙盒目录
+    let home = NSHomeDirectory()
+    
+	// .UserDomainMask 代表从用户文件夹下找
+	// true 代表展开路径中的波浪字符“~”
+	let arr = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+	let tmpArr = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+	
+	// 在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素
+	let document = arr[0]
+	
+	/*
+	"/var/folders/8s/fh6sz13574d8_0q0qzg86j7h0000gp/T/com.apple.dt.Xcode.pg/containers/com.apple.dt.playground.stub.iOS_Simulator.plistExample-196FE2E4-23F3-4FB2-AE08-D0579A77FFF0/Documents"
+	*/
+
+## iOS应用数据存储的常用方式
+- XML属性列表（plist）归档
+
+- NSKeyedArchiver归档（NSCoding）
+
+- SQLite3（FMDB）
+
+- Core Data
+
+
+一、XML属性列表（plist）归档
+
+属性列表是一种XML格式的文件，拓展名为plist。
+
+如果对象是NSString、NSDictionary、Array、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中。
+
+举个例子：将一个NSDictionary对象归档到一个plist属性列表中
+
+      var dic = [String: String]()
+      let home = NSHomeDirectory()
+	  var path = home.stringByAppendingString("/Documents/jyh.plist")
+	  dic["jjj"] = "jjj"
+	  dic["yyy"] = "yyy"
+	  dic["hhh"] = "hhh"
+	  (dic as NSDictionary).writeToFile(path, atomically: true)
+
+
+![ipv6.png](/blog/img/jyh/file.png)
+
+
+![ipv6.png](/blog/img/jyh/plist.png)
+
+- Preference 
+
+  还有一种更简单的方式NSUserDefaults，iOS提供了一套标准的解决方案来为应用加入偏好设置功能，本质还是通过plist来存储数据，但是使用更加简单，无需关注文件、文件夹路径和名称
+每个应用都有个NSUserDefaults实例（单例），通过它来存取偏好设置，比如，保存用户名、字体大小、是否自动登录等。
+
+     
+         //.利用NSUserDefaults，就能直接访问软件的偏好设置（Library/Preferences)  
+              let defaults = NSUserDefaults.standardUserDefaults()
+              defaults.setObject("长沙市", forKey:"city")
+              defaults.setObject("湖南省",forKey:"province")
+              defaults.synchronize()
+
+<!---->
+          //读取
+          let defaults = NSUserDefaults.standardUserDefaults()
+          let string = defaults.objectForkey("city")   
+          
+                  
+ 注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入
+ 
+ 二、NSCoding (NSKeyedArchiver\NSKeyedUnarchiver)
+ 
+ 如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，可以直接用NSKeyedArchiver进行归档和恢复。
+ 
+不是所有的对象(非OC对象)都可以直接用这种方法进行归档，只有遵守了NSCoding协议的对象才可以
+
+NSCoding协议有2个方法：
+
+encodeWithCoder:每次归档对象时，都会调用这个方法。一般在这个方法里面指定如何归档对象中的每个实例变量，可以使用encodeObject:forKey:方法归档实例变量
+
+initWithCoder:每次从文件中恢复(解码)对象时，都会调用这个方法。一般在这个方法里面指定如何解码文件中的数据为对象的实例变量，可以使用decodeObject:forKey方法解码实例变量
+
+    class priVC: NSObject,NSCoding {
+        let name = "jyh"
+        let choose : Bool = true
+        //将对象归档
+        //在这个方法里说清楚：1.哪些属性需要存储  2.怎样存储这些属性 
+        
+        func encodeWithCoder(aCoder: NSCoder) {        
+        aCoder.encodeObject(self.name, forKey: "name")
+        aCoder.encodeBool(choose, forKey: "choose")
+        }
+        //解析对象
+        //在这个方法说清楚： 1.那个属性需要解析（读取）  2.怎样解析（读取）这些属性
+        required init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObjectForKey("name")
+        let choose = aDecoder.decodeBoolForKey("choose")
+        }
+     }
+在指定文件中存储数据和读取数据
+
+    let path = "/Users/jyh/Desktop/person.data"
+    var person = [String: AnyObject]()
+
+    func save() {
+        person["name"] = "jyh"
+        person["age"] = 18
+        NSKeyedArchiver.archiveRootObject(person, toFile: path)
+    }
+    func read() {
+        let person = NSKeyedUnarchiver.unarchiveObjectWithFile(self.path) as? [String: AnyObject]
+        let name = person?["name"]
+        let age = person?["age"]
+        
+    }
+
+
+三、 SQLite3（FMDB）
+
+SQLite3 是一款开源的轻型的嵌入式关系型数据库，可移植性好、易使用、内存开销小，SQLite3 是无类型的，可以保存任何类型的数据到任意的字段中。
+通常会使用FMDB等第三方库
+它封装了SQLite的C语言API
+
+优点是：
+使用起来更加面向对象，省去麻烦冗余的C语言的代码，对比苹果的Core Data 框架，更加的轻量级和灵活，提供了多线程安全的数据库操作方法，有效防止数据混乱。
+
+FMDB有三个主要的类：
+
+FMDataBase :一个FMDataBase 对象就代表一个单独的DataBase数据库，用来执行SQL语句。
+
+FMResultSet: 使用FMResultSet执行查询后的结果集。
+
+FMDataBaseQueue: 用于多线程执行多个查询或者更新，他是线程安全的。
+
+
+
+    static let shareInstance = SQLiteTool()
+    //创建和打开一个数据库
+    //如果有就直接打开,如果没有,创建一个再打开
+    lazy var db: FMDatabase = {
+        let path = "/Users/jyh/Desktop/dataBase" + "/batac.sqlite"
+        let db = FMDatabase(path: path)
+        return db
+    }()
+    //实例化db对象的时候就会默认打开或创建一个数据库
+    override init() {
+        super.init()
+        if db.open(){
+            print("打开数据库成功")
+        }
+    }
+
+    func createTable() -> Void {
+        let sql = "create table  t_ball(id integer primary key autoincrement,name text not null,age integer ,score real default 59.0)"
+
+        let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+        if result {
+            print("创建表格成功")
+        }
+    }
+    func dropTable() -> Void {
+        let sql = "drop table if exists t_ball"
+        let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+        if result {
+            print("删除表格成功")
+        }
+    }
+    func insertData() -> Void {
+        let sql = "insert into t_ball (name,age,score) values ('Batac',20,100)"
+        let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+        if result {
+            print("插入成功")
+        }
+    }
+    func quaryData() -> Void {
+
+        let sql = "select * from t_ball"
+        let resultSet = db.executeQuery(sql, withArgumentsInArray: nil)
+        while resultSet.next() {
+            let name = resultSet.stringForColumn("name")
+            let age = resultSet.intForColumn("age")
+            let score = resultSet.doubleForColumn("score")
+            print(name,age,score)
+        }
+    }
+
+
+
+
+四、CoreData
+Core Data框架提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite3数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，不需要编写任何SQL语句。
+
+ ![ipv6.png](/blog/img/jyh/coreData.png)
