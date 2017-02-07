@@ -1,0 +1,17 @@
+---
+layout:     post    
+title:      "基于go语言的推荐服务搭建"    
+subtitle:   "占坑"          
+date:       2017-01-22            
+author:     "徐兴军"                      
+comments:	true
+header-img: "img/post-bg-02.jpg"
+---
+	下次分享占坑
+## go语法简介
+* 变量
+* 分支
+	* if
+	* for
+	* switch
+## 推荐服务需要的组件
