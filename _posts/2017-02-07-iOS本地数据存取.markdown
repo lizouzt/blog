@@ -5,7 +5,7 @@ subtitle:   "沙盒&存储方式"
 date:       2017-02-05            
 author:     "jyh"                      
 comments:	true
-header-img: "img/jyh/post-bg-01.png"
+header-img: "img/jyh/post-bg-01.jpg"
 ---
 ## 什么是沙盒（sandbox）
 > 为一些不可靠的程序提供实验而不影响系统运行的环境，有时也被称做沙箱。
