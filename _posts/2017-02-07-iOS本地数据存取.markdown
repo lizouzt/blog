@@ -44,15 +44,18 @@ Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)�
 
 
     var dic = [String: String]()
-    //沙盒目录
+    
+    //获取沙盒目录
     let home = NSHomeDirectory()
-	print(home)
+    
 	// .UserDomainMask 代表从用户文件夹下找
 	// true 代表展开路径中的波浪字符“~”
 	let arr = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
 	let tmpArr = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+	
 	// 在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素
 	let document = arr[0]
+	
 	/*
 	"/var/folders/8s/fh6sz13574d8_0q0qzg86j7h0000gp/T/com.apple.dt.Xcode.pg/containers/com.apple.dt.playground.stub.iOS_Simulator.plistExample-196FE2E4-23F3-4FB2-AE08-D0579A77FFF0/Documents"
 	*/
@@ -75,14 +78,17 @@ Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)�
 
 举个例子：将一个NSDictionary对象归档到一个plist属性列表中
 
+    var dic = [String: String]()
     let home = NSHomeDirectory()
 	var path = home.stringByAppendingString("/Documents/jyh.plist")
-	ic["jjj"] = "jjj"
-	ic["yyy"] = "yyy"
-	ic["hhh"] = "hhh"
-	dic as NSDictionary).writeToFile(path, atomically: true)
+	dic["jjj"] = "jjj"
+	dic["yyy"] = "yyy"
+	dic["hhh"] = "hhh"
+	(dic as NSDictionary).writeToFile(path, atomically: true)
+
 
 ![ipv6.png](/blog/img/jyh/file.png)
+
 
 ![ipv6.png](/blog/img/jyh/plist.png)
 
@@ -101,7 +107,9 @@ Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)�
 <!---->
           //读取
           let defaults = NSUserDefaults.standardUserDefaults()
-          let string = defaults.objectForkey("city")           
+          let string = defaults.objectForkey("city")   
+          
+                  
  注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入
  
  二、NSCoding (NSKeyedArchiver\NSKeyedUnarchiver)
@@ -217,6 +225,10 @@ FMDataBaseQueue: 用于多线程执行多个查询或者更新，他是线程安
             print(name,age,score)
         }
     }
+    
+    
+    
 四、CoreData
 Core Data框架提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite3数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，不需要编写任何SQL语句。
+
  ![ipv6.png](/blog/img/jyh/coreData.png)
