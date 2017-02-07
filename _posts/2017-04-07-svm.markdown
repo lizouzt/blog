@@ -66,12 +66,15 @@ header-img: "img/post-bg-04.jpg"
 
 
 $$(x_1,x_x,\ldots,x_p)^T$$
+
 称之为一个样本（Sample）或者一个观测点，是p维列向量，每一个分量称为一个特征（Feature），容易看出共有p个特征。
 
 对于监督学习而言，还要加上标注值y
+
 $$(x_1,x_x,\ldots,x_p,y)^T$$
 
 这样对于n个样本，我们得到输入矩阵
+
 $$\left( \begin{array}{ccc}
 x_{11} & x_{12} & ... & x_{1p} & y_{1} \\
 x_{21} & x_{22} & ... & x_{2p} & y_{2} \\
@@ -90,17 +93,25 @@ x_{n1} & x_{n2} & ... & x_{np} & y_{n} \end{array} \right)$$
 _非概率模型_
 
 假设空间用 \\(\mathcal{F}\\) 表示，可以定义为决策函数的集合
+
 $$ \mathcal{F} = \{f | Y = f(X)\}$$
+
 其中X和Y是定义在输入空间\\(\mathcal{X}\\)和输出空间\\(\mathcal{Y}\\)上的变量，这时\\(\mathcal{F}\\)通常是由一个参数向量决定的函数族：
+
 $$ \mathcal{F} = \{f | Y = f_{\theta}(X), \theta \subseteq R^n\}$$
+
 参数向量\\(\theta\\)取值于n维欧式空间\\(R^n\\)，称为参数空间(Parameter Space)。
 
 _概率模型_
 
 假设空间也可以定义为条件概率集合
+
 $$ \mathcal{F} = \{P | P(Y|X)\}$$
+
 其中X和Y是定义在输入空间\\(\mathcal{X}\\)和输出空间\\(\mathcal{Y}\\)上的随机变量，这时\\(\mathcal{F}\\)通常是由一个参数向量决定的条件概率分布族：
+
 $$ \mathcal{F} = \{P | P_{\theta}(Y|X), \theta \subseteq R^n\}$$
+
 参数向量\\(\theta\\)取值于n维欧式空间\\(R^n\\)，也称为参数空间。
 
 
