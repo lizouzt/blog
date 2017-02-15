@@ -262,6 +262,7 @@ $$\lambda = \frac{\omega^TX + b}{\lVert \omega \rVert}$$
 $$\gamma = min(\frac{Y^i(\omega ^TX^i + b))}{\lVert \omega \rVert}, i = 1,2,\dots,n$$
 
 ##SVM对应的最优化问题
+
 上面我们已经得到了几何距离\\(\lambda\\)的表达式，并且注意到随着\\(\omega\\)变化，这个间隔其实是不变的。那么这里完全可以令\\(\lVert \omega \rVert\\)为1，这样，几何距离等同于函数距离。
 
 我们的策略是使数据集上的几何距离最大：
@@ -269,6 +270,7 @@ $$\gamma = min(\frac{Y^i(\omega ^TX^i + b))}{\lVert \omega \rVert}, i = 1,2,\dot
 $$\begin{align} & \max_{\omega, b} \gamma \\
 & s.t. Y^i(\omega^TX^i + b) \ge \gamma, i = 1,2,\dots,m \\
 & s.t. \lVert \omega \rVert = 1 \end{align}$$
+
 
 ##待续
 
