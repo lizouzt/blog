@@ -195,8 +195,28 @@ $$ \displaystyle \min_{f \subseteq \mathcal{F}}\frac{1}{N} \sum_{i=1}^n L(Y_i,f(
 优先选择更简单的模型！
 
 
-## 待续
+## 支持向量机
 
+支持向量机(Support Vector Machine)是一种二分类的线性分类器。在n维向量空间中，线性分类器即对应空间中的超平面\\(\omega ^TX + b = 0\\)，这个超平面将空间分为两部分A/B。一个n维样本点X，可被分类为：
 
+$$f(X)=\left\{
+\begin{aligned}
++1 & , & \omega ^TX + b > 0 \\
+-1 & , & \omega ^TX + b < 0 \\
+\end{aligned}
+\right.$$
+
+假定我们学习样本是线性可分的，即存在这样的一个或者一些超平面，将样本分为两类，或者将样本空间分为A/B两部分，那我们学习的目的就是找到这样的超平面，此即SVM算法的模型。
+
+通常情况下，这样的超平面是无限多的，那哪个超平面是最好的呢？
+SVM算法认为，具有最大可分间隔(maxmium margin)的那个超平面就是最好的，此即SVM算法的策略。
+
+请看下面几张图：
+
+<img src="/blog/img/svm/svm_demo_1.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+
+<img src="/blog/img/svm/svm_demo_2.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+
+<img src="/blog/img/svm/svm_demo_3.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
 
 
