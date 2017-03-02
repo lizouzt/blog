@@ -22,15 +22,15 @@ header-img: "img/database.jpg"
 
 - 将新从库提升为主库（一键提升）。
 
-- 在中控机learnlaravel5根目录下执行sh cache.sh，使新配置文件生效。
+- 在中控机代码根目录下执行sh cache.sh，使新配置文件生效。
 
 - 执行sh local.sh脚本，查看各接口服务是否正常。
 
 - 观察日志，看是否存在报错，若无报错进行下一步，否则，进行回滚操作。
 
-- 将新的database.conf文件scp到on1机器（后续会提供脚本），在on1机器的learnlaravel5根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。
+- 将新的database.conf文件scp到on1机器（后续会提供脚本），在on1机器的代码根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。
 
-- 将中控机上的database.conf文件scp到其他线上机器（后续会提供脚本），在learnlaravel5根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。
+- 将中控机上的database.conf文件scp到其他线上机器（后续会提供脚本），在代码根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。
 
 - 观察线上日志，查看关键页面是否正常，若正常则进行下一步，否则，进行回滚操作。
 
