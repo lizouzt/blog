@@ -291,7 +291,6 @@ DDOS（Distributed Denial of Service）是分布式拒绝服务攻击。</p>
 <p>假设（实际上没有那么傻）银行网站B，它以GET请求来完成银行转账的操作，如：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000
-
 </code></pre>
 </div>
 <p>而银行网站B的身份认证是通过cookie来完成的。</p>
@@ -299,7 +298,6 @@ DDOS（Distributed Denial of Service）是分布式拒绝服务攻击。</p>
 <p>危险网站B，它里面有一段HTML的代码如下：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;img src="http://www.mybank.com/Transfer.php?toBankId=11&amp;money=1000"&gt;
-
 </code></pre>
 </div>
 
@@ -327,7 +325,6 @@ DDOS（Distributed Denial of Service）是分布式拒绝服务攻击。</p>
 　　　　<span class="nt">&lt;/iframe&gt;</span>
 　　<span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-
 </code></pre>
 </div>
 

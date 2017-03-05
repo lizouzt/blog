@@ -148,7 +148,6 @@ CSRF是一个已经有些过气的攻击方法，但是一旦和其他攻击方�
 
 ```
 http://www.mybank.com/Transfer.php?toBankId=11&money=1000
-
 ```
 而银行网站B的身份认证是通过cookie来完成的。
 
@@ -156,7 +155,6 @@ http://www.mybank.com/Transfer.php?toBankId=11&money=1000
 
 ```
 <img src="http://www.mybank.com/Transfer.php?toBankId=11&money=1000">
-
 ```
 
 悲哀的是此时我们本地关于银行B的cookie还没有过期，这个请求是被准确的。
@@ -184,7 +182,6 @@ ok，用户A向银行B报告了这件事，经过前面惨痛的教训，银行B
 　　　　</iframe>
 　　</body>
 </html>
-
 ```
 
 又是一千块钱就这么没了，欲哭无泪啊！
