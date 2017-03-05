@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>Gulp + Webpack + AMD + NG1 + REACT + BLADE的开发、编译、部署环境搭建 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://localhost:4000/blog/2016/06/15/framework/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                
+                
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post-bg-01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Gulp + Webpack + AMD + NG1 + REACT + BLADE的开发、编译、部署环境搭建</h1>
+                    
+                    <h2 class="subheading">有点儿麻烦，但是就这样了</h2>
+                    
+                    <span class="meta">Posted by stefan on June 15, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h2 id="综述">综述</h2>
+
+<p>虽然FIS干这个比较屌，但是还是选择了攒一套，有点儿简陋，但是慢慢丰富吧。</p>
+
+<p>主要实现这么几个功能：</p>
+
+<ul>
+  <li>能够支持多模块开发，每个模块基于<code class="highlighter-rouge">AMD</code>进行依赖管理</li>
+  <li>能够支持模块内的自由打包</li>
+  <li>支持模块之间互访静态资源</li>
+  <li>支持本地调试Blade模板</li>
+  <li>支持自动化部署测试环境以及同步CDN（待开发）</li>
+</ul>
+
+<p>接下来分别介绍<code class="highlighter-rouge">目录结构</code>，<code class="highlighter-rouge">common模块配置</code>，<code class="highlighter-rouge">普通模块配置</code>，<code class="highlighter-rouge">Blade模板和本地Server调试</code>。</p>
+
+<h2 id="目录结构">目录结构</h2>
+
+<p>首先，配置基础开发环境，后续我们称之为<code class="highlighter-rouge">base</code>，私有repos在<a href="https://github.com/yunlaiwu/base">这里</a>，这里介绍下是啥样的：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>.
++-- cache
++-- modules
+|   +-- module_a
+|   +-- module_b
++-- node_modules
++-- pages
++-- composer.json
++-- config.php
++-- gulpfile.js
++-- helpers.php
++-- index.php
++-- package.json
+</code></pre>
+</div>
+
+<p>其中<code class="highlighter-rouge">cache</code>、<code class="highlighter-rouge">pages</code>、<code class="highlighter-rouge">composer.json</code>、<code class="highlighter-rouge">config.php</code>、<code class="highlighter-rouge">helpers.php</code>、<code class="highlighter-rouge">index.php</code>是和本地Blade模板调试相关的。</p>
+
+<p><code class="highlighter-rouge">gulpfile.js</code>用于配置Gulp的编译脚本，由于我们的amd的config文件是所有模块共用的，所以所有模块共享这一个编译文件（这么干是为了省事儿），当然，针对不同模块有不同的task。</p>
+
+<p>如下是我们的<code class="highlighter-rouge">gulpfile.js</code>的样子，包含对common和demo模块的编译：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">amdOptimize</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'amd-optimize'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">concat</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-concat'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">sourcemap</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-sourcemaps'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rev</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-rev'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-watch'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">runSequence</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-run-sequence'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">clean</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-clean'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">less</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-less'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">csso</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-csso'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">uglify</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-uglify'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">eventStream</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"event-stream"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"gulp-order"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ngAnnotate</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'gulp-ng-annotate'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">requireConfig</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">baseUrl</span><span class="p">:</span> <span class="nx">__dirname</span><span class="p">,</span>
+	<span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s1">'jQuery'</span><span class="p">:</span> <span class="s1">'node_modules/jquery/dist/jquery'</span><span class="p">,</span>
+		<span class="s1">'angular'</span><span class="p">:</span> <span class="s1">'node_modules/angular/angular'</span><span class="p">,</span>
+		<span class="s1">'angular-route'</span><span class="p">:</span> <span class="s1">'node_modules/angular-route/angular-route'</span>
+	<span class="p">},</span>
+	<span class="na">findNestedDependencies</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="na">shim</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s1">'angular'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">exports</span><span class="p">:</span> <span class="s1">'angular'</span>
+		<span class="p">},</span>
+		<span class="s1">'jQuery'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">exports</span><span class="p">:</span> <span class="s1">'jQuery'</span>
+		<span class="p">},</span>
+		<span class="s1">'angular-route'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="s1">'angular'</span><span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">deepClone</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">obj</span><span class="p">));</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">getSrcPath</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">mod</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="s1">'modules/'</span> <span class="o">+</span> <span class="nx">mod</span> <span class="o">+</span> <span class="s1">'/public/'</span> <span class="o">+</span> <span class="nx">mod</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">COMMON_LIB</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'angular'</span><span class="p">,</span> <span class="s1">'jQuery'</span><span class="p">,</span> <span class="s1">'angular-route'</span><span class="p">];</span>
+
+
+<span class="cm">/********************* for common ****************************/</span>
+
+
+<span class="kd">var</span> <span class="nx">MODULE_NAME_COMMON</span> <span class="o">=</span> <span class="s1">'common'</span><span class="p">;</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'common-clean'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_COMMON</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">clean</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">commonBuild</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">runSequence</span><span class="p">(</span><span class="s1">'common-clean'</span><span class="p">,</span> <span class="s1">'common-package-lib'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'common-package-lib'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="s1">'lib'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">srcPath</span> <span class="o">=</span> <span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_COMMON</span><span class="p">);</span>
+
+	<span class="k">return</span> <span class="nx">eventStream</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s2">"node_modules/almond/almond.js"</span><span class="p">),</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/ylw.js'</span><span class="p">),</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+				<span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/**/*.js'</span>
+			<span class="p">])</span>
+			<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">amdOptimize</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/main'</span><span class="p">,</span> <span class="nx">requireConfig</span><span class="p">))</span>
+			<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="s1">'index.js'</span><span class="p">))</span>
+		<span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">order</span><span class="p">([</span><span class="s2">"**/almond.js"</span><span class="p">,</span> <span class="s2">"**/ylw.js"</span><span class="p">,</span> <span class="s2">"**/index.js"</span><span class="p">]))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pack</span> <span class="o">+</span> <span class="s1">'.js'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ngAnnotate</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">.</span><span class="nx">manifest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist/manifest.json'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">base</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">,</span>
+			<span class="na">merge</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">}))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'common'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">watch</span><span class="p">([</span><span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_COMMON</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/src/**'</span><span class="p">],</span> <span class="nx">commonBuild</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'common-build'</span><span class="p">,</span> <span class="nx">commonBuild</span><span class="p">);</span>
+
+
+<span class="cm">/********************* for demo ****************************/</span>
+
+<span class="kd">var</span> <span class="nx">MODULE_NAME_DEMO</span> <span class="o">=</span> <span class="s1">'demo'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">demoBuild</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">runSequence</span><span class="p">(</span><span class="s1">'demo-clean'</span><span class="p">,</span> <span class="s1">'demo-package-main'</span><span class="p">,</span> <span class="s1">'demo-package-main-css'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo-clean'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_DEMO</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">clean</span><span class="p">());</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo-package-main'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="s1">'main'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">srcPath</span> <span class="o">=</span> <span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_DEMO</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">rConfig</span> <span class="o">=</span> <span class="nx">deepClone</span><span class="p">(</span><span class="nx">requireConfig</span><span class="p">);</span>
+	<span class="c1">//very important</span>
+	<span class="nx">rConfig</span><span class="p">.</span><span class="nx">exclude</span> <span class="o">=</span> <span class="nx">COMMON_LIB</span><span class="p">;</span>
+
+	<span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+			<span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/**/*.js'</span>
+		<span class="p">])</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">amdOptimize</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/js/app'</span><span class="p">,</span> <span class="nx">rConfig</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pack</span> <span class="o">+</span> <span class="s1">'.js'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ngAnnotate</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">.</span><span class="nx">manifest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist/manifest.json'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">base</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">,</span>
+			<span class="na">merge</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">}))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo-package-main-css'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="s1">'main'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">srcPath</span> <span class="o">=</span> <span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_DEMO</span><span class="p">);</span>
+	<span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+			<span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/**/*.css'</span>
+		<span class="p">])</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">less</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">csso</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pack</span> <span class="o">+</span> <span class="s1">'.css'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">.</span><span class="nx">manifest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist/manifest.json'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">base</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">,</span>
+			<span class="na">merge</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">}))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">watch</span><span class="p">([</span><span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_DEMO</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/src/**'</span><span class="p">],</span> <span class="nx">demoBuild</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo-build'</span><span class="p">,</span> <span class="nx">demoBuild</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">modules</code>目录用于托管各个模块，每个模块应该是一个独立的repos，modules内部要添加<code class="highlighter-rouge">.gitignore</code>防止内部模块被提交：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>*
+!.gitignore
+</code></pre>
+</div>
+
+<p>下面先来介绍下common模块的配置。</p>
+
+<h2 id="common模块配置">common模块配置</h2>
+
+<p>common模块是一个站点中通用js和css的承载地，它需要包含一个或者多个脚本或者样式的package来供其他模块选择性加载。</p>
+
+<p>我们的工程使用了NG1，所以配置文件将NG和JQuery的相关库都shim出来：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">requireConfig</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">baseUrl</span><span class="p">:</span> <span class="nx">__dirname</span><span class="p">,</span>
+	<span class="na">paths</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s1">'jQuery'</span><span class="p">:</span> <span class="s1">'node_modules/jquery/dist/jquery'</span><span class="p">,</span>
+		<span class="s1">'angular'</span><span class="p">:</span> <span class="s1">'node_modules/angular/angular'</span><span class="p">,</span>
+		<span class="s1">'angular-route'</span><span class="p">:</span> <span class="s1">'node_modules/angular-route/angular-route'</span>
+	<span class="p">},</span>
+	<span class="na">findNestedDependencies</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+	<span class="na">shim</span><span class="p">:</span> <span class="p">{</span>
+		<span class="s1">'angular'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">exports</span><span class="p">:</span> <span class="s1">'angular'</span>
+		<span class="p">},</span>
+		<span class="s1">'jQuery'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">exports</span><span class="p">:</span> <span class="s1">'jQuery'</span>
+		<span class="p">},</span>
+		<span class="s1">'angular-route'</span><span class="p">:</span> <span class="p">{</span>
+			<span class="na">deps</span><span class="p">:</span> <span class="p">[</span><span class="s1">'angular'</span><span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>这里注意，我们的baseUrl是基于base的根目录的，每个模块也都基于这个目录补全模块的path。</p>
+
+<p>我们将这些重要的库都放在common的名为lib的package中，方便别的模块使用，如下这样编译出该package：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'common-package-lib'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="s1">'lib'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">srcPath</span> <span class="o">=</span> <span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_COMMON</span><span class="p">);</span>
+
+	<span class="k">return</span> <span class="nx">eventStream</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s2">"node_modules/almond/almond.js"</span><span class="p">),</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/ylw.js'</span><span class="p">),</span>
+			<span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+				<span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/**/*.js'</span>
+			<span class="p">])</span>
+			<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">amdOptimize</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/main'</span><span class="p">,</span> <span class="nx">requireConfig</span><span class="p">))</span>
+			<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="s1">'index.js'</span><span class="p">))</span>
+		<span class="p">)</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">order</span><span class="p">([</span><span class="s2">"**/almond.js"</span><span class="p">,</span> <span class="s2">"**/ylw.js"</span><span class="p">,</span> <span class="s2">"**/index.js"</span><span class="p">]))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pack</span> <span class="o">+</span> <span class="s1">'.js'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ngAnnotate</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">.</span><span class="nx">manifest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist/manifest.json'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">base</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">,</span>
+			<span class="na">merge</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">}))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">));</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>通过eventStream来合并不同的文件流，并且用<code class="highlighter-rouge">gulp-order</code>来管理他们的合并顺序，这里一共有三个文件流：</p>
+
+<p><strong>almond.js</strong>，这个是用来做AMD的shim的，暂且不表；</p>
+
+<p><strong>ylw.js</strong>，这里边就只有一个跟模块加载有用的方法：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">YLW</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">use</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">module</span><span class="p">,</span> <span class="nx">pack</span><span class="p">,</span> <span class="nx">resource</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="s1">'modules/'</span> <span class="o">+</span> <span class="nx">module</span> <span class="o">+</span> <span class="s1">'/public/'</span> <span class="o">+</span> <span class="nx">module</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">resource</span><span class="p">;</span>
+		<span class="k">return</span> <span class="nx">require</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">cb</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+
+<p>他提供一个全局的use方法，根据模块名，包名，和资源路径（一般是包的入口文件的路径）来加载一个包或者包内的部分资源。任何模块都可以使用这个方法加载其他模块的资源包内的资源，但前提是需要在模板中加载对应的资源包（Todo，动态包加载）。</p>
+
+<p><strong>AMD文件</strong>，通过AMD依赖管理的一系列文件。</p>
+
+<p>接下来，会合并文件，并且用<code class="highlighter-rouge">gulp-rev</code>追加版本号并且产生<code class="highlighter-rouge">manifest</code>文件。</p>
+
+<p>你可能奇怪，为啥manifest里的路径设置的那么奇葩，请参看<a href="https://github.com/sindresorhus/gulp-rev/issues/83">github上的讨论</a>。</p>
+
+<h2 id="普通模块配置">普通模块配置</h2>
+
+<p>所有的模块的Gulp里的task的名称都需要以该模块的名称开头，比如<code class="highlighter-rouge">common</code>、<code class="highlighter-rouge">demo</code>。</p>
+
+<p>每个task都针对一个package，目前package只用来打js和css的包。</p>
+
+<p>如下是一个普通模块的名为main的package的编译task：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">gulp</span><span class="p">.</span><span class="nx">task</span><span class="p">(</span><span class="s1">'demo-package-main'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="kd">var</span> <span class="nx">pack</span> <span class="o">=</span> <span class="s1">'main'</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">srcPath</span> <span class="o">=</span> <span class="nx">getSrcPath</span><span class="p">(</span><span class="nx">MODULE_NAME_DEMO</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">rConfig</span> <span class="o">=</span> <span class="nx">deepClone</span><span class="p">(</span><span class="nx">requireConfig</span><span class="p">);</span>
+	<span class="c1">//very important</span>
+	<span class="nx">rConfig</span><span class="p">.</span><span class="nx">exclude</span> <span class="o">=</span> <span class="nx">COMMON_LIB</span><span class="p">;</span>
+
+	<span class="k">return</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">src</span><span class="p">([</span>
+			<span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/**/*.js'</span>
+		<span class="p">])</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">amdOptimize</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/src/'</span> <span class="o">+</span> <span class="nx">pack</span> <span class="o">+</span> <span class="s1">'/js/app'</span><span class="p">,</span> <span class="nx">rConfig</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">concat</span><span class="p">(</span><span class="nx">pack</span> <span class="o">+</span> <span class="s1">'.js'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">ngAnnotate</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">())</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rev</span><span class="p">.</span><span class="nx">manifest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist/manifest.json'</span><span class="p">,</span> <span class="p">{</span>
+			<span class="na">base</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">,</span>
+			<span class="na">merge</span><span class="p">:</span> <span class="kc">true</span>
+		<span class="p">}))</span>
+		<span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="nx">srcPath</span> <span class="o">+</span> <span class="s1">'/dist'</span><span class="p">));</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>这里要强调的是，<strong>务必<code class="highlighter-rouge">exclude</code>掉common中的AMD模块</strong>，如这里用<code class="highlighter-rouge">COMMON_LIB</code>来指示剔除对NG和JQuery相关代码的包含。</p>
+
+<h2 id="blade模板和本地server调试">Blade模板和本地Server调试</h2>
+
+<p>针对Blade模板调试，希望有一套不依赖Laravel的本地调试环境。所以使用<code class="highlighter-rouge">philo/laravel-blade</code>，最新的<code class="highlighter-rouge">3.*</code>版本支持5以上的框架。</p>
+
+<p>所以，在<code class="highlighter-rouge">composer.json</code>中配置如下：</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nt">"require"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+		</span><span class="nt">"philo/laravel-blade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.*"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>如此，通过执行<code class="highlighter-rouge">composer install</code>，来安装该库，当然，你得先安装composer，详情见<a href="https://getcomposer.org/download/">官方文档</a>，OSX用户直接执行如下命令即可：</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># setup your develop environment</span>
+
+php -r <span class="s2">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span>
+php -r <span class="s2">"if (hash_file('SHA384', 'composer-setup.php') === '070854512ef404f16bac87071a6db9fd9721da1684cd4589b1196c3faf71b9a2682e2311b36a5079825e155ac7ce150d') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"</span>
+php composer-setup.php
+php -r <span class="s2">"unlink('composer-setup.php');"</span>
+mv composer.phar /usr/local/bin/composer
+</code></pre>
+</div>
+
+<p>接下来我们需要一个webserver，好在php5.4以后为我们提供了一个内置server，通过如下命令启动我们的server：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>php -S localhost:8000 index.php
+</code></pre>
+</div>
+
+<p>注意，我们这里使用了指定php文件的方式启动内置服务器，而非通过目录方式启动，这是因为我们要灵活控制静态资源的响应，具体可参看<a href="http://php.net/manual/zh/features.commandline.webserver.php">这篇文档</a>。</p>
+
+<p>我们的<code class="highlighter-rouge">index.php</code>内容如下所示：</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>require __DIR__ . '/config.php';
+require __DIR__ . '/helpers.php';
+require __DIR__ . '/vendor/autoload.php';
+
+if (preg_match('/\.(?:png|jpg|jpeg|gif|js|css)$/', $_SERVER["REQUEST_URI"])) {
+
+	if(preg_match('/modules/', $_SERVER["REQUEST_URI"])) {
+		return false;
+	}
+
+
+	$path = substr($_SERVER["REQUEST_URI"], 1);
+	$mod = substr($path, 0, strpos($path, '/'));
+
+	header("Location: http://$_SERVER[HTTP_HOST]/modules/$mod/public/$path");
+}
+
+
+function public_path($path) {
+
+	$mod = substr($path, 0, strpos($path, '/'));
+	return __DIR__ . '/modules/' . $mod . '/public/' . $path;
+}
+
+use Philo\Blade\Blade;
+
+$debugModules = ['demo', 'common'];
+
+
+//Init Blade renderer
+$paths = array();
+
+foreach ($debugModules as $mod) {
+	array_push($paths, __DIR__ . "/modules/$mod/resources/views");
+}
+
+$renderer = new Blade($paths, __DIR__ . '/cache');
+
+//Load page based on uri
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$path = substr($url, strrpos($url, '/') + 1);
+if (empty($path)) {
+	$path = "index";
+} 
+
+require __DIR__ . '/pages/' . $path . '.php';
+
+//Render page
+$page = new Page();
+echo $page-&gt;show($renderer);
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">config.php</code>为我们提供了一些全局配置，所有配置性的东西可以放在这里：</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>const BASE_URL = 'http://localhost';
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">helpers.php</code>文件主要提供模板的工具方法，这里用来加载我们的资源包，内容如下所示：</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>
+if (! function_exists('gulp')) {
+    function gulp($mod, $resource)
+    {
+        $manifest = json_decode(file_get_contents(public_path("$mod/dist/manifest.json")), true);
+
+        if (isset($manifest[$resource])) {
+            return "$mod/dist/" . $manifest[$resource];
+        }
+        throw new InvalidArgumentException("File {$mod} {$resource} not defined in rev manifest.");
+    }
+}
+
+</code></pre>
+</div>
+
+<p>非常清晰的可以看出来，他提供一个名为<code class="highlighter-rouge">gulp</code>的辅助方法，用来根据模块名<code class="highlighter-rouge">$mod</code>和资源名<code class="highlighter-rouge">$resource</code>来定位manifest文件并且加载包资源。</p>
+
+<p>除此之外，我们还对静态资源做了处理，将线上的静态资源相对路径替换为本地的，这里进行了重定向。</p>
+
+<p><code class="highlighter-rouge">public_path</code>是对我们框架中的同名方法进行重写，好让我们的<code class="highlighter-rouge">gulp</code>工具方法来定位到正确的manifest文件。</p>
+
+<p>然后，我们告诉webserver，模板文件的存放地址，这里支持传入数组，制定多个模板文件的位置。</p>
+
+<p>最后，我们通过对请求的url分析，来加载对应的页面。</p>
+
+<p>这里，我们的页面存放于<code class="highlighter-rouge">/pages</code>目录中，这里举个页面的例子：</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>class Page
+{
+	function show($renderer)
+	{
+		//You should mock your data here
+		return $renderer-&gt;view()-&gt;make('demo', ['foo' =&gt; 'bar'])-&gt;render();
+	}
+}
+</code></pre>
+</div>
+
+<p>这里的<code class="highlighter-rouge">make</code>调用可以指定要加载的template和给定Mock数据，这里很重要，基本上我们的服务器给定的数据都可以在这里模拟出来。</p>
+
+<h2 id="大功告成">大功告成</h2>
+
+<p>总结下我们用到的命令：</p>
+
+<ul>
+  <li>编译某个模块</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>gulp <span class="o">{</span>module<span class="o">}</span>-build
+</code></pre>
+</div>
+
+<ul>
+  <li>watch并编译模块</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>gulp <span class="o">{</span>module<span class="o">}</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>启动本地测试服务器</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>php -S localhost:8000 index.php
+</code></pre>
+</div>
+
+<p>Todo：环境部署脚本 + 上线脚本 + webpack</p>
+
+
+
+                <hr>
+
+                
+                                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2016/06/15/Dex/" data-toggle="tooltip" data-placement="top" title="Dex分包原理">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

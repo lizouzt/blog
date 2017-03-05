@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>iOS本地数据存取 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://localhost:4000/blog/2017/02/05/iOS%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                
+                
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/jyh/post-bg-01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>iOS本地数据存取</h1>
+                    
+                    <h2 class="subheading">沙盒&存储方式</h2>
+                    
+                    <span class="meta">Posted by jyh on February 5, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h2 id="什么是沙盒sandbox">什么是沙盒（sandbox）</h2>
+<blockquote>
+  <p>为一些不可靠的程序提供实验而不影响系统运行的环境，有时也被称做沙箱。</p>
+</blockquote>
+
+<p>核心： sandbox对应用程序执行各种操作的权限限制。</p>
+
+<p>iOS中的沙盒机制：</p>
+
+<ul>
+  <li>
+    <p>每个应用程序都有自己的存储空间。</p>
+  </li>
+  <li>
+    <p>应用程序不能翻过自己的围墙去访问别的存储空间的内容。</p>
+  </li>
+  <li>
+    <p>应用程序请求的数据都要通过权限检测，假如不符合条件的话，不会被放行。</p>
+  </li>
+</ul>
+
+<p>一、iOS应用沙盒结构分析：</p>
+
+<p><img src="/blog/img/jyh/document.png" alt="ipv6.png" /></p>
+
+<p>Documents：
+保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录</p>
+
+<p>tmp：
+保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录</p>
+
+<p>Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据（SDImage）</p>
+
+<p>Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录</p>
+
+<p>二、沙盒路径：</p>
+
+<p>前往文件夹 ~/Library
+资源库 - Developer - CoreSimulator - Devices -  2CDE1FD0-9EF1-4CA1-B480-4CC4AA52953D（设备即模拟器） - data - 资源库 - Containers - Data - Application - 43BD49CD-682D-4484-932D-B5EE9EB26C6D - 图片document目录</p>
+
+<p>获取沙盒路径：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var dic = [String: String]()
+
+//获取沙盒目录
+let home = NSHomeDirectory()
+
+// .UserDomainMask 代表从用户文件夹下找
+// true 代表展开路径中的波浪字符“~”
+let arr = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+let tmpArr = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+
+// 在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素
+let document = arr[0]
+
+/*
+"/var/folders/8s/fh6sz13574d8_0q0qzg86j7h0000gp/T/com.apple.dt.Xcode.pg/containers/com.apple.dt.playground.stub.iOS_Simulator.plistExample-196FE2E4-23F3-4FB2-AE08-D0579A77FFF0/Documents"
+*/
+</code></pre>
+</div>
+
+<h2 id="ios应用数据存储的常用方式">iOS应用数据存储的常用方式</h2>
+<ul>
+  <li>
+    <p>XML属性列表（plist）归档</p>
+  </li>
+  <li>
+    <p>NSKeyedArchiver归档（NSCoding）</p>
+  </li>
+  <li>
+    <p>SQLite3（FMDB）</p>
+  </li>
+  <li>
+    <p>Core Data</p>
+  </li>
+</ul>
+
+<p>一、XML属性列表（plist）归档</p>
+
+<p>属性列表是一种XML格式的文件，拓展名为plist。</p>
+
+<p>如果对象是NSString、NSDictionary、Array、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中。</p>
+
+<p>举个例子：将一个NSDictionary对象归档到一个plist属性列表中</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  var dic = [String: String]()
+  let home = NSHomeDirectory()
+  var path = home.stringByAppendingString("/Documents/jyh.plist")
+  dic["jjj"] = "jjj"
+  dic["yyy"] = "yyy"
+  dic["hhh"] = "hhh"
+  (dic as NSDictionary).writeToFile(path, atomically: true)
+</code></pre>
+</div>
+
+<p><img src="/blog/img/jyh/file.png" alt="ipv6.png" /></p>
+
+<p><img src="/blog/img/jyh/plist.png" alt="ipv6.png" /></p>
+
+<ul>
+  <li>
+    <p>Preference</p>
+
+    <p>还有一种更简单的方式NSUserDefaults，iOS提供了一套标准的解决方案来为应用加入偏好设置功能，本质还是通过plist来存储数据，但是使用更加简单，无需关注文件、文件夹路径和名称
+每个应用都有个NSUserDefaults实例（单例），通过它来存取偏好设置，比如，保存用户名、字体大小、是否自动登录等。</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>   //.利用NSUserDefaults，就能直接访问软件的偏好设置（Library/Preferences)  
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject("长沙市", forKey:"city")
+        defaults.setObject("湖南省",forKey:"province")
+        defaults.synchronize()
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<!---->
+<div class="highlighter-rouge"><pre class="highlight"><code>      //读取
+      let defaults = NSUserDefaults.standardUserDefaults()
+      let string = defaults.objectForkey("city")   
+</code></pre>
+</div>
+
+<p>注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入</p>
+
+<p>二、NSCoding (NSKeyedArchiver\NSKeyedUnarchiver)</p>
+
+<p>如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，可以直接用NSKeyedArchiver进行归档和恢复。</p>
+
+<p>不是所有的对象(非OC对象)都可以直接用这种方法进行归档，只有遵守了NSCoding协议的对象才可以</p>
+
+<p>NSCoding协议有2个方法：</p>
+
+<p>encodeWithCoder:每次归档对象时，都会调用这个方法。一般在这个方法里面指定如何归档对象中的每个实例变量，可以使用encodeObject:forKey:方法归档实例变量</p>
+
+<p>initWithCoder:每次从文件中恢复(解码)对象时，都会调用这个方法。一般在这个方法里面指定如何解码文件中的数据为对象的实例变量，可以使用decodeObject:forKey方法解码实例变量</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>class priVC: NSObject,NSCoding {
+    let name = "jyh"
+    let choose : Bool = true
+    //将对象归档
+    //在这个方法里说清楚：1.哪些属性需要存储  2.怎样存储这些属性 
+    
+    func encodeWithCoder(aCoder: NSCoder) {        
+    aCoder.encodeObject(self.name, forKey: "name")
+    aCoder.encodeBool(choose, forKey: "choose")
+    }
+    //解析对象
+    //在这个方法说清楚： 1.那个属性需要解析（读取）  2.怎样解析（读取）这些属性
+    required init?(coder aDecoder: NSCoder) {
+    let name = aDecoder.decodeObjectForKey("name")
+    let choose = aDecoder.decodeBoolForKey("choose")
+    }
+ } 在指定文件中存储数据和读取数据
+
+let path = "/Users/jyh/Desktop/person.data"
+var person = [String: AnyObject]()
+
+func save() {
+    person["name"] = "jyh"
+    person["age"] = 18
+    NSKeyedArchiver.archiveRootObject(person, toFile: path)
+}
+func read() {
+    let person = NSKeyedUnarchiver.unarchiveObjectWithFile(self.path) as? [String: AnyObject]
+    let name = person?["name"]
+    let age = person?["age"]
+    
+}
+</code></pre>
+</div>
+
+<p>三、 SQLite3（FMDB）</p>
+
+<p>SQLite3 是一款开源的轻型的嵌入式关系型数据库，可移植性好、易使用、内存开销小，SQLite3 是无类型的，可以保存任何类型的数据到任意的字段中。
+通常会使用FMDB等第三方库
+它封装了SQLite的C语言API</p>
+
+<p>优点是：
+使用起来更加面向对象，省去麻烦冗余的C语言的代码，对比苹果的Core Data 框架，更加的轻量级和灵活，提供了多线程安全的数据库操作方法，有效防止数据混乱。</p>
+
+<p>FMDB有三个主要的类：</p>
+
+<p>FMDataBase :一个FMDataBase 对象就代表一个单独的DataBase数据库，用来执行SQL语句。</p>
+
+<p>FMResultSet: 使用FMResultSet执行查询后的结果集。</p>
+
+<p>FMDataBaseQueue: 用于多线程执行多个查询或者更新，他是线程安全的。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>static let shareInstance = SQLiteTool()
+//创建和打开一个数据库
+//如果有就直接打开,如果没有,创建一个再打开
+lazy var db: FMDatabase = {
+    let path = "/Users/jyh/Desktop/dataBase" + "/batac.sqlite"
+    let db = FMDatabase(path: path)
+    return db
+}()
+//实例化db对象的时候就会默认打开或创建一个数据库
+override init() {
+    super.init()
+    if db.open(){
+        print("打开数据库成功")
+    }
+}
+
+func createTable() -&gt; Void {
+    let sql = "create table  t_ball(id integer primary key autoincrement,name text not null,age integer ,score real default 59.0)"
+
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print("创建表格成功")
+    }
+}
+func dropTable() -&gt; Void {
+    let sql = "drop table if exists t_ball"
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print("删除表格成功")
+    }
+}
+func insertData() -&gt; Void {
+    let sql = "insert into t_ball (name,age,score) values ('Batac',20,100)"
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print("插入成功")
+    }
+}
+func quaryData() -&gt; Void {
+
+    let sql = "select * from t_ball"
+    let resultSet = db.executeQuery(sql, withArgumentsInArray: nil)
+    while resultSet.next() {
+        let name = resultSet.stringForColumn("name")
+        let age = resultSet.intForColumn("age")
+        let score = resultSet.doubleForColumn("score")
+        print(name,age,score)
+    }
+}
+</code></pre>
+</div>
+
+<p>四、CoreData
+Core Data框架提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite3数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，不需要编写任何SQL语句。</p>
+
+<p><img src="/blog/img/jyh/coreData.png" alt="ipv6.png" /></p>
+
+
+                <hr>
+
+                
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//yunlaiwu.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                
+                                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2017/01/22/test/" data-toggle="tooltip" data-placement="top" title="基于go语言的推荐服务搭建">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/02/14/database/" data-toggle="tooltip" data-placement="top" title="线上数据库主从切换步骤">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

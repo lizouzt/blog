@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>前端资源管理进化史 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://localhost:4000/blog/2017/02/14/frontend/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                
+                
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/frontend/bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>前端资源管理进化史</h1>
+                    
+                    <h2 class="subheading">打造高性能的资源管理方案</h2>
+                    
+                    <span class="meta">Posted by stefan on February 14, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>PS，本文是一个针对非前端程序员的科普贴，吸纳了很多现有文章的内容。</p>
+
+<h2 id="一句话">一句话</h2>
+
+<p>前端是是一种技术问题较少、工程问题较多的软件开发领域。</p>
+
+<p>——张云龙</p>
+
+<p>换言之：前端工程师就是一个高级技工。</p>
+
+<h2 id="资源管理的历史">资源管理的历史</h2>
+
+<p>胖总化身农名工，开始穿越。</p>
+
+<h3 id="第一阶段">第一阶段</h3>
+
+<p>上世纪末期和本20世纪开始的几年，作为农民工的胖总，只要知道怎么盖房子就可以了，盖房子其实很简单，拢共分三步：</p>
+
+<ul>
+  <li>打地基：会好HTML</li>
+  <li>搞装修：会写CSS</li>
+  <li>综合布线、集中采暖、防汛工程等功能性劳动：会写JS</li>
+</ul>
+
+<p>尼玛能把这三个东西黏在一起往服务器上一堆就ok了，哪儿管那么多！</p>
+
+<h3 id="第二阶段">第二阶段</h3>
+
+<p>web2.0来了，05年开始，什么校内网、占座网、my space都来了。他们都嚷嚷着要建楼，而且把工程都包给了胖总。</p>
+
+<p>胖总惆怅了，原因有2。</p>
+
+<p>一是这些甲方太tmd难伺候了，事儿真多，功能特别复杂。</p>
+
+<p>二是这些楼访问量太大了，按照之前盖房子的方式，人一多就得倒。</p>
+
+<p>咋办？</p>
+
+<p>这时候就要有<strong>资源管理</strong>的意识了。</p>
+
+<p>咋管理？</p>
+
+<ul>
+  <li>CDN，其实这玩意儿98年就出来了，但是胖总现在才开始正儿八经地用。他很好用，就是给甲方建好多楼，全国各地都是，防止甲方的客户全跑总部来，把总部给挤垮了。</li>
+  <li>资源合并加载，这太好理解了。之前盖房子都是一块砖一块砖地盖，现在尼玛用了钢筋混泥土，直接按照施工方案，直接把整体的骨架浇筑完成，既提高了效率，也加强了建筑物的强度。
+    <ul>
+      <li>合并的目的一：减少HTTP请求数（但是有节制的合并，不能太过激进，要在请求书和请求量之间寻找平衡点）。</li>
+      <li>合并的亩地二：基于合并进行文件压缩(再附加gzip)，包括变量替换，代码混淆等等。</li>
+      <li>不光代码可以合并，图片也可以合并，css sprite！</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/blog/img/frontend/1.png" alt="1.png" /></p>
+
+<h3 id="第三阶段">第三阶段</h3>
+
+<p>模块化开发来了！！！！</p>
+
+<p>我艹，这下胖总牛逼了。</p>
+
+<p>还记得亨利福特开创的流水线生产么？胖总发现，尼玛管理一个个人人都是多面手的包工队成本太高。你，你，还有你，你们仨儿以后只负责打地基；你，你，还有你，你们仨儿以后只负责封顶；你，你，还有你，你们仨儿以后只负责浇筑。</p>
+
+<p>胖总搞突然发现，原来让大家各司其职，好处真大！</p>
+
+<p>专业的人做专业的事情，而且他们做出来的东西还可以被别人复用，太tmd爽了。</p>
+
+<p>模块化开发其实会有很多理解方式，在前端工程领域包括但不限于这么几个理解方式：</p>
+
+<ol>
+  <li>模板模块化：头部、底部、列表、用户信息。。。。</li>
+  <li>脚本模块化：实现同一种功能的脚本放一起。。。。</li>
+  <li>样式模块化：
+    <ul>
+      <li>大家知道通用的样式放在一起了</li>
+      <li>OOCSS的诞生，大家发现样式都能tmd面向对象了</li>
+      <li>LESS，SASS，SCSS这些样式编译工具的但是，我艹，可以随意定义变量和mixin，还能相互依赖了！</li>
+    </ul>
+  </li>
+</ol>
+
+<p>有了模块化，就得有加载器啊！</p>
+
+<p>这就好比，有人给你在别的地方把楼顶先做好了，你得有吊车把楼顶吊过来啊！</p>
+
+<p>所以<strong>加载器</strong>就是基于模块间的依赖关系，来进行依赖加载的东东。</p>
+
+<p>10到12年，这东西特别火，有AMD的requireJS加载器，还有CMD的SeaJS加载器。。。。这里就不讨论什么是前置依赖，什么是运行时依赖，反正你就记住，加载器就是让模块之间有依赖关系时，找到依赖的模块并加载之！！！</p>
+
+<p>但是，又有一个问题来了！！！</p>
+
+<p>这尼玛如果加载依赖的JS和CSS是在运行时加载，那么岂不是要发好多HTTP请求？那用户看到的页面应该就和吃了屎的幻灯片一样，一部分一部分出来。这楼房还你能住？</p>
+
+<p>所以，第二阶段的合并思想当然要引入到模块化开发中。</p>
+
+<p>这时候，胖总发现，我艹，太牛逼了。有了模块化开发和加载器，做合并再也不用无脑合并了，而是可以根据模块之间的依赖关系合并！！！！</p>
+
+<p>牛逼了，牛逼了，牛逼大发了！</p>
+
+<p>但是，胖总先hold住第三阶段的激情澎湃，我们先看下第四阶段是什么？</p>
+
+<h2 id="第四阶段">第四阶段</h2>
+
+<p>组件化开发！！！</p>
+
+<p>听起来高大上的名字，其实本质上就是爸之前的粪便基于模板、脚本和样式的模块化，变成了基于“模板+脚本+样式”的一揽子的模块化开发！！！！</p>
+
+<p><img src="/blog/img/frontend/2.png" alt="2.png" /></p>
+
+<p>看起来没什么，但是我们来分析一下背后可能的依赖关系：</p>
+
+<p><img src="/blog/img/frontend/3.png" alt="3.png" /></p>
+
+<p>那么，怎么描述这种关系呢，那就需要<strong>资源表</strong></p>
+
+<p><img src="/blog/img/frontend/4.png" alt="4.png" /></p>
+
+<p>利用服务端的技术，我们可以在运行时进行资源合并，并且用CDN缓存合并响应：</p>
+
+<p><img src="/blog/img/frontend/5.png" alt="5.png" /></p>
+
+<p>以上只是针对脚本和样式的合并加载方案，对于模板，也可以将其内嵌到脚本中：</p>
+
+<p><img src="/blog/img/frontend/6.png" alt="6.png" /></p>
+
+<p>不光是模板，零碎的图片也可以以base64编码的形式嵌入到样式文件中。</p>
+
+<p>综上：通过<strong>内嵌</strong>、<strong>依赖</strong>和<strong>定位</strong>管理所有前端资源，通过<strong>资源加载框架</strong>读取资源表，实现资源加载的程序化控制：</p>
+
+<p><img src="/blog/img/frontend/7.png" alt="7.png" /></p>
+
+<h2 id="这就够了么">这就够了么？</h2>
+
+<p>显然不够！</p>
+
+<p>因为不够快！</p>
+
+<p>浏览器渲染的基本流程：</p>
+
+<p><img src="/blog/img/frontend/8.png" alt="8.png" /></p>
+
+<ol>
+  <li>HTML解析，构建DOM树；</li>
+  <li>CSS解析，构建CSSOM树；</li>
+  <li>融合为Render树；</li>
+  <li>布局计算；</li>
+  <li>屏幕绘制。</li>
+</ol>
+
+<p>key点：尽快让浏览器建立DOM和CSSOM树以便渲染页面</p>
+
+<p><img src="/blog/img/frontend/9.png" alt="9.png" /></p>
+
+<p>RTT(Round-Trip Time): 往返时延——性能毒瘤！</p>
+
+<p><img src="/blog/img/frontend/10.png" alt="10.png" /></p>
+
+<p><img src="/blog/img/frontend/11.png" alt="11.png" /></p>
+
+<p>前端渲染的极限方案：</p>
+
+<p><img src="/blog/img/frontend/12.png" alt="12.png" /></p>
+
+<p>前端按需加载！</p>
+
+<p>前端先加载首屏资源（首屏一个RTT），然后再获取其他屏的资源渲染。</p>
+
+<h2 id="后端渲染">后端渲染</h2>
+
+<p>上面讲了半天，其实都是在死磕前端渲染，虽然前端渲染具备较强的控制力，但是性能堪忧。</p>
+
+<p>服务端（首屏）直出！</p>
+
+<ol>
+  <li>组件化/模块化开发；</li>
+  <li>在服务端引用组件们；</li>
+  <li>按需找到组件依赖的JS和CSS；</li>
+  <li>合并JS和CSS；</li>
+  <li>将合并好的组件的CSS和JS内嵌到首屏输出的HTML里（CSS在前，JS在后）；</li>
+  <li>收集页面内的零碎脚本到最后。</li>
+</ol>
+
+<p><img src="/blog/img/frontend/13.png" alt="13.png" /></p>
+
+<h2 id="facebook三驾马车">facebook三驾马车</h2>
+
+<p>其实这是一套非常老的技术，诞生于10年，可以配合前面所述的组件服务端直出一起使用：</p>
+
+<p>bigpipe、quickling、pagecache！！！</p>
+
+<h2 id="bigpipe">bigpipe</h2>
+
+<p>上面讲了半天首屏，尼玛其实首屏的定义时PM给出来的，不一定在正中间的就是首屏。</p>
+
+<p>所谓首屏，就是PM认为最重要的页面部分。</p>
+
+<p>看下facebook（这图尼玛有点儿老）：</p>
+
+<p><img src="/blog/img/frontend/14.jpeg" alt="14.jpeg" /></p>
+
+<p>你会怎么实现？</p>
+
+<p>扣div + ajax？</p>
+
+<p>no！</p>
+
+<p><img src="/blog/img/frontend/15.png" alt="15.png" /></p>
+
+<p>可以用一个叫做bigpipe的东西，其实这是一个技术合集：</p>
+
+<ol>
+  <li>定义页面区域（pagelets），并确定屏幕次序（根据重要度）；</li>
+</ol>
+
+<p><img src="/blog/img/frontend/16.png" alt="16.png" /></p>
+
+<ol>
+  <li>服务端chunk输出；</li>
+  <li>前端有一套触发式的加载框架。</li>
+</ol>
+
+<h3 id="quickling">quickling</h3>
+
+<p>尼玛其实就是把传统的html请求变为ajax，一次性搞回来模板+js+css，然后热替换现有的内容；</p>
+
+<h3 id="pagecache">pagecache</h3>
+
+<p>其实就是保存下页面，切换回来的时候直接从缓存（其实就是浏览器内存）中读取，比如在tb切换的时候。</p>
+
+<h2 id="缓存跟前端部署的那一腿">缓存跟前端部署的那一腿</h2>
+
+<p>相信搞前端的没人不知道200、200 from cache和304都代表什么：</p>
+
+<ul>
+  <li>200： 从服务端请求资源成功</li>
+  <li>200 from cahce：直接从浏览器里拿</li>
+  <li>304：服务端告诉你，别废话，直接用上次的</li>
+</ul>
+
+<p>看起来200 from cache更牛逼一些，强制浏览器使用本地缓存（cache-control/expires），不要和服务器通信。好了，请求方面的优化已经达到变态级别，那问题来了：你都不让浏览器发资源请求了，这缓存咋更新？</p>
+
+<p><img src="/blog/img/frontend/17.jpg" alt="17.jpg" /></p>
+
+<p>但是，问题来了：</p>
+
+<p><img src="/blog/img/frontend/18.jpg" alt="18.jpg" /></p>
+
+<p>每次全都更新这岂不崩溃？所以，我们不难发现，要解决这种问题，必须让url的修改与文件内容关联，也就是说，只有文件内容变化，才会导致相应url的变更，从而实现文件级别的精确缓存控制。</p>
+
+<p><img src="/blog/img/frontend/19.jpg" alt="19.jpg" /></p>
+
+<p>完事儿了？no！考虑如下这种情况：</p>
+
+<p><img src="/blog/img/frontend/20.jpg" alt="20.jpg" /></p>
+
+<p>到底是先上线静态资源还是页面？</p>
+
+<ul>
+  <li><strong>先部署页面，再部署资源</strong>：在二者部署的时间间隔内，如果有用户访问页面，就会在新的页面结构中加载旧的资源，并且把这个旧版本的资源当做新版本缓存起来，其结果就是：用户访问到了一个样式错乱的页面，除非手动刷新，否则在资源缓存过期之前，页面会一直执行错误。</li>
+  <li><strong>先部署资源，再部署页面</strong>：在部署时间间隔之内，有旧版本资源本地缓存的用户访问网站，由于请求的页面是旧版本的，资源引用没有改变，浏览器将直接使用本地缓存，这种情况下页面展现正常；但没有本地缓存或者缓存过期的用户访问网站，就会出现旧版本页面加载新版本资源的情况，导致页面执行错误，但当页面完成部署，这部分用户再次访问页面又会恢复正常了。</li>
+</ul>
+
+<p>解决方法：<strong>覆盖式发布</strong>。</p>
+
+<p><img src="/blog/img/frontend/21.jpg" alt="21.jpg" /></p>
+
+<p>看上图，用文件的摘要信息来对资源文件进行重命名，把摘要信息放到资源文件发布路径中，这样，内容有修改的资源就变成了一个新的文件发布到线上，不会覆盖已有的资源文件。上线过程中，先全量部署静态资源，再灰度部署页面，整个问题就比较完美的解决了。</p>
+
+<p>所以，大公司的静态资源优化方案，基本上要实现这么几个东西：</p>
+
+<ol>
+  <li>配置超长时间的本地缓存 —— 节省带宽，提高性能</li>
+  <li>采用内容摘要作为缓存更新依据 —— 精确的缓存控制</li>
+  <li>静态资源CDN部署 —— 优化网络请求</li>
+  <li>更资源发布路径实现非覆盖式发布  —— 平滑升级</li>
+</ol>
+
+<p>全套做下来，就是相对比较完整的静态资源缓存控制方案了，而且，还要注意的是，静态资源的缓存控制要求在<strong>前端所有静态资源加载的位置都要做这样的处理</strong>。是的，所有！什么js、css自不必说，还要包括js、css文件中引用的资源路径，由于涉及到摘要信息，引用资源的摘要信息也会引起引用文件本身的内容改变，从而形成级联的摘要变化，大概示意图就是：</p>
+
+<p><img src="/blog/img/frontend/22.jpg" alt="22.jpg" /></p>
+
+<h2 id="工具化">工具化</h2>
+
+<p>以上提到的静态资源依赖管理、内嵌以及定位功能，还有为了覆盖式发布进行的文件名替换，明显不能通过纯手工的方式去做。</p>
+
+<p>这时候就需要引入工具化：</p>
+
+<ol>
+  <li>构建工具：构建工具的目的是让资源的依赖合并嵌入变得自动化，一行命令（甚至watch）就能产出最终的结果，而且还能解决资源相对地址和绝对地址切换带来的定位（CDN替换）问题。</li>
+  <li>集成工具：构建工具只是负责执行一次或者一批人物，将这些任务的上下游一起串联（包括单元测试、测试环境部署）等放在一起，就需要类似jekins和travis ci之类的东东。</li>
+  <li>部署工具：当然，集成工具理论上包括部署工具。但是单拎出来说的目的是，这东西主要解决的是线上线下环境切换（环境变量、相对地址、配置文件读取方式等）问题。</li>
+  <li>运行时工具：比如之前百度的在线智能打包（根据页面流量、负载等，合并最长访问的资源）等工具。</li>
+</ol>
+
+<p>这些工具的出现，都是为了让模块化开发、组件开发变得更快捷。</p>
+
+<p>当然，这东西迭代太快了。</p>
+
+<ul>
+  <li>从任务流的方式来看，有基于文件的grunt和基于stream的gulp和fis啊。。。</li>
+  <li>有专攻维度不同的，比如webpack专业盯着依赖打包，gulp提供任务组合，fis提供一揽子（包括前后端业务框架）解决方案。</li>
+</ul>
+
+<p>总之，工具让生活更美好。</p>
+
+<h2 id="未来">未来？</h2>
+
+<h3 id="html5-offline-app">HTML5 offline app</h3>
+
+<p>坑爹的manifest！</p>
+
+<p>简言之就是把页面以及页面里的静态资源都存储在浏览器里，后续直接从本地度，就算断网都能访问。</p>
+
+<p>但是兼容性实在是呵呵，有的浏览器尼玛一旦cache，只能靠404清除。</p>
+
+<h3 id="http-20">HTTP 2.0</h3>
+
+<p>这个之前有讲过，其实，在HTTP2.0时代，之前的那些狗屁问题都不是问题了。</p>
+
+<ul>
+  <li>什么加载器，浏览器端systemjs直接一次性load出来。</li>
+  <li>图片加载……呵呵</li>
+  <li>quickling？呵呵</li>
+</ul>
+
+<p>都尼玛呵呵了。</p>
+
+<h2 id="综述">综述</h2>
+
+<p>仅仅是一个前端资源加载，身为农民工的胖总就已经心力憔悴了。放眼未来，工程化的问题根本不需要经验，可能一个新的技术，之前你的所有积累都88。</p>
+
+<p>所以，怎么保持自己不被淘汰：</p>
+
+<ol>
+  <li>学学学！</li>
+  <li>看思想，看原理，不要单单学API，学API一毛钱用都没有，那就真的是民工了。</li>
+</ol>
+
+<p>完</p>
+
+
+
+                <hr>
+
+                
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//yunlaiwu.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                
+                                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2017/02/14/database/" data-toggle="tooltip" data-placement="top" title="线上数据库主从切换步骤">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/02/17/SSDTreeMiner/" data-toggle="tooltip" data-placement="top" title="A Frequent Pattern Mining Algorithm">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

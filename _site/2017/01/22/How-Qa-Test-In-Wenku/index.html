@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>在百度文库如何测项目 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://localhost:4000/blog/2017/01/22/How-Qa-Test-In-Wenku/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                
+                
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post-bg-02.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>在百度文库如何测项目</h1>
+                    
+                    <h2 class="subheading">那些年我在百度文库当QA之：项目测试</h2>
+                    
+                    <span class="meta">Posted by 王青 on January 22, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<div class="highlighter-rouge"><pre class="highlight"><code>本来想介绍下百度文库QA的各个方面的工作，后来发现太过于混杂，所以就暂时只讲一个方面。
+
+以下内容纯属个人经历，如有雷同 or 偏差，纯属巧合。
+
+因为个人工作性质，所以绝大部分是PC、后端测试经历。
+</code></pre>
+</div>
+
+<h2 id="一些说明">一些说明</h2>
+
+<ul>
+  <li>可以用任何方式写测试用例
+    <ul>
+      <li>Excel、脑图</li>
+      <li>缺点：测试用例很难沉淀</li>
+    </ul>
+  </li>
+  <li>可以用任何方式测试项目
+    <ul>
+      <li>毕竟项目与项目之间差异还是比较大的。
+        <ul>
+          <li>常规功能型项目 vs 迁移类项目</li>
+          <li>时间充足 vs 时间不足</li>
+          <li>等等</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>所要达成的目标
+    <ul>
+      <li>项目及时、安全上线
+        <ul>
+          <li>及时</li>
+          <li>安全</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>有关浏览器
+    <ul>
+      <li>QA：IE6、8、9、10</li>
+      <li>开发：Chrome、Firefox</li>
+      <li>部分项目只支持 Chrome</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="常规项目">常规项目</h2>
+
+<ul>
+  <li>需求评审
+    <ul>
+      <li>参与讨论整个项目，包括功能的取舍，开发可能采用的方案。</li>
+      <li>会后要整理项目中不明确的点，拉上产品和开发，弄明确。</li>
+      <li>注意产品逻辑上有冲突的地方。
+        <ul>
+          <li>考虑到产品、开发、测试的人数和工作分配，基本上测试人员更收敛，更容易发现这些问题。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>详细设计评审 / 开发沟通
+    <ul>
+      <li>早期比较完整的周期里，是有详细设计评审的，后期的项目除非是复杂、重要的项目，一般没有了。但是也需要和开发沟通。</li>
+      <li>了解开发如何设计、准备怎么开发。与开发讨论可能各个方案可能会产生的问题。</li>
+    </ul>
+  </li>
+  <li>测试用例编写
+    <ul>
+      <li>使用常见的各种编写测试用例的手段</li>
+      <li>各种异常测试用例设计</li>
+      <li>可能包含准入 case</li>
+      <li>测试用例编写完成之后提供给开发作为自测使用，开发需要保证准入 case 通过</li>
+    </ul>
+  </li>
+  <li>测试用例评审
+    <ul>
+      <li>早期的大部分项目都有测试用例评审，由文库QA团队参与，对编写的测试用例进行检查。</li>
+    </ul>
+  </li>
+  <li>排期制定
+    <ul>
+      <li>根据测试用例，预估排期。</li>
+      <li>早期的测试排期按照：一轮+bug修复、二轮+bug修复、回归 来制定。</li>
+      <li>后期的测试排期基本只有一轮+bug修复+回归了。</li>
+    </ul>
+  </li>
+  <li>测试环境准备
+    <ul>
+      <li>一般提测前一天</li>
+      <li>构建最新的测试环境并调通，保证测试环境可用
+        <ul>
+          <li>每人有自己的测试机，完整环境单机部署。</li>
+          <li>如果发现异常（一般可能是有一些环境、配置有变化），调通环境之后，维护环境搭建工具。</li>
+          <li>文库的环境搭建工具是由QA维护。（以后再聊）</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>提测
+    <ul>
+      <li>获取提测单
+        <ul>
+          <li>上线步骤
+            <ul>
+              <li>数据库变动 SQL</li>
+              <li>相关 webserver 配置</li>
+              <li>上线模块与版本号</li>
+              <li>服务起停步骤</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>部署测试环境
+        <ul>
+          <li>检查环境可用
+            <ul>
+              <li>如果不可用，检查环境本身问题</li>
+              <li>如果是上线步骤有误，及时通知开发</li>
+              <li>严重的模块遗漏、步骤错误（错误原因不明），提测打回</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>测试
+    <ul>
+      <li>执行准入 case
+        <ul>
+          <li>严格意义上，准入 case 不通过，直接打回。不过如果是简单错误，类似于笔误之类，可以容忍。</li>
+          <li>需要 QA 自己清楚出问题的原因。</li>
+        </ul>
+      </li>
+      <li>执行其他 case</li>
+      <li>检查本项目之外的产品核心功能
+        <ul>
+          <li>拿文库来说，就是上传、下载等</li>
+        </ul>
+      </li>
+      <li>BUG 反馈</li>
+      <li>开发修复 BUG</li>
+      <li>新一轮提测
+        <ul>
+          <li>根据情况考虑是否重新搭建新环境或者直接部署最新代码</li>
+          <li>重点检查上一轮 BUG 和 核心 case</li>
+        </ul>
+      </li>
+      <li>有关代码 review
+        <ul>
+          <li>一般来说不强制要求，不过基本上都应该过一遍。</li>
+          <li>重点核查
+            <ul>
+              <li>关键校验</li>
+              <li>数据库相关（安全性、读写库的账号）</li>
+              <li>异常处理</li>
+              <li>延迟处理
+                <ul>
+                  <li>命令点延迟（消息队列数据持久化延迟）</li>
+                  <li>主从延迟</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>根据代码 review 情况优化 case 执行
+            <ul>
+              <li>适当增减 case</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>有关性能测试/压力测试
+        <ul>
+          <li>非必须项，取决于预估的请求量和对线上的影响
+            <ul>
+              <li>请求量预估较大</li>
+              <li>影响核心接口</li>
+            </ul>
+          </li>
+          <li>需要评估的项，按需观察
+            <ul>
+              <li>CPU、内存、带宽、响应时间</li>
+            </ul>
+          </li>
+          <li>评估的准确性
+            <ul>
+              <li>对性能影响较多</li>
+              <li>线下测试：基本只能预估
+                <ul>
+                  <li>php 进程数、CPU 核数、内存大小与线上差异</li>
+                  <li>网络环境与线上差异</li>
+                  <li>存储与线上差异，数据库、redis、cache 等读写</li>
+                  <li>部署情况与线上差异</li>
+                  <li>整机 or Docker</li>
+                </ul>
+              </li>
+              <li>线上预览机 or 真实容器测试
+                <ul>
+                  <li>观察机器性能指标</li>
+                  <li>更准确的看到压力情况</li>
+                  <li>但仍要注意，如 数据库等相关压力，依然无法准确预估</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>测试过程中对于请求时间过长、redis or cache 过大保持警惕</li>
+          <li>注意提醒开发预判</li>
+        </ul>
+      </li>
+      <li>有关安全
+        <ul>
+          <li>关键数据获取方式
+            <ul>
+              <li>用户数据获取，通过 token 而不是相信传入的 uid</li>
+            </ul>
+          </li>
+          <li>关键 id 加密</li>
+          <li>Sql 注入、XSS 注入</li>
+          <li>等等</li>
+        </ul>
+      </li>
+      <li>有关回归
+        <ul>
+          <li>严格意义上，在确定开发修复完所有 bug 之后，需要开发合并最新代码，对最新版本的代码进行回归测试。</li>
+          <li>不过具体到执行上，考虑到各种因素，一般只是对整体功能再过一遍。</li>
+        </ul>
+      </li>
+      <li>PM 检查
+        <ul>
+          <li>PM 在测试环境，检查各种功能、文案、样式。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>上线
+    <ul>
+      <li>上线流程也一直在变化，早期需要各个角色过上线单，包括经理；之后经过了很多的简化，这里不做赘述。</li>
+      <li>一般上线到单台测试机的时候，会进行单台测试回归。</li>
+      <li>开发、QA和 PM 共同对线上进行功能回归，确保项目功能正常，同时确保线上整体服务稳定。</li>
+      <li>开发发上线完成通报，QA Re 线上测试情况。</li>
+    </ul>
+  </li>
+  <li>后续
+    <ul>
+      <li>项目上线之后，QA 会对项目进行总结，包括每一轮的 bug 数，千行 bug 率的统计，以及低级 bug 统计和其他问题的说明。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="迁移项目">迁移项目</h2>
+
+<h3 id="lighttpd-迁移-nginx">Lighttpd 迁移 Nginx</h3>
+
+<ul>
+  <li>问题
+    <ul>
+      <li>配置方式完全不同
+        <ul>
+          <li>不同 host 的逻辑</li>
+        </ul>
+      </li>
+      <li>URL 的 rewrite 规则完全不同
+        <ul>
+          <li>数百 rewrite 规则</li>
+        </ul>
+      </li>
+      <li>其他
+        <ul>
+          <li>类似于 Content-Type、Transfer-Encoding 等 HEADER 项的影响。</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>分工
+    <ul>
+      <li>QA 保证功能： URL rewrite 正常</li>
+      <li>OP 保证其他</li>
+    </ul>
+  </li>
+  <li>备注
+    <ul>
+      <li>实际上，QA 和 OP 对于 nginx 都是新手，大家互相协作，共同查阅资料来处理。</li>
+    </ul>
+  </li>
+  <li>实际步骤
+    <ul>
+      <li>QA 根据旧的 Lighttpd 配置，梳理好所有的 rewrite 规则，然后整理出所有 来源 -&gt; rewrite之后 的 URL 映射。</li>
+      <li>交付映射表给 OP， OP 开始写新的 rewrite 规则。</li>
+      <li>QA 写校验脚本
+        <ul>
+          <li>对代码简单重写，使之直接输出 rewrite 之后的 URL</li>
+          <li>对新旧两个 webserver 批量执行脚本，获得两份 rewrite 之后的 URL</li>
+          <li>批量比对，批量检查，逐个修复。</li>
+        </ul>
+      </li>
+      <li>一些注意
+        <ul>
+          <li>有关重定向的写法，需要单独检查。</li>
+          <li>影响 rewrite 规则的，不仅仅是 path 部分，还有 query 部分，写 URL 清单的时候，务必覆盖同一个 rewrite 规则的各种情况。</li>
+        </ul>
+      </li>
+      <li>测试机验证核心功能</li>
+      <li>线上单机/小流量验证</li>
+      <li>线上全流量</li>
+    </ul>
+  </li>
+  <li>后续还是遗漏了的问题（部分在单机/小流量期间发现）
+    <ul>
+      <li>少量奇葩的 rewrite 规则的个别分支 case 遗漏。</li>
+      <li>日志打印方式
+        <ul>
+          <li>虽然注意了这个问题，但是还是有一些细小的遗漏，影响了部分的统计</li>
+        </ul>
+      </li>
+      <li>因为某些 header 参数问题，影响了 CDN 的处理。（细节忘了）</li>
+    </ul>
+  </li>
+  <li>其他
+    <ul>
+      <li>对于这种项目的测试，需要有清晰的思路，需要保证哪些，如何进行测试。</li>
+      <li>和其他角色如何进行分工。</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="一些其他问题">一些其他问题</h2>
+<ul>
+  <li>测试项目的时候 QA 需要知道的知识
+    <ul>
+      <li>产品线的代码架构，未必需要知道细节，但知道有哪些部分，怎么关联，数据怎么传递。</li>
+      <li>线下环境与线上环境的差异
+        <ul>
+          <li>检查必要的地方，以确保线下测试可能漏掉的部分
+            <ul>
+              <li>例如数据库读写的问题</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>如何看日志，什么时候看哪些日志。</li>
+      <li>除了功能测试之外，还需要关注什么
+        <ul>
+          <li>延迟问题</li>
+          <li>安全问题</li>
+          <li>性能问题</li>
+        </ul>
+      </li>
+      <li>如何分配时间
+        <ul>
+          <li>时间是肯定不够用的</li>
+          <li>应该关注哪些，放弃哪些</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>排期和分工
+    <ul>
+      <li>早期，制定排期的时候，一般要求测试时间约为开发时间的 1/3，如果达到 1/2 ，需要汇报原因。</li>
+      <li>然而当测试排期被列入 KPI 的时候，当测试周期被要求在 2天以内的时候，如何安排测试工作、排期就需要重新考虑。</li>
+      <li>同时开发自主上线项目的增多，开发的频率变快，周期变短，也对测试工作造成影响。</li>
+      <li>QA 重点保证
+        <ul>
+          <li>数据读写的正常</li>
+          <li>没有严重的样式问题（细节问题由 FE 保证和 PM 检查），QA 减少样式检查。</li>
+          <li>增加线上监控工作</li>
+        </ul>
+      </li>
+      <li>这种变化也会对其他数据，诸如线上漏测等问题的统计分析造成影响。
+        <ul>
+          <li>哪种问题才是“线上漏测”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>QA 人力的问题
+    <ul>
+      <li>早期，客户端尚未纳入产品线本身，测试工作也不在文库QA的时候，文库的测试人力，一般也有 4名正式员工 + 4名实习同学左右的人力。</li>
+      <li>后期，当文库、阅读产品线增多，客户端回归之后，产品线 PM 和 开发人力大量增多的时候，除去移动端测试人力，PC 和 Server 的测试人力长期只有 4名。</li>
+      <li>需要考虑人力分配，哪些项目测、哪些项目不测</li>
+      <li>考虑到还有其他工作方向（后续有时间可以聊一聊）
+        <ul>
+          <li>测试环境维护</li>
+          <li>竞品分析与数据清理</li>
+          <li>Bad case 挖掘</li>
+        </ul>
+      </li>
+      <li>So，其实很难办。</li>
+    </ul>
+  </li>
+  <li>有关项目测试与晋升
+    <ul>
+      <li>有关质量部和产品线的关系</li>
+      <li>项目测试，往往看不出成果，所以很多测试能力强的晋升其实要更困难一些</li>
+      <li>如何在测试中提高姿势水平</li>
+    </ul>
+  </li>
+  <li>有关 QA 的技能和竞争力
+    <ul>
+      <li>很多工作其实 QA 和 开发都可以做，只是分工的问题。</li>
+      <li>当 QA 人力下降到一定程度，对于整个 QA 团队来说，需要重新去思考 QA 的定位。</li>
+    </ul>
+  </li>
+</ul>
+
+
+                <hr>
+
+                
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//yunlaiwu.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                
+                                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2017/01/15/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/" data-toggle="tooltip" data-placement="top" title="自动化测试代码解析">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/01/22/test/" data-toggle="tooltip" data-placement="top" title="基于go语言的推荐服务搭建">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

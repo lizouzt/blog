@@ -1,0 +1,2354 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/blog/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.4.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2017-03-05T16:21:56+08:00</updated><id>http://localhost:4000/blog//</id><title type="html">Blog of Tech@Yunlaiwu.com</title><subtitle>Tech Team of Yunlaiwu.com!</subtitle><entry><title type="html">可怕的互联网攻击</title><link href="http://localhost:4000/blog/2017/03/04/security/" rel="alternate" type="text/html" title="可怕的互联网攻击" /><published>2017-03-04T00:00:00+08:00</published><updated>2017-03-04T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/03/04/security</id><content type="html" xml:base="http://localhost:4000/blog/2017/03/04/security/">&lt;h2 id=&quot;让人又爱又恨的互联网&quot;&gt;让人又爱又恨的互联网&lt;/h2&gt;
+
+&lt;p&gt;互联网在极大提高人类获取与处理信息能力的同时，同时也生存在严峻的环境下，因为互联网攻击从未停止过。&lt;/p&gt;
+
+&lt;p&gt;在线上和线下之间的界限越来越模糊的今天，我们的人生和财产安全随时随地都可能受到伤害。&lt;/p&gt;
+
+&lt;h2 id=&quot;大家都听过的惨案&quot;&gt;大家都听过的惨案&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;CSDN被“脱裤”，造成600余万注册用户信息被泄露，让曾经风头正盛的CSDN一蹶不振。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;网易邮箱数据失窃，当时大家打招呼的方式都变成了你的iphone被锁了吗？&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;著名社区草榴遭攻击，有网友戏称“CSDN脱裤我可以当作没看见，小米脱裤我也无所谓，10086泄密我都不怕，这次我真的怕了……”。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;我们也被攻击过（验证码，requestsmscode接口），虽然不严重，但是可以知道的是随着我们的崛起，被盯上是早晚的事。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;常见的互联网攻击方式&quot;&gt;常见的互联网攻击方式&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;网络攻击方式无数，黑客大神们掌握的技能更是让人瞠目结舌，大家可以去乌云感受一下，什么是一切皆有可能，不过总是有那么几种常用的和大家一起分享一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;一dosddos&quot;&gt;一、DOS，DDOS&lt;/h2&gt;
+
+&lt;p&gt;DOS（Denial of Service）拒绝服务攻击。&lt;br /&gt;
+DDOS（Distributed Denial of Service）是分布式拒绝服务攻击。&lt;/p&gt;
+
+&lt;h3 id=&quot;dos攻击的基本原理&quot;&gt;DOS攻击的基本原理&lt;/h3&gt;
+&lt;p&gt;设法使被攻击服务器充斥大量要求回复的信息，消耗网络带宽或系统资源导致网络或系统不胜负荷以至于瘫痪而停止提供正常的网络服务。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最简单粗暴的就是海量请求，挺不住就死。&lt;/li&gt;
+  &lt;li&gt;SYN洪水攻击，面向连接的TCP三次握手是SYN洪水攻击存在的基础。一台机器在网络中通讯时首先需要建立TCP握手，标准的TCP握手需要三次包交换来建立。服务器一旦接收到客户机的SYN包后必须回应一个SYN/ACK包，然后等待该客户机回应给它一个ACK包来确认，才真正建立连接。然而，如果只发送初始化的SYN包，而不发送确认服务器的ACK包会导致服务器一直等待ACK包。由于服务器在有限的时间内只能响应有限数量的连接，这就会导致服务器一直等待回应而无法响应其他机器进行的连接请求。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dos和ddos的区别是什么呢&quot;&gt;DOS和DDOS的区别是什么呢？&lt;/h3&gt;
+
+&lt;p&gt;DOS是利用自己的计算机攻击目标，也是一对一的关系，俗话里的单挑，这种攻击方式很传统，在当下的环境下不太适用，因为随着带宽，系统资源的极大提升，如果不计代价的攻击，很可能在把对手拖死之前，自己的机器先废掉了。&lt;/p&gt;
+
+&lt;p&gt;当然，正所谓道高一尺魔高一丈，DOS不好使了，坏人们就得研究点新办法，DDOS是DoS攻击基础之上产生的一种新的攻击方式,利用控制成百上千台肉鸡，组成一个DDOS攻击群，同一时刻对目标发起攻击。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何识别ddos攻击&quot;&gt;如何识别DDOS攻击&lt;/h3&gt;
+
+&lt;p&gt;以下是一些DDOS的特证，我们可以据此特征来抵抗DDOS（包括但不限于）：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;攻击经常来源于一些相对固定的IP或IP段，每个IP都有远大于真实用户的连接数和请求数。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;因为攻击是由木马发出且目的是使服务器超负荷，请求的频率会远远超过正常人的请求。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;User-Agent通常是一个非标准的值&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Referer有时是一个容易联想到攻击的值&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;如何应对ddos攻击&quot;&gt;如何应对DDOS攻击&lt;/h3&gt;
+
+&lt;p&gt;目前看DOS和DDOS是无法被阻止的，但是可以预防和应对。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;限制请求速度，设置Nginx的连接请求在一个真实用户请求的合理范围内。比如，如果你觉得一个正常用户每两秒可以请求一次登录页面，你就可以设置Nginx每两秒钟接收一个客户端IP的请求（大约等同于每分钟30个请求）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;限制连接数量，设置Nginx的连接数在一个真实用户请求的合理范围内。比如，你可以设置每个客户端IP连接数不可以超过10个。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;关闭慢连接，有一些DDOS攻击，比如Slowlris，是通过建立大量的连接并周期性的发送一些数据包保持会话来达到攻击目的，这种周期通常会低于正常的请求。这种情况我们可以通过关闭慢连接来抵御攻击。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置IP黑名单&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置IP白名单&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用缓存进行流量削峰&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;屏蔽特定的请求&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;限制到后端服务器的连接数，一个Nginx实例可以处理比后端服务器多的多的并发请求。当请求数大于后端的处理能力时，我们只处理能处理的。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;二xss跨站脚本攻击和-sql注入&quot;&gt;二、xss（跨站脚本攻击）和 sql注入&lt;/h2&gt;
+
+&lt;h3 id=&quot;什么是xss&quot;&gt;什么是XSS？&lt;/h3&gt;
+
+&lt;p&gt;恶意攻击者往Web页面里插入恶意代码，当用户浏览该页之时，嵌入其中Web里面的代码会被执行，从而达到恶意攻击用户的目的。&lt;/p&gt;
+
+&lt;h3 id=&quot;xss的类型&quot;&gt;XSS的类型&lt;/h3&gt;
+
+&lt;p&gt;XSS漏洞分为两种，一种是DOM Based XSS漏洞，另一种是Stored XSS漏洞。&lt;/p&gt;
+
+&lt;p&gt;理论上，所有可输入的地方没有对输入数据进行处理的话，都会存在XSS漏洞，漏洞的危害取决于攻击代码的威力，攻击代码也不局限于script。&lt;/p&gt;
+
+&lt;p&gt;DOM Based XSS，这种XSS只影响当前页面的用户，但是如果被高手搞成传播性漏洞，危害性还是很强的。&lt;/p&gt;
+
+&lt;p&gt;比如&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://www.yunlaiwu.com/?abc=aa&quot;}');alert(document.cookie);//
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Stored XSS漏洞，存储型XSS，影响的人很多&lt;/p&gt;
+
+&lt;p&gt;这种漏洞一般通过form表单的提交，存在数据库里，每个打开相关页面的人都会触发相关代码。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何应对xss攻击&quot;&gt;如何应对XSS攻击&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;完善的过滤体系，永远不相信用户的输入。需要对用户的输入进行处理，只允许输入合法的值，其它值一概过滤掉。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;确保输出到HTML页面的数据以HTML的方式被转义，对特殊的html进行编码处理。&amp;lt; 转成 &amp;amp;lt，&amp;gt; 转成 &amp;amp;gt，&amp;amp; 转成 &amp;amp;amp，” 转成 &quot;，’ 转成 &amp;amp;#39&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对于重要的cookie要设置成HttpOnly&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sql注入&quot;&gt;sql注入&lt;/h3&gt;
+
+&lt;p&gt;sql注入和xss很像，都是利用用户输入进行攻击，不过sql注入针对的是数据库&lt;/p&gt;
+
+&lt;p&gt;一个简单地示例&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select * from user where username = $username
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;用户输入&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;username ='test' or 1='1'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;如果我们不对输入数据进行处理，那么执行的sql语句将是&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;select * from user where username = 'test' or 1='1'，大门就这么轻易的打开了。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;危害性&quot;&gt;危害性&lt;/h3&gt;
+
+&lt;p&gt;sql注入攻击的危害性还是比较严重的，对于一个有经验的SQL注入攻击者，如果网站存在SQL注入的漏洞，攻击者利用一些恶意的字符串可以进行一些数据表的查询甚至更改和删除，也就是说，这个安全漏洞会把数据表及其结构显示在攻击者的面前，攻击者甚至可以利用一些手段来进行其他更严重的攻击等。&lt;/p&gt;
+
+&lt;h2 id=&quot;三csrfcross-site-request-forgery跨站请求伪造&quot;&gt;三、CSRF（Cross-site request forgery）跨站请求伪造&lt;/h2&gt;
+
+&lt;p&gt;CSRF是一个已经有些过气的攻击方法，但是一旦和其他攻击方法进行组合，还是有威力的&lt;/p&gt;
+
+&lt;h3 id=&quot;csrf的原理&quot;&gt;CSRF的原理&lt;/h3&gt;
+
+&lt;p&gt;攻击者盗用受害人的身份，以受害人的名义发送恶意请求&lt;/p&gt;
+
+&lt;h3 id=&quot;用一个例子来解释csrf能干什么&quot;&gt;用一个例子来解释CSRF能干什么&lt;/h3&gt;
+
+&lt;p&gt;有这样一个场景，用户A登录了一个银行B，然后他在一个兴趣群里随手打开了一个网址，几天后A重新登上自己网上银行B，突然发现自己的银行账户少了好多钱。&lt;/p&gt;
+
+&lt;p&gt;一般来说，这是遭遇了CSRF攻击。&lt;/p&gt;
+
+&lt;h3 id=&quot;发生了什么&quot;&gt;发生了什么？&lt;/h3&gt;
+
+&lt;p&gt;假设（实际上没有那么傻）银行网站B，它以GET请求来完成银行转账的操作，如：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http://www.mybank.com/Transfer.php?toBankId=11&amp;amp;money=1000
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;而银行网站B的身份认证是通过cookie来完成的。&lt;/p&gt;
+
+&lt;p&gt;危险网站B，它里面有一段HTML的代码如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;img src=&quot;http://www.mybank.com/Transfer.php?toBankId=11&amp;amp;money=1000&quot;&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;悲哀的是此时我们本地关于银行B的cookie还没有过期，这个请求是被准确的。&lt;/p&gt;
+
+&lt;p&gt;ok，用户A向银行B报告了这件事，经过前面惨痛的教训，银行B决定转账请求必须只支持post请求，get见鬼去吧，哈哈。&lt;/p&gt;
+
+&lt;p&gt;结果呢？坏人C嘿嘿一笑，把网站代码简单改了一下。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    	&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    		&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;steal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    			&lt;span class=&quot;nx&quot;&gt;iframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;frames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;steal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    			&lt;span class=&quot;nx&quot;&gt;iframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;transfer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onload=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;steal()&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;steal&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;display=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;none&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+　　　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;POST&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transfer&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.myBank.com/Transfer.php&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+　　　　　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;toBankId&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;11&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+　　　　　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;money&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1000&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+　　　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+　　　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+　　&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;又是一千块钱就这么没了，欲哭无泪啊！&lt;/p&gt;
+
+&lt;h3 id=&quot;csrf的充分必要条件&quot;&gt;CSRF的充分必要条件&lt;/h3&gt;
+
+&lt;p&gt;那么这是怎么回事呢？我们来复盘一下用户A做了什么。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;登录受信任网站A，并在本地生成Cookie。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在不登出A的情况下，访问危险网站B。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;看到这里，你也许会说：“如果我不满足以上两个条件中的一个，我就不会受到CSRF的攻击”。是的，确实如此，但你不能保证以下情况不会发生：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;你不能保证你登录了一个网站后，不再打开一个tab页面并访问另外的网站。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;你不能保证你关闭浏览器了后，你本地的Cookie立刻过期，你上次的会话已经结束。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;如何应对csrf呢&quot;&gt;如何应对CSRF呢？&lt;/h3&gt;
+
+&lt;p&gt;增加更加严格的验证方法比如判断refer，增加伪随机数等方法。&lt;/p&gt;
+
+&lt;p&gt;我觉得更加简单残暴有效的方法就是强校验，比如银行常用的（U盾，电子token等等），并且所有支付都需要密码&lt;/p&gt;</content><author><name>cuihongpeng</name></author><summary type="html">让人又爱又恨的互联网</summary></entry><entry><title type="html">A Frequent Pattern Mining Algorithm</title><link href="http://localhost:4000/blog/2017/02/17/SSDTreeMiner/" rel="alternate" type="text/html" title="A Frequent Pattern Mining Algorithm" /><published>2017-02-17T00:00:00+08:00</published><updated>2017-02-17T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/02/17/SSDTreeMiner</id><content type="html" xml:base="http://localhost:4000/blog/2017/02/17/SSDTreeMiner/">&lt;h3 id=&quot;说明&quot;&gt;说明：&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;论文正在发表中，为了降低重复率，这里只传了图片。&lt;/li&gt;
+  &lt;li&gt;抛砖引玉，欢迎大家讨论。
+&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%871.JPG&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%872.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%873.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%874.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%875.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%876.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%877.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%878.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%879.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8710.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8711.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8712.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8713.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8714.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8715.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8716.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8717.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8718.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8719.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8720.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8721.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8722.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8723.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8724.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://oiz7ii9h0.qnssl.com/ICBDA/%E5%B9%BB%E7%81%AF%E7%89%8725.JPG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>童小托</name></author><summary type="html">说明：
+
+  论文正在发表中，为了降低重复率，这里只传了图片。
+  抛砖引玉，欢迎大家讨论。</summary></entry><entry><title type="html">前端资源管理进化史</title><link href="http://localhost:4000/blog/2017/02/14/frontend/" rel="alternate" type="text/html" title="前端资源管理进化史" /><published>2017-02-14T00:00:00+08:00</published><updated>2017-02-14T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/02/14/frontend</id><content type="html" xml:base="http://localhost:4000/blog/2017/02/14/frontend/">&lt;p&gt;PS，本文是一个针对非前端程序员的科普贴，吸纳了很多现有文章的内容。&lt;/p&gt;
+
+&lt;h2 id=&quot;一句话&quot;&gt;一句话&lt;/h2&gt;
+
+&lt;p&gt;前端是是一种技术问题较少、工程问题较多的软件开发领域。&lt;/p&gt;
+
+&lt;p&gt;——张云龙&lt;/p&gt;
+
+&lt;p&gt;换言之：前端工程师就是一个高级技工。&lt;/p&gt;
+
+&lt;h2 id=&quot;资源管理的历史&quot;&gt;资源管理的历史&lt;/h2&gt;
+
+&lt;p&gt;胖总化身农名工，开始穿越。&lt;/p&gt;
+
+&lt;h3 id=&quot;第一阶段&quot;&gt;第一阶段&lt;/h3&gt;
+
+&lt;p&gt;上世纪末期和本20世纪开始的几年，作为农民工的胖总，只要知道怎么盖房子就可以了，盖房子其实很简单，拢共分三步：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;打地基：会好HTML&lt;/li&gt;
+  &lt;li&gt;搞装修：会写CSS&lt;/li&gt;
+  &lt;li&gt;综合布线、集中采暖、防汛工程等功能性劳动：会写JS&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;尼玛能把这三个东西黏在一起往服务器上一堆就ok了，哪儿管那么多！&lt;/p&gt;
+
+&lt;h3 id=&quot;第二阶段&quot;&gt;第二阶段&lt;/h3&gt;
+
+&lt;p&gt;web2.0来了，05年开始，什么校内网、占座网、my space都来了。他们都嚷嚷着要建楼，而且把工程都包给了胖总。&lt;/p&gt;
+
+&lt;p&gt;胖总惆怅了，原因有2。&lt;/p&gt;
+
+&lt;p&gt;一是这些甲方太tmd难伺候了，事儿真多，功能特别复杂。&lt;/p&gt;
+
+&lt;p&gt;二是这些楼访问量太大了，按照之前盖房子的方式，人一多就得倒。&lt;/p&gt;
+
+&lt;p&gt;咋办？&lt;/p&gt;
+
+&lt;p&gt;这时候就要有&lt;strong&gt;资源管理&lt;/strong&gt;的意识了。&lt;/p&gt;
+
+&lt;p&gt;咋管理？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CDN，其实这玩意儿98年就出来了，但是胖总现在才开始正儿八经地用。他很好用，就是给甲方建好多楼，全国各地都是，防止甲方的客户全跑总部来，把总部给挤垮了。&lt;/li&gt;
+  &lt;li&gt;资源合并加载，这太好理解了。之前盖房子都是一块砖一块砖地盖，现在尼玛用了钢筋混泥土，直接按照施工方案，直接把整体的骨架浇筑完成，既提高了效率，也加强了建筑物的强度。
+    &lt;ul&gt;
+      &lt;li&gt;合并的目的一：减少HTTP请求数（但是有节制的合并，不能太过激进，要在请求书和请求量之间寻找平衡点）。&lt;/li&gt;
+      &lt;li&gt;合并的亩地二：基于合并进行文件压缩(再附加gzip)，包括变量替换，代码混淆等等。&lt;/li&gt;
+      &lt;li&gt;不光代码可以合并，图片也可以合并，css sprite！&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/1.png&quot; alt=&quot;1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;第三阶段&quot;&gt;第三阶段&lt;/h3&gt;
+
+&lt;p&gt;模块化开发来了！！！！&lt;/p&gt;
+
+&lt;p&gt;我艹，这下胖总牛逼了。&lt;/p&gt;
+
+&lt;p&gt;还记得亨利福特开创的流水线生产么？胖总发现，尼玛管理一个个人人都是多面手的包工队成本太高。你，你，还有你，你们仨儿以后只负责打地基；你，你，还有你，你们仨儿以后只负责封顶；你，你，还有你，你们仨儿以后只负责浇筑。&lt;/p&gt;
+
+&lt;p&gt;胖总搞突然发现，原来让大家各司其职，好处真大！&lt;/p&gt;
+
+&lt;p&gt;专业的人做专业的事情，而且他们做出来的东西还可以被别人复用，太tmd爽了。&lt;/p&gt;
+
+&lt;p&gt;模块化开发其实会有很多理解方式，在前端工程领域包括但不限于这么几个理解方式：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;模板模块化：头部、底部、列表、用户信息。。。。&lt;/li&gt;
+  &lt;li&gt;脚本模块化：实现同一种功能的脚本放一起。。。。&lt;/li&gt;
+  &lt;li&gt;样式模块化：
+    &lt;ul&gt;
+      &lt;li&gt;大家知道通用的样式放在一起了&lt;/li&gt;
+      &lt;li&gt;OOCSS的诞生，大家发现样式都能tmd面向对象了&lt;/li&gt;
+      &lt;li&gt;LESS，SASS，SCSS这些样式编译工具的但是，我艹，可以随意定义变量和mixin，还能相互依赖了！&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;有了模块化，就得有加载器啊！&lt;/p&gt;
+
+&lt;p&gt;这就好比，有人给你在别的地方把楼顶先做好了，你得有吊车把楼顶吊过来啊！&lt;/p&gt;
+
+&lt;p&gt;所以&lt;strong&gt;加载器&lt;/strong&gt;就是基于模块间的依赖关系，来进行依赖加载的东东。&lt;/p&gt;
+
+&lt;p&gt;10到12年，这东西特别火，有AMD的requireJS加载器，还有CMD的SeaJS加载器。。。。这里就不讨论什么是前置依赖，什么是运行时依赖，反正你就记住，加载器就是让模块之间有依赖关系时，找到依赖的模块并加载之！！！&lt;/p&gt;
+
+&lt;p&gt;但是，又有一个问题来了！！！&lt;/p&gt;
+
+&lt;p&gt;这尼玛如果加载依赖的JS和CSS是在运行时加载，那么岂不是要发好多HTTP请求？那用户看到的页面应该就和吃了屎的幻灯片一样，一部分一部分出来。这楼房还你能住？&lt;/p&gt;
+
+&lt;p&gt;所以，第二阶段的合并思想当然要引入到模块化开发中。&lt;/p&gt;
+
+&lt;p&gt;这时候，胖总发现，我艹，太牛逼了。有了模块化开发和加载器，做合并再也不用无脑合并了，而是可以根据模块之间的依赖关系合并！！！！&lt;/p&gt;
+
+&lt;p&gt;牛逼了，牛逼了，牛逼大发了！&lt;/p&gt;
+
+&lt;p&gt;但是，胖总先hold住第三阶段的激情澎湃，我们先看下第四阶段是什么？&lt;/p&gt;
+
+&lt;h2 id=&quot;第四阶段&quot;&gt;第四阶段&lt;/h2&gt;
+
+&lt;p&gt;组件化开发！！！&lt;/p&gt;
+
+&lt;p&gt;听起来高大上的名字，其实本质上就是爸之前的粪便基于模板、脚本和样式的模块化，变成了基于“模板+脚本+样式”的一揽子的模块化开发！！！！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/2.png&quot; alt=&quot;2.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;看起来没什么，但是我们来分析一下背后可能的依赖关系：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/3.png&quot; alt=&quot;3.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;那么，怎么描述这种关系呢，那就需要&lt;strong&gt;资源表&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/4.png&quot; alt=&quot;4.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;利用服务端的技术，我们可以在运行时进行资源合并，并且用CDN缓存合并响应：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/5.png&quot; alt=&quot;5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以上只是针对脚本和样式的合并加载方案，对于模板，也可以将其内嵌到脚本中：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/6.png&quot; alt=&quot;6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不光是模板，零碎的图片也可以以base64编码的形式嵌入到样式文件中。&lt;/p&gt;
+
+&lt;p&gt;综上：通过&lt;strong&gt;内嵌&lt;/strong&gt;、&lt;strong&gt;依赖&lt;/strong&gt;和&lt;strong&gt;定位&lt;/strong&gt;管理所有前端资源，通过&lt;strong&gt;资源加载框架&lt;/strong&gt;读取资源表，实现资源加载的程序化控制：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/7.png&quot; alt=&quot;7.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;这就够了么&quot;&gt;这就够了么？&lt;/h2&gt;
+
+&lt;p&gt;显然不够！&lt;/p&gt;
+
+&lt;p&gt;因为不够快！&lt;/p&gt;
+
+&lt;p&gt;浏览器渲染的基本流程：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/8.png&quot; alt=&quot;8.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;HTML解析，构建DOM树；&lt;/li&gt;
+  &lt;li&gt;CSS解析，构建CSSOM树；&lt;/li&gt;
+  &lt;li&gt;融合为Render树；&lt;/li&gt;
+  &lt;li&gt;布局计算；&lt;/li&gt;
+  &lt;li&gt;屏幕绘制。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;key点：尽快让浏览器建立DOM和CSSOM树以便渲染页面&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/9.png&quot; alt=&quot;9.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;RTT(Round-Trip Time): 往返时延——性能毒瘤！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/10.png&quot; alt=&quot;10.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/11.png&quot; alt=&quot;11.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前端渲染的极限方案：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/12.png&quot; alt=&quot;12.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前端按需加载！&lt;/p&gt;
+
+&lt;p&gt;前端先加载首屏资源（首屏一个RTT），然后再获取其他屏的资源渲染。&lt;/p&gt;
+
+&lt;h2 id=&quot;后端渲染&quot;&gt;后端渲染&lt;/h2&gt;
+
+&lt;p&gt;上面讲了半天，其实都是在死磕前端渲染，虽然前端渲染具备较强的控制力，但是性能堪忧。&lt;/p&gt;
+
+&lt;p&gt;服务端（首屏）直出！&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;组件化/模块化开发；&lt;/li&gt;
+  &lt;li&gt;在服务端引用组件们；&lt;/li&gt;
+  &lt;li&gt;按需找到组件依赖的JS和CSS；&lt;/li&gt;
+  &lt;li&gt;合并JS和CSS；&lt;/li&gt;
+  &lt;li&gt;将合并好的组件的CSS和JS内嵌到首屏输出的HTML里（CSS在前，JS在后）；&lt;/li&gt;
+  &lt;li&gt;收集页面内的零碎脚本到最后。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/13.png&quot; alt=&quot;13.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;facebook三驾马车&quot;&gt;facebook三驾马车&lt;/h2&gt;
+
+&lt;p&gt;其实这是一套非常老的技术，诞生于10年，可以配合前面所述的组件服务端直出一起使用：&lt;/p&gt;
+
+&lt;p&gt;bigpipe、quickling、pagecache！！！&lt;/p&gt;
+
+&lt;h2 id=&quot;bigpipe&quot;&gt;bigpipe&lt;/h2&gt;
+
+&lt;p&gt;上面讲了半天首屏，尼玛其实首屏的定义时PM给出来的，不一定在正中间的就是首屏。&lt;/p&gt;
+
+&lt;p&gt;所谓首屏，就是PM认为最重要的页面部分。&lt;/p&gt;
+
+&lt;p&gt;看下facebook（这图尼玛有点儿老）：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/14.jpeg&quot; alt=&quot;14.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;你会怎么实现？&lt;/p&gt;
+
+&lt;p&gt;扣div + ajax？&lt;/p&gt;
+
+&lt;p&gt;no！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/15.png&quot; alt=&quot;15.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以用一个叫做bigpipe的东西，其实这是一个技术合集：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;定义页面区域（pagelets），并确定屏幕次序（根据重要度）；&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/16.png&quot; alt=&quot;16.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;服务端chunk输出；&lt;/li&gt;
+  &lt;li&gt;前端有一套触发式的加载框架。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;quickling&quot;&gt;quickling&lt;/h3&gt;
+
+&lt;p&gt;尼玛其实就是把传统的html请求变为ajax，一次性搞回来模板+js+css，然后热替换现有的内容；&lt;/p&gt;
+
+&lt;h3 id=&quot;pagecache&quot;&gt;pagecache&lt;/h3&gt;
+
+&lt;p&gt;其实就是保存下页面，切换回来的时候直接从缓存（其实就是浏览器内存）中读取，比如在tb切换的时候。&lt;/p&gt;
+
+&lt;h2 id=&quot;缓存跟前端部署的那一腿&quot;&gt;缓存跟前端部署的那一腿&lt;/h2&gt;
+
+&lt;p&gt;相信搞前端的没人不知道200、200 from cache和304都代表什么：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;200： 从服务端请求资源成功&lt;/li&gt;
+  &lt;li&gt;200 from cahce：直接从浏览器里拿&lt;/li&gt;
+  &lt;li&gt;304：服务端告诉你，别废话，直接用上次的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;看起来200 from cache更牛逼一些，强制浏览器使用本地缓存（cache-control/expires），不要和服务器通信。好了，请求方面的优化已经达到变态级别，那问题来了：你都不让浏览器发资源请求了，这缓存咋更新？&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/17.jpg&quot; alt=&quot;17.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;但是，问题来了：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/18.jpg&quot; alt=&quot;18.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;每次全都更新这岂不崩溃？所以，我们不难发现，要解决这种问题，必须让url的修改与文件内容关联，也就是说，只有文件内容变化，才会导致相应url的变更，从而实现文件级别的精确缓存控制。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/19.jpg&quot; alt=&quot;19.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;完事儿了？no！考虑如下这种情况：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/20.jpg&quot; alt=&quot;20.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到底是先上线静态资源还是页面？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;先部署页面，再部署资源&lt;/strong&gt;：在二者部署的时间间隔内，如果有用户访问页面，就会在新的页面结构中加载旧的资源，并且把这个旧版本的资源当做新版本缓存起来，其结果就是：用户访问到了一个样式错乱的页面，除非手动刷新，否则在资源缓存过期之前，页面会一直执行错误。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;先部署资源，再部署页面&lt;/strong&gt;：在部署时间间隔之内，有旧版本资源本地缓存的用户访问网站，由于请求的页面是旧版本的，资源引用没有改变，浏览器将直接使用本地缓存，这种情况下页面展现正常；但没有本地缓存或者缓存过期的用户访问网站，就会出现旧版本页面加载新版本资源的情况，导致页面执行错误，但当页面完成部署，这部分用户再次访问页面又会恢复正常了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;解决方法：&lt;strong&gt;覆盖式发布&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/21.jpg&quot; alt=&quot;21.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;看上图，用文件的摘要信息来对资源文件进行重命名，把摘要信息放到资源文件发布路径中，这样，内容有修改的资源就变成了一个新的文件发布到线上，不会覆盖已有的资源文件。上线过程中，先全量部署静态资源，再灰度部署页面，整个问题就比较完美的解决了。&lt;/p&gt;
+
+&lt;p&gt;所以，大公司的静态资源优化方案，基本上要实现这么几个东西：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;配置超长时间的本地缓存 —— 节省带宽，提高性能&lt;/li&gt;
+  &lt;li&gt;采用内容摘要作为缓存更新依据 —— 精确的缓存控制&lt;/li&gt;
+  &lt;li&gt;静态资源CDN部署 —— 优化网络请求&lt;/li&gt;
+  &lt;li&gt;更资源发布路径实现非覆盖式发布  —— 平滑升级&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;全套做下来，就是相对比较完整的静态资源缓存控制方案了，而且，还要注意的是，静态资源的缓存控制要求在&lt;strong&gt;前端所有静态资源加载的位置都要做这样的处理&lt;/strong&gt;。是的，所有！什么js、css自不必说，还要包括js、css文件中引用的资源路径，由于涉及到摘要信息，引用资源的摘要信息也会引起引用文件本身的内容改变，从而形成级联的摘要变化，大概示意图就是：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/frontend/22.jpg&quot; alt=&quot;22.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;工具化&quot;&gt;工具化&lt;/h2&gt;
+
+&lt;p&gt;以上提到的静态资源依赖管理、内嵌以及定位功能，还有为了覆盖式发布进行的文件名替换，明显不能通过纯手工的方式去做。&lt;/p&gt;
+
+&lt;p&gt;这时候就需要引入工具化：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;构建工具：构建工具的目的是让资源的依赖合并嵌入变得自动化，一行命令（甚至watch）就能产出最终的结果，而且还能解决资源相对地址和绝对地址切换带来的定位（CDN替换）问题。&lt;/li&gt;
+  &lt;li&gt;集成工具：构建工具只是负责执行一次或者一批人物，将这些任务的上下游一起串联（包括单元测试、测试环境部署）等放在一起，就需要类似jekins和travis ci之类的东东。&lt;/li&gt;
+  &lt;li&gt;部署工具：当然，集成工具理论上包括部署工具。但是单拎出来说的目的是，这东西主要解决的是线上线下环境切换（环境变量、相对地址、配置文件读取方式等）问题。&lt;/li&gt;
+  &lt;li&gt;运行时工具：比如之前百度的在线智能打包（根据页面流量、负载等，合并最长访问的资源）等工具。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这些工具的出现，都是为了让模块化开发、组件开发变得更快捷。&lt;/p&gt;
+
+&lt;p&gt;当然，这东西迭代太快了。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;从任务流的方式来看，有基于文件的grunt和基于stream的gulp和fis啊。。。&lt;/li&gt;
+  &lt;li&gt;有专攻维度不同的，比如webpack专业盯着依赖打包，gulp提供任务组合，fis提供一揽子（包括前后端业务框架）解决方案。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;总之，工具让生活更美好。&lt;/p&gt;
+
+&lt;h2 id=&quot;未来&quot;&gt;未来？&lt;/h2&gt;
+
+&lt;h3 id=&quot;html5-offline-app&quot;&gt;HTML5 offline app&lt;/h3&gt;
+
+&lt;p&gt;坑爹的manifest！&lt;/p&gt;
+
+&lt;p&gt;简言之就是把页面以及页面里的静态资源都存储在浏览器里，后续直接从本地度，就算断网都能访问。&lt;/p&gt;
+
+&lt;p&gt;但是兼容性实在是呵呵，有的浏览器尼玛一旦cache，只能靠404清除。&lt;/p&gt;
+
+&lt;h3 id=&quot;http-20&quot;&gt;HTTP 2.0&lt;/h3&gt;
+
+&lt;p&gt;这个之前有讲过，其实，在HTTP2.0时代，之前的那些狗屁问题都不是问题了。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;什么加载器，浏览器端systemjs直接一次性load出来。&lt;/li&gt;
+  &lt;li&gt;图片加载……呵呵&lt;/li&gt;
+  &lt;li&gt;quickling？呵呵&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;都尼玛呵呵了。&lt;/p&gt;
+
+&lt;h2 id=&quot;综述&quot;&gt;综述&lt;/h2&gt;
+
+&lt;p&gt;仅仅是一个前端资源加载，身为农民工的胖总就已经心力憔悴了。放眼未来，工程化的问题根本不需要经验，可能一个新的技术，之前你的所有积累都88。&lt;/p&gt;
+
+&lt;p&gt;所以，怎么保持自己不被淘汰：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;学学学！&lt;/li&gt;
+  &lt;li&gt;看思想，看原理，不要单单学API，学API一毛钱用都没有，那就真的是民工了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;完&lt;/p&gt;</content><author><name>stefan</name></author><summary type="html">PS，本文是一个针对非前端程序员的科普贴，吸纳了很多现有文章的内容。</summary></entry><entry><title type="html">线上数据库主从切换步骤</title><link href="http://localhost:4000/blog/2017/02/14/database/" rel="alternate" type="text/html" title="线上数据库主从切换步骤" /><published>2017-02-14T00:00:00+08:00</published><updated>2017-02-14T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/02/14/database</id><content type="html" xml:base="http://localhost:4000/blog/2017/02/14/database/">&lt;h2 id=&quot;为什么改表结构要进行主从切换&quot;&gt;为什么改表结构要进行主从切换&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;在现有业务量级下，user和ip两张表的访问量很大，直接对线上表结构进行修改，会因为mysql的保护机制造成雪崩，影响线上服务。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;基本思路： 创建新的主库，将线上读流量导向新的主库，对老主库进行表结构修改，待操作完成，将流量切回。&lt;/p&gt;
+
+&lt;p&gt;实施步骤：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;若是因为更改表结构而进行主从切换，请事先准备好相应sql语句，并在测试机测试通过。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;登录ucloud，通过控制台创建新的从库（一键创建）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;登录中控机备份database.conf文件（方便恢复使用）,更改database.conf中数据库的读ip地址为新主库ip地址（写地址千万不要变）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将新从库提升为主库（一键提升）。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在中控机代码根目录下执行sh cache.sh，使新配置文件生效。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;执行sh local.sh脚本，查看各接口服务是否正常。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;观察日志，看是否存在报错，若无报错进行下一步，否则，进行回滚操作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将新的database.conf文件scp到on1机器（后续会提供脚本），在on1机器的代码根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将中控机上的database.conf文件scp到其他线上机器（后续会提供脚本），在代码根目录下执行sh cache.sh，观察日志，若无报错进行下一步，否则，进行回滚操作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;观察线上日志，查看关键页面是否正常，若正常则进行下一步，否则，进行回滚操作。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对原主库进行数据表结构修改，每一次结构更改都需要观察线上服务是否正常，若无问题，修改完成后进行下一步。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用中控机备份的database.conf进行线上单台配置文件恢复，观察日志，若正常则恢复其他机器配置文件，否则，将流量切回。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;观察线上服务是否正常，若正常（30分钟后），将临时主库删除，完成操作。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>cuihongpeng</name></author><summary type="html">为什么改表结构要进行主从切换
+
+  在现有业务量级下，user和ip两张表的访问量很大，直接对线上表结构进行修改，会因为mysql的保护机制造成雪崩，影响线上服务。</summary></entry><entry><title type="html">iOS本地数据存取</title><link href="http://localhost:4000/blog/2017/02/05/iOS%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/" rel="alternate" type="text/html" title="iOS本地数据存取" /><published>2017-02-05T00:00:00+08:00</published><updated>2017-02-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/02/05/iOS%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96</id><content type="html" xml:base="http://localhost:4000/blog/2017/02/05/iOS%E6%9C%AC%E5%9C%B0%E6%95%B0%E6%8D%AE%E5%AD%98%E5%8F%96/">&lt;h2 id=&quot;什么是沙盒sandbox&quot;&gt;什么是沙盒（sandbox）&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;为一些不可靠的程序提供实验而不影响系统运行的环境，有时也被称做沙箱。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;核心： sandbox对应用程序执行各种操作的权限限制。&lt;/p&gt;
+
+&lt;p&gt;iOS中的沙盒机制：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;每个应用程序都有自己的存储空间。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;应用程序不能翻过自己的围墙去访问别的存储空间的内容。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;应用程序请求的数据都要通过权限检测，假如不符合条件的话，不会被放行。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一、iOS应用沙盒结构分析：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/jyh/document.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Documents：
+保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录&lt;/p&gt;
+
+&lt;p&gt;tmp：
+保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录&lt;/p&gt;
+
+&lt;p&gt;Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据（SDImage）&lt;/p&gt;
+
+&lt;p&gt;Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录&lt;/p&gt;
+
+&lt;p&gt;二、沙盒路径：&lt;/p&gt;
+
+&lt;p&gt;前往文件夹 ~/Library
+资源库 - Developer - CoreSimulator - Devices -  2CDE1FD0-9EF1-4CA1-B480-4CC4AA52953D（设备即模拟器） - data - 资源库 - Containers - Data - Application - 43BD49CD-682D-4484-932D-B5EE9EB26C6D - 图片document目录&lt;/p&gt;
+
+&lt;p&gt;获取沙盒路径：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;var dic = [String: String]()
+
+//获取沙盒目录
+let home = NSHomeDirectory()
+
+// .UserDomainMask 代表从用户文件夹下找
+// true 代表展开路径中的波浪字符“~”
+let arr = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+let tmpArr = NSSearchPathForDirectoriesInDomains(.LibraryDirectory, .UserDomainMask, true)
+
+// 在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素
+let document = arr[0]
+
+/*
+&quot;/var/folders/8s/fh6sz13574d8_0q0qzg86j7h0000gp/T/com.apple.dt.Xcode.pg/containers/com.apple.dt.playground.stub.iOS_Simulator.plistExample-196FE2E4-23F3-4FB2-AE08-D0579A77FFF0/Documents&quot;
+*/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;ios应用数据存储的常用方式&quot;&gt;iOS应用数据存储的常用方式&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;XML属性列表（plist）归档&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;NSKeyedArchiver归档（NSCoding）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SQLite3（FMDB）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Core Data&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;一、XML属性列表（plist）归档&lt;/p&gt;
+
+&lt;p&gt;属性列表是一种XML格式的文件，拓展名为plist。&lt;/p&gt;
+
+&lt;p&gt;如果对象是NSString、NSDictionary、Array、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中。&lt;/p&gt;
+
+&lt;p&gt;举个例子：将一个NSDictionary对象归档到一个plist属性列表中&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  var dic = [String: String]()
+  let home = NSHomeDirectory()
+  var path = home.stringByAppendingString(&quot;/Documents/jyh.plist&quot;)
+  dic[&quot;jjj&quot;] = &quot;jjj&quot;
+  dic[&quot;yyy&quot;] = &quot;yyy&quot;
+  dic[&quot;hhh&quot;] = &quot;hhh&quot;
+  (dic as NSDictionary).writeToFile(path, atomically: true)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/jyh/file.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/jyh/plist.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Preference&lt;/p&gt;
+
+    &lt;p&gt;还有一种更简单的方式NSUserDefaults，iOS提供了一套标准的解决方案来为应用加入偏好设置功能，本质还是通过plist来存储数据，但是使用更加简单，无需关注文件、文件夹路径和名称
+每个应用都有个NSUserDefaults实例（单例），通过它来存取偏好设置，比如，保存用户名、字体大小、是否自动登录等。&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   //.利用NSUserDefaults，就能直接访问软件的偏好设置（Library/Preferences)  
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(&quot;长沙市&quot;, forKey:&quot;city&quot;)
+        defaults.setObject(&quot;湖南省&quot;,forKey:&quot;province&quot;)
+        defaults.synchronize()
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!----&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      //读取
+      let defaults = NSUserDefaults.standardUserDefaults()
+      let string = defaults.objectForkey(&quot;city&quot;)   
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入&lt;/p&gt;
+
+&lt;p&gt;二、NSCoding (NSKeyedArchiver\NSKeyedUnarchiver)&lt;/p&gt;
+
+&lt;p&gt;如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，可以直接用NSKeyedArchiver进行归档和恢复。&lt;/p&gt;
+
+&lt;p&gt;不是所有的对象(非OC对象)都可以直接用这种方法进行归档，只有遵守了NSCoding协议的对象才可以&lt;/p&gt;
+
+&lt;p&gt;NSCoding协议有2个方法：&lt;/p&gt;
+
+&lt;p&gt;encodeWithCoder:每次归档对象时，都会调用这个方法。一般在这个方法里面指定如何归档对象中的每个实例变量，可以使用encodeObject:forKey:方法归档实例变量&lt;/p&gt;
+
+&lt;p&gt;initWithCoder:每次从文件中恢复(解码)对象时，都会调用这个方法。一般在这个方法里面指定如何解码文件中的数据为对象的实例变量，可以使用decodeObject:forKey方法解码实例变量&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class priVC: NSObject,NSCoding {
+    let name = &quot;jyh&quot;
+    let choose : Bool = true
+    //将对象归档
+    //在这个方法里说清楚：1.哪些属性需要存储  2.怎样存储这些属性 
+    
+    func encodeWithCoder(aCoder: NSCoder) {        
+    aCoder.encodeObject(self.name, forKey: &quot;name&quot;)
+    aCoder.encodeBool(choose, forKey: &quot;choose&quot;)
+    }
+    //解析对象
+    //在这个方法说清楚： 1.那个属性需要解析（读取）  2.怎样解析（读取）这些属性
+    required init?(coder aDecoder: NSCoder) {
+    let name = aDecoder.decodeObjectForKey(&quot;name&quot;)
+    let choose = aDecoder.decodeBoolForKey(&quot;choose&quot;)
+    }
+ } 在指定文件中存储数据和读取数据
+
+let path = &quot;/Users/jyh/Desktop/person.data&quot;
+var person = [String: AnyObject]()
+
+func save() {
+    person[&quot;name&quot;] = &quot;jyh&quot;
+    person[&quot;age&quot;] = 18
+    NSKeyedArchiver.archiveRootObject(person, toFile: path)
+}
+func read() {
+    let person = NSKeyedUnarchiver.unarchiveObjectWithFile(self.path) as? [String: AnyObject]
+    let name = person?[&quot;name&quot;]
+    let age = person?[&quot;age&quot;]
+    
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;三、 SQLite3（FMDB）&lt;/p&gt;
+
+&lt;p&gt;SQLite3 是一款开源的轻型的嵌入式关系型数据库，可移植性好、易使用、内存开销小，SQLite3 是无类型的，可以保存任何类型的数据到任意的字段中。
+通常会使用FMDB等第三方库
+它封装了SQLite的C语言API&lt;/p&gt;
+
+&lt;p&gt;优点是：
+使用起来更加面向对象，省去麻烦冗余的C语言的代码，对比苹果的Core Data 框架，更加的轻量级和灵活，提供了多线程安全的数据库操作方法，有效防止数据混乱。&lt;/p&gt;
+
+&lt;p&gt;FMDB有三个主要的类：&lt;/p&gt;
+
+&lt;p&gt;FMDataBase :一个FMDataBase 对象就代表一个单独的DataBase数据库，用来执行SQL语句。&lt;/p&gt;
+
+&lt;p&gt;FMResultSet: 使用FMResultSet执行查询后的结果集。&lt;/p&gt;
+
+&lt;p&gt;FMDataBaseQueue: 用于多线程执行多个查询或者更新，他是线程安全的。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;static let shareInstance = SQLiteTool()
+//创建和打开一个数据库
+//如果有就直接打开,如果没有,创建一个再打开
+lazy var db: FMDatabase = {
+    let path = &quot;/Users/jyh/Desktop/dataBase&quot; + &quot;/batac.sqlite&quot;
+    let db = FMDatabase(path: path)
+    return db
+}()
+//实例化db对象的时候就会默认打开或创建一个数据库
+override init() {
+    super.init()
+    if db.open(){
+        print(&quot;打开数据库成功&quot;)
+    }
+}
+
+func createTable() -&amp;gt; Void {
+    let sql = &quot;create table  t_ball(id integer primary key autoincrement,name text not null,age integer ,score real default 59.0)&quot;
+
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print(&quot;创建表格成功&quot;)
+    }
+}
+func dropTable() -&amp;gt; Void {
+    let sql = &quot;drop table if exists t_ball&quot;
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print(&quot;删除表格成功&quot;)
+    }
+}
+func insertData() -&amp;gt; Void {
+    let sql = &quot;insert into t_ball (name,age,score) values ('Batac',20,100)&quot;
+    let result = db.executeUpdate(sql, withArgumentsInArray: nil)
+    if result {
+        print(&quot;插入成功&quot;)
+    }
+}
+func quaryData() -&amp;gt; Void {
+
+    let sql = &quot;select * from t_ball&quot;
+    let resultSet = db.executeQuery(sql, withArgumentsInArray: nil)
+    while resultSet.next() {
+        let name = resultSet.stringForColumn(&quot;name&quot;)
+        let age = resultSet.intForColumn(&quot;age&quot;)
+        let score = resultSet.doubleForColumn(&quot;score&quot;)
+        print(name,age,score)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;四、CoreData
+Core Data框架提供了对象-关系映射(ORM)的功能，即能够将OC对象转化成数据，保存在SQLite3数据库文件中，也能够将保存在数据库中的数据还原成OC对象。在此数据操作期间，不需要编写任何SQL语句。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/jyh/coreData.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;</content><author><name>jyh</name></author><summary type="html">什么是沙盒（sandbox）
+
+  为一些不可靠的程序提供实验而不影响系统运行的环境，有时也被称做沙箱。</summary></entry><entry><title type="html">基于go语言的推荐服务搭建</title><link href="http://localhost:4000/blog/2017/01/22/test/" rel="alternate" type="text/html" title="基于go语言的推荐服务搭建" /><published>2017-01-22T00:00:00+08:00</published><updated>2017-01-22T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/01/22/test</id><content type="html" xml:base="http://localhost:4000/blog/2017/01/22/test/">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;下次分享占坑 ## go语法简介 * 变量 * 分支
+* if
+* for
+* switch ## 推荐服务需要的组件
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>徐兴军</name></author><summary type="html">下次分享占坑 ## go语法简介 * 变量 * 分支
+* if
+* for
+* switch ## 推荐服务需要的组件</summary></entry><entry><title type="html">在百度文库如何测项目</title><link href="http://localhost:4000/blog/2017/01/22/How-Qa-Test-In-Wenku/" rel="alternate" type="text/html" title="在百度文库如何测项目" /><published>2017-01-22T00:00:00+08:00</published><updated>2017-01-22T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/01/22/How%20Qa%20Test%20In%20Wenku</id><content type="html" xml:base="http://localhost:4000/blog/2017/01/22/How-Qa-Test-In-Wenku/">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;本来想介绍下百度文库QA的各个方面的工作，后来发现太过于混杂，所以就暂时只讲一个方面。
+
+以下内容纯属个人经历，如有雷同 or 偏差，纯属巧合。
+
+因为个人工作性质，所以绝大部分是PC、后端测试经历。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;一些说明&quot;&gt;一些说明&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以用任何方式写测试用例
+    &lt;ul&gt;
+      &lt;li&gt;Excel、脑图&lt;/li&gt;
+      &lt;li&gt;缺点：测试用例很难沉淀&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;可以用任何方式测试项目
+    &lt;ul&gt;
+      &lt;li&gt;毕竟项目与项目之间差异还是比较大的。
+        &lt;ul&gt;
+          &lt;li&gt;常规功能型项目 vs 迁移类项目&lt;/li&gt;
+          &lt;li&gt;时间充足 vs 时间不足&lt;/li&gt;
+          &lt;li&gt;等等&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;所要达成的目标
+    &lt;ul&gt;
+      &lt;li&gt;项目及时、安全上线
+        &lt;ul&gt;
+          &lt;li&gt;及时&lt;/li&gt;
+          &lt;li&gt;安全&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;有关浏览器
+    &lt;ul&gt;
+      &lt;li&gt;QA：IE6、8、9、10&lt;/li&gt;
+      &lt;li&gt;开发：Chrome、Firefox&lt;/li&gt;
+      &lt;li&gt;部分项目只支持 Chrome&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;常规项目&quot;&gt;常规项目&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;需求评审
+    &lt;ul&gt;
+      &lt;li&gt;参与讨论整个项目，包括功能的取舍，开发可能采用的方案。&lt;/li&gt;
+      &lt;li&gt;会后要整理项目中不明确的点，拉上产品和开发，弄明确。&lt;/li&gt;
+      &lt;li&gt;注意产品逻辑上有冲突的地方。
+        &lt;ul&gt;
+          &lt;li&gt;考虑到产品、开发、测试的人数和工作分配，基本上测试人员更收敛，更容易发现这些问题。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;详细设计评审 / 开发沟通
+    &lt;ul&gt;
+      &lt;li&gt;早期比较完整的周期里，是有详细设计评审的，后期的项目除非是复杂、重要的项目，一般没有了。但是也需要和开发沟通。&lt;/li&gt;
+      &lt;li&gt;了解开发如何设计、准备怎么开发。与开发讨论可能各个方案可能会产生的问题。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;测试用例编写
+    &lt;ul&gt;
+      &lt;li&gt;使用常见的各种编写测试用例的手段&lt;/li&gt;
+      &lt;li&gt;各种异常测试用例设计&lt;/li&gt;
+      &lt;li&gt;可能包含准入 case&lt;/li&gt;
+      &lt;li&gt;测试用例编写完成之后提供给开发作为自测使用，开发需要保证准入 case 通过&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;测试用例评审
+    &lt;ul&gt;
+      &lt;li&gt;早期的大部分项目都有测试用例评审，由文库QA团队参与，对编写的测试用例进行检查。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;排期制定
+    &lt;ul&gt;
+      &lt;li&gt;根据测试用例，预估排期。&lt;/li&gt;
+      &lt;li&gt;早期的测试排期按照：一轮+bug修复、二轮+bug修复、回归 来制定。&lt;/li&gt;
+      &lt;li&gt;后期的测试排期基本只有一轮+bug修复+回归了。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;测试环境准备
+    &lt;ul&gt;
+      &lt;li&gt;一般提测前一天&lt;/li&gt;
+      &lt;li&gt;构建最新的测试环境并调通，保证测试环境可用
+        &lt;ul&gt;
+          &lt;li&gt;每人有自己的测试机，完整环境单机部署。&lt;/li&gt;
+          &lt;li&gt;如果发现异常（一般可能是有一些环境、配置有变化），调通环境之后，维护环境搭建工具。&lt;/li&gt;
+          &lt;li&gt;文库的环境搭建工具是由QA维护。（以后再聊）&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;提测
+    &lt;ul&gt;
+      &lt;li&gt;获取提测单
+        &lt;ul&gt;
+          &lt;li&gt;上线步骤
+            &lt;ul&gt;
+              &lt;li&gt;数据库变动 SQL&lt;/li&gt;
+              &lt;li&gt;相关 webserver 配置&lt;/li&gt;
+              &lt;li&gt;上线模块与版本号&lt;/li&gt;
+              &lt;li&gt;服务起停步骤&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;部署测试环境
+        &lt;ul&gt;
+          &lt;li&gt;检查环境可用
+            &lt;ul&gt;
+              &lt;li&gt;如果不可用，检查环境本身问题&lt;/li&gt;
+              &lt;li&gt;如果是上线步骤有误，及时通知开发&lt;/li&gt;
+              &lt;li&gt;严重的模块遗漏、步骤错误（错误原因不明），提测打回&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;测试
+    &lt;ul&gt;
+      &lt;li&gt;执行准入 case
+        &lt;ul&gt;
+          &lt;li&gt;严格意义上，准入 case 不通过，直接打回。不过如果是简单错误，类似于笔误之类，可以容忍。&lt;/li&gt;
+          &lt;li&gt;需要 QA 自己清楚出问题的原因。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;执行其他 case&lt;/li&gt;
+      &lt;li&gt;检查本项目之外的产品核心功能
+        &lt;ul&gt;
+          &lt;li&gt;拿文库来说，就是上传、下载等&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;BUG 反馈&lt;/li&gt;
+      &lt;li&gt;开发修复 BUG&lt;/li&gt;
+      &lt;li&gt;新一轮提测
+        &lt;ul&gt;
+          &lt;li&gt;根据情况考虑是否重新搭建新环境或者直接部署最新代码&lt;/li&gt;
+          &lt;li&gt;重点检查上一轮 BUG 和 核心 case&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;有关代码 review
+        &lt;ul&gt;
+          &lt;li&gt;一般来说不强制要求，不过基本上都应该过一遍。&lt;/li&gt;
+          &lt;li&gt;重点核查
+            &lt;ul&gt;
+              &lt;li&gt;关键校验&lt;/li&gt;
+              &lt;li&gt;数据库相关（安全性、读写库的账号）&lt;/li&gt;
+              &lt;li&gt;异常处理&lt;/li&gt;
+              &lt;li&gt;延迟处理
+                &lt;ul&gt;
+                  &lt;li&gt;命令点延迟（消息队列数据持久化延迟）&lt;/li&gt;
+                  &lt;li&gt;主从延迟&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;根据代码 review 情况优化 case 执行
+            &lt;ul&gt;
+              &lt;li&gt;适当增减 case&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;有关性能测试/压力测试
+        &lt;ul&gt;
+          &lt;li&gt;非必须项，取决于预估的请求量和对线上的影响
+            &lt;ul&gt;
+              &lt;li&gt;请求量预估较大&lt;/li&gt;
+              &lt;li&gt;影响核心接口&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;需要评估的项，按需观察
+            &lt;ul&gt;
+              &lt;li&gt;CPU、内存、带宽、响应时间&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;评估的准确性
+            &lt;ul&gt;
+              &lt;li&gt;对性能影响较多&lt;/li&gt;
+              &lt;li&gt;线下测试：基本只能预估
+                &lt;ul&gt;
+                  &lt;li&gt;php 进程数、CPU 核数、内存大小与线上差异&lt;/li&gt;
+                  &lt;li&gt;网络环境与线上差异&lt;/li&gt;
+                  &lt;li&gt;存储与线上差异，数据库、redis、cache 等读写&lt;/li&gt;
+                  &lt;li&gt;部署情况与线上差异&lt;/li&gt;
+                  &lt;li&gt;整机 or Docker&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;线上预览机 or 真实容器测试
+                &lt;ul&gt;
+                  &lt;li&gt;观察机器性能指标&lt;/li&gt;
+                  &lt;li&gt;更准确的看到压力情况&lt;/li&gt;
+                  &lt;li&gt;但仍要注意，如 数据库等相关压力，依然无法准确预估&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;测试过程中对于请求时间过长、redis or cache 过大保持警惕&lt;/li&gt;
+          &lt;li&gt;注意提醒开发预判&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;有关安全
+        &lt;ul&gt;
+          &lt;li&gt;关键数据获取方式
+            &lt;ul&gt;
+              &lt;li&gt;用户数据获取，通过 token 而不是相信传入的 uid&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+          &lt;li&gt;关键 id 加密&lt;/li&gt;
+          &lt;li&gt;Sql 注入、XSS 注入&lt;/li&gt;
+          &lt;li&gt;等等&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;有关回归
+        &lt;ul&gt;
+          &lt;li&gt;严格意义上，在确定开发修复完所有 bug 之后，需要开发合并最新代码，对最新版本的代码进行回归测试。&lt;/li&gt;
+          &lt;li&gt;不过具体到执行上，考虑到各种因素，一般只是对整体功能再过一遍。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;PM 检查
+        &lt;ul&gt;
+          &lt;li&gt;PM 在测试环境，检查各种功能、文案、样式。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;上线
+    &lt;ul&gt;
+      &lt;li&gt;上线流程也一直在变化，早期需要各个角色过上线单，包括经理；之后经过了很多的简化，这里不做赘述。&lt;/li&gt;
+      &lt;li&gt;一般上线到单台测试机的时候，会进行单台测试回归。&lt;/li&gt;
+      &lt;li&gt;开发、QA和 PM 共同对线上进行功能回归，确保项目功能正常，同时确保线上整体服务稳定。&lt;/li&gt;
+      &lt;li&gt;开发发上线完成通报，QA Re 线上测试情况。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;后续
+    &lt;ul&gt;
+      &lt;li&gt;项目上线之后，QA 会对项目进行总结，包括每一轮的 bug 数，千行 bug 率的统计，以及低级 bug 统计和其他问题的说明。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;迁移项目&quot;&gt;迁移项目&lt;/h2&gt;
+
+&lt;h3 id=&quot;lighttpd-迁移-nginx&quot;&gt;Lighttpd 迁移 Nginx&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;问题
+    &lt;ul&gt;
+      &lt;li&gt;配置方式完全不同
+        &lt;ul&gt;
+          &lt;li&gt;不同 host 的逻辑&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;URL 的 rewrite 规则完全不同
+        &lt;ul&gt;
+          &lt;li&gt;数百 rewrite 规则&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;其他
+        &lt;ul&gt;
+          &lt;li&gt;类似于 Content-Type、Transfer-Encoding 等 HEADER 项的影响。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;分工
+    &lt;ul&gt;
+      &lt;li&gt;QA 保证功能： URL rewrite 正常&lt;/li&gt;
+      &lt;li&gt;OP 保证其他&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;备注
+    &lt;ul&gt;
+      &lt;li&gt;实际上，QA 和 OP 对于 nginx 都是新手，大家互相协作，共同查阅资料来处理。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;实际步骤
+    &lt;ul&gt;
+      &lt;li&gt;QA 根据旧的 Lighttpd 配置，梳理好所有的 rewrite 规则，然后整理出所有 来源 -&amp;gt; rewrite之后 的 URL 映射。&lt;/li&gt;
+      &lt;li&gt;交付映射表给 OP， OP 开始写新的 rewrite 规则。&lt;/li&gt;
+      &lt;li&gt;QA 写校验脚本
+        &lt;ul&gt;
+          &lt;li&gt;对代码简单重写，使之直接输出 rewrite 之后的 URL&lt;/li&gt;
+          &lt;li&gt;对新旧两个 webserver 批量执行脚本，获得两份 rewrite 之后的 URL&lt;/li&gt;
+          &lt;li&gt;批量比对，批量检查，逐个修复。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;一些注意
+        &lt;ul&gt;
+          &lt;li&gt;有关重定向的写法，需要单独检查。&lt;/li&gt;
+          &lt;li&gt;影响 rewrite 规则的，不仅仅是 path 部分，还有 query 部分，写 URL 清单的时候，务必覆盖同一个 rewrite 规则的各种情况。&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;测试机验证核心功能&lt;/li&gt;
+      &lt;li&gt;线上单机/小流量验证&lt;/li&gt;
+      &lt;li&gt;线上全流量&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;后续还是遗漏了的问题（部分在单机/小流量期间发现）
+    &lt;ul&gt;
+      &lt;li&gt;少量奇葩的 rewrite 规则的个别分支 case 遗漏。&lt;/li&gt;
+      &lt;li&gt;日志打印方式
+        &lt;ul&gt;
+          &lt;li&gt;虽然注意了这个问题，但是还是有一些细小的遗漏，影响了部分的统计&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;因为某些 header 参数问题，影响了 CDN 的处理。（细节忘了）&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;其他
+    &lt;ul&gt;
+      &lt;li&gt;对于这种项目的测试，需要有清晰的思路，需要保证哪些，如何进行测试。&lt;/li&gt;
+      &lt;li&gt;和其他角色如何进行分工。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;一些其他问题&quot;&gt;一些其他问题&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;测试项目的时候 QA 需要知道的知识
+    &lt;ul&gt;
+      &lt;li&gt;产品线的代码架构，未必需要知道细节，但知道有哪些部分，怎么关联，数据怎么传递。&lt;/li&gt;
+      &lt;li&gt;线下环境与线上环境的差异
+        &lt;ul&gt;
+          &lt;li&gt;检查必要的地方，以确保线下测试可能漏掉的部分
+            &lt;ul&gt;
+              &lt;li&gt;例如数据库读写的问题&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;如何看日志，什么时候看哪些日志。&lt;/li&gt;
+      &lt;li&gt;除了功能测试之外，还需要关注什么
+        &lt;ul&gt;
+          &lt;li&gt;延迟问题&lt;/li&gt;
+          &lt;li&gt;安全问题&lt;/li&gt;
+          &lt;li&gt;性能问题&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;如何分配时间
+        &lt;ul&gt;
+          &lt;li&gt;时间是肯定不够用的&lt;/li&gt;
+          &lt;li&gt;应该关注哪些，放弃哪些&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;排期和分工
+    &lt;ul&gt;
+      &lt;li&gt;早期，制定排期的时候，一般要求测试时间约为开发时间的 1/3，如果达到 1/2 ，需要汇报原因。&lt;/li&gt;
+      &lt;li&gt;然而当测试排期被列入 KPI 的时候，当测试周期被要求在 2天以内的时候，如何安排测试工作、排期就需要重新考虑。&lt;/li&gt;
+      &lt;li&gt;同时开发自主上线项目的增多，开发的频率变快，周期变短，也对测试工作造成影响。&lt;/li&gt;
+      &lt;li&gt;QA 重点保证
+        &lt;ul&gt;
+          &lt;li&gt;数据读写的正常&lt;/li&gt;
+          &lt;li&gt;没有严重的样式问题（细节问题由 FE 保证和 PM 检查），QA 减少样式检查。&lt;/li&gt;
+          &lt;li&gt;增加线上监控工作&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;这种变化也会对其他数据，诸如线上漏测等问题的统计分析造成影响。
+        &lt;ul&gt;
+          &lt;li&gt;哪种问题才是“线上漏测”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;QA 人力的问题
+    &lt;ul&gt;
+      &lt;li&gt;早期，客户端尚未纳入产品线本身，测试工作也不在文库QA的时候，文库的测试人力，一般也有 4名正式员工 + 4名实习同学左右的人力。&lt;/li&gt;
+      &lt;li&gt;后期，当文库、阅读产品线增多，客户端回归之后，产品线 PM 和 开发人力大量增多的时候，除去移动端测试人力，PC 和 Server 的测试人力长期只有 4名。&lt;/li&gt;
+      &lt;li&gt;需要考虑人力分配，哪些项目测、哪些项目不测&lt;/li&gt;
+      &lt;li&gt;考虑到还有其他工作方向（后续有时间可以聊一聊）
+        &lt;ul&gt;
+          &lt;li&gt;测试环境维护&lt;/li&gt;
+          &lt;li&gt;竞品分析与数据清理&lt;/li&gt;
+          &lt;li&gt;Bad case 挖掘&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;So，其实很难办。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;有关项目测试与晋升
+    &lt;ul&gt;
+      &lt;li&gt;有关质量部和产品线的关系&lt;/li&gt;
+      &lt;li&gt;项目测试，往往看不出成果，所以很多测试能力强的晋升其实要更困难一些&lt;/li&gt;
+      &lt;li&gt;如何在测试中提高姿势水平&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;有关 QA 的技能和竞争力
+    &lt;ul&gt;
+      &lt;li&gt;很多工作其实 QA 和 开发都可以做，只是分工的问题。&lt;/li&gt;
+      &lt;li&gt;当 QA 人力下降到一定程度，对于整个 QA 团队来说，需要重新去思考 QA 的定位。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>王青</name></author><summary type="html">本来想介绍下百度文库QA的各个方面的工作，后来发现太过于混杂，所以就暂时只讲一个方面。</summary></entry><entry><title type="html">自动化测试代码解析</title><link href="http://localhost:4000/blog/2017/01/15/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="alternate" type="text/html" title="自动化测试代码解析" /><published>2017-01-15T00:00:00+08:00</published><updated>2017-01-15T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/01/15/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90</id><content type="html" xml:base="http://localhost:4000/blog/2017/01/15/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90/">&lt;blockquote&gt;
+  &lt;p&gt;自动化的意思就是让代码定时运行，替代人来进行每日每夜的重复性劳动&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;java代码，使用linux定时任务+ant+juint实现，已经实现了数据驱动，我使用的是juint框架&lt;/p&gt;
+
+&lt;h2 id=&quot;什么是juint框架&quot;&gt;什么是juint框架&lt;/h2&gt;
+
+&lt;p&gt;JUnit是一个Java语言的单元测试框架。它由Kent Beck和Erich Gamma建立，逐渐成为源于Kent Beck的sUnit的xUnit家族中最为成功的一个。 JUnit有它自己的JUnit扩展生态圈。多数Java的开发环境都已经集成了JUnit作为单元测试的工具。&lt;/p&gt;
+
+&lt;p&gt;JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）。Junit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。Junit是一套框架，继承TestCase类，就可以用Junit进行自动测试了。&lt;/p&gt;
+
+&lt;p&gt;自动化包含ui自动化测试，接口自动化以及监控等等，下面是我的接口自动化的代码&lt;/p&gt;
+
+&lt;h2 id=&quot;一juint框架简述&quot;&gt;一.juint框架简述&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package yunlaiwu.test.app;
+import org.junit.*;
+import yunlaiwu.util.PbgDict;
+import yunlaiwu.util.PbgService;
+import java.util.HashMap;
+import java.util.Map;
+public class test_ylw_app_image_upload extends PbgService {
+Map&amp;lt;String, Object&amp;gt; applyParams = null;
+public void initData() throws Exception {
+applyParams = new HashMap&amp;lt;String, Object&amp;gt;();
+applyParams.put(PbgDict.TOKEN, token1);
+applyParams.put(PbgDict.picname, &quot;%E9%BB%98%E8%AE%A4%E5%9B%BE&quot;);
+}
+@Before
+public void setUp() throws Exception {
+initData();
+}
+@After
+public void TearDown() throws Exception {
+this.applyParams.clear();
+this.applyParams = null;
+}
+@AfterClass
+public static void delete() {
+supdelete();
+}
+@Ignore
+@Test
+public void testsSuccessgetcode() throws Exception {
+get(&quot;/app/image/upload&quot;,applyParams,&quot;正常用例&quot;,&quot;0&quot;);
+}
+@Test
+public void testsfailupload1() throws Exception {
+applyParams.remove(PbgDict.TOKEN);
+get(&quot;/app/image/upload&quot;,applyParams,&quot;不传token&quot;,&quot;3000&quot;);
+}
+@Test
+public void testsfailupload2() throws Exception {
+applyParams.remove(PbgDict.picname);
+get(&quot;/app/image/upload&quot;,applyParams,&quot;不传picname&quot;,&quot;1001&quot;);
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;juint框架的特点，是使用@这种类似于注释的方法来进行标示，一般的是@BeforeClass－&amp;gt;@Before－&amp;gt;@test-&amp;gt;@After－&amp;gt;@Before-&amp;gt;@test-&amp;gt;@After－&amp;gt;@Before,,,-&amp;gt;@After-&amp;gt;AfterClass，值得注意的是，@Ignore修饰的方法就像是注释，不被执行，主要是因为代码没完成或者其他原因导致的&lt;/p&gt;
+
+&lt;p&gt;一般的@BeforeClass是所有方法的初始化代码，在我的框架中没有出现，，，一般的会有mock打转启动，更换系统的配置文件，比如登录页面需要输入验证码，那么替换一个文件就会把图片验证码换为一个恒定数值&lt;/p&gt;
+
+&lt;p&gt;@Before是每个@test方法执行之前的初始化代码，在我的代码中会执行如数组的new，循环参数i的声明，map的公共数据的put等操作&lt;/p&gt;
+
+&lt;p&gt;每个@test方法是真正执行的测试代码&lt;/p&gt;
+
+&lt;p&gt;@After是在每个test执行之后的简单处理，我的代码里有把map清空或者还原数据库的操作&lt;/p&gt;
+
+&lt;p&gt;@AfterClass是在整个测试类完成后对测试环境的复原的操作（如清空数据库等）&lt;/p&gt;
+
+&lt;p&gt;在以上每个部分都可以使用java语言来进行简单的程序编写，甚至可以调用其他的方法，使用for循环等&lt;/p&gt;
+
+&lt;p&gt;当然，作为一个测试框架，必须允许大量测试用例依次执行，故juint是一种如for循环很相近的框架，那么它们的区别在哪里呢？&lt;/p&gt;
+
+&lt;h2 id=&quot;二juint与for循环的区别&quot;&gt;二，juint与for循环的区别&lt;/h2&gt;
+
+&lt;p&gt;由上文可以知道，juint在执行相同的before代码后执行不同的test代码，然后执行相同的after代码，这个功能理论上如果有心去做，for循环也可以完成，但我认为juint框架与for循环的区别主要是在异常处理上&lt;/p&gt;
+
+&lt;p&gt;一般的java循环代码由计数器k来执行，一般报错就会抛出异常，然后跳出for 循环，也就是说，假设执行10000遍代码，在执行第1000次时候出现异常，要么不抛出异常然后执行第1001次，要么抛出异常后跳出循环&lt;/p&gt;
+
+&lt;p&gt;一个合格的juint作为一个测试框架，会在每次测试test后清空并建立新的map，关键是，在test代码的某些断言或者其他手段报错或者抛出异常后，依然可以继续执行下一段after代码，并继续执行之后的test代码，最终在报告中正常显示每一段test测试代码的测试结果&lt;/p&gt;
+
+&lt;p&gt;当然，在juint框架中是可以使用for循环的，，，两者对异常的处理逻辑确实有明显区别&lt;/p&gt;
+
+&lt;p&gt;比如实时监控系统，共有n个url需要监控，我是用juint框架进行编写的，如果使用for循环会导致，在执行第m个url爆出错误，后续的url会不执行而直接发邮件或者短信&lt;/p&gt;
+
+&lt;h2 id=&quot;三没数据数据驱动代码解析&quot;&gt;三，没数据数据驱动代码解析&lt;/h2&gt;
+
+&lt;p&gt;我司代码主要是由post或者get请求构成（我也不是太懂其他方式的请求）对http的两种请求post和get熟悉的同学比较了解：&lt;/p&gt;
+
+&lt;p&gt;总的来说post和get都只需要两个参数，url和参数，假设参数是a＝1，b＝2，c＝3，它们需要我们把参数encode后利用&amp;amp;符号进行拼接为a=1&amp;amp;b=2&amp;amp;c=3，然后将其视为整体，get请求会在url后加上参数，形如http://cloudywood.avosapps.com/api/ip/list?a=1&amp;amp;b=2&amp;amp;c=3，然后将该url利用get的某些方式http请求，而post请求，会将url与参数一起进行http请求&lt;/p&gt;
+
+&lt;p&gt;所以，无论是get还是post请求，只需要一个url和一个包涵所有参数的map即可，在底层方法中将map数据用&amp;amp;拼接即可实现http请求&lt;/p&gt;
+
+&lt;p&gt;我的测试数据的处理在我的老框架中是用java的map进行的，比如是上一段代码便是如此&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;get(&quot;/app/image/upload&quot;,applyParams,&quot;不传picname&quot;,&quot;1001&quot;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;它调用的方法get（x,x,x,x)具体如下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public void get(String url,Map parameterMap,String a,String errno1) throws Exception {
+System.out.println(&quot;==========get自动化测试&quot; + url + a+&quot;=========&quot;);
+System.out.println(&quot;OpenaccountURI:&quot; + URI_BASE + url);
+System.out.println(&quot;applyParams:&quot; + parameterMap);
+yunlaiwu.util.HttpUtil httpDoGet = new HttpUtil();
+Map&amp;lt;String, Object&amp;gt; result = httpDoGet.doGet(URI_BASE + url, parameterMap);
+System.out.println(&quot;result:&quot; + result);
+String errno = result.get(PbgDict.ERRNO).toString();
+System.out.println(&quot;errno=&quot; + errno);
+System.out.println(&quot;------------------------------\n&quot;);
+Assert.assertEquals(errno1, errno);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;第一个/app/image/upload是接口，在前方补充上URI_BASE后可以变为完整url&lt;/p&gt;
+
+&lt;p&gt;第二个是map&lt;/p&gt;
+
+&lt;p&gt;第三个参数 不传picname 是描述，用于分辨各个代码，就像是每一个test的名字，便于管理&lt;/p&gt;
+
+&lt;p&gt;第四个参数1001是预期返回码用于断言，比较接口实际返回码与预期是否相同，不同就会抛出异常，在报告中有所体现&lt;/p&gt;
+
+&lt;p&gt;在get方法中，实现了日志的输出，url的补全，get请求的直接调用和断言判断&lt;/p&gt;
+
+&lt;p&gt;但是在实现过程中，我渐渐发现了这种框架的问题&lt;/p&gt;
+
+&lt;p&gt;1.维护成本高&lt;/p&gt;
+
+&lt;p&gt;每次对某一个测试用例的修改都需要上线等操作才能完成&lt;/p&gt;
+
+&lt;p&gt;2.需要自动化人员&lt;/p&gt;
+
+&lt;p&gt;每次对测试test代码的维护需要对java有一定了解，更不要说对底层代码的修改&lt;/p&gt;
+
+&lt;p&gt;3.代码复杂度和长度较大&lt;/p&gt;
+
+&lt;p&gt;编写过程实在太累了&lt;/p&gt;
+
+&lt;h2 id=&quot;四数据数据驱动代码解析&quot;&gt;四，数据数据驱动代码解析&lt;/h2&gt;
+
+&lt;p&gt;先说说什么是数据驱动&lt;/p&gt;
+
+&lt;p&gt;在编写了大量接口自动化测试用例后，我发现了每个接口的代码是这样的,必须传a,选传b，那么正常用例是a&amp;amp;b或者a，异常用例是b或者啥也不传,当然还有一部分业务用例，比如token只有固定字符串是可被接受的，12345678是绝对不能接受的～&lt;/p&gt;
+
+&lt;p&gt;相同接口每个用例之间，除了传的参数不同，对map或者java代码的逻辑性有强烈的相似性&lt;/p&gt;
+
+&lt;p&gt;所谓的数据驱动就是建立在这种要编写大量相似的代码的基础上，除了数据不一样其余相似度很高，这时我们就想，是否可以把数据转化为xml或者txt等格式，代码读取，这样的话上述的问题都能解决&lt;/p&gt;
+
+&lt;p&gt;1.维护成本高&lt;/p&gt;
+
+&lt;p&gt;每次对某一个测试用例的修改都需要上线等操作才能完成－－－－－－改个配置文件就好啦，无需再上线代码，修改基类&lt;/p&gt;
+
+&lt;p&gt;2.需要自动化人员&lt;/p&gt;
+
+&lt;p&gt;每次对测试test代码的维护需要对java有一定了解，更不要说对底层代码的修改－－－－－只要对配置文件的逻辑够了解，无需代码基础就可以&lt;/p&gt;
+
+&lt;p&gt;3.代码复杂度和长度较大&lt;/p&gt;
+
+&lt;p&gt;编写过程实在太累了－－－－－只需要编写txt文档&lt;/p&gt;
+
+&lt;p&gt;故我后来强行将代码替换为数据驱动代码&lt;/p&gt;
+
+&lt;p&gt;下面是xml截图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/zlr/123.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;是用xml，每一个sheet页是一个接口，每一行是一个用例，第1行写明了每一个参数的参数名，而下面的是它们的参数数值&lt;/p&gt;
+
+&lt;p&gt;下面是与其配套的代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;package yunlaiwu.test2.ip.ipcall;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import yunlaiwu.util.PbgDict;
+import yunlaiwu.util.PbgService;
+import yunlaiwu.util.supinit;
+import java.io.File;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import static yunlaiwu.util.xls.getxlsData;
+@RunWith(Parameterized.class)
+public class test_ylw_ip_ipcall_submitcall extends PbgService {
+Map&amp;lt;String, Object&amp;gt; applyParams = new HashMap&amp;lt;String, Object&amp;gt;();
+String callId=null;
+test_ylw_ip_ipcall_releasecall releasecall = new test_ylw_ip_ipcall_releasecall(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;);
+private String miaoshu;
+private String error;
+private String value;
+private static String key=&quot;/ip/ipcall/submitcall&quot;;
+@Parameterized.Parameters
+@SuppressWarnings(&quot;unchecked&quot;)
+public static Collection shiyan2() throws Exception {
+File file = new File(getxlsipcallpath);
+Object[][] object = getxlsData(file, 0, key);
+return  Arrays.asList(object);
+}
+public void initData() throws Exception {
+applyParams = new HashMap&amp;lt;String, Object&amp;gt;();
+}
+@AfterClass
+public static void delete() {
+supdelete();
+}
+@Before
+public void setUp() throws Exception {
+initData();
+}
+@After
+public void TearDown() throws Exception {
+this.applyParams.clear();
+this.applyParams = null;
+}
+public test_ylw_ip_ipcall_submitcall(String error, String miaoshu, String value){
+this.error = error;
+this.miaoshu = miaoshu;
+this.value=value;
+System.out.println(&quot;value=&quot; + value);
+}
+@Test
+public void testsreleasecall() throws Exception{
+System.out.println(&quot;value=&quot; + value);
+value=supinit.zhuanhua2(value);
+System.out.println(&quot;value=&quot; + value);
+if (miaoshu.equals(&quot;重复投稿&quot;))
+{
+Map&amp;lt;String,Object&amp;gt; a=get1(key,value,miaoshu,&quot;0&quot;);
+if(error.equals(&quot;0&quot;))
+submitcall(a);
+get(key,value,miaoshu,error);
+}
+if (!miaoshu.equals(&quot;重复投稿&quot;))
+{
+Map&amp;lt;String,Object&amp;gt; a=get1(key,value,miaoshu,error);
+if(error.equals(&quot;0&quot;))
+submitcall(a);
+}
+}
+public void submitcall(Map&amp;lt;String,Object&amp;gt; a)
+{
+Assert.assertEquals(phpsqlselect(&quot;ipCallId&quot;,&quot;ipCall&quot;,&quot;uid&quot;,uid3), getData(a,&quot;ipCallId&quot;));
+Assert.assertEquals(selectsql(&quot;status&quot;,&quot;ipCall&quot;,&quot;uid&quot;,uid3), &quot;0&quot;);
+Assert.assertEquals(selectsql(&quot;ipFinishStatus&quot;,&quot;ipCall&quot;,&quot;uid&quot;,uid3), &quot;0&quot;);
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以看到，这个代码的话和那套没有数据驱动的代码还是有很多相似性的，都是用了@Test等juint特有的手法来编写的&lt;/p&gt;
+
+&lt;p&gt;大体来看，执行第一行时，我会把每行所有的数据进行处理，使得它们能最终只传输给脚本3个参数，第一行就会传入error =0,miaoshu =投稿成功，value ＝a=1&amp;amp;b=2&amp;amp;c=3,,,key的话是初始化接口的url，然后运用get1(key,value,miaoshu,error)发送http请求，如果返回码为0视为成功并进行数据库校验&lt;/p&gt;
+
+&lt;p&gt;当然还有初始化的问题，比如投稿的话，需要卖方先建造－&amp;gt;发布合格的ip，然后买方发布相应的征稿，最后才是投稿这一步，但是如果是这样就需要多行来表达一条用例，更离谱的是有时候不知道一条用例有多少行，，，所以初始化也曾经是个很严峻问题，后来我约定了xls的编写具体方式解决了这个问题。&lt;/p&gt;
+
+&lt;p&gt;我在代码中实现是在底层实现的，下面是部分代码&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;value = value.replaceAll(&quot;setTime14&quot;,  Util.strTime14());
+value = value.replaceAll(&quot;setTime8&quot;,  Util.strDate8());
+value = value.replaceAll(&quot;setTime6&quot;,  Util.strTime6());
+value = value.replaceAll(&quot;token=buy&quot;,  &quot;token=&quot;+token1);
+value = value.replaceAll(&quot;buid&quot;,  uid1);
+value = value.replaceAll(&quot;spuid2&quot;,  uid2);
+value = value.replaceAll(&quot;spuid3&quot;,  uid3);
+value = value.replaceAll(&quot;token=soldperson2&quot;,  &quot;token=&quot;+token2);
+value = value.replaceAll(&quot;token=soldperson&quot;,  &quot;token=&quot;+token3);
+value = value.replaceAll(&quot;mobiles=mobile&quot;,  &quot;mobiles=&quot;+mobile);
+value = value.replaceAll(&quot;mobile=mobile&quot;,  &quot;mobile=&quot;+mobile);
+if((value.indexOf(URLEncoder.encode(&quot;已审核callId&quot;,&quot;utf-8&quot;))!=-1)||(value.indexOf(&quot;已审核callId&quot;)!=-1))
+{
+Map&amp;lt;String,Object&amp;gt; releasecall_result = testsSuccessreleasecall_map();
+Map&amp;lt;String, Object&amp;gt; applyParams1 = new HashMap&amp;lt;String, Object&amp;gt;();
+applyParams1.put(PbgDict.status, &quot;1&quot;);
+applyParams1.put(&quot;callId&quot;, getData(releasecall_result,&quot;callId&quot;));
+post(&quot;/ip/ipcall/verifycall&quot;, applyParams1,&quot;正常status＝1审核通过&quot;,&quot;0&quot;);
+value = value.replaceAll(URLEncoder.encode(&quot;已审核callId&quot;,&quot;utf-8&quot;),  getData(releasecall_result,&quot;callId&quot;));
+value = value.replaceAll(&quot;已审核callId&quot;,  getData(releasecall_result,&quot;callId&quot;));
+Assert.assertEquals(selectsql(&quot;status&quot;,&quot;call&quot;,&quot;projectDesc&quot;,&quot;zlr&quot;), &quot;2&quot;);
+Assert.assertEquals(selectsql(&quot;subStatus&quot;,&quot;call&quot;,&quot;projectDesc&quot;,&quot;zlr&quot;), &quot;0&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一方面，针对固定位数随机数这种xml不易表达的东西，使用了约定的某些表达方式，再在代码中替换&lt;/p&gt;
+
+&lt;p&gt;另一方面，针对特定的业务场景，比如需要生成订单，生成ip或者生成征稿，约定好在xml中填写诸如“已审核callId”的汉字，这样传入的是a=已审核callId&amp;amp;b=1,,,代码中识别到这种字段，先运行初始化程序生成满足条件的callId，再用这个callId替换掉原先的“已审核callId”，这是就是a=1234567&amp;amp;b=1,,,&lt;/p&gt;
+
+&lt;p&gt;利用上述手段便实现了数据驱动，使得所有的测试数据保存在各种形式的文档中，这样如果有新增或者修改就不需要改代码，妈妈也再也不用担心了～&lt;/p&gt;</content><author><name>zlr</name></author><summary type="html">自动化的意思就是让代码定时运行，替代人来进行每日每夜的重复性劳动</summary></entry><entry><title type="html">2016年IOS新技术回顾</title><link href="http://localhost:4000/blog/2017/01/01/ios2016%E6%8A%80%E6%9C%AF%E5%9B%9E%E9%A1%BE/" rel="alternate" type="text/html" title="2016年IOS新技术回顾" /><published>2017-01-01T00:00:00+08:00</published><updated>2017-01-01T00:00:00+08:00</updated><id>http://localhost:4000/blog/2017/01/01/ios2016%E6%8A%80%E6%9C%AF%E5%9B%9E%E9%A1%BE</id><content type="html" xml:base="http://localhost:4000/blog/2017/01/01/ios2016%E6%8A%80%E6%9C%AF%E5%9B%9E%E9%A1%BE/">&lt;blockquote&gt;
+  &lt;p&gt;WWDC2016,Apple发布了ios10，每次版本发布，都会带来新的接口，新的机会，也能间接的看出Apple的未来一段时间的发展方向。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;这里就不讨论iphone7、MacBook Pro、Apple Watch、Apple TV以及AirPods了。&lt;/p&gt;
+
+&lt;p&gt;下面回顾一下，Apple今年为我们带来了什么&lt;/p&gt;
+
+&lt;h2 id=&quot;一一些限制&quot;&gt;一，一些限制&lt;/h2&gt;
+
+&lt;p&gt;IPV6、HTTPS&lt;/p&gt;
+
+&lt;p&gt;1.IPV6&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;由于IPv4最大的问题在于网络地址资源有限，严重制约了互联网的应用和发展。IPv6的使用，不仅能解决网络地址资源数量的问题，而且也解决了多种接入设备连入互联网的障碍&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;6月1号以后提交新版本需要支持IPV6-Only的网络&lt;/p&gt;
+
+&lt;p&gt;与IPv4地址空间需要扩充迫在眉睫,越来越多的企业和移动电话运营商部署IPv6 DNS64和NAT64网络。DNS64 / NAT64网络是一种能使ipv6网络。取决于应用程序的性质,过渡有不同的含义:如果您正在编写一个客户端应用程序使用高级网络api,如NSURLSession和CFNetwork框架,你应该不需要改变任何东西为您的应用程序使用IPv6地址。如果项目中用了老的AFNetworking或ASIHTTPRequest等第三方网络请求框架则可能需要做一下适配。因为，苹果审核是不会让你过的。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/elarc/ipv6.png&quot; alt=&quot;ipv6.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;客户端向服务器端请求域名解析，首先通过DNS64 Server查询IPv6的地址，如果查询不到，再向DNS Server查询IPv4地址，通过DNS64 Server合成一个IPV6的地址，最终将一个IPV6的地址返回给客户端&lt;/p&gt;
+
+&lt;p&gt;关于IPV6的详细介绍请见：
+&lt;a href=&quot;https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/UnderstandingandPreparingfortheIPv6Transition/UnderstandingandPreparingfortheIPv6Transition.html#//apple_ref/doc/uid/TP40010220-CH213-SW1&quot;&gt;IPV6&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.HTTPS
+前面一个大神已经详细得介绍了HTTPS的相关知识，讲得非常详细，大家想看的话可以回顾一下。我在这也就不做过多赘述了。
+&lt;a href=&quot;http://yunlaiwu.github.io/blog/2016/12/18/HTTPS%E5%AE%89%E5%85%A8%E6%80%A7%E5%8E%9F%E7%90%86%E4%BB%A5%E5%8F%8A%E5%85%B6%E5%AF%B9%E5%89%8D%E7%AB%AF%E7%9A%84%E5%BD%B1%E5%93%8D/&quot;&gt;HTTPS&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2017年1月1日起，苹果App Store中的所有App都必须启用 App Transport Security(ATS)安全功能。(但延期了)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“应用传输安全协议是与iOS9和OS X 10.11一同发布的，该协议需要应用程序通过HTTPS使用安全的网络连接，以提高用户的数据和隐私安全。
+在2016年WWDC上我们宣布在今年年底之前，提交到App Store的应用程序必须支持应用传输安全协议。为了给你们充裕的时间去准备，这个截止日期已被延长，当新的截止日期确定的时候，我们将及时提供相关信息。”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;App Transport Security(应用程序安全传输)，简称 ATS，是苹果在 iOS 9 中首次推出的一项隐私安全保护功能，启用ATS后，它会屏蔽明文HTTP资源加载，强制App通过HTTPS连接网络服务，通过传输加密保障用户数据安全。&lt;/li&gt;
+  &lt;li&gt;ATS要求服务器必须支持传输层安全(TLS)协议1.2以上版本;证书必须使用SHA256或更高的哈希算法签名;必须使用2048位以上RSA密钥或256位以上ECC算法等等，不满足条件的证书，ATS都会拒绝连接。强制开启ATS体现了苹果一贯的隐私保护态度。 开发者需要HTTPS证书。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;二ios10&quot;&gt;二，ios10&lt;/h2&gt;
+
+&lt;p&gt;IMessage、SiriKit、Speech Recognition、User Notifications、Others&lt;/p&gt;
+
+&lt;p&gt;1.IMessage
+IMessage获得重大更新，提供消息气泡框效果，手写信息。同时内置的emoji表情也得到优化，除了图片变大3倍外，还能将文字直接转化成emoji表情。苹果还特别为IMessage开辟了应用专区，所以你也可以做IMessage App了。&lt;/p&gt;
+
+&lt;p&gt;使用Messages framework创建两种类型的app extensions：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sticker packs&lt;/li&gt;
+  &lt;li&gt;IMessage apps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;第一种方式仅仅提供静态的贴纸,贴纸包图片,用户可以发送内联消息附加到消息气泡中。贴纸包不需要任何代码。你添加标签图像文件拖到贴纸包文件夹内的贴纸资源目录。有效的图像文件必须符合以下规格:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;图片必须是png、apng、gif、jpeg中的一种&lt;/li&gt;
+  &lt;li&gt;图片必须小于500k&lt;/li&gt;
+  &lt;li&gt;为了效果好，图像不应少于100×100pt,或超过206×206pt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你想做这些事的时候你就要用到第二种方式了&lt;/p&gt;
+
+&lt;p&gt;Use iMessage apps to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Present a custom user interface inside the Messages app; see MSMessagesAppViewController.&lt;/li&gt;
+  &lt;li&gt;Create a custom or dynamic sticker browser; see MSStickerBrowserViewController.&lt;/li&gt;
+  &lt;li&gt;Insert text, stickers, or media files into the Messages app’s input field; see MSConversation.&lt;/li&gt;
+  &lt;li&gt;Create interactive messages that carry app-specific data; see MSMessage.&lt;/li&gt;
+  &lt;li&gt;Update interactive messages (for example, to create games or collaborative apps); see MSSession.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//example1作为一个贴纸浏览器
+
+class MessagesViewController: MSMessagesAppViewController, MSStickerBrowserViewDataSource {
+var stickers = [MSSticker]()
+func loadStickers() {
+for i in 1...2 {
+if let url = Bundle.main.url(forResource: &quot;Sticker \(i)&quot;, withExtension: &quot;png&quot;){
+do {
+ let sticker = try MSSticker(contentsOfFileURL: url, localizedDescription: &quot;&quot;)
+ stickers.append(sticker)
+ } catch {
+ print(error)
+ }
+}
+}
+}
+func createStickerBrowser() {
+ let controller = MSStickerBrowserViewController(stickerSize: .large)
+ 
+ addChildViewController(controller)
+ view.addSubview(controller.view)
+ 
+ controller.stickerBrowserView.backgroundColor = UIColor.purple
+ controller.stickerBrowserView.dataSource = self
+ 
+ view.topAnchor.constraint(equalTo: controller.view.topAnchor).isActive = true
+ view.bottomAnchor.constraint(equalTo: controller.view.bottomAnchor).isActive = true
+ view.leftAnchor.constraint(equalTo: controller.view.leftAnchor).isActive = true
+ view.rightAnchor.constraint(equalTo: controller.view.rightAnchor).isActive = true
+}
+
+func numberOfStickers(in stickerBrowserView: MSStickerBrowserView) -&amp;gt; Int {
+return stickers.count
+}
+
+func stickerBrowserView(_ stickerBrowserView: MSStickerBrowserView, stickerAt index: Int) -&amp;gt; MSSticker {
+return stickers[index]
+}
+
+override func viewDidLoad() {
+ super.viewDidLoad()
+ loadStickers()
+ createStickerBrowser()
+}
+
+override func didReceiveMemoryWarning() {
+ super.didReceiveMemoryWarning()
+}
+
+// MARK: - Conversation Handling
+ override func willBecomeActive(with conversation: MSConversation) {
+ }
+ override func didResignActive(with conversation: MSConversation) {
+ }
+ override func didReceive(_ message: MSMessage, conversation: MSConversation) {
+ }
+ override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
+ }
+ override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
+ }
+ override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+ }
+ override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;example2(交互式)
+
+class MessagesViewController: MSMessagesAppViewController {
+
+@IBOutlet weak var stepper: UIStepper!
+
+@IBAction func didPress(button sender: AnyObject) {
+if let image = createImageForMessage(), let conversation = activeConversation {
+ let layout = MSMessageTemplateLayout()
+ layout.image = image
+ layout.caption = &quot;云莱坞&quot;
+ 
+ let message = MSMessage()
+ message.layout = layout
+ message.url = URL(string: &quot;http://www.yunlaiwu.com/&quot;)
+ 
+ conversation.insert(message, completionHandler: { (error) in
+   print(error ?? &quot;no error&quot;)
+ })
+}
+}
+
+func createImageForMessage() -&amp;gt; UIImage? {
+ let background = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+ background.backgroundColor = UIColor.white
+ 
+ let label = UILabel(frame: CGRect(x: 75, y: 75, width: 150, height: 150))
+ label.font = UIFont.systemFont(ofSize: 56.0)
+ label.backgroundColor = UIColor.red
+ label.textColor = UIColor.white
+ label.text = &quot;\(Int(stepper.value))&quot;
+ label.textAlignment = .center
+ label.layer.cornerRadius = label.frame.size.width/2.0
+ label.clipsToBounds = true
+ 
+ let imageView = UIImageView(frame: CGRect(x: 0, y: 200, width: 300, height: 100))
+ imageView.image = UIImage(named:&quot;Sticker 2&quot;)
+ background.addSubview(label)
+ background.addSubview(imageView)
+ 
+ background.frame.origin = CGPoint(x: view.frame.size.width, y: view.frame.size.height)
+ view.addSubview(background)
+ 
+ UIGraphicsBeginImageContextWithOptions(background.frame.size, false, UIScreen.main.scale)
+ background.drawHierarchy(in: background.bounds, afterScreenUpdates: true)
+ let image = UIGraphicsGetImageFromCurrentImageContext()
+ UIGraphicsEndImageContext()
+ 
+ background.removeFromSuperview()
+ 
+ return image
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.SiriKit&lt;/p&gt;
+
+&lt;p&gt;用户通过正常的流程唤醒Siri，Siri做完语音识别和语义分析之后，将结构化语音分析结果打包成一个某个领域（Domain）的意图（Intent），然后交给支持这个意图（Intent）的第三方应用（比如微信），第三方应用被启动，从传入的Intent中获取相应的信息，完成操作。&lt;/p&gt;
+
+&lt;p&gt;例如 “I need to send a message to laosiji via WeChat saying had you go to DBJ again ?”，当用户唤醒Siri说出这句话的时候，Siri会把上面这句话转换成结构化语义意图：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;领域 （Domain）：Messaging&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;意图 （Intent）：Send a message （INSendMessageIntent）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;意图参数 （Intent Parameter）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;收件人（recipients）：laosiji&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;消息内容（content）：had you go to DBJ again ?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;然后这个意图会被转交给微信，微信会从该意图中抽取出收件人和消息内容，匹配用户联系人并发送消息&lt;/p&gt;
+
+&lt;p&gt;Apple 为我们开放了两个framework让我们更好的接入Siri
+Intents、IntentsUI
+Intents框架是必须支持的，支持基本应用程序和系统之间的通信。
+IntentsUI框架是可选的，他提供了任务成功操作后的自定义UI接口。&lt;/p&gt;
+
+&lt;p&gt;它所包括的领域：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;VoIP calling&lt;/li&gt;
+  &lt;li&gt;Messaging&lt;/li&gt;
+  &lt;li&gt;Payments&lt;/li&gt;
+  &lt;li&gt;Photo&lt;/li&gt;
+  &lt;li&gt;Workouts&lt;/li&gt;
+  &lt;li&gt;Ride booking&lt;/li&gt;
+  &lt;li&gt;CarPlay (automotive vendors only)&lt;/li&gt;
+  &lt;li&gt;Restaurant reservations (requires additional support from Apple)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;接入siri的注意事项：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;证书支持&lt;/li&gt;
+  &lt;li&gt;plist文件支持你所要的操作事件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/elarc/siri.png&quot; alt=&quot;siri.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import Intents
+
+// As an example, this class is set up to handle Message intents.
+// You will want to replace this or add other intents as appropriate.
+// The intents you wish to handle must be declared in the extension's Info.plist.
+
+// You can test your example integration by saying things to Siri like:
+// &quot;Send a message using &amp;lt;myApp&amp;gt;&quot;
+// &quot;&amp;lt;myApp&amp;gt; John saying hello&quot;
+// &quot;Search for messages in &amp;lt;myApp&amp;gt;&quot;
+
+class IntentHandler: INExtension, INSendMessageIntentHandling, INSearchForMessagesIntentHandling, INSetMessageAttributeIntentHandling {
+
+override func handler(for intent: INIntent) -&amp;gt; Any {
+ // This is the default implementation.  If you want different objects to handle different intents,
+ // you can override this and return the handler you want for that particular intent.
+ return self
+}
+
+// MARK: - INSendMessageIntentHandling
+
+// Implement resolution methods to provide additional information about your intent (optional).
+func resolveRecipients(forSendMessage intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -&amp;gt; Void) {
+ if let recipients = intent.recipients {
+ 
+ // If no recipients were provided we'll need to prompt for a value.
+ if recipients.count == 0 {
+ completion([INPersonResolutionResult.needsValue()])
+ return
+}
+
+var resolutionResults = [INPersonResolutionResult]()
+for recipient in recipients {
+ let matchingContacts = [recipient] // Implement your contact matching logic here to create an array of matching contacts
+ switch matchingContacts.count {
+ case 2  ... Int.max:
+ // We need Siri's help to ask user to pick one from the matches.
+ resolutionResults += [INPersonResolutionResult.disambiguation(with: matchingContacts)]
+ 
+ case 1:
+ // We have exactly one matching contact
+ resolutionResults += [INPersonResolutionResult.success(with: recipient)]
+ 
+ case 0:
+ // We have no contacts matching the description provided
+ resolutionResults += [INPersonResolutionResult.unsupported()]
+ 
+ default:
+ break
+ 
+ }
+}
+ completion(resolutionResults)
+ }
+}
+
+func resolveContent(forSendMessage intent: INSendMessageIntent, with completion: @escaping (INStringResolutionResult) -&amp;gt; Void) {
+     if let text = intent.content, !text.isEmpty {
+     completion(INStringResolutionResult.success(with: text))
+ } else {
+     completion(INStringResolutionResult.needsValue())
+ }
+}
+
+// Once resolution is completed, perform validation on the intent and provide confirmation (optional).
+
+func confirm(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -&amp;gt; Void) {
+ // Verify user is authenticated and your app is ready to send a message.
+ 
+ let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
+ let response = INSendMessageIntentResponse(code: .ready, userActivity: userActivity)
+ completion(response)
+}
+
+// Handle the completed intent (required).
+
+func handle(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -&amp;gt; Void) {
+ // Implement your application logic to send a message here.
+ 
+ let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
+ let response = INSendMessageIntentResponse(code: .success, userActivity: userActivity)
+ completion(response)
+}
+
+// Implement handlers for each intent you wish to handle.  As an example for messages, you may wish to also handle searchForMessages and setMessageAttributes.
+
+// MARK: - INSearchForMessagesIntentHandling
+
+func handle(searchForMessages intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -&amp;gt; Void) {
+ // Implement your application logic to find a message that matches the information in the intent.
+ 
+ let userActivity = NSUserActivity(activityType: NSStringFromClass(INSearchForMessagesIntent.self))
+ let response = INSearchForMessagesIntentResponse(code: .success, userActivity: userActivity)
+ // Initialize with found message's attributes
+ response.messages = [INMessage(
+ identifier: &quot;identifier&quot;,
+ content: &quot;I am so excited about SiriKit!&quot;,
+ dateSent: Date(),
+ sender: INPerson(personHandle: INPersonHandle(value: &quot;sarah@example.com&quot;, type: .emailAddress), nameComponents: nil, displayName: &quot;Sarah&quot;, image: nil,  contactIdentifier: nil, customIdentifier: nil),
+ recipients: [INPerson(personHandle: INPersonHandle(value: &quot;+1-415-555-5555&quot;, type: .phoneNumber), nameComponents: nil, displayName: &quot;John&quot;, image: nil,  contactIdentifier: nil, customIdentifier: nil)]
+ )]
+ completion(response)
+}
+
+// MARK: - INSetMessageAttributeIntentHandling
+
+func handle(setMessageAttribute intent: INSetMessageAttributeIntent, completion: @escaping (INSetMessageAttributeIntentResponse) -&amp;gt; Void) {
+ // Implement your application logic to set the message attribute here.
+ 
+ let userActivity = NSUserActivity(activityType: NSStringFromClass(INSetMessageAttributeIntent.self))
+ let response = INSetMessageAttributeIntentResponse(code: .success, userActivity: userActivity)
+ completion(response)
+}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;3.Speech Recognition&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/20398418&quot;&gt;语音识别技术原理&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;iOS 10引入了一个新的API,支持连续语音识别，可以将识别语音转录成文本。可以执行语音实时转录和记录音频。&lt;/p&gt;
+
+&lt;p&gt;SpeechFramework框架中的重要类&lt;/p&gt;
+
+&lt;p&gt;SFSpeechRecognizer：这个类是语音识别的操作类，用于语音识别用户权限的申请，语言环境的设置，语音模式的设置以及向Apple服务发送语音识别的请求。
+SFSpeechRecognitionTask：这个类是语音识别服务请求任务类，每一个语音识别请求都可以抽象为一个SFSpeechRecognitionTask实例，其中SFSpeechRecognitionTaskDelegate协议中约定了许多请求任务过程中的监听方法。
+SFSpeechRecognitionRequest:语音识别请求类，需要通过其子类来进行实例化。
+SFSpeechURLRecognitionRequest：通过音频URL来创建语音识别请求。
+SFSpeechAudioBufferRecognitionRequest:通过音频流来创建语音识别请求。
+SFSpeechRecognitionResult：语音识别请求结果类。
+SFTranscription：语音转换后的信息类。&lt;/p&gt;
+
+&lt;p&gt;当然，首先为了安全你得到plist文件中加权限
+然后coding&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SFSpeechRecognizer.requestAuthorization { authStatus in
+ if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
+     if let path = Bundle.main.url(forResource: &quot;PPAP&quot;, withExtension: &quot;.mp3&quot;) {
+         let recognizer = SFSpeechRecognizer()
+             let request = SFSpeechURLRecognitionRequest(url: path)
+                 recognizer?.recognitionTask(with: request, resultHandler: { (result, error) in
+             if let error = error {
+                print(&quot;There was an error: \(error)&quot;)
+             } else {
+                print(result?.bestTranscription.formattedString)
+             }
+         })
+     }
+ }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;4.User Notifications
+支持了很多用户定义的通知，并且可以捕捉到各个通知状态的回调。以往的通知是大家想接收的都提前做好准备，然后一下全量分发，没收到也不管了，也不关心发送者。现在用户通知做成了和网络请求有点像，一个request,response的流程，也支持了error处理，可以在各个状态的方法中做一些额外操作，并且也能取到一些字段，如发送者等。
+更为重要的是，新增了UserNotificationsUI.framework框架，在收到通知的时候，可自定义通知UI样式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let center = UNUserNotificationCenter.current()
+center.requestAuthorization(options: [.alert,.badge,.sound]) { (granted, error) in
+ if granted {
+     print(&quot;授权成功&quot;)
+ }else{
+     print(&quot;授权失败&quot;)
+ }
+}
+
+let content = UNMutableNotificationContent()
+content.title = &quot;云莱坞 PPAP&quot;
+content.body = &quot;I have a pen I have an apple&quot;
+content.subtitle = &quot;have a pineapple&quot;
+content.sound = UNNotificationSound.default()
+
+let trigger1 = UNTimeIntervalNotificationTrigger(timeInterval: 61, repeats: true)
+
+let request = UNNotificationRequest(identifier: &quot;notificationTest&quot;, content: content, trigger:trigger1)
+
+UNUserNotificationCenter.current().add(request) { (error) in
+ if (error != nil) {
+     print(error?.localizedDescription)
+ }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5.Others&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;CallKit 集成了VoIP及信息标识，还有了黑名单功能，当然不是云莱坞的黑名单&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//开始请求的方法，在打开设置-电话-来电阻止与身份识别开关时，系统自动调用
+- (void)beginRequestWithExtensionContext:(CXCallDirectoryExtensionContext *)context;
+//添加黑名单：根据生产的模板，只需要修改CXCallDirectoryPhoneNumber数组，数组内号码要按升序排列
+- (BOOL)addBlockingPhoneNumbersToContext:(CXCallDirectoryExtensionContext *)context;
+// 添加信息标识：需要修改CXCallDirectoryPhoneNumber数组和对应的标识数组；CXCallDirectoryPhoneNumber数组存放的号码和标识数组存放的标识要一一对应，CXCallDirectoryPhoneNumber数组内的号码要按升序排列
+- (BOOL)addIdentificationPhoneNumbersToContext:(CXCallDirectoryExtensionContext *)context;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wide Color 宽域颜色&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@available(iOS 10.0, *)
+public init(displayP3Red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adapting to the True Tone Display 真彩色显示&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;UIWhitePointAdaptivityStyle&lt;/p&gt;
+
+&lt;p&gt;共有五种选择：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;UIWhitePointAdaptivityStyleStandard 标准
+UIWhitePointAdaptivityStyleReading 阅读
+UIWhitePointAdaptivityStylePhoto 图片
+UIWhitePointAdaptivityStyleVideo 视频
+UIWhitePointAdaptivityStyleGame 游戏
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;App Search Enhancements 应用搜索增强&lt;/li&gt;
+  &lt;li&gt;Widget Enhancements 锁屏部件增强&lt;/li&gt;
+  &lt;li&gt;News Publisher Enhancements 新闻出版商增强&lt;/li&gt;
+  &lt;li&gt;Apple Pay Enhancements 支付增强&lt;/li&gt;
+  &lt;li&gt;Security and Privacy Enhancements 安全和保密性增强&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;三swift30&quot;&gt;三，swift3.0&lt;/h2&gt;
+
+&lt;p&gt;1.去除了swift2系列弃用得特性
+2.语法精简，更加哲理性(这词用得好啊)
+3.响应式，函数式，面向协议等语言现代化。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let queue = dispatch_queue_create(&quot;this is Swift 2.2&quot;, nil)
+dispatch_async(queue) {
+ print(&quot;Swift 2.2 queue&quot;)
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Swift 3 取消了这种冗余的写法，而采用了更为面向对象的方式：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;let queue = DispatchQueue(label: &quot;this is Swift 3.0&quot;)
+queue.async {
+ print(&quot;Swift 3 queue&quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;当然，问题还很多，但4.0就快来了&lt;/p&gt;
+
+&lt;h2 id=&quot;四watchos30tvosappstoremacos-sierra&quot;&gt;四，watchOS3.0，tvOS，AppStore，macOS Sierra…&lt;/h2&gt;
+
+&lt;p&gt;1.watchOS3.0&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;新增智能回复与 Scribble 功能，可在表面手写文字用以回复讯息。&lt;/li&gt;
+  &lt;li&gt;新增 SOS 功能，其支持全球的语言与紧急电话，危急时刻可立即通话或发出讯息。&lt;/li&gt;
+  &lt;li&gt;新增的《Breathe》App 能提醒用户休息片刻、多做深呼吸。&lt;/li&gt;
+  &lt;li&gt;《活动记录》App 加入 Activity Sharing 功能，能将您个人的活动量分享给亲朋好友或健身教练，与他人运动竞争或帮助维持健康。《活动记录》更针对乘坐轮椅的残障用户优化设计，提醒何时该稍做休息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.tvOS&lt;/p&gt;
+
+&lt;p&gt;整合 Siri，用以加强语音搜索功能。此外，tvOS 将新增 Single Sign-on 功能，仅需登入一次即可浏览所有付费电视频道。
+当然，国内是被墙的&lt;/p&gt;
+
+&lt;p&gt;3.AppStore
+AppStore 2.0 变革：更改拆帐比例、置入搜索广告、缩短审查时间&lt;/p&gt;
+
+&lt;p&gt;4.macOS Sierra&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;新增 Auto Unlock 功能，当用户戴着配对认证的 Apple Watch 开启 Mac 电脑立即自动登入，无须输入密码。&lt;/li&gt;
+  &lt;li&gt;新增 Universal Clipboard 功能，使用 iCloud 可跨苹果设备复制与贴上文字、照片、影片等。&lt;/li&gt;
+  &lt;li&gt;使用 iCloud Drive，将允许多部 Mac 电脑共用桌面，而且 iPhone、iPad 也能存取桌面上的档案。&lt;/li&gt;
+  &lt;li&gt;新增 Optimized Storage 功能，当 Mac 电脑容量不足，自动将不常用的档案上传 iCloud，提醒用户清空垃圾桶。&lt;/li&gt;
+  &lt;li&gt;线上付款将支持 Apple Pay，搭配 iPhone 或 Apple Watch 快速且安全地完成网购的付款动作。&lt;/li&gt;
+  &lt;li&gt;包括《地图》、《邮件》、《Pages》、《Numbers》、《Keynote》甚至第三方 Apps 将支持分页功能。&lt;/li&gt;
+  &lt;li&gt;Safari 与 iTunes 新增 Picture in Picture 功能，以子母画面的方式观赏影片。&lt;/li&gt;
+  &lt;li&gt;加入 Siri 功能，可在 macOS Sierra 当中语音搜索讯息、文件、照片、网页等，甚至语音建立备忘录或开启 FaceTime 视讯。登陆 macOS Sierra 之后，Siri 终能跨苹果四大平台使用。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>elarc</name></author><summary type="html">WWDC2016,Apple发布了ios10，每次版本发布，都会带来新的接口，新的机会，也能间接的看出Apple的未来一段时间的发展方向。</summary></entry><entry><title type="html">mock测试</title><link href="http://localhost:4000/blog/2016/12/26/mock/" rel="alternate" type="text/html" title="mock测试" /><published>2016-12-26T00:00:00+08:00</published><updated>2016-12-26T00:00:00+08:00</updated><id>http://localhost:4000/blog/2016/12/26/mock</id><content type="html" xml:base="http://localhost:4000/blog/2016/12/26/mock/">&lt;h3 id=&quot;一背景&quot;&gt;一．背景：&lt;/h3&gt;
+
+&lt;h5 id=&quot;1现在存在的问题&quot;&gt;1、现在存在的问题：&lt;/h5&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/mock.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;
+①数据由第三方准备，一段时间更新一次                   &lt;br /&gt;
+②存量数据不够全面 （Sad Path）                             &lt;br /&gt;
+③（轻易）不能修改已存在的测试数据        &lt;br /&gt;
+④如果Server端｜API层未开发完成，无法进行APP端接口集成测试    &lt;br /&gt;
+⑤难以自动化                                           &lt;br /&gt;
+⑥模拟网络情况比较困难&lt;/p&gt;
+
+&lt;h5 id=&quot;2理想的测试环境&quot;&gt;2、理想的测试环境：&lt;/h5&gt;
+&lt;p&gt;Reliability：可靠达成期望返回正确的输出             &lt;br /&gt;
+Scalability：可以自主扩展出尚未存在的API功能         &lt;br /&gt;
+Repeatablity：改动的测试数据可以恢复如初         &lt;br /&gt;
+Speed：执行速度快，提高反馈效率              &lt;br /&gt;
+Network Switchable：可以测试      &lt;br /&gt;
+Time out及极端情况&lt;/p&gt;
+
+&lt;h3 id=&quot;二mock工具类比较&quot;&gt;二、mock工具类比较&lt;/h3&gt;
+
+&lt;h5 id=&quot;1moco&quot;&gt;1.moco&lt;/h5&gt;
+&lt;p&gt;moco其实就是mockserver的一个实现，总体很好，java栈，有点重，不太适合做fuzz测试。                                       &lt;br /&gt;
+（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）&lt;/p&gt;
+
+&lt;h5 id=&quot;2charles&quot;&gt;2.charles&lt;/h5&gt;
+
+&lt;p&gt;适用于简单轻量级mock数据。&lt;/p&gt;
+
+&lt;p&gt;（截取网络封包、修改请求/返回值、模拟弱网、压测等）&lt;/p&gt;
+
+&lt;h5 id=&quot;3anyproxy&quot;&gt;3.anyproxy&lt;/h5&gt;
+&lt;p&gt;可以控制代理，本身就可以mock，功能比charles强悍，支持fuzz测试。&lt;/p&gt;
+
+&lt;h3 id=&quot;三mock实例&quot;&gt;三、mock实例&lt;/h3&gt;
+
+&lt;h5 id=&quot;1charles&quot;&gt;1、charles&lt;/h5&gt;
+
+&lt;p&gt;Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：&lt;/p&gt;
+
+&lt;p&gt;Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。
+Rewrite 功能适合对网络请求进行一些正则替换。
+Breakpoints 功能适合做一些临时性的修改。&lt;/p&gt;
+
+&lt;p&gt;①对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 “Save Response…” 功能，将请求结果保存到本地，然后稍加修改，成为我们的目标映射文件。
+&lt;img src=&quot;/blog/img/mock/maplocal.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;②Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。
+&lt;img src=&quot;/blog/img/mock/rewrite.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;③Breakpoints 功能类似我们在 Xcode 中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这个时候，我们可以在 Charles 中临时修改网络请求的返回内容.比如这个地方如果返回了nil程序会不会崩，直接改response就行了.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/charles-1.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/charles-2.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/charles-3.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/charles-4.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/mock/charles-5.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里只是最简单的更改，实际的操作中，你可以经常用来把某些值改为临界情况，看应用在处理这些临界状况时的反应，这样比找那些临界数据的测试账号成本要低得多。也可以把一些可能不会反回数值的字段找到，直接将里面的值删成nil，看看会不会报异常等等。&lt;/p&gt;
+
+&lt;h5 id=&quot;2anyproxy&quot;&gt;2、anyproxy&lt;/h5&gt;
+
+&lt;p&gt;①安装nodejs&lt;/p&gt;
+
+&lt;p&gt;②安装anyproxy（http://anyproxy.io/cn/）&lt;/p&gt;
+
+&lt;p&gt;npm install -g anyproxy&lt;/p&gt;
+
+&lt;p&gt;③启动anyproxy&lt;/p&gt;
+
+&lt;p&gt;配置anyproxy的HTTPS特性：&lt;/p&gt;
+
+&lt;p&gt;step 1 生成rootca（sudo anyproxy –root）&lt;/p&gt;
+
+&lt;p&gt;step 2 找到rootca文件，打开rootca.crt&lt;/p&gt;
+
+&lt;p&gt;step 3 根据提示，信任&lt;/p&gt;
+
+&lt;p&gt;step 4 明文解析https（anyproxy –intercept）&lt;/p&gt;
+
+&lt;p&gt;④把浏览器代理指向127.0.0.1:8001                &lt;br /&gt;
+⑤访问界面：http://127.0.0.1:8002 
+  &lt;img src=&quot;/blog/img/mock/anyproxy-1.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;        &lt;br /&gt;
+⑥anyproxy –rule /path/to/ruleFile.js
+&lt;img src=&quot;/blog/img/mock/anyproxy.png&quot; style=&quot;display: block; margin: 10px auto; width: 400px; height: auto;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ps: ① AnyProxy默认不会解析https请求，你需要引入shouldInterceptHttpsReq这个函数来显式指定解析哪个请求&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 	//rule scheme :
+
+	module.exports = {
+
+
+    replaceServerResDataAsync: function(req,res,serverResData,callback){
+        //add &quot;hello github&quot; to all github pages
+        if(req.headers.host == &quot;github.com&quot;){
+            serverResData += &quot;hello github&quot;;
+        }
+        callback(serverResData);
+    },
+
+    shouldInterceptHttpsReq :function(req){
+        //intercept https://github.com/
+        //otherwise, all the https traffic will not go through this proxy
+
+        // return true;
+        if(req.headers.host == &quot;github.com&quot;){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    };
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;②  已有功能&lt;/p&gt;
+
+&lt;p&gt;-s SAVE, –save SAVE  file save path&lt;/p&gt;
+
+&lt;p&gt;-p PORT, –port PORT  proxy port&lt;/p&gt;
+
+&lt;p&gt;-a [API [API …]], –api [API [API …]]
+                        specify url&lt;/p&gt;
+
+&lt;p&gt;-i [INJECT [INJECT …]], –inject [INJECT [INJECT …]]
+                        inject field&lt;/p&gt;
+
+&lt;p&gt;-d [DELETE [DELETE …]], –delete [DELETE [DELETE …]]
+                        delete field&lt;/p&gt;
+
+&lt;p&gt;-m [MOCK [MOCK …]], –mock [MOCK [MOCK …]]
+                        mock value&lt;/p&gt;</content><author><name>zsh</name></author><summary type="html">一．背景：
+
+1、现在存在的问题：
+
+
+①数据由第三方准备，一段时间更新一次                   
+②存量数据不够全面 （Sad Path）                             
+③（轻易）不能修改已存在的测试数据        
+④如果Server端｜API层未开发完成，无法进行APP端接口集成测试    
+⑤难以自动化                                           
+⑥模拟网络情况比较困难
+
+2、理想的测试环境：
+Reliability：可靠达成期望返回正确的输出             
+Scalability：可以自主扩展出尚未存在的API功能         
+Repeatablity：改动的测试数据可以恢复如初         
+Speed：执行速度快，提高反馈效率              
+Network Switchable：可以测试      
+Time out及极端情况
+
+二、mock工具类比较
+
+1.moco
+moco其实就是mockserver的一个实现，总体很好，java栈，有点重，不太适合做fuzz测试。                                       
+（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）
+
+2.charles
+
+适用于简单轻量级mock数据。
+
+（截取网络封包、修改请求/返回值、模拟弱网、压测等）
+
+3.anyproxy
+可以控制代理，本身就可以mock，功能比charles强悍，支持fuzz测试。</summary></entry></feed>

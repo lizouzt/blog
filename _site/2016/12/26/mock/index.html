@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>mock测试 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://localhost:4000/blog/2016/12/26/mock/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                
+                
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post-bg-06.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>mock测试</h1>
+                    
+                    <h2 class="subheading">mock测试</h2>
+                    
+                    <span class="meta">Posted by zsh on December 26, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h3 id="一背景">一．背景：</h3>
+
+<h5 id="1现在存在的问题">1、现在存在的问题：</h5>
+
+<p><img src="/blog/img/mock/mock.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />
+①数据由第三方准备，一段时间更新一次                   <br />
+②存量数据不够全面 （Sad Path）                             <br />
+③（轻易）不能修改已存在的测试数据        <br />
+④如果Server端｜API层未开发完成，无法进行APP端接口集成测试    <br />
+⑤难以自动化                                           <br />
+⑥模拟网络情况比较困难</p>
+
+<h5 id="2理想的测试环境">2、理想的测试环境：</h5>
+<p>Reliability：可靠达成期望返回正确的输出             <br />
+Scalability：可以自主扩展出尚未存在的API功能         <br />
+Repeatablity：改动的测试数据可以恢复如初         <br />
+Speed：执行速度快，提高反馈效率              <br />
+Network Switchable：可以测试      <br />
+Time out及极端情况</p>
+
+<h3 id="二mock工具类比较">二、mock工具类比较</h3>
+
+<h5 id="1moco">1.moco</h5>
+<p>moco其实就是mockserver的一个实现，总体很好，java栈，有点重，不太适合做fuzz测试。                                       <br />
+（fuzz testing 就是用一个随机坏数据去攻击一个程序，然后观察哪里遭到了破坏，换句话说就是，在他人攻击程序前，先自己攻击自己）</p>
+
+<h5 id="2charles">2.charles</h5>
+
+<p>适用于简单轻量级mock数据。</p>
+
+<p>（截取网络封包、修改请求/返回值、模拟弱网、压测等）</p>
+
+<h5 id="3anyproxy">3.anyproxy</h5>
+<p>可以控制代理，本身就可以mock，功能比charles强悍，支持fuzz测试。</p>
+
+<h3 id="三mock实例">三、mock实例</h3>
+
+<h5 id="1charles">1、charles</h5>
+
+<p>Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：</p>
+
+<p>Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。
+Rewrite 功能适合对网络请求进行一些正则替换。
+Breakpoints 功能适合做一些临时性的修改。</p>
+
+<p>①对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 “Save Response…” 功能，将请求结果保存到本地，然后稍加修改，成为我们的目标映射文件。
+<img src="/blog/img/mock/maplocal.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p>②Rewrite 功能功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。
+<img src="/blog/img/mock/rewrite.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p>③Breakpoints 功能类似我们在 Xcode 中设置的断点一样，当指定的网络请求发生时，Charles 会截获该请求，这个时候，我们可以在 Charles 中临时修改网络请求的返回内容.比如这个地方如果返回了nil程序会不会崩，直接改response就行了.</p>
+
+<p><img src="/blog/img/mock/charles-1.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p><img src="/blog/img/mock/charles-2.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p><img src="/blog/img/mock/charles-3.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p><img src="/blog/img/mock/charles-4.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p><img src="/blog/img/mock/charles-5.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p>这里只是最简单的更改，实际的操作中，你可以经常用来把某些值改为临界情况，看应用在处理这些临界状况时的反应，这样比找那些临界数据的测试账号成本要低得多。也可以把一些可能不会反回数值的字段找到，直接将里面的值删成nil，看看会不会报异常等等。</p>
+
+<h5 id="2anyproxy">2、anyproxy</h5>
+
+<p>①安装nodejs</p>
+
+<p>②安装anyproxy（http://anyproxy.io/cn/）</p>
+
+<p>npm install -g anyproxy</p>
+
+<p>③启动anyproxy</p>
+
+<p>配置anyproxy的HTTPS特性：</p>
+
+<p>step 1 生成rootca（sudo anyproxy –root）</p>
+
+<p>step 2 找到rootca文件，打开rootca.crt</p>
+
+<p>step 3 根据提示，信任</p>
+
+<p>step 4 明文解析https（anyproxy –intercept）</p>
+
+<p>④把浏览器代理指向127.0.0.1:8001                <br />
+⑤访问界面：http://127.0.0.1:8002 
+  <img src="/blog/img/mock/anyproxy-1.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" />        <br />
+⑥anyproxy –rule /path/to/ruleFile.js
+<img src="/blog/img/mock/anyproxy.png" style="display: block; margin: 10px auto; width: 400px; height: auto;" /></p>
+
+<p>ps: ① AnyProxy默认不会解析https请求，你需要引入shouldInterceptHttpsReq这个函数来显式指定解析哪个请求</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> 	//rule scheme :
+
+	module.exports = {
+
+
+    replaceServerResDataAsync: function(req,res,serverResData,callback){
+        //add "hello github" to all github pages
+        if(req.headers.host == "github.com"){
+            serverResData += "hello github";
+        }
+        callback(serverResData);
+    },
+
+    shouldInterceptHttpsReq :function(req){
+        //intercept https://github.com/
+        //otherwise, all the https traffic will not go through this proxy
+
+        // return true;
+        if(req.headers.host == "github.com"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    };
+</code></pre>
+</div>
+
+<p>②  已有功能</p>
+
+<p>-s SAVE, –save SAVE  file save path</p>
+
+<p>-p PORT, –port PORT  proxy port</p>
+
+<p>-a [API [API …]], –api [API [API …]]
+                        specify url</p>
+
+<p>-i [INJECT [INJECT …]], –inject [INJECT [INJECT …]]
+                        inject field</p>
+
+<p>-d [DELETE [DELETE …]], –delete [DELETE [DELETE …]]
+                        delete field</p>
+
+<p>-m [MOCK [MOCK …]], –mock [MOCK [MOCK …]]
+                        mock value</p>
+
+
+                <hr>
+
+                
+                    <div id="disqus_thread"></div>
+                    <script>
+
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//yunlaiwu.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                
+                                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/12/21/cluster-memory/" data-toggle="tooltip" data-placement="top" title="NodeJS在cluster模式下内存超限重启">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/blog/2017/01/01/ios2016%E6%8A%80%E6%9C%AF%E5%9B%9E%E9%A1%BE/" data-toggle="tooltip" data-placement="top" title="2016年IOS新技术回顾">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2017</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
