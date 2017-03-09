@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "区块链简介"
+title:      "纸上谈兵-区块链"
 subtitle:   "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"
 date:       2017-03-02 17:00:00
 author:     "xuguangjin"
