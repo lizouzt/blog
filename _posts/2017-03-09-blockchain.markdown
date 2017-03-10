@@ -1,8 +1,8 @@
 ---
 layout:     post
-title:      纸上谈兵-区块链
-subtitle:   
-date:       2017-03-02 17:00:00
+title:      区块链技术综述
+subtitle:   纸上谈兵
+date:       2017-03-02 17:00:00
 author:     "xuguangjin"
 header-img: "img/post-bg-02.jpg"
 ---
@@ -221,12 +221,8 @@ A4：（a）签名不可伪造，一旦被篡改即可发现，而叛徒的签�
 
 
 [1] http://www.infoq.com/cn/articles/bitcoin-and-block-chain-part01
-
 [2] http://liyangready.github.io/2016/08/21/%E5%8F%AF%E4%BF%A1%E5%89%8D%E7%AB%AF%E4%B9%8B%E8%B7%AF-pow%E9%AA%8C%E8%AF%81/
-
 [3] https://yeasy.gitbooks.io/blockchain_guide/content/crypto/signature.html
-
 [4] http://www.8btc.com/baizhantingjiangjun
-
 [5] http://www.cnblogs.com/fengzhiwu/p/5524324.html
 
