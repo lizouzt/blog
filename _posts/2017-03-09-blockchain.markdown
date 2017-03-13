@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:区块链技术综述
+title:      区块链技术综述
 subtitle:   纸上谈兵
 date:       2017-03-02 17:00:00
 author:     "xuguangjin"
