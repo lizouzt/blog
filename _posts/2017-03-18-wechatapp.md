@@ -7,5 +7,6 @@ author:     "chenming"
 header-img: "img/post-bg-03.jpg"
 ---
 ## 一个简单的小程序长什么样
-![1.png](/blog/img/wechatapp/blacklist.jpg =200)
-![2.png](/blog/img/wechatapp/blacklistdetail.jp =200)
+
+<img src="/blog/img/wechatapp/blacklist.jpg" wdith="375"/>
+<img src="/blog/img/wechatapp/blacklistdetail.jpg" wdith="375" style="maring-left:20px;"/>
