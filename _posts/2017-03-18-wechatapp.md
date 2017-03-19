@@ -8,5 +8,5 @@ header-img: "img/post-bg-03.jpg"
 ---
 ## 一个简单的小程序长什么样
 
-<img src="/blog/img/wechatapp/blacklist.jpg" wdith="375"/>
-<img src="/blog/img/wechatapp/blacklistdetail.jpg" wdith="375" style="maring-left:20px;"/>
+<img src="/blog/img/wechatapp/blacklist.jpg" width="375"/>
+<img src="/blog/img/wechatapp/blacklistdetail.jpg" width="375" style="maring-left:20px;"/>
