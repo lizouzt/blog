@@ -185,4 +185,5 @@ Page({
 
 ## 连接
 [简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/)
+
 [微信小程序redux绑定](https://github.com/charleyw/wechat-weapp-redux)
