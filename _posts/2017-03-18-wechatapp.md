@@ -62,7 +62,7 @@ page.json 页面的全局配置文件
 * disableScroll: 控制当前页面是否可以上下滚动
 
 ## App
-* ``` App() ``` 函数用来注册一个小程序
+``` App() ``` 函数用来注册一个小程序
 > App() 必须在 app.js 中注册，且不能注册多个。
 
 ```  javascript
@@ -126,16 +126,32 @@ Page({
     }
 });
 ```
-* 事件处理函数
-``` xml
-<view bindtap="viewTap"> click me </view>
-```
+Page onLoad时url中传递的参数会被写入options中
+
 ``` javascript
+wx.navigateTo({
+  url: 'blacklistdetail?id=currtId'
+});
+Page({
+  onLoad: function(options){
+    console.log(options.id);
+  }
+});
+```
+* 事件处理函数
+
+```
+<view bindtap="viewTap"> click me </view>
+
+```
+
+```
 Page({
   viewTap: function() {
     console.log('view tap')
   }
 })
+
 ```
 * setData
 > ```setData()```函数用于将数据从逻辑层发送到视图层，同时改变对应的 this.data 的值,所以不要直接对this.data赋值
@@ -157,4 +173,16 @@ Page({
 
 组件
 * 微信小程序提供了常用的组件，包括视图，导航，媒体，地图，画布等等。
+
 [组件文档](https://mp.weixin.qq.com/debug/wxadoc/dev/component/slider.html)
+
+问题
+* swiper以及fullpage滚动效果不佳。
+* canvas，rpx存在部分机型的兼容性问题。
+* 不可自定义组件，开发复杂的应用比较困难。
+* 开发工具不完善。
+* 不支持requestAnimationFrame。
+
+## 连接
+[简易教程](https://mp.weixin.qq.com/debug/wxadoc/dev/)
+[微信小程序redux绑定](https://github.com/charleyw/wechat-weapp-redux)
