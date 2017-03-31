@@ -22,9 +22,10 @@ header-img: "img/DL/head2.jpeg"
 </div>
 
 ILSVRC采用的ImageNet（发起人为李飞飞）的子数据集 ， ImageNet拥有1500万标注过的高清图片，22000类，100万张标注了图片中主要物体的定位边框。
+![dl.png](/blog/img/DL/chapter2-002.jpg)
 
 ImageNet下载了互联网上近10亿张图片，用亚马逊的土耳其机器人平台实现众包的标注过程，吸引了167个国家5万名工作者筛选标注。
-![dl.png](/blog/img/DL/chapter2-002.jpg)
+
 
 >ILSVRC过去几年的比赛结果
 
