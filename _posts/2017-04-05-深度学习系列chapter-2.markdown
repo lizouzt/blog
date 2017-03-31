@@ -12,7 +12,6 @@ header-img: "img/DL/head2.jpeg"
 ## 一、一个比赛和几个经典
 
 计算机视觉比赛ILSVRC(ImageNet Large Scale Visual Recognition Challenge)基于ImageNet图像数据库的国际计算机视觉识别竞赛。
-
 包括目标定位、目标检测、场景分类、场景分析、图片分类等项目。
 
 比赛数据集大概拥有120万张图片，1000类的标注。
@@ -37,8 +36,11 @@ ImageNet下载了互联网上近10亿张图片，用亚马逊的土耳其机器�
 >AlexNet
 
 2012年Hiton的学生 Alex 提出了AlexNet  , 将LeNet的思想发扬光大。
+
 网络包含了6亿3000万个链接， 6000万个参数和65万个神经元，5个卷积层+3个全连接层。
+
 错误率达到了16.4% （同年第二名26.2%），确立了深度学习在计算机视觉的统治地位。
+
 ![dl.png](/blog/img/DL/chapter2-005.jpg)
 
 AlexNet创新点：
@@ -64,6 +66,7 @@ VGG创新点：
 * 越深网络效果越好
 * 1x1卷积也是有效的，大的卷积核可以学到更大的空间特征。
 * 卷积串联
+
  eg: 两个3x3 相当于一个5x5 ，同时还多了更多的线性变换。
 
 <img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
@@ -84,7 +87,7 @@ Google Inception Net 创新点：
 * 对卷积串联做的更彻底，引入了Factorization into small convolutions , 降低参数量，减小过拟合，增加非线性能力。
      3x3 的卷积拆成 1x3 和 3x1的卷积串联。
 
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
+<img src="/blog/img/DL/chapter2-008.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
 
 >ResNet
 
@@ -105,7 +108,7 @@ Google Inception Net 创新点：
 
 >2.2 Tensorflow 初窥
 
-2015年11月9日，Google发布人工智能系统TensorFlow并宣布开源
+2015年11月9日，Google发布人工智能系统TensorFlow并宣布开源。
 
 ![dl.png](/blog/img/DL/chapter2-014.gif)
 
@@ -127,9 +130,11 @@ Google Inception Net 创新点：
 
 用户使用tensorFlow时的交互式接口。会话将图的op分发到诸如CPU或GPU之类的设备上执行。
 
->2.3计算图示例 y=Relu(Wx+b)
+>2.3 计算图示例
 
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:300px;height:350px;"/>
+y=Relu(Wx+b)
+
+<img src="/blog/img/DL/chapter2-015.jpg" style="display:inline-block;witdth:300px;height:350px;"/>
 
 ```
 x= tf.placeholder(tf.float32, [None,784])
@@ -141,11 +146,13 @@ sess = tf.InteractiveSession()// 建立交互式会话
 tf.initialize_all_variables().run()//所有变量初始化
 ```
 
-*placeholder 与 variable
+placeholder 与 variable
 
-Variable:声明时，必须提供初始值 , 一般用于模型的权重（weights，W）或者偏执值（bias）
+Variable :
+声明时，必须提供初始值 , 一般用于模型的权重（weights）或者偏执值（bias）
 
-placeholder:不必指定初始值，运行时通过 Session.run 的函数参数指定 , 一般用来表达样本
+placeholder :
+不必指定初始值，运行时通过 Session.run 的函数参数指定 , 一般用来表达样本
 
 >2.4 Tensorflow 架构
 
@@ -163,15 +170,12 @@ placeholder:不必指定初始值，运行时通过 Session.run 的函数参数�
 
 （1）决定运算在哪个设备上运行
 
-*贪心策略
+(a)贪心策略
+*首先计算一个代价模型，估算每一个节点的输入、输出tensor的大小，以及所需的计算时间。
+*模拟整个计算图，当遇到一个计算节点，把所有能执行这个节点的设备都测一遍
+*综合估算时间，传输时间选择和一个时间最小的设备。
 
-1、首先计算一个代价模型，估算每一个节点的输入、输出tensor的大小，以及所需的计算时间。
-
-2、模拟整个计算图，当遇到一个计算节点，把所有能执行这个节点的设备都测一遍
-
-3、综合估算时间，传输时间选择和一个时间最小的设备。
-
-*直接指定谁执行什么
+(b)直接指定谁执行什么
 
 （2）管理设备之间的数据传递
 
@@ -202,13 +206,13 @@ placeholder:不必指定初始值，运行时通过 Session.run 的函数参数�
  让模型的不同部分执行在不同的设备上。为了充分利用同一台设备的计算能力，TF会尽量让相邻的计算在同一台设备上，这样可以节省网
 络开销。
 
-![dl.png](/blog/img/DL/chapter2-020.jpg)
+<img src="/blog/img/DL/chapter2-020.jpg" style="zoom:70%"/>
 
 （3）流水线并行
 
 和异步并行很像，但是是同一个硬件设备上实现并行，将计算做成流水线。
 
-![dl.png](/blog/img/DL/chapter2-021.jpg)
+<img src="/blog/img/DL/chapter2-021.jpg" style="zoom:80%"/>
 
 >2.7 TensorBoard
 
@@ -224,7 +228,7 @@ tensorboard --logdir=/Users/maoyaozong/Desktop/maoyaozong/cloudwood/tf
 
 >2.8 手写体数字问题MNIST
 
-![dl.png](/blog/img/DL/chapter2-023.jpg)
+<img src="/blog/img/DL/chapter2-023.jpg" style="zoom:80%"/>
 
 如何表示这些图片？
 
@@ -239,91 +243,91 @@ tensorboard --logdir=/Users/maoyaozong/Desktop/maoyaozong/cloudwood/tf
 ![dl.png](/blog/img/DL/chapter2-025.jpg)
 
 ```
-// -*- coding: utf-8 -*-
-import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
-from tensorflow.contrib import learn
-mnist = learn.datasets.load_dataset('mnist')
-import tensorflow as tf
-from numpy import *
-
-def trans_labels(labels):
-     yList = []
-     for j in range(len(labels)):
-          index = labels[j]
-          tmpList = []
-          for k in range(10):
-               tmpList.append(0)
-          tmpList[index] = 1
-          yList.append(tmpList)
-     yList = array(yList)
-     return yList
-
-sess = tf.InteractiveSession()
-//定义一个初始化权重
-def weight_variable(shape):
-     initial = tf.truncated_normal(shape,stddev=0.1)
-     return tf.Variable(initial)
-//定义偏差
-def bias_variable(shape):
-     initial = tf.constant(0.1 , shape=shape)
-     return tf.Variable(initial)
-//定义卷积
-def conv2d(x,W):
-     return tf.nn.conv2d(x,W,strides=[1,1,1,1] , padding="SAME")
-//定义池化
-def max_pool_2x2(x):
-     return tf.nn.max_pool(x , ksize=[1,2,2,1]  , strides=[1,2,2,1] , padding="SAME")
-
-x = tf.placeholder(tf.float32 , [None , 784])
-y_ =tf.placeholder(tf.float32 , [None , 10])
-x_image = tf.reshape(x , [-1 , 28 , 28 , 1])
-
-//定义第一个卷积
-w_conv1 = weight_variable([5,5,1,32]) // 生成5*5 的权重矩阵，通道为1 , 卷集核数目为32
-b_conv1 = bias_variable([32])  // 为每一种卷积核赋予一个偏差
-h_conv1 = tf.nn.relu(conv2d(x_image , w_conv1) + b_conv1)  //卷积运算后加上偏差，然后通过激活函数
-h_pool1 = max_pool_2x2(h_conv1)  //对卷积的结果进行池化
-//定义第二个卷积核
-w_conv2 = weight_variable([5,5,32,64])   //第二个卷积核的尺寸和第一个一样 , 通道有32个，卷积核64个
-b_conv2 = bias_variable([64])
-h_conv2 = tf.nn.relu(conv2d(h_pool1 , w_conv2) + b_conv2)   //对第二个隐藏层做卷积运算
-h_pool2 = max_pool_2x2(h_conv2)
-//这时候的图片尺寸是7*7, 加上64个卷积核，一共有7*7*64个参数，3136
-// 加上一个全连接的隐藏层， 隐藏层个数1024个
-w_fc1 = weight_variable([7*7*64 , 1024])
-b_fc1 = bias_variable([1024])
-h_pool2_flat = tf.reshape(h_pool2 , [-1 , 7*7*64])  // 将原来的图片展开成为一维 , -1代表的含义是不用我们自己指定这一维的大小，函数会自动计算
-h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat , w_fc1) + b_fc1)   // 全连接
-// 在训练的时候需要dropout
-keep_prob = tf.placeholder(tf.float32)
-h_fc1_drop = tf.nn.dropout(h_fc1 , keep_prob)
-// 最后加一个输出softmax
-w_fc2 = weight_variable([1024 ,10])
-b_fc2 = bias_variable([10])
-y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop , w_fc2) + b_fc2)
-
-cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_*tf.log(y_conv) , reduction_indices=[1]))
-train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
-
-tf.global_variables_initializer().run()
-
-//进行训练
-for i in range(20000):
-     batch_xs , batch_ys = mnist.train.next_batch(50)
-     batch_ys = trans_labels(batch_ys)
-     train_step.run({x:batch_xs , y_:batch_ys , keep_prob:0.5})
-     if i%100 == 0:
-          correct_prediction = tf.equal(tf.argmax(y_conv,1),tf.argmax(y_,1))  //得到值最大的那个下标
-          accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
-          print "the " , i , " iter :" , accuracy.eval({x:batch_xs , y_:batch_ys , keep_prob:1.0})
-//进行预测
-correct_prediction = tf.equal(tf.argmax(y_conv,1),tf.argmax(y_,1))
-accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
-labelList = trans_labels(mnist.test.labels)
-print "the final accuracy :"
-print accuracy.eval({x:mnist.test.images,y_:labelList , keep_prob:1.0})
+1:// -*- coding: utf-8 -*-
+2:import sys
+3:reload(sys)
+4:sys.setdefaultencoding("utf-8")
+5:from tensorflow.contrib import learn
+6:mnist = learn.datasets.load_dataset('mnist')
+7:import tensorflow as tf
+8:from numpy import *
+9:
+10:def trans_labels(labels):
+11:     yList = []
+12:     for j in range(len(labels)):
+13:          index = labels[j]
+14:          tmpList = []
+15:          for k in range(10):
+16:               tmpList.append(0)
+17:          tmpList[index] = 1
+18:          yList.append(tmpList)
+19:     yList = array(yList)
+20:     return yList
+21:
+22:sess = tf.InteractiveSession()
+22://定义一个初始化权重
+23:def weight_variable(shape):
+24:     initial = tf.truncated_normal(shape,stddev=0.1)
+25:     return tf.Variable(initial)
+26://定义偏差
+27:def bias_variable(shape):
+28:     initial = tf.constant(0.1 , shape=shape)
+29:     return tf.Variable(initial)
+30://定义卷积
+31:def conv2d(x,W):
+32:     return tf.nn.conv2d(x,W,strides=[1,1,1,1] , padding="SAME")
+33://定义池化
+34:def max_pool_2x2(x):
+35:     return tf.nn.max_pool(x , ksize=[1,2,2,1]  , strides=[1,2,2,1] , padding="SAME")
+36:
+37:x = tf.placeholder(tf.float32 , [None , 784])
+38:y_ =tf.placeholder(tf.float32 , [None , 10])
+39:x_image = tf.reshape(x , [-1 , 28 , 28 , 1])
+40:
+41://定义第一个卷积
+42:w_conv1 = weight_variable([5,5,1,32]) // 生成5*5 的权重矩阵，通道为1 , 卷集核数目为32
+43:b_conv1 = bias_variable([32])  // 为每一种卷积核赋予一个偏差
+44:h_conv1 = tf.nn.relu(conv2d(x_image , w_conv1) + b_conv1)  //卷积运算后加上偏差，然后通过激活函数
+45:h_pool1 = max_pool_2x2(h_conv1)  //对卷积的结果进行池化
+46://定义第二个卷积核
+47:w_conv2 = weight_variable([5,5,32,64])   //第二个卷积核的尺寸和第一个一样 , 通道有32个，卷积核64个
+48:b_conv2 = bias_variable([64])
+49:h_conv2 = tf.nn.relu(conv2d(h_pool1 , w_conv2) + b_conv2)   //对第二个隐藏层做卷积运算
+50:h_pool2 = max_pool_2x2(h_conv2)
+51://这时候的图片尺寸是7*7, 加上64个卷积核，一共有7*7*64个参数，3136
+52:// 加上一个全连接的隐藏层， 隐藏层个数1024个
+53:w_fc1 = weight_variable([7*7*64 , 1024])
+54:b_fc1 = bias_variable([1024])
+55:h_pool2_flat = tf.reshape(h_pool2 , [-1 , 7*7*64])  // 将原来的图片展开成为一维 , -1代表的含义是不用我们自己指定这一维的大小，函数会自动计算
+56:h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat , w_fc1) + b_fc1)   // 全连接
+57:// 在训练的时候需要dropout
+58:keep_prob = tf.placeholder(tf.float32)
+59:h_fc1_drop = tf.nn.dropout(h_fc1 , keep_prob)
+60:// 最后加一个输出softmax
+61:w_fc2 = weight_variable([1024 ,10])
+62:b_fc2 = bias_variable([10])
+63:y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop , w_fc2) + b_fc2)
+64:
+65:cross_entropy = tf.reduce_mean(-tf.reduce_sum(y_*tf.log(y_conv) , reduction_indices=[1]))
+66:train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+67:
+68:tf.global_variables_initializer().run()
+69:
+70://进行训练
+71:for i in range(20000):
+72:     batch_xs , batch_ys = mnist.train.next_batch(50)
+73:     batch_ys = trans_labels(batch_ys)
+74:     train_step.run({x:batch_xs , y_:batch_ys , keep_prob:0.5})
+75:     if i%100 == 0:
+76:          correct_prediction = tf.equal(tf.argmax(y_conv,1),tf.argmax(y_,1))  //得到值最大的那个下标
+77:          accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
+78:          print "the " , i , " iter :" , accuracy.eval({x:batch_xs , y_:batch_ys , keep_prob:1.0})
+79://进行预测
+80:correct_prediction = tf.equal(tf.argmax(y_conv,1),tf.argmax(y_,1))
+81:accuracy = tf.reduce_mean(tf.cast(correct_prediction,tf.float32))
+82:labelList = trans_labels(mnist.test.labels)
+83:print "the final accuracy :"
+84:print accuracy.eval({x:mnist.test.images,y_:labelList , keep_prob:1.0})
 ```
 
 最后得到效果为99.2%
@@ -367,17 +371,17 @@ print accuracy.eval({x:mnist.test.images,y_:labelList , keep_prob:1.0})
 
 假设内容P 和 结果X 在CNN中的相应分别为P 和 F , 计算在内容上的损失。
 
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:300px;"/>
+<img src="/blog/img/DL/chapter2-030.jpg" style="display:inline-block;witdth:500px;height:300px;"/>
 
 风格定义公式，CNN同一层不同filter响应的互相关，通过描述互相关来表示style。
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:250px;height:80px;"/>
+<img src="/blog/img/DL/chapter2-031.jpg" style="display:inline-block;witdth:250px;height:80px;"/>
 每一层的损失：
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:400px;height:100px;"/>
+<img src="/blog/img/DL/chapter2-032.jpg" style="display:inline-block;witdth:400px;height:100px;"/>
 优化方向：
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
+<img src="/blog/img/DL/chapter2-033.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
 
 迭代最小化：
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
+<img src="/blog/img/DL/chapter2-034.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
 
 >实验效果
 
