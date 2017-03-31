@@ -19,7 +19,7 @@ header-img: "img/DL/head2.jpeg"
 
 比赛采用top-5和top-1分类错误率。
 
-![dl.png](/blog/img/DL/chapter2-001.jpg =850x85)
+<img src="/blog/img/DL/chapter2-001.jpg" style="display:inline-block;"/>
 
 ILSVRC采用的ImageNet（发起人为李飞飞）的子数据集 ， ImageNet拥有1500万标注过的高清图片，22000类，100万张标注了图片中主要物体的定位边框。
 
@@ -65,7 +65,8 @@ VGG创新点：
 * 1x1卷积也是有效的，大的卷积核可以学到更大的空间特征。
 * 卷积串联
  eg: 两个3x3 相当于一个5x5 ，同时还多了更多的线性变换。
- ![dl.png](/blog/img/DL/chapter2-007.jpg =270x360)
+
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
 
  >Google Inception Net
 
@@ -82,7 +83,8 @@ Google Inception Net 创新点：
 * Inception Module 用多个分支提取不同抽象程度的高阶特征，可以丰富表达能力。
 * 对卷积串联做的更彻底，引入了Factorization into small convolutions , 降低参数量，减小过拟合，增加非线性能力。
      3x3 的卷积拆成 1x3 和 3x1的卷积串联。
-![dl.png](/blog/img/DL/chapter2-010.jpg =270x360)
+
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
 
 >ResNet
 
@@ -127,7 +129,7 @@ Google Inception Net 创新点：
 
 >2.3计算图示例 y=Relu(Wx+b)
 
-![dl.png](/blog/img/DL/chapter2-015.jpg =300x350)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:300px;height:350px;"/>
 
 ```
 x= tf.placeholder(tf.float32, [None,784])
@@ -365,17 +367,17 @@ print accuracy.eval({x:mnist.test.images,y_:labelList , keep_prob:1.0})
 
 假设内容P 和 结果X 在CNN中的相应分别为P 和 F , 计算在内容上的损失。
 
-![dl.png](/blog/img/DL/chapter2-030.png =500x300)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:300px;"/>
 
 风格定义公式，CNN同一层不同filter响应的互相关，通过描述互相关来表示style。
-![dl.png](/blog/img/DL/chapter2-031.jpg =250x80)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:250px;height:80px;"/>
 每一层的损失：
-![dl.png](/blog/img/DL/chapter2-032.jpg =400x100)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:400px;height:100px;"/>
 优化方向：
-![dl.png](/blog/img/DL/chapter2-033.jpg =500x100)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
 
 迭代最小化：
-![dl.png](/blog/img/DL/chapter2-034.jpg =500x100)
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
 
 >实验效果
 
@@ -383,7 +385,7 @@ print accuracy.eval({x:mnist.test.images,y_:labelList , keep_prob:1.0})
 
 ![dl.png](/blog/img/DL/chapter2-035.png)
 
-![dl.png](/blog/img/DL/chapter2-035.png)
+![dl.png](/blog/img/DL/chapter2-036.png)
 
 
 
