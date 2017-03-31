@@ -9,7 +9,7 @@ header-img: "img/DL/head2.jpeg"
 ---
 
 
-## 一、一个比赛和几个经典
+## 一个比赛和几个经典
 
 计算机视觉比赛ILSVRC(ImageNet Large Scale Visual Recognition Challenge)基于ImageNet图像数据库的国际计算机视觉识别竞赛。
 包括目标定位、目标检测、场景分类、场景分析、图片分类等项目。
