@@ -4,7 +4,7 @@ title:      深度学习系列chapter-1
 subtitle:   从感知机到深度学习
 date:       2017-04-04 17:00:00
 author:     "maoyaozong"
-header-img: "img/head1.jpeg"
+header-img: "img/DL/head1.jpeg"
 ---
 ![dl.png](/blog/img/DL/deepLearning.001.jpeg)
 ![dl.png](/blog/img/DL/deepLearning.002.jpeg)
