@@ -184,19 +184,20 @@ placeholder :
 
 （1）决定运算在哪个设备上运行
 
-(a)贪心策略
+     (a)贪心策略
+
 *首先计算一个代价模型，估算每一个节点的输入、输出tensor的大小，以及所需的计算时间。
 *模拟整个计算图，当遇到一个计算节点，把所有能执行这个节点的设备都测一遍
 *综合估算时间，传输时间选择和一个时间最小的设备。
 
-(b)直接指定谁执行什么
+     (b)直接指定谁执行什么
 
 （2）管理设备之间的数据传递
 
 添加Send和Recv节点，通过Send和Recv之间进行通信来达到op之间通信。
 
 <div  align="center">
-<img src="/blog/img/DL/chapter2-017.jpg" style="zoom:60%"/>
+<img src="/blog/img/DL/chapter2-017.jpg" style="zoom:50%"/>
 </div>
 
 >2.5 Tensorflow扩展性
@@ -215,20 +216,26 @@ placeholder :
 
 分割数据，共享权重，合并梯度，同步/异步。
 
-<img src="/blog/img/DL/chapter2-019.jpg" style="zoom:70%"/>
+<div  align="center">
+<img src="/blog/img/DL/chapter2-019.jpg" style="zoom:60%"/>
+</div>
 
 （2）模型并行
 
  让模型的不同部分执行在不同的设备上。为了充分利用同一台设备的计算能力，TF会尽量让相邻的计算在同一台设备上，这样可以节省网
 络开销。
 
-<img src="/blog/img/DL/chapter2-020.jpg" style="zoom:70%"/>
+<div  align="center">
+<img src="/blog/img/DL/chapter2-020.jpg" style="zoom:60%"/>
+</div>
 
 （3）流水线并行
 
 和异步并行很像，但是是同一个硬件设备上实现并行，将计算做成流水线。
 
-<img src="/blog/img/DL/chapter2-021.jpg" style="zoom:70%"/>
+<div  align="center">
+<img src="/blog/img/DL/chapter2-021.jpg" style="zoom:60%"/>
+</div>
 
 >2.7 TensorBoard
 
