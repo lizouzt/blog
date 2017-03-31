@@ -59,7 +59,7 @@ VGG比赛的时候使用VGG-16 ，错误率7.3%（同年冠军6.7%）, 随后采
 
 VGGNet 在训练的时候用了4块GTX GPU ，每个网络耗费2-3周。
 
-![dl.png](/blog/img/DL/chapter2-006.jpg)
+<img src="/blog/img/DL/chapter2-006.jpg" style="display:inline-block;witdth:430px;height:470px;"/>
 
 VGG创新点：
 * 发现 LRN 层作用不大
@@ -69,25 +69,26 @@ VGG创新点：
 
  eg: 两个3x3 相当于一个5x5 ，同时还多了更多的线性变换。
 
-<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
+<img src="/blog/img/DL/chapter2-007.jpg" style="display:inline-block;witdth:180px;height:260px;"/>
 
  >Google Inception Net
 
  2014年冠军，top-5错误率6.67% (AlexNet : 16.4%) , 参数量500万(AlexNet:6000万)。
 
- ![dl.png](/blog/img/DL/chapter2-008.jpg =530x570)
+<img src="/blog/img/DL/chapter2-008.jpg" style="display:inline-block;witdth:430px;height:470px;"/>
 
  核心点 :NIN ( Network in Network ) 抽取不同程度的特征，既有简单的抽象也有更复杂的抽象
 
- ![dl.png](/blog/img/DL/chapter2-009.jpg)
+![dl.png](/blog/img/DL/chapter2-009.jpg)
 
 Google Inception Net 创新点：
 * 同样去除了LRN
 * Inception Module 用多个分支提取不同抽象程度的高阶特征，可以丰富表达能力。
 * 对卷积串联做的更彻底，引入了Factorization into small convolutions , 降低参数量，减小过拟合，增加非线性能力。
-     3x3 的卷积拆成 1x3 和 3x1的卷积串联。
 
-<img src="/blog/img/DL/chapter2-008.jpg" style="display:inline-block;witdth:270px;height:360px;"/>
+3x3 的卷积拆成 1x3 和 3x1的卷积串联。
+
+<img src="/blog/img/DL/chapter2-010.jpg" style="display:inline-block;witdth:180px;height:260px;"/>
 
 >ResNet
 
@@ -199,7 +200,7 @@ placeholder :
 
 分割数据，共享权重，合并梯度，同步/异步。
 
-![dl.png](/blog/img/DL/chapter2-019.jpg)
+<img src="/blog/img/DL/chapter2-019.jpg" style="zoom:70%"/>
 
 （2）模型并行
 
@@ -212,7 +213,7 @@ placeholder :
 
 和异步并行很像，但是是同一个硬件设备上实现并行，将计算做成流水线。
 
-<img src="/blog/img/DL/chapter2-021.jpg" style="zoom:80%"/>
+<img src="/blog/img/DL/chapter2-021.jpg" style="zoom:70%"/>
 
 >2.7 TensorBoard
 
@@ -371,12 +372,15 @@ tensorboard --logdir=/Users/maoyaozong/Desktop/maoyaozong/cloudwood/tf
 
 假设内容P 和 结果X 在CNN中的相应分别为P 和 F , 计算在内容上的损失。
 
-<img src="/blog/img/DL/chapter2-030.jpg" style="display:inline-block;witdth:500px;height:300px;"/>
+<img src="/blog/img/DL/chapter2-030.png" style="display:inline-block;witdth:500px;height:300px;"/>
 
 风格定义公式，CNN同一层不同filter响应的互相关，通过描述互相关来表示style。
+
 <img src="/blog/img/DL/chapter2-031.jpg" style="display:inline-block;witdth:250px;height:80px;"/>
+
 每一层的损失：
 <img src="/blog/img/DL/chapter2-032.jpg" style="display:inline-block;witdth:400px;height:100px;"/>
+
 优化方向：
 <img src="/blog/img/DL/chapter2-033.jpg" style="display:inline-block;witdth:500px;height:100px;"/>
 
