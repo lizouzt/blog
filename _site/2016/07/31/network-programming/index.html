@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tech Team of Yunlaiwu.com!">
+
+    <title>网络编程分享 - Blog of Tech@Yunlaiwu.com</title>
+
+    <link rel="canonical" href="http://yunlaiwu.github.io/blog/2016/07/31/network-programming/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/blog/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link type="application/atom+xml" rel="alternate" href="http://yunlaiwu.github.io/blog/feed.xml" title="Blog of Tech@Yunlaiwu.com" />
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/blog/">Blog of Tech@Yunlaiwu.com</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://www.yunlaiwu.com">云莱坞</a>
+                </li>
+                <li>
+                    <a href="/blog/about">关于我们</a>
+                </li>
+                <li>
+                    <a href="mailto:fanzhongkai@yunlaiwu.com">联系我们</a>
+                </li>
+
+                <!-- 
+    				
+                    <li>
+                        <a href="/blog/about/">About</a>
+                    </li>
+    				
+                    
+                
+    				
+                    <li>
+                        <a href="/blog/contact/">Contact</a>
+                    </li>
+    				
+                    
+                
+                
+                 -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/blog/img/post-bg-03.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>网络编程分享</h1>
+                    
+                    <h2 class="subheading">网络编程分享——by 刘佳</h2>
+                    
+                    <span class="meta">Posted by liujia on July 31, 2016</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h2 id="ppt">PPT内容</h2>
+
+<p><img src="/blog/img/network-programming/网络编程模型简介.001.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.002.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.003.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.004.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.005.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.006.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.007.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.008.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.009.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.010.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.011.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.012.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.013.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.014.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.015.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.016.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.017.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.018.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.019.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.020.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.021.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.022.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.023.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" />
+<img src="/blog/img/network-programming/网络编程模型简介.024.jpeg" style="display: block; margin: 10px auto; width: 800px; height: auto;" /></p>
+
+<h2 id="cgoroutine">用C实现的goroutine</h2>
+
+<h3 id="maincpp">main.cpp</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">//
+//  main.cpp
+//  coroutine
+//
+//  Created by liujia on 16/7/27.
+//  Copyright © 2016年 liujia. All rights reserved.
+//
+</span>
+<span class="cp">#define _XOPEN_SOURCE
+#include &lt;iostream&gt;
+#include &lt;memory&gt;
+#include &lt;thread&gt;
+#include "coroutine.h"
+#include "util.h"
+</span>
+<span class="n">util</span><span class="o">::</span><span class="n">ThreadLocalSingleton</span><span class="o">&lt;</span><span class="n">SCHEDULER_PTR</span><span class="o">&gt;</span> <span class="n">t_scheduler</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="n">func_1</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_1(): enter, param : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">yield_running_coroutine</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_1(): leave, param : %d </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">func_2</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_2(): enter, param : %s </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span> <span class="o">?</span> <span class="n">s</span> <span class="o">:</span> <span class="s">"null"</span><span class="p">);</span>
+    <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">yield_running_coroutine</span><span class="p">();</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_2(): leave, param : %s </span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">s</span> <span class="o">?</span> <span class="n">s</span> <span class="o">:</span> <span class="s">"null"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">func_3</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_3(): enter </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"func_3(): leave </span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">thread_func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">().</span><span class="n">reset</span><span class="p">(</span><span class="k">new</span> <span class="n">scheduler</span><span class="p">());</span>
+    
+    <span class="kt">int</span> <span class="n">id1</span> <span class="o">=</span> <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">create_coroutine</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">func_1</span><span class="p">,</span> <span class="mi">9</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">id2</span> <span class="o">=</span> <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">create_coroutine</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="o">&amp;</span><span class="n">func_2</span><span class="p">,</span> <span class="s">"I am a coroutine"</span><span class="p">));</span>
+    <span class="kt">int</span> <span class="n">id3</span> <span class="o">=</span> <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">create_coroutine</span><span class="p">(</span><span class="n">func_3</span><span class="p">);</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"thread_func start</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    
+    <span class="cm">/*
+    t_scheduler.getThreadInstanceRef()-&gt;resume_coroutine(id1);
+    t_scheduler.getThreadInstanceRef()-&gt;resume_coroutine(id2);
+    t_scheduler.getThreadInstanceRef()-&gt;resume_coroutine(id1);
+    t_scheduler.getThreadInstanceRef()-&gt;resume_coroutine(id2);
+    */</span>
+    
+    <span class="k">for</span><span class="p">(;</span><span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">has_coroutine</span><span class="p">();){</span>
+        <span class="n">t_scheduler</span><span class="p">.</span><span class="n">getThreadInstanceRef</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">resume_one_coroutine</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="n">printf</span><span class="p">(</span><span class="s">"thread_func end</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+    
+    <span class="n">std</span><span class="o">::</span><span class="kr">thread</span> <span class="n">t</span><span class="p">(</span><span class="n">thread_func</span><span class="p">);</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="coroutineh">coroutine.h</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">//
+//  coroutine.hpp
+//  coroutine
+//
+//  Created by liujia on 16/7/27.
+//  Copyright © 2016年 liujia. All rights reserved.
+//
+</span>
+<span class="cp">#ifndef coroutine_h
+#define coroutine_h
+</span>
+<span class="cp">#define _XOPEN_SOURCE
+</span>
+<span class="cp">#include &lt;ucontext.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;map&gt;
+#include &lt;deque&gt;
+#include &lt;memory&gt;
+#include &lt;functional&gt;
+</span>
+<span class="cp">#include "util.h"
+</span>
+<span class="k">class</span> <span class="nc">coroutine</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">coroutine</span><span class="o">&gt;</span> <span class="n">COROUTINE_PTR</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">scheduler</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">scheduler</span><span class="o">&gt;</span> <span class="n">SCHEDULER_PTR</span><span class="p">;</span>
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">weak_ptr</span><span class="o">&lt;</span><span class="n">scheduler</span><span class="o">&gt;</span> <span class="n">SCHEDULER_WEAK_PTR</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span> <span class="n">COROUTINE_FUNC</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="kt">size_t</span> <span class="n">STACK_SIZE</span> <span class="o">=</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="n">STATUS</span><span class="p">{</span>
+    <span class="n">CLOSED</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">READY</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">RUNNING</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">SUSPENDED</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">coroutine</span> <span class="o">:</span> <span class="k">public</span> <span class="n">util</span><span class="o">::</span><span class="n">noncopyable</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">coroutine</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">SCHEDULER_WEAK_PTR</span> <span class="n">scheduler</span><span class="p">,</span> <span class="n">COROUTINE_FUNC</span> <span class="n">func</span><span class="p">)</span> <span class="o">:</span>
+    <span class="n">_id</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+    <span class="n">_scheduler</span><span class="p">(</span><span class="n">scheduler</span><span class="p">),</span>
+    <span class="n">_func</span><span class="p">(</span><span class="n">func</span><span class="p">),</span>
+    <span class="n">_status</span><span class="p">(</span><span class="n">READY</span><span class="p">),</span>
+    <span class="n">_stack_ptr</span><span class="p">(</span><span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">STACK_SIZE</span><span class="p">]),</span>
+    <span class="n">_stack_size</span><span class="p">(</span><span class="n">STACK_SIZE</span><span class="p">)</span>
+    <span class="p">{}</span>
+    
+    <span class="o">~</span><span class="n">coroutine</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_stack_ptr</span><span class="p">){</span>
+            <span class="k">delete</span> <span class="p">[]</span><span class="n">_stack_ptr</span><span class="p">;</span>
+            <span class="n">_stack_ptr</span> <span class="o">=</span> <span class="nb">nullptr</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="n">get_id</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_id</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">STATUS</span> <span class="n">get_status</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_status</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">bool</span> <span class="n">is_running</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_status</span> <span class="o">==</span> <span class="n">RUNNING</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">ucontext_t</span><span class="o">&amp;</span> <span class="n">get_context_ref</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_context</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">ucontext_t</span><span class="o">*</span> <span class="n">get_context</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">&amp;</span><span class="n">_context</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span><span class="o">*</span> <span class="n">get_stack</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="n">_stack_ptr</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">size_t</span> <span class="n">get_stack_size</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">_stack_size</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">_status</span> <span class="o">=</span> <span class="n">RUNNING</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_func</span><span class="p">){</span>
+            <span class="n">_func</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">yield</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_status</span> <span class="o">!=</span> <span class="n">RUNNING</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">_status</span> <span class="o">=</span> <span class="n">SUSPENDED</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">_id</span><span class="p">;</span>
+    <span class="n">ucontext_t</span> <span class="n">_context</span><span class="p">;</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">_stack_ptr</span><span class="p">;</span>
+    <span class="kt">size_t</span> <span class="n">_stack_size</span><span class="p">;</span>
+    <span class="n">STATUS</span> <span class="n">_status</span><span class="p">;</span>
+    <span class="n">COROUTINE_FUNC</span> <span class="n">_func</span><span class="p">;</span>
+    <span class="n">SCHEDULER_WEAK_PTR</span> <span class="n">_scheduler</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">scheduler</span> <span class="o">:</span> <span class="k">public</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_shared_from_this</span><span class="o">&lt;</span><span class="n">scheduler</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">scheduler</span><span class="p">()</span> <span class="o">:</span>
+    <span class="n">_running_id</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">_atomic_id</span><span class="p">(</span><span class="k">new</span> <span class="n">util</span><span class="o">::</span><span class="n">atomic_id</span><span class="p">())</span>
+    <span class="p">{}</span>
+    <span class="o">~</span><span class="n">scheduler</span><span class="p">(){</span>
+        
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="n">create_coroutine</span><span class="p">(</span><span class="n">COROUTINE_FUNC</span> <span class="n">func</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">COROUTINE_PTR</span> <span class="n">routine</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">coroutine</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_atomic_id</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">shared_from_this</span><span class="p">(),</span> <span class="n">func</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">routine</span><span class="p">){</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">_routines</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">routine</span><span class="p">));</span>
+        <span class="n">_add_to_ready</span><span class="p">(</span><span class="n">routine</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">close_all</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">for_each</span><span class="p">(</span><span class="n">_routines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">_routines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">COROUTINE_PTR</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">each</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">each</span><span class="p">.</span><span class="n">second</span><span class="p">){</span>
+                <span class="n">each</span><span class="p">.</span><span class="n">second</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="n">_routines</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">_ready_routines</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">remove_coroutine</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">){</span>
+        <span class="k">auto</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">_routines</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">iter</span> <span class="o">==</span> <span class="n">_routines</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">_running_id</span> <span class="o">==</span> <span class="n">id</span><span class="p">){</span>
+            <span class="n">_running_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+        <span class="n">_routines</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="n">_remove_from_ready</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">resume_coroutine</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">){</span>
+        <span class="n">COROUTINE_PTR</span> <span class="n">routine</span> <span class="o">=</span> <span class="n">_find_by_id</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">routine</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">==</span> <span class="n">RUNNING</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">==</span> <span class="n">READY</span><span class="p">){</span>
+            <span class="n">getcontext</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context</span><span class="p">());</span>
+            <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context_ref</span><span class="p">().</span><span class="n">uc_stack</span><span class="p">.</span><span class="n">ss_sp</span> <span class="o">=</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_stack</span><span class="p">();</span>
+            <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context_ref</span><span class="p">().</span><span class="n">uc_stack</span><span class="p">.</span><span class="n">ss_size</span> <span class="o">=</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_stack_size</span><span class="p">();</span>
+            <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context_ref</span><span class="p">().</span><span class="n">uc_stack</span><span class="p">.</span><span class="n">ss_flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context_ref</span><span class="p">().</span><span class="n">uc_link</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">_context_main</span><span class="p">;</span>
+
+            <span class="n">_running_id</span> <span class="o">=</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">();</span>
+            <span class="n">_remove_from_ready</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">());</span>
+            <span class="n">makecontext</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context</span><span class="p">(),</span> <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="n">scheduler</span><span class="o">::</span><span class="n">func_wrapper</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="p">)(</span><span class="k">new</span> <span class="n">SCHEDULER_PTR</span><span class="p">(</span><span class="n">shared_from_this</span><span class="p">())));</span>
+            <span class="n">swapcontext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">_context_main</span><span class="p">,</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context</span><span class="p">());</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">==</span> <span class="n">SUSPENDED</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">_running_id</span> <span class="o">=</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">();</span>
+            <span class="n">_remove_from_ready</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">());</span>
+            <span class="n">swapcontext</span><span class="p">(</span><span class="o">&amp;</span><span class="n">_context_main</span><span class="p">,</span> <span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context</span><span class="p">());</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">resume_one_coroutine</span><span class="p">(){</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">COROUTINE_PTR</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">find_if</span><span class="p">(</span><span class="n">_ready_routines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">_ready_routines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">COROUTINE_PTR</span><span class="o">&gt;::</span><span class="n">value_type</span> <span class="n">ptr</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">ptr</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">==</span> <span class="n">READY</span> <span class="o">||</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">==</span> <span class="n">SUSPENDED</span><span class="p">);</span>
+        <span class="p">});</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">iter</span> <span class="o">!=</span> <span class="n">_ready_routines</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="p">{</span>
+            <span class="n">resume_coroutine</span><span class="p">((</span><span class="o">*</span><span class="n">iter</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">());</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">yield_running_coroutine</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">yield_coroutine</span><span class="p">(</span><span class="n">get_running_id</span><span class="p">());</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">yield_coroutine</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">id</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">COROUTINE_PTR</span> <span class="n">routine</span> <span class="o">=</span> <span class="n">_find_by_id</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">routine</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">RUNNING</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">assert</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">()</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        
+        <span class="n">routine</span><span class="o">-&gt;</span><span class="n">yield</span><span class="p">();</span>
+        <span class="n">_running_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">_add_to_ready</span><span class="p">(</span><span class="n">routine</span><span class="p">);</span>
+        <span class="n">swapcontext</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_context</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">_context_main</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kt">int</span> <span class="n">get_running_id</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">_running_id</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="n">COROUTINE_PTR</span> <span class="n">get_running_coroutine</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span> <span class="n">_find_by_id</span><span class="p">(</span><span class="n">get_running_id</span><span class="p">());</span>
+    <span class="p">}</span>
+    
+    <span class="kt">bool</span> <span class="n">has_coroutine</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">return</span> <span class="o">!</span><span class="n">_routines</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">COROUTINE_PTR</span> <span class="n">_find_by_id</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="k">const</span><span class="p">{</span>
+        <span class="k">auto</span> <span class="n">iter</span> <span class="o">=</span> <span class="n">_routines</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">iter</span> <span class="o">==</span> <span class="n">_routines</span><span class="p">.</span><span class="n">end</span><span class="p">()){</span>
+            <span class="k">return</span> <span class="n">COROUTINE_PTR</span><span class="p">();</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">COROUTINE_PTR</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">_remove_from_ready</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">remove_if</span><span class="p">(</span><span class="n">_ready_routines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">_ready_routines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="n">id</span><span class="p">](</span><span class="n">COROUTINE_PTR</span> <span class="n">ptr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">ptr</span> <span class="o">&amp;&amp;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">()</span> <span class="o">==</span> <span class="n">id</span><span class="p">;</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+    
+    <span class="kt">void</span> <span class="n">_add_to_ready</span><span class="p">(</span><span class="n">COROUTINE_PTR</span> <span class="n">ptr</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ptr</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">_is_ready</span><span class="p">(</span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">())){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">_ready_routines</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">ptr</span><span class="p">);</span>
+    <span class="p">}</span>
+    
+    <span class="kt">bool</span> <span class="n">_is_ready</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">std</span><span class="o">::</span><span class="n">find_if</span><span class="p">(</span><span class="n">_ready_routines</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">_ready_routines</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[</span><span class="n">id</span><span class="p">](</span><span class="n">COROUTINE_PTR</span> <span class="n">ptr</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">bool</span><span class="p">{</span>
+            <span class="k">return</span> <span class="n">ptr</span> <span class="o">&amp;&amp;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">()</span> <span class="o">==</span> <span class="n">id</span><span class="p">;</span>
+        <span class="p">})</span> <span class="o">!=</span> <span class="n">_ready_routines</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+    <span class="k">static</span> <span class="kt">void</span> <span class="n">func_wrapper</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">param</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">param</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">SCHEDULER_PTR</span><span class="o">*</span> <span class="n">ptr</span> <span class="o">=</span> <span class="p">(</span><span class="n">SCHEDULER_PTR</span><span class="o">*</span><span class="p">)</span><span class="n">param</span><span class="p">;</span>
+        <span class="n">SCHEDULER_PTR</span> <span class="n">sche</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="n">ptr</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">sche</span><span class="p">){</span>
+            <span class="k">delete</span> <span class="n">ptr</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">COROUTINE_PTR</span> <span class="n">routine</span> <span class="o">=</span> <span class="n">sche</span><span class="o">-&gt;</span><span class="n">get_running_coroutine</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">routine</span><span class="p">){</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="n">routine</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">();</span>
+        <span class="n">sche</span><span class="o">-&gt;</span><span class="n">remove_coroutine</span><span class="p">(</span><span class="n">routine</span><span class="o">-&gt;</span><span class="n">get_id</span><span class="p">());</span>
+    <span class="p">}</span>
+    
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">ucontext_t</span> <span class="n">_context_main</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">_running_id</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">COROUTINE_PTR</span><span class="o">&gt;</span> <span class="n">COROUTINES_MAP</span><span class="p">;</span>
+    <span class="n">COROUTINES_MAP</span> <span class="n">_routines</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">COROUTINE_PTR</span><span class="o">&gt;</span> <span class="n">_ready_routines</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">util</span><span class="o">::</span><span class="n">atomic_id</span><span class="o">&gt;</span> <span class="n">_atomic_id</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="cm">/* coroutine_h */</span><span class="cp">
+</span></code></pre>
+</div>
+
+<h3 id="utilh">util.h</h3>
+
+<div class="language-c++ highlighter-rouge"><pre class="highlight"><code><span class="c1">//
+//  util.h
+//  coroutine
+//
+//  Created by liujia on 16/7/27.
+//  Copyright © 2016年 liujia. All rights reserved.
+//
+</span>
+<span class="cp">#ifndef util_h
+#define util_h
+</span>
+<span class="cp">#include &lt;memory&gt;
+#include &lt;atomic&gt;
+#include &lt;thread&gt;
+#include &lt;mutex&gt;
+#include &lt;iostream&gt;
+#include &lt;pthread.h&gt;
+</span>
+<span class="k">namespace</span> <span class="n">util</span> <span class="p">{</span>
+
+<span class="k">class</span> <span class="nc">noncopyable</span>
+<span class="p">{</span>
+<span class="k">protected</span><span class="o">:</span>
+    <span class="n">noncopyable</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="o">~</span><span class="n">noncopyable</span><span class="p">()</span> <span class="p">{}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">noncopyable</span><span class="p">(</span> <span class="k">const</span> <span class="n">noncopyable</span><span class="o">&amp;</span> <span class="p">);</span>
+    <span class="k">const</span> <span class="n">noncopyable</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span> <span class="k">const</span> <span class="n">noncopyable</span><span class="o">&amp;</span> <span class="p">);</span>
+<span class="p">};</span>
+    
+<span class="k">class</span> <span class="nc">atomic_id</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">atomic_id</span><span class="p">()</span> <span class="o">:</span> <span class="n">_id</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">{}</span>
+    <span class="o">~</span><span class="n">atomic_id</span><span class="p">()</span>
+    <span class="p">{}</span>
+    
+    <span class="kt">int</span> <span class="n">get_id</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="o">++</span><span class="n">_id</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">_id</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="k">class</span> <span class="nc">ThreadLocalSingleton</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">static</span> <span class="n">T</span><span class="o">*</span> <span class="n">getThreadInstance</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pthread_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tlsKey_once</span><span class="p">,</span> <span class="n">ThreadLocalSingleton</span><span class="o">::</span><span class="n">tls_make_key</span><span class="p">);</span>
+        <span class="n">T</span><span class="o">*</span> <span class="n">instance</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">pthread_getspecific</span><span class="p">(</span><span class="n">tlsKey</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">instance</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">try</span>
+            <span class="p">{</span>
+                <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">T</span><span class="p">;</span>
+                <span class="n">pthread_setspecific</span><span class="p">(</span><span class="n">tlsKey</span><span class="p">,</span> <span class="n">instance</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">ex</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"exception happens: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">ex</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">static</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">getThreadInstanceRef</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="o">*</span><span class="n">getThreadInstance</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="k">static</span> <span class="n">pthread_key_t</span> <span class="n">tlsKey</span><span class="p">;</span>
+    <span class="k">static</span> <span class="n">pthread_once_t</span> <span class="n">tlsKey_once</span><span class="p">;</span>
+        
+    <span class="k">static</span> <span class="kt">void</span> <span class="nf">tls_make_key</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">pthread_key_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ThreadLocalSingleton</span><span class="o">::</span><span class="n">tlsKey</span><span class="p">,</span> <span class="n">ThreadLocalSingleton</span><span class="o">::</span><span class="n">tls_destructor</span><span class="p">);</span>
+    <span class="p">}</span>
+        
+    <span class="k">static</span> <span class="kt">void</span> <span class="nf">tls_destructor</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">obj</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">delete</span> <span class="p">((</span><span class="n">T</span><span class="o">*</span><span class="p">)</span><span class="n">obj</span><span class="p">);</span>
+        <span class="n">pthread_setspecific</span><span class="p">(</span><span class="n">tlsKey</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">pthread_key_t</span> <span class="n">ThreadLocalSingleton</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tlsKey</span><span class="p">;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="n">pthread_once_t</span> <span class="n">ThreadLocalSingleton</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">tlsKey_once</span> <span class="o">=</span> <span class="n">PTHREAD_ONCE_INIT</span><span class="p">;</span>
+ 
+<span class="p">}</span>
+
+<span class="cp">#endif </span><span class="cm">/* util_h */</span><span class="cp">
+</span></code></pre>
+</div>
+
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/blog/2016/06/15/network/" data-toggle="tooltip" data-placement="top" title="如何搭建可靠的办公无线局域网">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/blog/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="mailto:fanzhongkai@yunlaiwu.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; yunlaiwu 2016</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/blog/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/blog/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/blog/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
