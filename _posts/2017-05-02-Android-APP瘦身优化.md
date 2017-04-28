@@ -1,6 +1,6 @@
 ---
 layout:     post    
-title:      "优秀的APP"    
+title:      "APP瘦身"    
 subtitle:   "每一点的改进都是对用户体验的爱心"          
 date:       2017-05-02            
 author:     "sunlang"                      
@@ -48,17 +48,6 @@ header-img: "img/post-bg-01.jpg"
 
 ## 三、APK的优化瘦身：
 
-从apk产生的流程图中可以看出，APK中classes.dex、lib、资源文件是大头，APK瘦身主要就是优化这三个文件
-
-### 1.classes.dex
-
- 通过代码混淆，减小类名、方法名和变量的名长度；删掉不必要的jar包和代码实现该文件的优化；
- 
-### 2. lib：
-
-一个硬件设备对应一种架构（mips、arm或者x86），只保留与设备架构相关的库文件夹（主流的架构都是arm的，mips属于小众，默认也是支持arm的so的，但x86的不支持），这样可以大大降低lib文件夹的大小（提醒一下：genymotion安卓模拟器之所以快，是因为它是基于x86架构的，如果你的工程有arm或者mips的so，需要通过给这个模拟器安装必要的插件才能让apk正常运行起来，反正我装这玩意是没成功过，所以就不推荐具体的实现方法了，感兴趣的可以自己Google）；
-
-### 3. 资源文件：
 
 * 手动lint检查，手动删除代码中没有引用到的资源，实际效果不等。在Android Studio中打开“Analyze” 然后选择"Inspect Code..."，范围选择整个项目，然后点击"OK"
 
