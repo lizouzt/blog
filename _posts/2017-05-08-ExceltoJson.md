@@ -5,7 +5,7 @@ subtitle:   ""
 date:       2017-05-08
 author:     "ZX"
 comments:	true
-header-img: "/blog/img/FE/bgexcel.jpeg"
+header-img: "/img/FE/bgexcel.jpeg"
 ---
 # Excel转json的一小步
 
@@ -49,7 +49,7 @@ value对应关系：
 ## xlsx转化为json的三种思路
 
 ### html table标签
-#### excel导出html 解析html的table标签
+
 第一种思路excel导出htm，数据存储在table标签中，所以可以解析table标签来得到json。  
 
 导出的htm：
@@ -68,9 +68,11 @@ value对应关系：
 
 
 ### csv
+
 #### 什么是csv？
 逗号分隔值（Comma-Separated Values，CSV，有时也称为字符分隔值，因为分隔字符也可以不是逗号），其文件以纯文本形式存储表格数据（数字和文本）。纯文本意味着该文件是一个字符序列，不含必须象二进制数字那样被解读的数据。CSV文件由任意数目的记录组成，记录间以某种换行符分隔；每条记录由字段组成，字段间的分隔符是其它字符或字符串，最常见的是逗号或制表符。通常，所有记录都有完全相同的字段序列。
 CSV文件格式的通用标准并不存在，但是在RFC 4180中有基础性的描述。使用的字符编码同样没有被指定，但是7-bit ASCII是最基本的通用编码。  
+
 csv格式：
 ![xlsxcsv](/blog/img/FE/xlsxcsv.png)
 
@@ -86,10 +88,11 @@ csv是最早用在简单的数据库里的....格式简单开放性强。总之�
 因为node不是用模块的话是不支持gbk等中文编码的，所以我们需要导出csv是utf8的编码，直接excel导出貌似不行，查了资料之后，发现mac上的Number软件可以打开excel并且也可以导出csv文件，最重要的是可以指定编码类型。所以就用Number导出utf8的csv，这样文件就准备好了，然后在node里操作。
 csv是文本，读出来的也是文本，那么csv转json其实就是文本之间的格式转换了。
 
-导出csv文件转化的优缺点：简单，通用，还是要导一次有点麻烦，如果有合并单元格的话就会有内容为空的格子。
+#### 优缺点：简单，通用，还是要导一次有点麻烦，如果有合并单元格的话就会有内容为空的格子。
 
 
 ### node模块xlsx
+
 #### 最直接的方法，使用第三方node模块解析
 [sheetjs](http://sheetjs.com/)  
 js-xlsx: 目前 Github 上 star 数量最多的处理 Excel 的库，支持解析多种格式表格XLSX / XLSM / XLSB / XLS / CSV，解析采用纯js实现，写入需要依赖nodejs或者FileSaver.js实现生成写入Excel，可以生成子表Excel，功能强大，但上手难度稍大。不提供基础设置Excel表格api例单元格宽度，文档有些乱，不适合快速上手；  
@@ -99,6 +102,7 @@ js-xlsx: 目前 Github 上 star 数量最多的处理 Excel 的库，支持解�
 ![xlsxnode](/blog/img/FE/formats.png)
 ![xlsxnode](/blog/img/FE/legend.png)
 
+#### 使用方法
 注意使用这个模块功能时尽量不要用node的读取流操作。
 因为常见的表格格式（XLS, XLSX/M, XLSB, ODS）都是ZIP或CFB的压缩文件。
 这两种格式都不会讲目录结构声明放在文件的开头，ZIP文件将中央目录记录放置在逻辑文件的末尾，而CFB文件可以将FAT结构放置在文件的任何位置！
@@ -135,6 +139,7 @@ cell 对象，指的就是 worksheet 中的单元格，一个单元格就是一�
   }
 }
 ```
+
 基本用法  
 1. 用 XLSX.read 读取获取到的 Excel 数据，返回 workbook
 2. 用 XLSX.readFile 打开 Excel 文件，返回 workbook
@@ -147,7 +152,7 @@ cell 对象，指的就是 worksheet 中的单元格，一个单元格就是一�
 使用代码：
 ![xlsxnodejs](/blog/img/FE/xlsxnodejs.png)
 
-优缺点：
+#### 优缺点：
 功能强大，支持多种格式兼容多个版本js。直接引入xlsx文件转换，一步到位。可以根据数据导出xlsx文件。依赖node解析，浏览器端使用需要额外的依赖。
 
 ## 总结
