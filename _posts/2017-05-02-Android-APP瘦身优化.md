@@ -58,13 +58,13 @@ header-img: "img/post-bg-01.jpg"
 
 * 手动lint检查，手动删除代码中没有引用到的资源，实际效果不等。在Android Studio中打开“Analyze” 然后选择"Inspect Code..."，范围选择整个项目，然后点击"OK"
 
-![ipv6.png](/blog/img/android_apk/unused_res1.png) 
+![ipv6.png](/blog/img/android_apk/unused_res1.png)
 
-![ipv6.png](/blog/img/android_apk/unused_res2.png) 
+![ipv6.png](/blog/img/android_apk/unused_res2.png)
 
 * gradle脚本中开启shrinkResources,shrinkResources配合minifyEnabled使用效果更佳
 
-![ipv6.png](/blog/img/android_apk/shrink_resources.png) 
+![ipv6.png](/blog/img/android_apk/shrink_resources.png)
 
 * 一套图、一套布局，多套dimens.xml文件，在使用最小资源的情况下搞定多分辨率适配；目前项目中图片都放在xxhdpi文件夹中
 
@@ -130,9 +130,3 @@ WebP是谷歌研发出来的一种图片数据格式，它是一种支持有损�
 ## 四、瘦身后的效果：
 
 ![ipv6.jpg](/blog/img/android_apk/1234.jpg)
-
-
-
-
-
- 
