@@ -56,6 +56,10 @@ Web:
 
 渐进式网页应用（Progressive Web Apps，简称PWA）是一个新的概念，它弥合了网站（Website）和移动应用（Mobile App）之间的差异。它们能够确保离线功能的可用性，并且能够提升速度和性能”。
 
+[https://m.alibaba.com](https://link.zhihu.com/?target=https%3A//m.alibaba.com/) 是全球第一家实现PWA的B2B网站，欢迎各位体验。
+下面是它的二维码
+![https://m.alibaba.com](http://upload-images.jianshu.io/upload_images/1828354-7fbbb9ef6baa4bf9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ### 怎样理解渐进式(Progressive)？
 
 搜索下PWA的历史就会发现、它第一次出现于Googler Alex Russell的博客文章《[Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/)》中，其主要观点是：**Web的发展方向应该是“在保留灵魂的基础上渐进增强”，而非现在大行其道的Hybrid App方向。**
