@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Progressive Web Apps (PWA) 渐进式网页应用程序简介"
+title:      "Progressive Web Apps (PWA) 渐进式网页应用程序"
 subtitle:   ""
 date:       2017-05-15
 author:     "waka"
@@ -12,7 +12,7 @@ header-img: "/img/FE/pwa.png"
   color: #000411;
 }
 </style>
-# Excel转json的一小步
+# Progressive Web Apps (PWA) 渐进式网页应用程序
 
 > 参考文章：
 
