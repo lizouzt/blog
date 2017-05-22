@@ -5,7 +5,7 @@ subtitle:   ""
 date:       2017-05-22            
 author:     "elarc"                      
 comments:	true
-header-img: "img/elarc/methodSwzzling-bg.png"
+header-img: "img/post-bg-01.png"
 ---
 
 
