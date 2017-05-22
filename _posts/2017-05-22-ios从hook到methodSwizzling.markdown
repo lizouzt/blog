@@ -30,7 +30,7 @@ IOS的Tweak大致分为两种：
 1.  在越狱设备上安装打包的deb格式的安装包
 在cydia上发布，需要越狱才能安装，deb格式的安装包，IOS在越狱后，会默认安装Cydia Substrate动态库，它的作用是提供一个系统级的入侵管道，所有的Tweak都可以依赖它来进行开发，目前主流的开发工具有theos和IOSOpenDev，前者是采用makefile的一个编译框架，后者提供了一套xcode项目模版，可以直接使用xcode开发且可调试，但这个项目已经停止更新了，对高版本的xcode支持也不好。
 
-2.   利用重签名直接使用开发者自己证书或企业证书打包成ipa,这样不需要越狱也可以安装,只是这种非越狱的限制比较大,通常只是用来给某个app做些修改注入或者类似的功能。
+2.  利用重签名直接使用开发者自己证书或企业证书打包成ipa,这样不需要越狱也可以安装,只是这种非越狱的限制比较大,通常只是用来给某个app做些修改注入或者类似的功能。
 没有越狱的机器由于系统中没有Cydia Substrate这个库，我们有二个选择，第一个是直接把这个库打包进ipa当中，使用它的api实现注入，第二个是直接修改汇编代码；第一个适用于较为复杂的破解行为，而且越狱tweak代码可以复用，第二种适用于破解一些简单的条件语句。
 
 ### 3，Cydia Substrate的组成
@@ -46,7 +46,7 @@ MSHookMessageEx 主要作用于Objective-C函数
 MSHookFunction 主要作用于C和C++函数
  ```
 Logos语法就是对此函数做了一层封装，让编写hook代码变的更直观，上面的例子用的就是logos语法。
-它定义一系列的宏和函数，底层调用objc－runtime或fishhook来替换系统或者目标应用的函数
+它定义一系列的宏和函数，底层调用objc－runtime和fishhook来替换系统或者目标应用的函数
 
 * MobileLoader用来在目标程序启动时根据规则把指定目录的第三方的dylib加载进去，第三方的dylib也就是我们写的破解程序。
 启动时MobileLoader会根据dylib的同名plist文件指定的作用范围，有选择的在不同进程里通过dlopen函数打开目录/Library/MobileSubstrate/DynamicLibraries/ 下的所有dylib。
@@ -144,9 +144,9 @@ Sample output
 
 ### 5，Method swizzling
 > Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。优势在于写代码更具灵活性。如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现动态添加属性等等。
-    这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得C语言有了面向对象的能力。
+    这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得OC有了面向对象的能力。
  
-例如类方法本质:类对象调用[NSObject class]：
+例如类方法本质-类对象调用[NSObject class]：
 ``` 
      id:谁发送消息
      SEL:发送什么消息
