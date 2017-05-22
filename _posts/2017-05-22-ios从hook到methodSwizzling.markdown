@@ -119,7 +119,7 @@ fishhook就是对间接符号表的偏移量动的手脚，定位每一个符号
  int main(int argc, char * argv[])
  {
  @autoreleasepool {
-  rebind_symbols((struct rebinding[2]){{"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open}}, 2);
+  rebind_symbols((struct rebinding[2]){ {"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open} }, 2);
  
    // Open our own binary and print out first 4 bytes (which is the same
    // for all Mach-O binaries on a given architecture)
@@ -139,7 +139,7 @@ Sample output
 ```  
     fishhook主要通过这个函数
 ``` 
-    rebind_symbols((struct rebinding[2]){{"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open}}, 2);
+    rebind_symbols((struct rebinding[2]){ {"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open} }, 2);
 ``` 
 
 ### 5，Method swizzling
