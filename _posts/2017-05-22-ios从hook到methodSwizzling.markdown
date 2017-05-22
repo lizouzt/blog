@@ -136,12 +136,14 @@ fishhook就是对间接符号表的偏移量动的手脚，定位每一个符号
  }
  ``` 
 Sample output
+
 ``` 
-    Calling real open('/var/mobile/Applications/161DA598-5B83-41F5-8A44-675491AF6A2C/Test.app/Test', 0) Mach-O Magic Number: feedface  Calling real close(3)
+  Calling real open('/var/mobile/Applications/161DA598-5B83-41F5-8A44-675491AF6A2C/Test.app/Test', 0) Mach-O Magic Number: feedface  Calling real close(3)
 ```  
     fishhook主要通过这个函数
+
 ``` 
-    rebind_symbols((struct rebinding[2]){ {"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open} }, 2);
+  rebind_symbols((struct rebinding[2]){ {"close", my_close, (void *)&orig_close}, {"open", my_open, (void *)&orig_open} }, 2);
 ``` 
 
 ### 5，Method swizzling
@@ -300,4 +302,3 @@ Swizzling被普遍认为是一种巫术，容易导致不可预料的行为和�
 * 避免冲突：给分类方法加前缀，一定要确保不要让你代码库中其他代码（或是依赖库）在做与你相同的事。
     
 * 充分理解：不管你多么自信你能够swizzling Foundation、UIKit 或者其他内置框架，请记住所有这些都可能在下一个版本中就不好使。
-* 加入 Siri 功能，可在 macOS Sierra 当中语音搜索讯息、文件、照片、网页等，甚至语音建立备忘录或开启 FaceTime 视讯。登陆 macOS Sierra 之后，Siri 终能跨苹果四大平台使用。
