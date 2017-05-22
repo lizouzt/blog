@@ -10,7 +10,9 @@ header-img: "img/elarc/methodSwzzling-bg.png"
 
 
 #从hook到IOS黑魔法－Method Swizzling
+
 ##一 ，如何hook一个app
+
 ### 1，什么是Tweak
 
 >在IOS逆向工程中，各种逆向的补丁统称为Tweak。通常意义上说的越狱开发，就是指开发一个Tweak。
@@ -63,7 +65,7 @@ Logos语法就是对此函数做了一层封装，让编写hook代码变的更�
 
 ![loadCommand.png](/blog/img/elarc/loadCommod.png)
 
-##### 什么是Mach-O
+#### 什么是Mach-O
 
 是Mach object文件格式的缩写，是一种可执行文件、目标代码、共享程序库、动态加载代码和核心DUMP。
 是a.out格式的一种替代。Mach-O提供更多的可扩展性和更快的符号表信息存取。
@@ -165,7 +167,7 @@ Sample output
 ``` 
  
  
-#####Method swizzling指的是改变一个已存在的选择器对应的实现的过程，它依赖于Objectvie-C的runtime，能够在运行时通过改变类的调度表（dispatch table）中选择器到最终函数间的映射关系。
+####Method swizzling指的是改变一个已存在的选择器对应的实现的过程，它依赖于Objectvie-C的runtime，能够在运行时通过改变类的调度表（dispatch table）中选择器到最终函数间的映射关系。
 ![dispatchTable.png](/blog/img/elarc/dispatchTable.png)
 
     SEL：函数名，可通过@selector()获得SEL
