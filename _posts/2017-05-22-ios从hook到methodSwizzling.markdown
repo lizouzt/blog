@@ -9,9 +9,9 @@ header-img: "img/elarc/methodSwzzling-bg.png"
 ---
 
 
-#从hook到IOS黑魔法－Method Swizzling
+# 从hook到IOS黑魔法－Method Swizzling
 
-##一 ，如何hook一个app
+## 一 ，如何hook一个app
 
 ### 1，什么是Tweak
 
@@ -167,7 +167,7 @@ Sample output
 ``` 
  
  
-####Method swizzling指的是改变一个已存在的选择器对应的实现的过程，它依赖于Objectvie-C的runtime，能够在运行时通过改变类的调度表（dispatch table）中选择器到最终函数间的映射关系。
+#### Method swizzling指的是改变一个已存在的选择器对应的实现的过程，它依赖于Objectvie-C的runtime，能够在运行时通过改变类的调度表（dispatch table）中选择器到最终函数间的映射关系。
 ![dispatchTable.png](/blog/img/elarc/dispatchTable.png)
 
     SEL：函数名，可通过@selector()获得SEL
@@ -201,7 +201,7 @@ void method_exchangeImplementations(Method m1, Method m2) //或者可以使用me
  
  > Method Swizzling就是改变类的调度表让消息解析时从一个选择器对应到另外一个的实现，同时将原始的方法实现混淆到一个新的选择器。
 
-####例子1，统计一下iOS应用中每个视图控制器展现给用户的次数：
+#### 例子1，统计一下iOS应用中每个视图控制器展现给用户的次数：
         
 我们可以给每个视图控制器对应的viewWillAppear:实现方法中增加相应的跟踪代码，但是这样做会产生大量重复的代码。子类化可能是另一个选择，但要求你将UIViewController、 UITableViewController、 UINavigationController 以及所有其他视图控制器类都子类化，这也会导致代码重复。那就可以用method swizzling了：
  ``` 
@@ -290,7 +290,9 @@ Swizzling应该在dispatch_once中实现。因为swizzling会作用于全局，�
 }
  ``` 
 向视图控制器的生命周期中注入操作、事件的响应、视图的绘制，或Foundation中的网络堆栈都是能够利用method swizzling产生明显效果的场景。当然还有一些其他的场景使用swizzling会是一个合适的选择。
-####注意事项
+
+#### 注意事项
+
 Swizzling被普遍认为是一种巫术，容易导致不可预料的行为和结果。尽管不是最安全的，但是如果你采取下面这些措施，method swizzling还是很安全的。
     
 * 始终调用方法的原始实现： API为输入和输出提供规约，但它里面具体的实现其实是个黑匣子，在Method Swizzling过程中不调用它原始的实现可能会破坏一些私有状态，甚至是程序的其他部分。
