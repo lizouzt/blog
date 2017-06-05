@@ -260,4 +260,4 @@ event-count: 为必选参数，用于指定monkey测试过程中模拟的用户�
 iOS 上的 monkey 工具。比如基于 UIAutomation 的 monkey，通过 copy from stackoverflow 和 copy from github 模式，不幸的是，iOS 和 Xcode 升级之后，UIAutomation 框架被砍掉了，于是很长时间 iOS 没有 monkey 的说法了。然后有一个基于 XCUITesting 框架的 monkey 工具 ---swiftmonkey##### 2、
 把 SwiftMonkey 和 SwiftMonkeyPaws 目录粘贴到你的项目目录下去。然后把他们两的 xcodeproj 拖到项目中去
 
-<iframe height=500 width=500 src="/blog/img/monkey/swiftmonkey.gif" >
+<img height=500 width=500 src="/blog/img/monkey/swiftmonkey.gif" />
