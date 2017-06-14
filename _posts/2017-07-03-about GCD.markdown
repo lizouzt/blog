@@ -1,0 +1,447 @@
+---
+layout:     post    
+title:      "GCD 简介"    
+subtitle:   ""          
+date:       2017-07-03            
+author:     "王青"                      
+comments:	true
+header-img: "img/gcd/grand_central_banner.png"
+---
+
+> 本文主要参考 《Objective-C 高级编程：iOS 与 OS X 多线程和内存管理》  
+> 本文中标题部分为了和书本保持一致，采用 Objective-C 的方法描述，代码示例则用 `Swift 3.0` 的语法进行表示（对应位置会有相应解释）
+
+# GCD 简述
+## 什么是 GCD
+* __Grand Central Dispatch__ 大中枢派发
+* iOS 4.0 引入
+* __异步__ 执行任务的技术之一
+* __线程管理__ 在系统级中的实现
+* 只需定义想执行的任务并追加到适当的 __Dispatch Queue__ , GCD 就能生成必要的线程并执行任务
+* 作为 __系统的一部分__ 来实现，统一管理，比之前的线程管理更有效率
+* 用非常 __简洁__ 的记述方式，实现复杂繁琐的多线程编程。
+
+
+```swift
+DispatchQueue.global().async {
+    // 长时间处理的逻辑， 异步执行 begin
+    let testA: Int = 1 + 1
+    print("testA end")
+    // 异步执行 end
+    // 交给主线程处理
+    DispatchQueue.main.async {
+        // 需要在主线程执行的处理
+        let b = 2
+        print("hello testA\(testA)")
+    }
+}
+```
+
+## GCD 引入之前的 iOS 多线程方案：  
+* NSThread  
+
+```swift
+class TestForThread: NSObject {
+    func forThread(_ obj: String) {
+        print(obj)
+    }
+    
+    func runThreadA() {
+        let t = Thread(target: self, selector: #selector(forThread(_:)), object: "testA")
+        
+        t.start()
+    }
+    
+    func runThreadB() {
+        Thread.detachNewThreadSelector(#selector(forThread(_:)), toTarget: self, with: "testB")
+    }
+    
+    func runThreadC() {
+        self.performSelector(inBackground: #selector(forThread(_:)), with: "testC")
+    }
+    
+    func runMainThread() {
+        self.performSelector(onMainThread: #selector(forThread(_:)), with: "testMain", waitUntilDone: true)
+        // 最后的true代表：上面的代码会阻塞，等run方法在thread线程执行完毕后，上面的代码才会通过
+    }
+}
+```
+比较传统的线程管理方案，有时候需要手工维护线程的生命周期以及数据同步，而且不够简洁。
+
+## 多线程的意义
+* 应用通过 __主线程__ 来描绘用户界面、处理触摸屏幕事件。  
+* 如果 __主线程__ 中进行长时间的处理，如大量的复杂运算、数据库访问，会妨碍主线程的执行（阻塞）。  
+* 在 OS X 和 iOS 应用中，会妨碍主线程中被称为 __RunLoop__ 的主循环的执行，从而导致不能更新用户界面、应用程序的画面上时间停滞等问题。（卡顿）  
+* 所以长时间的处理应不在主线程中执行，保证用户界面的响应性能。
+
+### 提一嘴 RunLoop
+* RunLoop 并不是线程，也不是并发机制，但是它在线程中的作用至关重要，它提供了一种异步执行代码的机制。
+* 实际它就是一个 __循环__ ，它在循环监听着 __事件源__ ，把消息分发给线程来执行。
+
+![RunLoop](../img/gcd/runloop_source.png)
+
+* 每个线程都有它的RunLoop
+* 但是主线程和后台线程是不一样的。主线程的 RunLoop 是一直在启动的，而后台线程的 RunLoop 是默认没有启动的。
+* 要做的事情就是：
+	* 使程序一直运行并接受用户输入
+	* 决定程序在何时处理一些Event
+	* 处理App中的各种事件(比如触摸事件、定时器事件、Selector事件)
+	* 节省CPU时间（没事的时候闲着，有事的时候处理）
+	* 等等。。。
+
+
+
+# GCD 的 API
+官方描述：
+> 开发者要做的只是定义想执行的 __任务__ 并 __追加__ 到适当的 __Dispatch Queue__ 中。
+
+划重点：
+
+* 任务：block， 闭包
+* 追加：不是插入，是追加
+* queue：队列
+
+## Dispatch Queue
+| Dispatch Queue 种类 |  说明 |
+|:---:|:---:|
+|Serial Dispatch Queue|串行执行|
+|Concurrent Dispatch Queue|并行执行|
+
+![Dispatch Queue](../img/gcd/dipatch_queue.png)
+
+Concurrent Dispatch Queue
+
+* 并行执行， 多线程
+* 但并行执行的数量取决于当前系统的状态
+	* 队列中任务数
+	* CPU 核数、负荷
+* iOS 和 OS X 的核心——XNU 内核决定应当使用的线程数，并只生成所需的线程执行处理。
+* 当处理结束，需执行的处理数减少时， XNU 内核会结束不再需要的线程。
+* 即开发者并不知道具体在哪个线程上执行。
+
+## 创建/获取 Dispatch Queue
+有两种方式  
+1. 自己创建  
+2. 使用系统标准提供的
+
+
+### 自己创建：dispatch\_queue\_create
+> `Objective-C` 的方式是使用 `dispatch_queue_create` 方法  
+> `Swift 3.0` 的方式是 DispatchQueue 对象的创建
+
+```swift
+DispatchQueue(label: "labal",
+              qos: .default,
+              attributes: .concurrent,
+              autoreleaseFrequency: .inherit,
+              target: nil)
+```
+
+有关个数问题  
+
+* 通过 `dispatch_queue_create` 可以生成 __任意多个__ `Dispatch Queue`
+* 多个 `Serial Dispatch Queue` 互相之间是并行的
+* 一旦创建 `Serial Dispatch Queue` 并追加任务， 系统对一个 `Serial Dispatch Queue` 就只生成并使用一个线程。
+	* 意味着，如果生成 2000 个 `Serial Dispatch Queue`， 就会有 2000 个线程。
+	* 过多使用线程，会 __消耗大量内存__ ，引起 __大量的上下文切换__ , 大幅降低系统的响应性能。
+	* 应当只在确实需要（如同时更新相同资源）时，使用 `Serial Dispatch Queue`。
+* 不管生成多少 `Concurrent Dispatch Queue` ，由于 XNU 内核只使用有效管理的线程， 所以不会发生 `Serial Dispatch Queue` 的问题。
+
+### 使用系统标准提供的
+
+`Main Dispatch Queue` 和 `Global Dispatch Queue`
+
+```swift
+DispatchQueue.global()  
+DispatchQueue.main
+```
+
+`Main Dispatch Queue`
+
+*  在主线程中执行的 `Serial Dispatch Queue`。 0 号线程。
+*  追加其中的处理在主线程的 RunLoop 中执行。
+	* 用户界面更新的相关操作处理应当追加至该队列。
+
+![Main Dispatch Queue](../img/gcd/main_dispatch_queue.png)
+
+`Global Dispatch Queue`
+
+* 系统提供的可直接使用的 `Concurrent Dispatch Queue`
+* 有 4 个优先级： High Default Low Background
+	* 但 `Global Dispatch Queue` 不保证实时性，优先级只是大概判断。
+	* 如，处理内容的执行可有可无时，使用 Background
+
+	
+## 任务派发 
+派发：将指定的 任务`block` 追加到指定的 `Dispatch Queue` 中。
+
+* 异步派发：`dispatch_async` 
+	* 不做任何等待
+* 同步派发：`dispatch_sync`
+	* 等待追加的 任务 执行结束， 再继续执行后续逻辑（阻塞）
+	* 谨慎使用，容易导致死锁，如下：
+		* 主线程 往 `Main Dispatch Queue` __同步派发__
+		* `Serial Dispatch Queue` 执行的任务往同一个 `Serial Dispatch Queue` __同步派发__
+		* 其他类似场景
+
+## 其他 API
+### dispatch\_set\_target\_queue
+作用：改变队列的层级、优先级。
+
+手工创建的队列，都使用与 __默认优先级(default)__ 的 `Global Dispatch Queue` 相同执行优先级的线程。
+
+可以通过 `dispatch_set_target_queue` 改变优先级。
+
+同时还可以改变队列层级。
+__不可__ 对 `Main Dispatch Queue` 和 `Global Dispatch Queue` 进行此操作，后果自负。
+
+对应 `Swift 3.0` 的方式是使用成员方法 `setTarget`
+
+
+```swift
+// 创建一个串行队列
+let mySerialDispatchQueue = DispatchQueue(label: "mySerialDispatchQueue")
+
+// 获取某个优先级的 global queue
+let globalDispatchQueueBachground = DispatchQueue.global(qos: .background)
+
+// 通过 setTarget 来改变 mySerialDispatchQueue 的优先级
+mySerialDispatchQueue.setTarget(queue: globalDispatchQueueBachground)
+```
+
+```swift
+// 串行队列 1号
+let serialQueue1 = DispatchQueue(label: "serialQueue1")
+
+// 串行队列 2号
+let serialQueue2 = DispatchQueue(label: "serialQueue2")
+
+// 原本这两个队列之间是并行的，但是如果不希望这两个队列并行，而希望每次只能执行一个任务，那么可以指定到同一个串行队列
+let serialQueue3 = DispatchQueue(label: "serialQueue3")
+
+serialQueue1.setTarget(queue: serialQueue3)
+serialQueue2.setTarget(queue: serialQueue3)
+```
+
+![dispatch_set_target_queue](../img/gcd/dispatch_set_target_queue.png)
+
+### dispatch\_after
+
+对应的 `Swift 3.0` 里有两个方法  
+`DispatchQueue.asyncAfter(wallDeadline:execute:)`  
+`DispatchQueue.asyncAfter(deadline:execute:)`
+
+* 一个是绝对时间，一个是相对时间。
+* 永远只有 `asyncAfter`， 没有 `syncAfter`
+* 不是指定时间 __执行__ ，而是执行时间 __追加__
+	* 如参数是 3 秒， 那么对于每隔 1/60 执行的 RunLoop 中。
+	* Block 最快在 3 秒后执行。
+	* 慢的话，理想情况是 3秒 + 1/60，同时还需要考虑队列中大量追加任务，或者主线程本身的处理延迟。
+
+
+### dispatch\_group
+
+对应 Swift 里的 `DispatchGroup`
+
+* 创建 `dispatch_group`
+* 使用 `dispatch_group_async` 来进行任务派发
+	* 指定 `group` 和 `dispatch_queue`
+	* 并不存在 `dispatch_group_sync` ， 因为没有意义。
+	* 
+
+* 可以对整个 `group` 里的所有任务的完成进行监听、任务完成数量进行检查。
+
+```swift
+// 当 group 中任务全部完成之后， 通知在 某个队列 执行 某个任务
+// 本身是个 异步方法
+grp.notify(queue: queue, execute: {
+    
+})
+
+// 一直等到 group 内任务全部完成
+grp.wait()
+
+// 返回成功还是超时，相对时间。
+let res1 = grp.wait(timeout: DispatchTime.distantFuture)
+
+// 返回成功还是超时，绝对时间。
+let res2 = grp.wait(wallTimeout: DispatchWallTime.now())
+
+// 其中 distantFuture 表示一直等，使用这个参数时，类似于 wait()
+// now() 表示现在就返回，等同于立刻检查 group 全部完成没有
+```
+
+
+### dispatch\_barrier\_async / dispatch\_barrier\_sync
+
+* 举个例子，有些时候，我们希望 __并行的读__ 和 __串行的写__ ，即希望在并行队列中，某些操作是 __串行__ 的。
+
+![dispatch_barrier_async](../img/gcd/dispatch_barrier_async.png)
+
+* 那么可以使用  `dispatch_barrier_async` 或 `dispatch_barrier_sync` （这两个本身的区别是同步派发和异步派发）
+
+### dispatch\_apply
+
+在 `Swift 3.0` 中， 这个方法改名为 `concurrentPerform` ， 并且不能指定 `dispatch queue`
+
+```swift
+DispatchQueue.concurrentPerform(iterations: 20) { (ind) in
+    let a = ind * ind
+    print("hello \(a)")
+}
+
+print("done")
+```
+
+* __并行执行__ block N 次， block 中可以使用 ind 作为参数。  
+* 但整个 __方法本身是阻塞__ 的，直到 N 个 block 执行完毕位置。
+
+
+### dispatch\_suspend / dispatch\_resume
+
+对应 `Swfit 3.0` 中，是成员方法 `suspend()` 和 `resume()`
+
+* `suspend` 暂停当前队列，已追加但未执行的处理会暂停。
+* `resume ` 恢复执行暂停的队列。
+
+### Dispatch Semaphore
+
+* 信号量
+* 对应的方法
+	* 创建信号量 `dispatch_semaphore_create` 
+		* 对应 `Swift 3.0` 是 `DispatchSemaphore` 对象的创建
+	* 等待信号量（可设置超时）  `dispatch_semaphore_wait(semaphore, time)`
+		* 对应 `Swift 3.0` 是 `DispatchSemaphore` 对象的成员方法 `wait`
+		* 信号量 >= 1 时，能正常拿到，否则将阻塞。
+		* 正常返回 `.success` 的时候， 信号量会 减 1 ， 因为超时返回 `.timedOut` 时，则不会。
+	* 通知信号量 + 1 `dispatch_semaphore_signal(semaphore)`
+		* 对应 `Swift 3.0` 是 `DispatchSemaphore` 对象的成员方法 `signal`
+
+```swift
+// 信号量初始值为 1
+let semaphore = DispatchSemaphore(value: 1)
+
+for var ind in 0..<10 {
+    DispatchQueue.global().async(execute: { 
+        let res = semaphore.wait(timeout: .distantFuture)
+        
+        switch res {
+        case .success:
+            let cal = ind * ind
+            print("semaphore \(cal)")
+            
+            semaphore.signal()
+            
+        case .timedOut:
+            print("time out")
+        }
+    })
+}
+```
+
+### dispatch\_once
+
+* 保证应用程序执行中，只执行一次。
+* 然而这个方法在 `Swift 3.0` 中被废弃（确实有很多方式可以实现）
+	* 最早是为了解决在多线程环境下的单例创建/初始化的安全问题（确保只初始化一次）。
+
+Objective-C 代码如下：
+
+```objective-c
+static dispatch_once_t pred;
+
+dispatch_once(&pred, ^{
+	/*
+		初始化
+	*/
+});
+```
+
+在 `Swift 3.0` 中， 根据 __官方说明__ ， 
+> 全局变量（还有结构体和枚举体的静态成员）的Lazy初始化方法会在其被访问的时候调用一次。
+
+ 
+> “The lazy initializer for a global variable (also for static members of structs and enums) is run the first time that global is accessed, and is launched as `dispatch_once` to make sure that the initialization is atomic. This enables a cool way to use `dispatch_once` in your code: just declare a global variable with an initializer and mark it private.”
+
+同时也有很多博客通过检查 __调用栈的方式__ ，证明了这一点，以及在 __类__ 中的静态成员也符合此特性。
+
+所以 现在 `Swift` 中建议的优雅的方式，是通过创建 __静态成员__ + __私有化初始化方法__ 。
+
+```swift
+class MyClass {
+    static let sharedInstance = MyClass()
+    private init() {} 
+}
+```
+
+PS：当然也有很多在 `Swift 3.0` 中模拟 `Dispatch_Once` 的方式。这里不再赘述。
+
+
+### Dispatch I/O 
+分块并行读取文件的方式，部分方法如下（`Objective-C`）
+这里仅做了解。
+
+* `dispatch_io_create` 生成 `Dispatch I/O`，并指定处理错误用的 Block，以及执行该 Block 用的 `Dispatch Queue`
+* `dispatch_io_set_low_water` 设定一次读取的大小（分割大小）
+* `dispatch_io_read` 使用 `Global Dispatch Queue` 开始并行读取。 每当各个分割的文件块读取结束时，将含有数据的 `Dispatch Data` 传递给 `dispatch_io_read` 指定的读取结束回调 Block。
+
+
+
+# GCD 实现略述
+
+根据官方文档，GCD 是在 __XNU 内核级__ 实现的。  
+开发人员可以用 GCD 之前的 pthreads 和 NSThread 等方式来实现类似的功能，不过在两方面会有劣势。
+
+* 代码复杂性（GCD 已经封装了很多更高级的功能）
+* 性能（GCD 直接实现于内核级别）
+
+GCD 实现涉及的组件以及提供的技术  
+
+* libdispatch: Dispatch Queue
+* Libc(pthreads): pthread_workqueue
+* XNU 内核： workqueue
+
+以下省略 5000 字。。。
+简而言之，根据 __官方文档__, 基于 __内核级__ 实现的 GCD， 有着比开发人员自己编写的线程管理更给力的性能。
+
+# Dispatch Source
+* `Dispatch Source` 一般不会引人注意，是 GCD 提供的一个 BSD内核惯有功能 __kqueue__ 的包装。  
+* `kqueue` 是在 XNU 内核中发生各种事件时，在应用程序编程方面执行处理的技术。 CPU 负荷非常小，尽量不占用资源。非常优秀。
+
+Dispatch Source 可处理的事件
+![dispatch_source](../img/gcd/dispatch_source.jpg)
+
+这里继续省略 5000 字。
+
+> 注意， `Dispatch Queue` 是没有 __取消__ 概念的， 开发者如果想取消一个任务，可以通过自己编码来实现，或者可以使用 `NSOperationQueue` 来处理。
+> `Dispatch Source` 是可以取消的，取消时，必须执行的处理，可以指定为 __block__ 的方式。 
+> 使用 `Dispatch Source` 实现 XNU 内核中事件的处理要比直接使用 `kqueue` 更简单。
+> 所以如果需要使用 `kqueue` 的话，建议使用 `Dispatch Source` 。
+
+
+## 有关 NSOprationQueue
+`NSOprationQueue` 能够将后台线程以队列方式依序执行，并提供更多操作的入口，这和 GCD 的实现有些类似。
+
+> 这种类似不是一个巧合，在早期，MacOX 与 iOS 的程序都普遍采用 `Operation Queue` 来进行编写后台线程代码，而之后出现的 GCD 技术大体是依照前者的原则来实现的.
+
+> 而随着GCD的普及，在iOS 4 与 MacOS X 10.6 以后，`Operation Queue` 的 __底层实现__ 都是用 GCD 来实现的。
+
+> `Operation queue` 提供了更多编写多线程程序时 __需要的功能__ ，并隐藏了许多 __线程调度__ ， __线程取消__ 与 __线程优先级__ 的复杂代码，为我们提供简单的 API 入口。 
+ 
+> 从编程原则来说，一般我们需要尽可能的使用高等级、封装完美的 API，在必须时才使用底层 API。  
+
+> 但是当需求能够以更简单的底层代码完成时，简洁的 GCD 或许是更好的选择，而 `Operation queue` 为我们提供能更多的选择。  
+
+
+# 简单总结
+* 在进行 iOS 开发时要注意多线程的问题，减少主线程的负担，包括网络回调等是否有必要回到主线程的考量。
+* 在使用多线程时， `GCD` 是一个强大的、简洁的选择。
+* 同时在使用多线程时，也要考虑好并发引起的多次释放、死锁等问题。
+
+
+# 参(chao)考(xi) 书籍 & blog：  
+> 《Objective-C 高级编程：iOS 与 OS X 多线程和内存管理》  
+> http://www.cnblogs.com/mjios/archive/2013/04/18/3029309.html  
+> http://www.jianshu.com/p/d09e2638eb27    
+> http://www.cnblogs.com/zhaoyunboy/p/how-to-use-gcd-nsoperation.html  
+	
