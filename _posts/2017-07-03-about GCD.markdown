@@ -444,9 +444,9 @@ Dispatch Source 可处理的事件
 > http://www.jianshu.com/p/d09e2638eb27    
 > http://www.cnblogs.com/zhaoyunboy/p/how-to-use-gcd-nsoperation.html  
 	
-[RunLoop]: /img/gcd/runloop_source.png
-[Dispatch_Queue]: /img/gcd/dipatch_queue.png
-[Main_Dispatch_Queue]: /img/gcd/main_dispatch_queue.png
-[dispatch_set_target_queue]: /img/gcd/dispatch_set_target_queue.png
-[dispatch_barrier_async]: /img/gcd/dispatch_barrier_async.png
-[dispatch_source]: /img/gcd/dispatch_source.jpg
+[RunLoop]: /blog/img/gcd/runloop_source.png
+[Dispatch_Queue]: /blog/img/gcd/dipatch_queue.png
+[Main_Dispatch_Queue]: /blog/img/gcd/main_dispatch_queue.png
+[dispatch_set_target_queue]: /blog/img/gcd/dispatch_set_target_queue.png
+[dispatch_barrier_async]: /blog/img/gcd/dispatch_barrier_async.png
+[dispatch_source]: /blog/img/gcd/dispatch_source.jpg
