@@ -78,7 +78,7 @@ class TestForThread: NSObject {
 * RunLoop 并不是线程，也不是并发机制，但是它在线程中的作用至关重要，它提供了一种异步执行代码的机制。
 * 实际它就是一个 __循环__ ，它在循环监听着 __事件源__ ，把消息分发给线程来执行。
 
-![RunLoop](../img/gcd/runloop_source.png)
+![RunLoop][RunLoop]
 
 * 每个线程都有它的RunLoop
 * 但是主线程和后台线程是不一样的。主线程的 RunLoop 是一直在启动的，而后台线程的 RunLoop 是默认没有启动的。
@@ -107,7 +107,7 @@ class TestForThread: NSObject {
 |Serial Dispatch Queue|串行执行|
 |Concurrent Dispatch Queue|并行执行|
 
-![Dispatch Queue](../img/gcd/dipatch_queue.png)
+![Dispatch Queue][Dispatch_Queue]
 
 Concurrent Dispatch Queue
 
@@ -162,7 +162,7 @@ DispatchQueue.main
 *  追加其中的处理在主线程的 RunLoop 中执行。
 	* 用户界面更新的相关操作处理应当追加至该队列。
 
-![Main Dispatch Queue](../img/gcd/main_dispatch_queue.png)
+![Main Dispatch Queue][Main_Dispatch_Queue]
 
 `Global Dispatch Queue`
 
@@ -222,8 +222,7 @@ let serialQueue3 = DispatchQueue(label: "serialQueue3")
 serialQueue1.setTarget(queue: serialQueue3)
 serialQueue2.setTarget(queue: serialQueue3)
 ```
-
-![dispatch_set_target_queue](../img/gcd/dispatch_set_target_queue.png)
+![dispatch_set_target_queue][dispatch_set_target_queue]
 
 ### dispatch\_after
 
@@ -276,7 +275,7 @@ let res2 = grp.wait(wallTimeout: DispatchWallTime.now())
 
 * 举个例子，有些时候，我们希望 __并行的读__ 和 __串行的写__ ，即希望在并行队列中，某些操作是 __串行__ 的。
 
-![dispatch_barrier_async](../img/gcd/dispatch_barrier_async.png)
+![dispatch_barrier_async][dispatch_barrier_async]
 
 * 那么可以使用  `dispatch_barrier_async` 或 `dispatch_barrier_sync` （这两个本身的区别是同步派发和异步派发）
 
@@ -409,7 +408,7 @@ GCD 实现涉及的组件以及提供的技术
 * `kqueue` 是在 XNU 内核中发生各种事件时，在应用程序编程方面执行处理的技术。 CPU 负荷非常小，尽量不占用资源。非常优秀。
 
 Dispatch Source 可处理的事件
-![dispatch_source](../img/gcd/dispatch_source.jpg)
+![dispatch_source][dispatch_source]
 
 这里继续省略 5000 字。
 
@@ -445,3 +444,9 @@ Dispatch Source 可处理的事件
 > http://www.jianshu.com/p/d09e2638eb27    
 > http://www.cnblogs.com/zhaoyunboy/p/how-to-use-gcd-nsoperation.html  
 	
+[RunLoop]: /img/gcd/runloop_source.png
+[Dispatch_Queue]: /img/gcd/dipatch_queue.png
+[Main_Dispatch_Queue]: /img/gcd/main_dispatch_queue.png
+[dispatch_set_target_queue]: /img/gcd/dispatch_set_target_queue.png
+[dispatch_barrier_async]: /img/gcd/dispatch_barrier_async.png
+[dispatch_source]: /img/gcd/dispatch_source.jpg
