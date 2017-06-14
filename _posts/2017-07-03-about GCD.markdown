@@ -102,6 +102,7 @@ class TestForThread: NSObject {
 * queue：队列
 
 ## Dispatch Queue
+
 | Dispatch Queue 种类 |  说明 |
 |:---:|:---:|
 |Serial Dispatch Queue|串行执行|
