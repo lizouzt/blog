@@ -1,0 +1,743 @@
+---
+layout:     post
+title:      "电子游戏编年史"
+subtitle:   "电子游戏编年史"
+date:       2017-10-16 10:00:00
+author:     "cuihongpeng"
+comments:	true
+header-img: "img/games.jpg"
+---
+
+为什么要介绍有电子游戏的发展史?
+> 1. 微信100个奖金。
+> 2. 这几天遛弯聊起了游戏。
+> 3. 了解一个行业的发展历程能够帮助我们看清楚一些事情。 
+
+游戏的演变过程
+
+史前游戏->街机->家庭游戏机->掌上游戏机->电脑游戏机->网络游戏->手机游戏->VR游戏
+<br/>
+集成电路->游戏卡带->游戏CD->在线平台
+<br/>
+
+几个重要的人物
+Ralph Baer => 拉尔夫·贝尔
+Fusajiro Yamauchi => 山内房治郎
+Akio Morita => 盛田昭夫
+Willy Higinbotham => 威利·希金博特姆
+Steve Russell => 史帝芬·罗素
+Nolan Bushnell => 诺兰·布什内尔
+Milton Bradley => 米尔顿·布拉德利
+
+
+## 在电视游戏诞生之前（1889－1970） 　　 
+## 1889 
+山内房治郎 建立了Marufuku(丸福)公司，制造和销售一种名为Hanafuda(花牌)的日本纸牌。<br/>
+在1907年，Marufuku开始制造西方扑克牌。<br/>
+在1951年，此公司又更名为任天堂扑克牌公司。<br/>
+任天堂（任天堂）的意思是'命由天定'。<br/>
+<img src="https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=5a00a46070094b36cf9f13bfc2a517bc/d1160924ab18972bbfaa5a75e0cd7b899f510af8.jpg" style="display: block; margin: 10px auto;" /> 
+
+## 1891 
+弗里茨·飞利浦 在荷兰创设了一家生产白炽灯和其它电器产品的公司。
+
+## 1918 
+松下幸之助 创建了 Matsushita 家用电器制造工厂。<br/>
+在后来的70年中，这家公司将衍生出许多公司，其中包括松下。 <br/>
+
+## 1932 
+康涅狄格州皮革公司由一个名叫格林伯格的俄国移民创建，从事向鞋厂出售皮革产品的业务。<br/>
+50年代开始，公司以Coleco（Connecticut 皮革公司名称的缩写）为商标开始销售皮革加工工具。<br/>
+
+## 1945 
+哈罗德马特森 和 艾略特·汉德勒 在车库工作间中生产画框。<br/>
+他们将各自姓名中的字母合成了公司名称Mattel（美泰）。 <br/>
+汉德勒 用画框生产余下的边角料开始了一项副业，制作玩偶家具。 <br/>
+
+## 1947 
+盛田昭夫 和 井深大 建立了东京通讯工程公司。<br/>
+当见到美国制造的磁带录音机后，盛田昭夫 决定他的公司也应开始制造此类商品。<br/>
+
+在1952年， 井深大 和 盛田昭夫 终于筹集了25,000美元，成为第一家从贝尔实验室购买晶体管专利许可的外国公司。<br/>
+然后，他们使用晶体管生产出了世界上第一个衣兜大小、用电池供电的收音机。<br/>
+当晶体管收音机在日本取得了巨大的成功后，井深大 和 盛田昭夫又将目光转向美国和欧洲市场。<br/>
+他们意识到其公司名称的英文译文非常不便于讲英语的人记忆，于是他们将拉丁词sonus（音译）改为 Sony （索尼）。<br/>
+这个词没有其它含意，仅是一个新的公司名称。 <br/>
+
+## 1951 
+Loral（一家生产复杂军用航空电子设备的公司）的工程师，拉尔夫·贝尔（大家要记住这个人）受命制造’世界上最好的电视机’。 <br/>
+贝尔建议可以将一些互动游戏融入电视机，以将其与其它公司的电视机区别开来，但是公司管理层忽视了这个创意。<br/>
+
+## 1954 
+前美国朝鲜战争老兵大卫·罗森 看到机械的投币操纵游戏在日本的美国军事基地中非常盛行，于是就创建了服务游戏公司，向日本出口这些游戏。<br/>
+在60年代，罗森 决定生产自己的投币操纵游戏，因此他购并了东京自动唱机和投币机公司。<br/>
+SEGA（世嘉）, SErvice Games（服务游戏公司）的缩写，便印在 Rosen 制造的游戏产品上，并且最终被罗森 确定为其公司的名称。<br/>
+
+##1958 (第一个游戏诞生了)
+为了提高参观纽约布鲁克黑文国家实验室游客的兴趣，物理学家威利·希金博特姆 发明了一个用示波仪显示，类似于乒乓球的互动游戏。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MkQ5OCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216177.jpg" style="display: block; margin: 10px auto;" />
+
+
+一年后，他改进了这一发明，将其用15英寸监视器显示。由于他并未觉得发明了什么，所以 希金博特姆 没有为此设备申请专利。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MkVDRSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216607.jpg " style="display: block; margin: 10px auto;" />
+
+## 1961 
+麻省理工学院学生史帝芬·罗素 发明了运行于数字PDP-1 （编程数据处理器－1）主机电脑上的'空间战争'，即第一个互动电脑游戏。<br/>
+受当时电脑技术限制， ASCII码文本字符便是所谓的'图像'了，并且人们不得不在象一间小屋那样大的设备上玩游戏。 <br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/ODRCMSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216184.jpg" style="display: block; margin: 10px auto;" />
+
+## 1962 
+诺兰·布什内尔（这个人也很牛逼） 考入犹他大学的工程学院，在那里他第一次接触了罗素 的'空间战争'。<br/>
+
+诺兰·布什内尔(Nolan Bushnell)本可以拥有苹果三分之一的股票 <br/>
+作为苹果联合创始人史蒂夫·乔布斯(Steve Jobs)的首位老板，雅达利(Atari)创始人布什内尔拒绝了拿出5万美元对苹果进行种子投资的机会。<br/>
+如果布什内尔同意这么做，那现在他就拥有苹果三分之一的股份，目前苹果的市值超过4000亿美元。<br/>
+
+## 1965 
+诺兰·布什内尔 在盐湖城的狂欢节上得到一份负责走廊的暑期工作。<br/>
+在那里，布什内尔 设想着摆满电脑游戏的走廊是什么样的。<br/>
+但是他意识到这仅仅是个梦想，因为电脑昂贵的价格使这个灵感无法得以实现。 <br/>
+
+## 1966 
+拉尔夫·贝尔 又一次点燃了他思维的火花，认为可以用电视机来替代电脑。<br/>
+于是，他开始研究互动电视游戏。<br/>
+他的雇主，国防设备承包商--Sanders 联合会对此很感兴趣，并且提供给他开发电视游戏所需的条件和环境。 <br/>
+
+## 1967 
+拉尔夫·贝尔 与合作者成功地创造出在电视屏幕上进行的互动游戏，'奥德赛' 。<br/>
+他们先开发了一个追逐游戏，紧接着又开发了一个电视网球游戏。他们还改装了一把玩具枪，使其能够辨别屏幕上的光点。<br/>
+<img src="http://upload.newhua.com/2015/0109/1420765480840.jpg" style="display: block; margin: 10px auto;" />
+
+## 1968 
+拉尔夫·贝尔 的互动电视游戏获得专利。 
+
+## 1970 
+Magnavox（美格，一家公司）从 Sanders 联合会获得贝尔 电视游戏的生产许可。 <br/>
+在泰迪·达布尼的帮助下，诺兰·布什内尔 将女儿Britta 的卧室改装成工作室，以便他们能够创造街机版'空间战争'。<br/>
+他们还成功地将固化电路板专用设备与电视机连接，使用电视玩空间战争。诺兰·布什内尔 将自己的游戏称为'电脑空间'。<br/> 
+投币游戏厂商Nutting联合会购买了'电脑空间'，并雇用 诺兰·布什内尔 来监控生产过程。 <br/>
+　　
+# 揭开游戏时代的序幕 （1971-1977） 　
+## 1971 
+第一台街机电视游戏呱呱坠地 <br/>
+Nutting制造了1500台'电脑空间'游戏机。<br/>
+所有组件都与一台13英寸的黑白电视一起被装入一个样子很前卫的机箱内。<br/>
+虽然第一个街机电视游戏问世了，但公众却感到，这款游戏的难度实在是太大了。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/REU5Riw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216934.jpg" style="display: block; margin: 10px auto;" />
+
+## 1972 
+## Magnavox开始生产'奥德赛' 
+Magnavox 开始生产贝尔 的电视游戏系统，取名为'奥德赛'(不是汽车那个奥德赛)。<br/>
+Sanders和 Magnavox 开始向全国的分销商展示这一产品。 <br/>
+Magnavox（美格）第一个家庭电视游戏腾空出世 <br/>
+Magnavox于5月24日在加州的 Burlingame（加州游戏）展览会上展出了'奥德赛'。 <br/>Nutting坚信自己是独一无二的电视游戏经营公司，于是便派遣诺兰·布什内尔 去考察'奥德赛'机。 <br/>在玩了几个小时电视网球和其它游戏之后，布什内尔向Nutting报告称'奥德赛'非常乏味，根本就不是'电脑空间'的对手。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/RTlGNSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216435.jpg" style="display: block; margin: 10px auto;" />
+
+## 布什内尔 离开Nutting 
+'电脑空间'的销售结果并不理想，此时，布什内尔 得出结论这款游戏的难度太高了。<br/>
+他意识到如果他能设计简单的游戏，那么有可能吸引更多的顾客。<br/>
+他将此设想告之了Nutting。<br/>
+后者告诉他放手去做，设计一款新的游戏机。<br/>
+布什内尔认为他是电视游戏的主要设计者，所以他应该得到更多的利润分成。<br/>
+当他提出要求Nutting 联合会三分之一的股份时，却未能如愿以偿，于是他愤名离开了Nutting公司。<br/>
+
+## 诺兰·布什内尔创建Atari(雅达利，很长一段时间都是游戏霸主)
+布什内尔 及其合伙人丹比尼 决定另起炉灶，建立自己的公司，设计供其它公司销售的电视游戏。<br/>
+他们起初将公司取名为Syzygy (三神一体)，但一家屋顶建材公司已起了相同的名字。<br/>
+最终他们选定了日本围棋中的用语'Atari'，相当于'将军'的意思。 <br/>
+
+## Pong的诞生 
+布什内尔请奥尔康编写游戏程序。<br/>
+布什内尔最初计划雅达利的第一个游戏是一个驾驶游戏，但因为奥尔康在视频游戏上几乎没什么经验
+考虑到奥尔康经验尚不足，布什内尔让他先编一个简单的网球游戏练练手(正是奥德赛的核心游戏)。<br/>
+他们给游戏起名为Pong
+原因有二：<br/>
+其一，在游戏中，当球碰撞到球拍或屏幕边缘时，便会发出’pong，pong’的声音；<br/>
+其二，’Ping-Pong’一名已被他人抢先注册了。 <br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/QzJBQSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216451.jpg" style="display: block; margin: 10px auto;" />
+
+## Pong游戏机崩溃了 
+布什内尔尝试将'Pong'游戏机卖给现有的街机游戏机制造商。<br/>
+在Bally公司表示不感兴趣后，布什内尔决定自己销售此款游戏。'Pong'游戏机便在Andy Capps，当地一家酒吧，开始了试运营。<br/>
+在两周内这台测试机崩溃了，原因是投币盒内塞满了25美分硬币。<br/>
+'Pong'成功了。  　　 <br/>
+
+## 一场法律纠纷 
+作为Sanders的代表，Magnavox 以Pong是从'奥德赛'的一个游戏中抄袭而来的为理由，在法院起诉了Atari。<br/>
+当发现在年前Burlingame(加州游戏展) '奥德赛'展示会佳宾签名本上有 诺兰·布什内尔 的署名后，Atari 决定作庭外和解。<br/>
+Atari 花费几十万美元购买了制造电视游戏的权力。<br/>
+任何想要生产电视游戏的其它公司都必须向Magnavox 和Sanders 支付一笔生产许可费。<br/>
+
+## 1973 
+## 竞争 
+当Pong成为遍布街头巷尾的街机时，许多公司都纷纷生产相似的游戏。 <br/>
+Nutting当然也没有甘居落后。<br/>
+到1973年底，有逾25家公司开始生产游戏，参与竞争，严重削减了Atari的收益。<br/>
+丹比尼（雅达利联合创始人）预感到Atari 将会受到重创，便将其名下公司的一半股权卖给了布什内尔。 <br/>
+
+## 1974 
+## Atari 的失败是掌上游戏机的成功之母。 
+Atari 发布了一种街机游戏，名为'Touch Me（碰我吧！）'，在此游戏中，四个按钮随机闪烁，玩家必须以按钮闪烁的次序按击按钮。<br/>
+此款游戏并未取得成功。<br/>
+拉尔夫·贝尔 研究了一下该游戏，决定将随机闪光改换成随机音乐。<br/>
+米尔顿·布拉德利购买了他的创意，随即便发布名为Simon的游戏。<br/>
+此游戏成为了任何时候都受人们钟爱的掌上游戏。<br/>
+
+## Atari 定位家庭游戏。 
+Harold Lee 建议生产Home Pong，一种连接电视，外观近似'奥德赛'的游戏控制器。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/QjgyRiw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216459.jpg" style="display: block; margin: 10px auto;" />
+
+## Namco(南梦宫) 进入电视游戏行业 
+Namco 原先是一家日本投币操纵游戏的生产商，在收购Atari 日本公司之后，也进入了电视游戏市场。<br/>
+
+## 1975  
+## 第一个'电脑'游戏 
+Midway Games(中途岛游戏，2009年破产)公司发布了Gunfight，第一个使用微处理器而不是固化电路板的游戏。<br/>
+同时，由Taito开发而成的Gunfight 也是第一个导入式电视街机游戏。 <br/>
+
+## 1976 
+在拉尔夫·贝尔的帮助下，Coleco的巨型椭圆Telstar 机得以登场亮相。 <br/>
+（Coleco 全名Coleco Adam， 取名为 Adam（亚当）是希望它能“咬”一口苹果公司的市场份额）<br/>
+
+## 游戏卡问世 
+Fairchild 摄影 & 仪器公司发布了电视娱乐系统（后重命名为Channel F），第一台可编程家庭游戏机。<br/>
+玩家可以通过在游戏机上插拔'硕个'的游戏卡（看起来非常象8道磁带盒）来更换游戏品种。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NTkxNCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216781.jpg" style="display: block; margin: 10px auto;" />
+
+## Atari 的售价达2800万美元 
+诺兰·布什内尔将 Atari 以2800万美元的价格卖给了Warner Communications（华纳通讯）公司。<br/>
+布什内尔 仍保留Atari董事会主席的职务。 <br/>
+
+## 1977 
+## 比萨时代剧场 
+Atari的第一家比萨时代剧场开业了。<br/>
+这是一个街机游戏机与餐馆的全新结合。<br/>
+在剧场中活跃着移动的机器动物，电子游戏机，以及美食。<br/>
+该餐馆的吉祥物是一只名为Chuck E. Cheese的老鼠。<br/>
+经营这样一家餐馆的设想是三年前布什内尔 站在一家比萨饼店中时油然而生的。 <br/>
+(和迪士尼乐园有异曲同工之妙)<br/>
+
+## Atari 引入可编程游戏机 
+Atari发布了其第一台可编程（基于游戏卡）的游戏系统，电视电脑系统（VCS－后被命名为Atari 2600,VCS视频计算机系统）。<br/>
+此游戏系统在当年圣诞节售价为249.95美元。<br/>
+这款主机的处理器是8-bit的6507，主频1.2MHz，16KB的RAM/ROM，分辨率为160x192。它被誉为现今电子游戏的开山之作。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MTRDNiw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216548.jpg" style="display: block; margin: 10px auto;" />
+
+# 游戏机黄金时代 1978-1981 
+## 1978 
+## 布什内尔 告别 Atari 
+在签定一份回报菲厚的五年期不竞争协议后，布什内尔 离开了自己创建的Atari公司。<br/>
+他从Atari购买了比萨时代剧场的经营权，开始专营此类剧场。<br/>
+Ray Kassar 继任成为Atari的首席执行官。 <br/>
+(这个决定也间接导致了雅达利大溃败)<br/>
+
+## 任天堂发布街机游戏 
+3月份，日本的任天堂公司发布了Computer Othello，这是一款基于线路板游戏的简化街机'鸡尾酒桌'游戏。<br/> 
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NzJEMCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216766.jpg" style="display: block; margin: 10px auto;" />
+　　
+## 街机上出现了跟踪球 
+Atari 发布了新的街机游戏Football（橄榄球）。<br/>
+在此款游戏具备了革命性功能--名为'跟踪球'的新操纵器。 <br/>
+　　
+## Midway（中途岛） 在游戏中引入创造记录的概念。 
+Midway公司从Taito 公司引进了Space Invaders（宇宙入侵者）。<br/>
+此游戏通过显示当前最好成绩，激励玩家将不断刷新该成绩定为目标。 <br/>
+　　
+## 街机辉煌的成功 
+Football和 Space Invaders这两款游戏都打破了所有已知的销售记录，并且获得了几乎旗鼓相当的收益。<br/>
+但是，随着钟爱足球浪潮的终结，Football的流行也就渐渐黯淡了。<br/>
+Space Invader继续风靡世界，导致了日本硬币的短缺和美国学生的旷课现象日益严重。 <br/>
+
+## Atari进入电脑市场 
+为了与Apple竞争，Atari 开始销售400 和800系列电脑产品。<br/>
+不幸的是，公众始终将Atari与游戏联系起来，从未认真考虑过其的电脑。 <br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MkREMSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216497.jpg" style="display: block; margin: 10px auto;" />
+
+## Magnavox（美格） 发布带键盘的游戏机 
+Magnavox 发布Odyssey2（奥德赛2），一种内建薄膜式键盘的可编程游戏机。 <br/>
+　　
+## 矢量游戏面市 
+Cinematronics 公司发布Space Wars（宇宙大战），一种近似于布什内尔 '电脑时空'的游戏。<br/>
+此款游戏以矢量（直线）图像为特点。<br/>
+矢量图像是电视游戏应用程序中多角图像的最初形式，他们缺乏未来游戏中的平面底纹和纹理。 <br/>
+　　
+## 1979  
+## Atari 矢量游戏 
+Atari 发布了 Lunar Lander （登月者），Atari 的第一款矢量图像游戏。<br/>
+Lunar Lander 引来了 Asteroids （小行星）<br/>
+尽管Lunar Lander为众多游戏玩家所接受，但是 Atari 见好便收，停止了此款游戏的生产，转而开始在Lunar <br/>Lander的机柜内推出Asteroids。 <br/>
+Asteroids起初是Lyle Rains 和Ed Logg 为 Cosmos 系统设计的。 <br/>
+此款游戏逐渐成为Atari贯彻始终的最畅销游戏。 <br/>
+Asteroids 又在街机中引入了一个新功能：在游戏结束时，最高得分者可输入名字的三个起始字母（想起了三国志）。<br/>
+在美国，这款游戏机被卖出近80,000台。<br/>
+但是，在其它国家却没有如此火爆。<br/>
+
+## 世嘉公司发布了Monaco GP，一款高架赛车游戏。<br/>
+此后，世嘉公司又分别于1980年推出了相似的Pro Monaco GP 和于1989年真实3D赛车Super Monaco GP。 <br/>
+
+## 1980 
+## Space Invaders（宇宙入侵者） 进入家庭 
+Atari 发布了拥有独家专利的VCS家庭版 Space Invaders。<br/>
+因此 VCS的销售与日俱增。 <br/>
+　　
+## Mattel Intellivision 
+Mattel Electronics（美泰电子） 隆重推出了 Intellivision 游戏机。<br/>
+真正的VCS挑战者降临了，Intellivision 具有更佳的图形和更为玩家接受的价位－299美元。<br/>
+Mattel 还承诺将发布一种可选外围设备，借此可将 Intellivision游戏机升级成为一台个人电脑。 <br/>
+　　
+## Atari 大散伙 
+在一场关于游戏名誉的争论中，数位VCS 程序设计师离开Atari，并组建 Activision(美国动视，现在最大的第三方频游戏开发商)，第一个'第三方开发商'，成为一个颇具竞争力的VCS软件公司。 <br/>
+由于Atari 没有给予个人程序员的工作以足够的奖励，因此通过将设计师姓名融进游戏包装和广告，Activision 承认个人游戏开发者的利益。<br/> 
+
+## Namco 发布 Pac-Man 
+Namco（南梦宫）发布了Pac-Man（吃豆人），时至今日最受欢迎的街机游戏。<br/>
+在全世界范围内共销售了逾300,000台（未将伪造产品包括在此数字之内，但伪造产品的销售数量也几乎和合法产品的销售数量不相上下）。<br/> 仅在美国就销售了逾100,000台。 <br/>
+Pac-Man 成为第一款男女皆喜欢的游戏。 <br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NzYxNCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216658.jpg" style="display: block; margin: 10px auto;" />
+　　
+## 世嘉获Atari 游戏的生产许可 
+世嘉获得生产Atari游戏的许可，并推出了Atari日文版 的 Missile Command（导弹司令）。 
+　　
+## 任天堂美国公司开业（这时的任天堂还不够强大）
+荒川实，任天堂日本总裁的女婿，在纽约开设了任天堂美国公司，随后又将公司迁至西雅图，华盛顿州。<br/>
+由于未能成功地销售一些平庸的电子游戏（Computer Othello的后继产品）后，这家小小的美国子公司可谓是前途莫测。  <br/>
+
+## 虚拟世界 
+一家名为Williams的芝加哥弹珠球机制造公司推出了其第一个电视游戏。<br/>
+由Eugene Jarvis设计的 Defender（防卫者）游戏是一款侧面滚动的射击游戏，此游戏标志着业界第一个虚拟世界。<br/>
+由于显示器只能显示战斗区的一个部分，因此在屏幕上方的一个'雷达'扫描区显示着屏幕边界外不可视区域内正在发生的事件。<br/>
+Defender 获得一举成功。<br/>
+
+## 1981 
+## 任天堂－正确的抉择 
+任天堂美工宫本茂受命于危难之际，要将一大批失败的任天堂街机转变成有利可图的宝贝。<br/>
+他精心筹划出了Donkey Kong(大金刚)的形象。<br/>
+这位原名叫Jumpman的英雄是一位从疯猴子处舍身救恋人Pauline的矮木匠。<br/>
+
+## Atari 和 Intellivision部分程序员组成联盟 
+又一批Atari的程序员宣布退出，并与几位Intellivision 程序员联合创建Imagic，一家致力于开发同时支持VCS 和 Intellivision 系统游戏的公司。 
+
+## Atari囊括街机生产许可 
+Atari 通过谈判，获得了发行其它支持VCS系统街机游戏的权利，如Pac-Man。 
+　　
+## 色彩矢量 
+Atari 发布了 Tempest（骚动），一款基于不稳定图形技术的彩色矢量街机游戏。<br/>
+这种技术易导致先期崩溃。但是游戏还是吸引了成千上万执着的玩家。<br/>
+
+## 第一台IBM PC走下生产线
+1981年 第一台IBM PC走下生产线，采用巨大的8088处理器，运行速度为4.77mhz。<br/>
+同年Commodore公司也发布了他们的家用计算机VIC-20。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NDAwNyw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216793.jpg" style="display: block; margin: 10px auto;" />
+　　
+## 街机帝国 
+美国街机销售额达到其利润的最高峰－50亿美元。美国在玩游戏上花费了逾75,000 人每小时。 <br/>
+　 
+# 大萧条1982-1984 
+##1982 　
+## 矢量图形进入家庭游戏机 
+General Consumer Electronics (GCE) 发布了Vectrex，第一且唯一采用矢量图形技术的家庭游戏机。<br/>
+Vectrex包含一个内建游戏（Minesweeper（扫雷），一个令人痴迷的Asteroids复制品）和一个四按钮模拟操纵杆控制器。<br/>
+
+## Coleco 发布了 Colecovision 　　
+Coleco 发布了插卡式游戏机Colecovision。<br/>
+此游戏机的诞生不仅以超华丽的图像和宜人的音响做铺垫，而且还受到蒸蒸日上的任天堂游戏公司的支持。 <br/>
+任天堂将 Donkey Kong 和 Donkey Kong Junior 的生产许可让给Coleco公司。<br/>
+后者不仅推出了支持Colecovision的完美转换版，而且向Atari VCS(编译型模拟器) 和 Intellivision系统移植了适当的版本。 <br/>
+Coleco 还发布了使 VCS 游戏卡能够在Colecovision上使用的适配器。<br/>
+当意识到 Atari有Namco，Pac-Man的创造者，作为坚强后盾之后，Coleco 也将自己与世嘉，科乐美 和Universal牢牢地捆绑在一起。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MDkyQSw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110217211.jpg " style="display: block; margin: 10px auto;" />
+
+## 克隆Pac-Man ? 
+Atari 发布了玩家寄于厚望的Pac-Man 2600版，但不幸的是，这个版本与街机版一点都不像。公众很快便对公司怨声载道。 
+
+## Pac-Man 热潮 
+Midway（中途岛游戏）创造了室内的Ms. Pac-Man（吃豆小姐）。<br/>
+并使之成为美国历史上最畅销的街机游戏，共销售了115,000台。<br/>
+但是Namco，这家与 Ms. Pac-Man没有直接关系的公司，为日本消费者开发了改进的并且内容基本不同的Super Pac-Man。<br/>
+大量Pac-Man 的'增强芯片'进入市场，不仅提高了原先Pac-Man的速度，而且还改变了其人物形象和迷宫。 <br/>
+最受欢迎的增强版本，Pac-Man Plus，用可乐罐等美国流行事物代替了游戏中的普通水果和其它奖项。 <br/>
+
+## 雅达利大溃败
+## E.T.进入家庭 
+Atari 发布了支持VCS系统的 E.T.，一个由Howard Scott Warshaw 花费6个星期编写而成的游戏。<br/> 
+寄望此款能成为畅销游戏，据说Atari生产了远多于使用中2600游戏机数量的游戏卡。<br/>
+但与Pac-Man 2600的情形一样，公众对游戏很失望。<br/>
+大量的Pac-Man 和 E.T. 游戏以及上其它未售出或多余的游戏卡在新墨西哥州堆积成丘。<br/>
+但是他的竞争品却依然受欢迎。 <br/>
+
+## 股价狂跌 
+在12月7日（东部标准时间3：04分），Atari 宣布VCS 销售没有达到预期目标。Warner Communications 股价在一天内狂跌了32％。 
+
+## 1983 
+##Atari 绝密计划 
+#3月份，Atari 公布了新的绝秘计划，代号为Falcon Project（猎鹰计划）。
+在Falcon Project的程序中，Atari成为了其新的分支公司Ataritel。<br/>
+这是Atari试图进入通讯市场的一步举措。<br/>
+
+## 动画电视游戏 
+Cinematronics 发布了Rick Dyer的 Dragon’s Lair（龙穴）（动画制作Don Bluth），第一个采用光碟技术的街机游戏。 
+　　
+## 新Commodore电脑 
+Commodore 发布了Commodore 64，一种价格适宜，功能强大，并可运行任何电视游戏的电脑。 
+　　 
+## 任天堂家庭电脑（Famicom） 
+任天堂在日本发布了'家庭电脑'(Famicom，经典的红白机)。 <br/>
+Famicom被用心良苦地赋予了玩具一般的外观，并且与任天堂街机的成功大作Donkey Kong、 Donkey Kong Junior、和 Popeye等捆绑发行。<br/>
+由于 Atari在游戏市场处于霸主地位，因此任天堂并无计划在日本以外销售Famicom。<br/>
+公司将在日本以外任何地区销售'家庭电脑'的权利提供给了 Atari。<br/>
+Atari 对此建议非常热衷。<br/>
+在两个月艰苦的谈判之后，两个公司同意于6月在CES(国际消费类电子产品展览会)签署协议。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/QUI5Miw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110217456.jpg" style="display: block; margin: 10px auto;" />
+
+## 美国游戏市场大萧条! 
+货架上各类出版商的产品太多了，由此许多第三方公司纷纷破产。<br/>
+接着，来自这些公司的游戏大幅度打折。<br/>
+没有倒闭的公司无法与这些廉价游戏竞争，所以他们只好关门大吉，以免继续蒙受损失。 <br/>
+
+## 1984 
+## Coleco 为Adam 而疯狂 
+Coleco 尽其所有来制造Adams。<br/>
+这是以牺牲 Colecovision为代价的。<br/>
+有百分之六的Coleco Adams 因有瑕疵而被退货。<br/>
+
+## Mattel 开始销售 Intellivision
+Mattel的副总裁，购买了Terry Valeski这家公司，并将其更名为Intellivision公司。 
+
+## 任天堂盯上了美国市场 
+就在电视游戏行业开始变得岌岌可危的时候，任天堂宣布将在美国市场销售Famicom。 
+　　
+## Atari雾里看花 
+Atari 在夏季CES上向公众介绍了一系列新产品。<br/>
+其中包括7800，一种能够玩2600游戏的先进游戏机，以及Mindlink，一种戴在头部务须手动的控制器。<br/>
+
+# 电视游戏东山再起1985-1988 
+
+## 1985 
+## Famicom'家庭电脑'登陆美洲大陆 
+任天堂开始在纽约试销其FC，但是改名为任天堂娱乐系统（NES），同时造型也发生了变化。<br/>
+由于零售商对电视游戏的前景表示堪忧，因此任天堂不得不承诺将购回所有未卖出的存货。<br/>
+装备了大量任天堂开发的原创游戏和街机游戏，NES在此次有限市场发售中大获成功。<br/>
+<img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NDM4NCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110217844.jpg" style="display: block; margin: 10px auto;" />  
+
+## 俄罗斯用迷题游戏征服了世界 
+俄罗斯程序员 Alex Pajitnov 设计了Tetris，一个可以在个人电脑上玩的简单却令人着迷的解迷游戏。 
+　　
+## 1986 
+## 任天堂 在全美范围发售 NES 
+任天堂对其系统在纽约取得的成功感到满意，于是准备在全美范围销售其产品。<br/>
+系统借助街机转换版Super Mario Brothers（超级玛丽兄弟）初显身手，便一举成功。<br/>
+
+## 世嘉推出与NES 竞争产品 
+随着NES成功占领美国市场，世嘉也在美国推出其世嘉Master System（世嘉大师系统）(SMS) 。 
+　　 
+## Atari 重新推出游戏机产品 
+随着NES的成功，Atari 公司重新估计了电视游戏的流行趋势，决定投放7800游戏机。 
+
+## 来自任天堂的佳音 
+在美国，任天堂与其竞争对手的产品销售比达10：1。<br/>
+在日本，它公布了一种支持Famicom的磁盘驱动外围设备，并将其与Legend of Zelda(塞尔达传说)、高尔夫球以及足球等游戏一起销售。<br/> 
+　　
+## 获任天堂产品生产许可的厂商增多 
+好几家公司都与任天堂签署协议，成为其第三方开发商。<br/>
+大多数Atari的功勋支持者，如Namco，都开始为任天堂系统制造其压轴游戏了。 <br/>
+（象征着完成了历史的交接棒）<br/>
+
+## 1987 
+## 新一代软件 
+任天堂牢牢的掌握住了市场，大幅度压缩了世嘉和Atari的生存空间。<br/>
+Atari推出了2600版游戏，但是媒界却对此置若罔闻；<br/>
+同时，还推出的7800版移植游戏，但是这些游戏对公众来说已毫无新鲜感可言了。<br/>
+在决定不将昂贵的Famicom磁盘驱动器外围设备引入美国市场后，任天堂公司开始向美国市场发售’The Legend of Zelda’的游戏卡。<br/>
+同时改进了NES 的画质，增强了游戏的耐玩性。  <br/>
+　　
+## 改头换面后的Atari电脑 
+Atari 发布了Atari XE游戏系统(XEGS)，即改头换面后的800 电脑。 <br/>
+XEGS所采用的游戏卡与 Atari将要淘汰的8位 XE 电脑系统相兼容。<br/>
+XEGS配套有两个游戏（Barnyard Blaster 和Flight Simulator II（模拟飞行2））, 一杆轻型手枪，以及一个可分离键盘。<br/>
+此款游戏机很快就消声灭迹了。<br/>
+　　
+## 1988 
+## Atari经营 NES 版游戏 
+Atari游戏公司建立了生产家庭游戏的子公司，Tengen（天正）。 <br/>
+Tengen在成立初期，是许可生产NES兼容游戏的第三方开发商。<br/>
+这个角色随着Atari 游戏公司将任天堂公司带上法庭而结束。
+Atari 宣称任天堂通过非法手段垄断电视游戏行业，比如采用固定价格和使用电脑芯片封锁技术来禁止未经授权的NES软件开发。<br/>
+　　
+## Coleco 宣告破产 
+未能从Adam 计划灾难性的打击中恢复过来，Coleco公司不得不宣告破产。<br/>
+其产品的大部分被 米尔顿·布拉德利 公司和 Parker Brothers公司（派克兄弟公司）购并了。<br/>
+　　 
+# 家庭市场蓬勃发展 1989-1992 
+　　 
+## 1989 
+## Tetris（俄罗斯解密游戏）风波 
+Tengen 收购了家庭版Tetris生产经营权，并且着手销售这款为人们所疯狂喜爱的游戏。<br/>
+但是，好景不长，Tengen发现其从Mirrorsoft 公司（不是微软，一家英国公司）购买的生产经营权是非法的。<br/>
+任天堂公司则不动声色地购买了家庭版Tetris 的生产经营权，并使用自己的品牌进行销售。<br/>
+至此，Tengen版不得不告别市场。<br/>
+
+## 任天堂 推出黑白图像Game Boy 
+任天堂发布其掌上Game Boy（售价：$109美元）。<br/>
+虽然Game Boy的黑白屏幕小得可怜，但是借着Tetris 游戏的东风，这个小玩意开始创造史无前例的销售记录。<br/>
+随即 Game Boy 版的Super Mario (Super Marioland，超级玛丽）、a Breakout clone (Alleyway)（突破重围）、以及棒球游戏相继发售。 <br/>
+<img src="https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ce0e0bb18118367ab984778f4f1ae0b1/4a36acaf2edda3cc02867eb806e93901203f92cc.jpg" style="display: block; margin: 10px auto;" /> 
+
+## NEC 在美国发售'16位'游戏机 
+NEC(日本电气股份有限公司) 将PC-Engine引入美国，并称其为TurboGrafx-16 ($189)。 <br/>
+NEC 还推出售价$400美元的便携式CD播放器。与CD播放器连接的TurbroGrafx-16 能够（历史上第一次）运行存储在光盘上的游戏。<br/>
+<img src="http://img2.tgbusdata.cn/v2/thumb/jpg/MEZELDU4MCw1ODAsNCwzLDEsLTEsMCx0cjY1/u/xbox360.tgbus.com/UploadFiles/201003/20100331110217867.jpg" style="display: block; margin: 10px auto;" />  
+
+## 世嘉发售16位Genesis（创世纪） 
+在日本取得一定成功之后，世嘉开始在美国发售16位 Genesis。<br/>
+售价达$249.95美元的游戏机系统随带了街机游戏Altered Beast的转换版。<br/>
+早期的广告宣传令玩家相信该系统将带来真正的街机感受，其性能要比上一代家庭游戏机出色许多。<br/>
+
+## Atari 发售掌上Lynx 
+Epyx 在冬季的CES上展示了掌上彩色游戏机，称作Handy Game（掌上游戏）。<br/>
+Atari购买了Handy Game 的生产经营权，并将其命名为Lynx ($149)推向市场。<br/>
+在出版若干杰出的Epyx 游戏后，Atari 转而开发 7800版游戏的转换版以及Atari 游戏公司街机游戏的掌上移植版。<br/>
+但是价格比Game Boy要贵许多的Lynx一直为缺乏第三方的支持和Atari将中止支持的谣言所困挠。<br/>
+
+## 1990 （从这个时期开始PC游戏发展也进入快车道，但是太多了，就先不具体介绍了）
+## 任天堂硕果累累的一年 
+任天堂 发售了Super Mario 3，这款经久不衰的畅销电视游戏卡。<br/>
+尽管面临来自 Genesis 和TurboGrafx-16的竞争，NES仍然迎来了销售最旺的一年。<br/>
+任天堂日本公司公开了杀手锏 Super Famicom，一款无论音效还是3D画质都要胜出Genesis和 TurboGrafx-16的游戏系统。<br/>
+Super Mario 4: SM World也在那年奉献给了日本玩家，引起疯狂的抢购浪潮。 <br/>
+
+## 电视游戏租赁的争议 
+由于任天堂公司坚持认为游戏租赁对其销售有损害，所以 Blockbuster(英国DVD租赁公司,13年破产)和任天堂公司将电视游戏租赁的争议闹上了法庭。<br/>
+在法庭做出可进行游戏租赁业务的裁决时，任天堂公司又反戈一击，宣称 Blockbuster非法复制了享有版权保护的游戏说明手册。<br/>
+这回法庭站在了任天堂公司一边。 <br/>
+
+## Neo-Geo 
+曾长期为任天堂公司开发和制作Ikari Warriors(1-3) 和 Crystalis等游戏的SNK（拳皇）同时推出了街机版和家庭版的24位Neo-Geo。<br/>
+Neo-Geo完美的画质和音效令Genesis和TurboGrafx-16一厥不振，但是其高达$399 的零售价让Neo-Geo没能大红大紫。 <br/>
+
+## 世嘉捷报频传 
+在现有街机成功的基础上，世嘉再接再励继续扩大其经营领域。<br/>
+Afterburner II、 E-SWAT、和其它世嘉街机的得意之作均登陆家庭市场；<br/>
+与此同时，世嘉还保住了Capcom公司（卡普空）Strider 游戏的Genesis版生产经营权。<br/>
+这款默默无闻，却又骇世惊俗的平台游戏赢得了当年最佳游戏奖。 <br/>
+
+## Commodore CDTV 
+Commodore 公布它的 CDTV (Commodore动态全息电视)。<br/>
+CDTV实质上是一台不带键盘的 Commodore <br/>电脑，它还是第一台以教育软件和游戏并重的家庭互动系统。软件不再以游戏卡为载体发售，而以光盘为载体。 <br/>
+
+## 1991 
+## 任天堂 发行 SNES 
+任天堂 在美国发售Super Famicom，并把这款售价 $249.95美元的游戏机称为超级NES (SNES)。<br/>
+记者们纷纷公开质疑Mario（玛丽）是否能说服钟爱NES的父母们在一台新游戏机上做投资。 <br/>
+<img src="http://img2.tgbusdata.cn/v2/thumb/jpg/N0U0LDU4MCw1ODAsNCwzLDEsLTEsMCx0cjY1/u/xbox360.tgbus.com/UploadFiles/201003/20100331110218294.jpg" style="display: block; margin: 10px auto;" /> 
+
+## 世嘉推出Sonic 
+世嘉隆重推出 Sonic the Hedgehog（刺猬索尼克），这款肩负着有朝一日要征服 NES 和SNES的游戏。<br/>
+在其主角形象的吸引下，评论家们很快表示支持，但仅宣称Mario 和Sonic是两款平分秋色的游戏。<br/>
+大多数人还是认为在两款游戏中Super Mario World 更为迷人一些。 <br/>
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1507897413609&di=00e8bcdd3795af491df902d697bf1f1f&imgtype=0&src=http%3A%2F%2Fimg2.niutuku.com%2Fdesk%2Fanime%2F2109%2F2109-3408.jpg" style="display: block; margin: 10px auto;" /> 
+
+## 街霸 II 
+Capcom 推出了街霸II，为充塞着'边走边打'、'边走边射击'模式的街机注入了新的活力。<br/>
+青少年蜂拥而至，一享街霸 II的刺激。<br/>
+街机经营者们购买大量此类街机及其复制品。<br/>
+
+## 1992 
+## Genesis软件 （创世纪）
+尽管受到与任天堂公司合同的束缚，Capcom 和Konami（科乐美）仍与世嘉公司积极探讨着 Genesis的开发计划。<br/>
+虽然合作最终有了游戏产品，但是这两家公司却从未将自己最出色的设计小组用于世嘉软件的开发。<br/>
+世嘉公司只得仓促准备了Sonic the Hedgehog 2 的假日发售活动。<br/>
+但是游戏却卖异常火爆，显然Sonic已对Mario将来的命运构成严重的威胁。 <br/>
+
+## 任天堂另结新欢 
+索尼和任天堂放弃了联合CD外围设备计划，此时索尼据称已制造出样机产品。<br/>
+小道消息表明：由于索尼的律师巧妙地起草了一份合同，使索尼能够从出版的SNES或Super Famicom CD版游戏中获取利润，但是任天堂则想自己保留这部分利润。<br/>
+任天堂宣布与飞利浦合作制造与飞利浦 CD-I 兼容的CD－ROM计划。<br/>
+恼羞成怒的索尼公司中止生产SNES游戏，重拾以前为任天堂开发的'PlayStation'计划，组织工程师倾力开发32位CD游戏机，准备将任天堂从日本和美国市场撵走。 <br/>
+
+## 3DO 赫然挺立 
+3DO是一家由电子艺界创始人特里普·霍金斯（EA创始人）创建的新公司，宣布了一款全新32位游戏机。<br/>
+3DO 获得松下、时代华纳和MCA的鼎力支持。 3DO并无亲自制造任何游戏机的计划。<br/>
+代表作《玩具兵大战》、《魔法门》、《英雄无敌》。<br/>
+
+# 32位时代呼之欲出1993-1997 
+
+## 1993 
+## 松下发售3DO 游戏机 
+松下是第一家经营3DO硬件产品的公司。<br/>
+起初的社会反响是非常热情洋溢的。<br/>
+唯一的缺憾是游戏机高达$699美元的标价。 <br/>
+　　
+## Atari 发布Jaguar（美洲虎） 
+Atari 决定迂回避开32位游戏机的战场，茅头直指64位的天地。<br/>
+公司发布了Jaguar，据 Atari宣称这是第一台64位的游戏机（实际上此款游戏机只是采用了双32位协同处理器而已）。<br/>
+Atari 还着重强调Jaguar是在美国由IBM制造这一事实。 <br/>
+
+## 任天堂和世嘉不甘落后　 
+任天堂和世嘉不甘落后，也紧接着推出各自的下一代系统。<br/>
+任天堂的Project Reality实际上是由硅谷图像公司开发的64位系统。<br/>
+世嘉的Saturn（土星游戏机）则是一个32/64 位系统。 <br/>
+
+## 1994 
+## ESRB 就位待发 
+因为游戏中的暴力元素，美国成立了娱乐软件等级评定委员会（ESRB）正式成立，对电视游戏等级进行评定。<br/>
+自此，在游戏包装盒上出现斗大字母的图标，以便让消费者获知每款游戏适合的年龄以及游戏是否充斥暴力或是有伤风化。<br/>
+
+## 任天堂重拳出手 
+任天堂 发布Super Metroid(超级银河战士)，为重新执掌16位市场打出了强有力的一击。<br/>
+全新的Super-FX 芯片游戏，比如StarFox，将能在与世嘉和其32/64位游戏机的竞争中助公司一臂之力。<br/>
+
+## 世嘉推出32位游戏机 (仅在某种程度上) 
+世嘉推出32X ($179.95)，这是一种能使 Genesis运行全新32位游戏卡游戏的外围设备。<br/>
+世嘉试图借此避开Atari Jaguar 和松下3DO 游戏机初期销售的锋芒。<br/>
+<img src="http://img2.tgbusdata.cn/v2/thumb/jpg/QjA5LDU4MCw1ODAsNCwzLDEsLTEsMCx0cjY1/u/xbox360.tgbus.com/UploadFiles/201003/20100331110217547.jpg" style="display: block; margin: 10px auto;" /> 
+　　
+## 任天堂发售Super Game Boy 
+任天堂 开始发售 Super Game Boy ($59.95)， 一款使Game Boy 游戏卡能够在SNES上运行且具有彩色帧图和其它增强功能的适配器。 
+
+## 日本游戏机推陈出新 
+在日本，世嘉Saturn 和索尼PlayStation隆重面世。<br/>
+到年底为止，评论家们一致认为PlayStation是一款超强游戏机。 <br/>
+　　
+## 1995 
+
+## 世嘉欲速则不达 
+在宣布Saturn 将于9月2日在美国发售后，世嘉却暗渡陈仓，在5月份就以399.9美元的价格开始发售Saturn。<br/>
+由于第三方公司对Saturn的过早亮相措手不及，所以相应游戏种类特别少，整体销售情况非常糟糙。<br/>
+
+## Virtual Boy 
+任天堂 推出了Virtual Boy ($179.95)， 一款32位'便携式'游戏机，并且是向Project Reality（现在称为Ultra 64）过渡的机型。<br/>
+评论家们纷至踏来，对此系统褒贬不一，直到任天堂公司表示Game Boy并未受其功能所限，销售势头仍很旺盛。<br/>
+此时，舆论终于暂时平息了，但未过多久，当此机的销售惨跌至任天堂公司始料未及的地部之后，批评之声又重新泛起。<br/>
+
+## 美国PlayStation 粉墨登场
+索尼在美国以299美元的价位发售PlayStation，这个价位比预计的要低$100 美元。<br/>
+因此销售势头强劲，同时配套精美游戏集受到了媒体和消费者的赞誉。<br/>
+Atari Jaguar的销售继续呈现下降趋势，虽然CD外围设备曾一度点燃过Jaguar支持者们的希望，但是从Atari 执行部门的观点来看，这点希望在CD到货时就荡然无存了。 <br/>
+
+## 1996
+##在家庭游戏机渐渐超过街机成为主流。 
+
+## Saturn喜忧参半的消息 
+日本方面Saturn的销售和收益情况相当喜人，但是美国方面的销售和收益情况却是令人沮丧的差。  
+
+## Atari的目录
+Atari 公司与一家电脑硬盘制造商JTS合并，宣布中止Jaguar系列产品的生产。
+
+## 诺兰·布什内尔重出江湖 
+诺兰·布什内尔作为Aristo游戏公司总裁重现江湖，公司专为游戏厅和酒吧制作网站。 
+　　
+## 美国版N64的发布 
+任天堂N64在美国面市了，短短3个月中就热卖出 170多万台。<br/>
+那些曾经一度对这种游戏机持怀疑态度的第三方开发商们也争相采购，想利用媒体的炒作趁机大捞一笔。<br/>
+
+## 索尼大获成功 
+圣诞大采购期间，索尼的日销售额据说达到了1,200万美元之多，从而在世界范围内稳固了其'新生代游戏机'的霸主地位。<br/>
+整个电视游戏行业都在这一年中盈利颇丰，32位游戏的软件价格显露出异常波动的迹象。 <br/>
+
+## Virtual Boy寿终正寝 
+任天堂认定Virtual Boy的开发是个败笔，于是终止了这个游戏的全部开发计划。
+
+## 1997  
+##PlayStation成为最热门的台式游戏机 
+索尼公司4月公布的数字证明，PlayStation已成为世界上最受青睐的游戏系统。<br/>
+这种游戏机在日本就售出500万台，在美国共售出400万台，欧洲也达到了220万台。<br/>
+这一数字在4个月之后几乎翻了一翻，世界上售出了第2,000万台游戏机。    <br/>
+
+## 世嘉策划力推Saturn争夺日本游戏霸主地位 
+Saturn在日本仍然人气十足，世嘉公司决定在全日本最大的连锁便利店使用售货机出售世嘉机专用软件。<br/>
+公司首先推出名为'Digital Dance Mix'光盘，这款游戏融合了3D动画及日本歌手Namie Amuro的上榜歌曲。 <br/>
+　　
+## 新街机登场 
+世嘉在日本和美国发布了该公司第二台超级多边形街机。<br/>
+Capcom也在日本推出了盼望已久的Street FighterIII。<br/>
+人们对新街机的最初反应似乎颇为冷淡，该公司长久不衰的模拟格斗游戏也因此受到影响。 <br/>
+
+## 世嘉与Bandai的合并 
+世嘉公司1月23日宣布将于10月1日与日本玩具公司Bandai合并。新公司将更名为’世嘉Bandai’。<br/>
+但是最终合并没有成功。<br/>
+原因是因为Tamagotchi（宠物蛋，宠物精灵）的成功，Bandai不再需要世嘉帮助其扭转销售滞呆的局面。<br/>
+Tamagotchi一经推出就迅速风靡全日本，售价高达数百美元，大大高于16美元的标价。 <br/>
+Bandai公司又于5月在美国推出Tamagotchi。<br/>
+首家出售该产品的美国销售商F.A.O. Schwartz，仅用3天就将首批供应的3万件产品销售一空。<br/>
+　　
+## Telegames支持Atari 
+Telegames惊人地推出6款新游戏，包括为Atari Jaguar制作的Breakout 2000，及为Lynx制作的另外两款游戏。<br/>
+这些游戏由于销量不旺，很快就在市面上消失了。<br/>
+Atari已经彻底没有机会了
+  
+# 1998-1999新时代
+　　 
+## 新世嘉台式机 
+尽管世嘉已正式发布了新型128位机，1998年并未看到它的身影。<br/>
+1998年初，世嘉将原代号为Dural和Black Belt的机型重命名为Katana。<br/>
+同时世嘉透露将采用微软的Windows CE系统，这就意味首世嘉与PC游戏的相互转换就更为容易了。 <br/>
+Kanata于是年5月首次公开展示，其特性之一是配有视觉记忆系统（ VMS），这是一种既可插入Kanata电视游戏机，又可作为独立装置使用在类似于Tamagotchi图形卡上的记忆装置。<br/>
+随后，世嘉宣布Kanata将于11月首先在日本发布。<br/>
+尽管美国在99年前不会得到此种新机型，世嘉（美国）公司正在制定高达1亿美元的发布计划。<br/>
+年中，世嘉又将该机型重新定名为Dreamcast。Dreamcast最终于11月27日在日本面市，连同132,000份Virtual Fighter 3，首批的15万份刚刚面市便销售告罄。<br/>
+　　
+## 世嘉陷入困境
+世嘉和Bandai的合并计划取消后，世嘉公司总裁Hayao Nakayama辞职。同时，美国三个分部：世嘉（美国）公司、世嘉软件、世嘉娱乐均大幅裁员。世嘉公司同时接承认失败，宣布将停止在北美销售Saturn。 
+
+## PlayStation2 
+早在年初，就有传言说索尼正全力开发PlayStation2。<br/>
+虽然索尼公司一开始口风很紧，而在独立开发商中出现了一些关于此款新机的传闻。<br/>
+当年年中，索尼公司承认，公司确实在开发一种新机型，如可行，该机型可能装配DVD光驱。<br/>
+新机型最早将于2000度前面市。而也是在年中，关于索尼和东芝组队开发新型机的芯片组的传闻已搅得满城风雨。<br/>
+较早的估计认为，RISC处理器的速度将在250MHz，比世嘉的Dreamcast稍快一步。<br/>
+索尼公司对此仍保持缄默。  <br/>
+　　
+## 任天堂发布Legend of Zelda 
+任天堂于当年11月23日发布了N64机型的The Legend of Zelda（塞尔达传说）游戏。<br/>
+任天堂宣布Zelda已预订了32.5万份，使之成为有史以来人们最热切盼望的游戏卡。<br/>
+已预订的客户将得到一份特制的金装卡。<br/>
+自发布至是年年末，任天堂共售出250万盒游戏卡，销售总额高达1.5亿美元。<br/>
+而同期票房最高的电影，迪斯尼的《昆虫总动员》总收入也仅为1.14亿美元。 <br/>
+
+## Pokemon打入美国市场 
+任天堂宣布Pokemon将进入美国市场。在日本引起市场上轰动的Pokemon（Pocket Monster的缩写,宠物小精灵,口袋妖怪），曾因相同主题的卡通片造成700名日本观众癫痫而引起世界的观注。<br/>
+美国版的卡通将被重新编辑，以免对美国观众造成类似的不良影响。<br/>
+当这款游戏的Game Boy版于9月份发布时，成为任天堂历史上最热卖的游戏。<br/>
+任天堂还发布了一种类似于Tamagotchi的游戏，名为Pocket Pikachu，这是Pokemons游戏中人气最旺的一款。<br/>
+这一装置还可以作为计步器，因此Pokemon的拥有者们只需轻松散步就可以强化他们的Pikachus了。 <br/>
+
+## Hasbro Interactive(孩之宝)开始疯狂大采购 
+在成功为PC机和Playstation发售Frogger游戏后，Hasbro Interactive开始疯狂采购，收购了几家从事电视游戏业的公司。<br/>
+第一个被并购的就是Tiger电子，曾生产game.com的电子玩具及游戏制造商。<br/>
+Hasbro 随后宣布将以500百万美元收购Atari的家庭图书馆及公司名称使用权。<br/>
+有传言开始猜测，Hasbro是否会生产Jaguar和 Lynx，或将Lynx与game.com合二为一。<br/>
+Hasbro很快平息了传闻，表示短期内没有推出新硬件的计划，目前公司仅希望更新Atari 目录。<br/>
+Hasbro推出的第一个游戏是为PC机设计的Centipede。尽管同时宣布了该游戏的Playstation 版，但这一版本未能在1998年面市。  <br/>
+　　
+# 1999年 
+## 世嘉的'最后一搏'
+世嘉在1999年发布了第一款支持在线游戏的Dreamcast游戏机，这也是世嘉公司的最后一款游戏主机产品。后来，在索尼、任天堂及微软的竞争压力下，世嘉转型成为第三方游戏软件开发商
+
+## 微软公布电视游戏台式机 
+微软透露，该公司开发代号为’X-Box’的台式机系统。与世嘉Dreamcast 一样，它的操作系统也使用Window CE。
+
+## 2000年（从这个时期网游开始大放异彩）
+ps2上市
+
+## 2001年
+微软发布Xbox游戏机
+
+## 2005年
+微软发布更先进的Xbox 360
+
+## 2006年
+任天堂Wii带来游戏新方式
+PS3
+
+## 2008年（手游开始大爆发）
+苹果上线App Store
+苹果应用商店的成立为移动游戏开发者和消费者创造了更多的机会。<br/>
+第二年，大量移动、社交游戏登陆App Store，诸如《愤怒的小鸟》之类的游戏引爆了全球。<br/>
+
+## 2013年
+第三代Xbox游戏主机Xbox One发布
+索尼携PS4回归
+
+## 2014年
+Oculus Rift引领游戏行业未来 - VR
+　　
