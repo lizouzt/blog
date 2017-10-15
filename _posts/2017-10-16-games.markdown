@@ -20,15 +20,14 @@ header-img: "img/games.jpg"
 集成电路->游戏卡带->游戏CD->在线平台
 <br/>
 
-几个重要的人物
-Ralph Baer => 拉尔夫·贝尔
-Fusajiro Yamauchi => 山内房治郎
-Akio Morita => 盛田昭夫
-Willy Higinbotham => 威利·希金博特姆
-Steve Russell => 史帝芬·罗素
-Nolan Bushnell => 诺兰·布什内尔
-Milton Bradley => 米尔顿·布拉德利
-
+几个重要的人物<br/>
+Ralph Baer => 拉尔夫·贝尔<br/>
+Fusajiro Yamauchi => 山内房治郎<br/>
+Akio Morita => 盛田昭夫<br/>
+Willy Higinbotham => 威利·希金博特姆<br/>
+Steve Russell => 史帝芬·罗素<br/>
+Nolan Bushnell => 诺兰·布什内尔<br/>
+Milton Bradley => 米尔顿·布拉德利<br/>
 
 ## 在电视游戏诞生之前（1889－1970） 　　 
 ## 1889 
