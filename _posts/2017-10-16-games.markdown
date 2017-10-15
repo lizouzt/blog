@@ -73,7 +73,7 @@ Loral（一家生产复杂军用航空电子设备的公司）的工程师，拉
 在60年代，罗森 决定生产自己的投币操纵游戏，因此他购并了东京自动唱机和投币机公司。<br/>
 SEGA（世嘉）, SErvice Games（服务游戏公司）的缩写，便印在 Rosen 制造的游戏产品上，并且最终被罗森 确定为其公司的名称。<br/>
 
-##1958 (第一个游戏诞生了)
+## 1958 (第一个游戏诞生了)
 为了提高参观纽约布鲁克黑文国家实验室游客的兴趣，物理学家威利·希金博特姆 发明了一个用示波仪显示，类似于乒乓球的互动游戏。<br/>
 <img src="http://img3.tgbusdata.cn/v2/thumb/jpg/MkQ5OCw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216177.jpg" style="display: block; margin: 10px auto;" />
 
@@ -326,14 +326,14 @@ Atari 发布了 Tempest（骚动），一款基于不稳定图形技术的彩色
 
 ## 第一台IBM PC走下生产线
 1981年 第一台IBM PC走下生产线，采用巨大的8088处理器，运行速度为4.77mhz。<br/>
-同年Commodore公司也发布了他们的家用计算机VIC-20。<br/>
+同年Commodore（康懋达，Commodore是与苹果公司同时期的个人电脑公司）公司也发布了他们的家用计算机VIC-20。<br/>
 <img src="http://img3.tgbusdata.cn/v2/thumb/jpg/NDAwNyw1ODAsMTAwLDQsMywxLC0xLDAscms1MCwxOTIuMTY4LjguNjU=/u/xbox360.tgbus.com/UploadFiles/201003/20100331110216793.jpg" style="display: block; margin: 10px auto;" />
 　　
 ## 街机帝国 
 美国街机销售额达到其利润的最高峰－50亿美元。美国在玩游戏上花费了逾75,000 人每小时。 <br/>
 　 
 # 大萧条1982-1984 
-##1982 　
+## 1982 　
 ## 矢量图形进入家庭游戏机 
 General Consumer Electronics (GCE) 发布了Vectrex，第一且唯一采用矢量图形技术的家庭游戏机。<br/>
 Vectrex包含一个内建游戏（Minesweeper（扫雷），一个令人痴迷的Asteroids复制品）和一个四按钮模拟操纵杆控制器。<br/>
@@ -358,18 +358,25 @@ Midway（中途岛游戏）创造了室内的Ms. Pac-Man（吃豆小姐）。<br
 最受欢迎的增强版本，Pac-Man Plus，用可乐罐等美国流行事物代替了游戏中的普通水果和其它奖项。 <br/>
 
 ## 雅达利大溃败
-## E.T.进入家庭 
-Atari 发布了支持VCS系统的 E.T.，一个由Howard Scott Warshaw 花费6个星期编写而成的游戏。<br/> 
+## 直接原因 E.T.进入家庭 
+Atari 发布了支持VCS系统的 E.T.，一个由Howard Scott Warshaw 花费6个星期编写而成的游戏。（通常来讲，做一款游戏都需要6-8个月）<br/> 
+这是一个完整版的游戏，但当然是不完美的，你经常会在游戏中陷入困境，很多人反映多种原因导致他们无法继续游戏”<br/>
 寄望此款能成为畅销游戏，据说Atari生产了远多于使用中2600游戏机数量的游戏卡。<br/>
 但与Pac-Man 2600的情形一样，公众对游戏很失望。<br/>
 大量的Pac-Man 和 E.T. 游戏以及上其它未售出或多余的游戏卡在新墨西哥州堆积成丘。<br/>
 但是他的竞争品却依然受欢迎。 <br/>
 
-## 股价狂跌 
+## 最根本的原因
+雅达利自家游戏主机Atari2600上的游戏管理不严，而且对于第三方开发商的游戏失去了控制，导致市场上出现了许多垃圾游戏产品，使消费者对游戏以及游戏机失去了信心，不愿再购买游戏与游戏机
+
+## 任天堂吸取教训
+既然好公司是有限的，公司的资源也是有限的，那我就只允许几个好公司做游戏，而且每年限制数量
+
+## 直接表现股价狂跌 
 在12月7日（东部标准时间3：04分），Atari 宣布VCS 销售没有达到预期目标。Warner Communications 股价在一天内狂跌了32％。 
 
 ## 1983 
-##Atari 绝密计划 
+## Atari 绝密计划 
 #3月份，Atari 公布了新的绝秘计划，代号为Falcon Project（猎鹰计划）。
 在Falcon Project的程序中，Atari成为了其新的分支公司Ataritel。<br/>
 这是Atari试图进入通讯市场的一步举措。<br/>
