@@ -19,6 +19,8 @@ header-img: "img/games.jpg"
 <br/>
 集成电路->游戏卡带->游戏CD->在线平台
 <br/>
+休闲娱乐->电子竞技->游戏经济
+<br/>
 
 几个重要的人物<br/>
 Ralph Baer => 拉尔夫·贝尔<br/>
